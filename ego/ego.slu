@@ -1,19 +1,12 @@
 # The main character. If you don't want to be able to perform actions on
 # this character, change the name to the empty string ("").
-objectType ego ("Egor the ego") {
+objectType ego ("Max") {
 	speechColour 128, 255, 128;
 	event lookAt {
-		say (ego, "Yep... that's me.");
+		say (ego, "That's pretty hard, you know.");
 	}
-	event talkTo {
-		say (ego, "Talking to myself would be a sign of madness.");
-		say (ego, "Wouldn't it, Egor? Yep. Thanks! Hey, any time.");
-	}
-	event pickUp {
-		say (ego, "Levitation was never one of my strong points.");
-	}
-	event use {
-		say (ego, "Slap myself? Poke myself in the eyes? Not going to happen.");
+	event interactWith {
+		say (ego, "There's time and place for everything... But not now.");
 	}
 }
 

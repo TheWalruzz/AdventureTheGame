@@ -1,0 +1,9 @@
+sub roomElevator()
+{
+
+}
+
+objectType roomElevator_panel("control panel")
+{
+
+}

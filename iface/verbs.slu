@@ -1,28 +1,24 @@
 # The "Look at..." action
 objectType lookAt ("Look at ") {
 	event default {
-		say (ego, "Oooh, well looky here.");
+		say(ego, pickOne("Nice.", "Well, I'm looking at it.", "Neat."));
 	}
 }
 
-# The "Pick up..." action
-objectType pickUp ("Pick up ") {
+# The "Interact with..." action
+objectType interactWith ("Interact with ") {
 	event default {
-		say (ego, "Pick that up? No way!");
+		say (ego, pickOne("I'm not sure how.", "Nope."));
 	}
 }
 
-# The "Talk to..." action
-objectType talkTo ("Talk to ") {
-	event default {
-		say (ego, "Boo!");
-	}
-}
+# The "Cancel" action
+objectType cancel ("Cancel") {}
 
-# The "Use..." action
-objectType use ("Use ") {
+# The "Use item on..." action
+objectType useItemOn ("Use item on ") {
 	event default {
-		say (ego, "I wouldn't know what to do with that.");
+		say (ego, "I'm not sure what to do with it.");
 	}
 }
 
@@ -48,5 +44,5 @@ sub findEvent (a, b) {
 		if (! callEvent (b, a))
 			if (! callEvent (default, a))
 				if (! callEvent (default, b))
-					say (ego, pickOne ("I can't use this stuff together.", "How would I combine them? Make sense!", "I don't see how that would work."));
+					say (ego, pickOne ("I don't think it's a good idea.", "I'm not a miracle maker."));
 }

@@ -5,6 +5,6 @@ sub init ()
 	onKeyboard(keys);
 	addStatus();
 	stop();
-	gotoRoom(outsideRoom);
+	gotoRoom(room01);
 	go();
 }

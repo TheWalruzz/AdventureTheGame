@@ -51,6 +51,29 @@ sub drawStatusLine (overObject) {
 	}
 }
 
+# Fading scripts
+sub fadeIn()
+{
+	transitionMode(FADE);
+	for(var a = 0; a < 256; a += 20)
+	{
+		transitionLevel(a);
+		pause(1);
+	}
+	transitionLevel(256);
+}
+
+sub fadeOut()
+{
+	transitionMode(FADE);
+	for(var a = 255; a > 0; a -= 20)
+	{
+		transitionLevel(a);
+		pause(1);
+	}
+	transitionLevel(0);
+}
+
 var currentRoom = NULL;
 var lastRoom = NULL;
 
