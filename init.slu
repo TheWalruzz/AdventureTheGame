@@ -1,0 +1,10 @@
+sub init ()
+{
+	setFont('demofont.duc', "ÉABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\"'/?!.,;:()*%& -~`@", 32);
+	setDefaultMusicVolume(150);
+	onKeyboard(keys);
+	addStatus();
+	stop();
+	gotoRoom(outsideRoom);
+	go();
+}

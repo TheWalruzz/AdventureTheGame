@@ -1,0 +1,36 @@
+[SETTINGS]
+windowname=Adventure: The Game!
+finalfile=gamedata
+language=English
+datafolder=save
+quitmessage=Are you sure you want to quit?
+customicon=
+customlogo=
+mouse=2
+fullscreen=Y
+makesilent=N
+showlogo=Y
+showloading=Y
+invisible=N
+ditherimages=Y
+width=1366
+height=768
+speed=20
+chrRender_def_enabled=Y
+chrRender_def_softX=4
+chrRender_def_softY=4
+chrRender_max_enabled=Y
+chrRender_max_readIni=Y
+chrRender_max_softX=100
+chrRender_max_softY=100
+
+[FILES]
+init.slu
+ego\ego.slu
+iface\arrow_icons.slu
+iface\coin_interface.slu
+iface\inventory.slu
+iface\keyboard.slu
+iface\stop_and_go.slu
+iface\talk.slu
+iface\verbs.slu
