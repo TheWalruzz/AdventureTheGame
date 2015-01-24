@@ -106,7 +106,7 @@ sub gotoRoom (r) {
 	lastRoom = currentRoom;
 	currentRoom = r;
 
-	addCharacter (inventoryIcon, 20, 455, anim ('iface/mouse.duc', 5));
+	addCharacter (inventoryIcon, 20, 755, anim ('iface/mouse.duc', 5));
 	setCharacterExtra (inventoryIcon, ICON);
 
 	# Now, finally call the function to build the new room
