@@ -11,7 +11,7 @@ sub room01()
 	addOverlay('rooms/room01/room01.png', 0, 0);
 	setFloor('rooms/room01/room01.flo');
 	
-	setScale(340, 400);
+	setScale(285, 420);
 	
 	addCharacter (ego, -100, 700, makeEgoAnim());
 	setCharacterWalkSpeed(ego, 8);

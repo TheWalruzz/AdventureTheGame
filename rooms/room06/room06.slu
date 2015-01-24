@@ -4,12 +4,15 @@ sub room06()
 	addOverlay('rooms/room06/room06.png', 0, 0);
 	setFloor('rooms/room06/room06.flo');
 	
-	setScale(450, 420);
+	setScale(400, 490);
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
+	setCharacterWalkSpeed(ego, 8);
+	
 	addScreenRegion(room06_secret, 396, 165, 545, 221, 0, 0, 0);
 	addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
+	addScreenRegion(room06_exit, 0, 0, 50, 768, 75, 670, WEST);
 	
 	
 	#TODO SECRET's speech and so on
@@ -36,5 +39,14 @@ objectType room06_powerButton("power button")
 objectType room06_secret("") # just for talking
 {
 	speechColor 220, 20, 60;
+}
+
+objectType room06_exit("")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		#TODO goto wherever it goes
+	}
 }
 

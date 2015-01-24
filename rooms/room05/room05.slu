@@ -4,15 +4,29 @@ sub room05()
 	addOverlay('rooms/room05/room05.png', 0, 0);
 	setFloor('rooms/room05/room05.flo');
 	
-	setScale(450, 420);
+	setScale(290, 490);
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
-	addScreenRegion(room05_drawer1, 200, 430, 302, 465, 332, 618, WEST);
-	addScreenRegion(room05_drawer2, 200, 466, 302, 517, 332, 618, WEST);
+	addCharacter(room05_director, 774, 625, costume(
+			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+			
+			NULL, NULL, NULL, NULL,
+			
+			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
+			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
+			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
+			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4))
+		));
+	addScreenRegion(room05_drawer1, 200, 430, 302, 465, 236, 586, WEST);
+	addScreenRegion(room05_drawer2, 200, 466, 302, 517, 236, 586, WEST);
 	addScreenRegion(room05_closet, 85, 221, 187, 530, 332, 618, WEST);
 	addScreenRegion(room05_safe, 434, 231, 557, 382, 332, 618, EAST);
+	addScreenRegion(room05_exit, 0, 0, 50, 768, 75, 670, WEST);
 	
-	#setCharacterWalkSpeed(ego, 2);
+	setCharacterWalkSpeed(ego, 8);
 }
 
 objectType room05_drawer1("upper drawer")
@@ -25,6 +39,11 @@ objectType room05_drawer1("upper drawer")
 			"Oh! There's some secret blueprints... For a coffee machine?",
 			"Ouch... I think something bit me."
 		));
+		say(room05_director, "Don't upset me. I'm the 9th player on the highscore list.");
+		say(ego, "Shouldn't you be running the company?");
+		say(room05_director, "I'm betatesting.");
+		say(room05_director, "Yeah.");
+		say(room05_director, "That's right.");
 	}
 }
 
@@ -53,12 +72,45 @@ objectType room05_safe("safe")
 {
 	event interactWith
 	{
-		#TODO fight with director
+		say(room05_director, "Argh.");
+		say(room05_director, "My score was over 9000 and I've lost my focus because of you!");
+		say(room05_director, "Security!");
 	}
 	
 	event lookAt
 	{
 		say(ego, "I'll be damned if this safe didn't contain the Secret.");
+	}
+}
+
+objectType room05_exit("")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		gotoRoom(room03);
+	}
+}
+
+objectType room05_director("director")
+{
+	speechColor 255, 255, 255;
+	
+	event lookAt
+	{
+		say(ego, "He seems comepletely absorbed by new Mad Cows expansion.");
+	}
+	
+	event interactWith
+	{
+		say(ego, "Hello?");
+		say(room05_director, "Go away. I'm trying to beat the Kypax Dream level on expert difficulty.");
+	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, 566, 639);
+		turnCharacter (ego, EAST);
 	}
 }
 

@@ -16,8 +16,9 @@ sub room03()
 
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
+	addScreenRegion(room03_posterFarm, 745, 87, 1012, 420, 866, 616, NORTH);
 
-	#setCharacterWalkSpeed(ego, 2);
+	setCharacterWalkSpeed(ego, 8);
 }
 
 sub gotoRoom03Part(part, x)
@@ -71,4 +72,18 @@ objectType room03_broom("broom")
 		removeCharacter(room03_broom);
 	}
 }
+
+objectType room03_posterFarm("poster")
+{
+	event lookAt
+	{
+		say(ego, "I'm Max Burton and this is my favorite game on this wall!");
+	}
+	
+	event default
+	{
+		say(ego, pickOne("I like the design.", "I have to admit - idea for this game is great!"));
+	}
+}
+
 

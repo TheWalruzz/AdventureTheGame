@@ -73,7 +73,7 @@ sub room02()
 	spawnSub(lineSub2);
 	spawnSub(lineSub3);
 	
-	#setCharacterWalkSpeed(ego, 2);
+	setCharacterWalkSpeed(ego, 8);
 	
 }
 

@@ -10,7 +10,7 @@ sub room04()
 
 	addScreenRegion(room04_door, 1068, 271, 1216, 726, 1057, 709, EAST);
 
-	#setCharacterWalkSpeed(ego, 2);
+	setCharacterWalkSpeed(ego, 8);
 }
 
 objectType room04_door("prison door")
