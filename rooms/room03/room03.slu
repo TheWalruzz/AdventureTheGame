@@ -1,0 +1,53 @@
+var room03_part = "a";
+var room03_centerX = 683;
+
+sub room03()
+{
+	setSceneDimensions(2724, 768);
+	addOverlay('rooms/room03/room03.png', 0, 0);
+	setFloor('rooms/room03/room03.flo');
+	
+	setScale(450, 42);
+	
+	addCharacter(ego, 87, 670, makeEgoAnim());
+
+	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
+	addScreenRegion(room03_abTransition, 1320, 590, 1420, 768, 0, 0, 0);
+
+	setCharacterWalkSpeed(ego, 2);
+}
+
+sub gotoRoom03Part(part, x)
+{
+	room03_part = part;
+	smoothScroll(room03_centerX, x);
+	room03_centerX = x;
+}
+
+objectType room03_door("door")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		#TODO transport player to boss' room
+	}
+}
+
+objectType room03_abTransition("go")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		if(room03_part == "a")
+		{
+			moveCharacter(ego, 1430, getObjectY(ego));
+			gotoRoom03Part("b", 2049);
+			
+		}
+		else if(room03_part == "b")
+		{
+			moveCharacter(ego, 1310, getObjectY(ego));
+			gotoRoom03Part("a", 683);
+		}
+	}
+}

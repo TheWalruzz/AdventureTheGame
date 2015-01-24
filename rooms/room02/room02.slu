@@ -37,8 +37,8 @@ sub room02()
 	addCharacter(ego, 200, 670, makeEgoAnim());
 
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
-	addScreenRegion(room02_abTransition, 1320, 610, 1420, 768, 0, 0, 0);
-	addScreenRegion(room02_bcTransition, 2660, 610, 2790, 768, 0, 0, 0);
+	addScreenRegion(room02_abTransition, 1320, 590, 1420, 768, 0, 0, 0);
+	addScreenRegion(room02_bcTransition, 2660, 590, 2790, 768, 0, 0, 0);
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
