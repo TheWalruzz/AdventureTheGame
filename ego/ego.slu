@@ -16,6 +16,15 @@ objectType ego ("Max") {
 		
 		say(ego, "I feel refreshed.");
 	}
+	
+	event item_newspaper
+	{
+		say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
+		pause(25);
+		say(ego, "Oh! An ad!");
+		
+		#TODO rebel ad graphics etc.
+	}
 }
 
 # This function returns the ego's standard costume - which beats including it in

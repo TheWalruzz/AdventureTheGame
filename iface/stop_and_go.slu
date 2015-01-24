@@ -87,6 +87,17 @@ sub smoothScroll(startX, x)
 	}
 }
 
+sub countItems(it)
+{
+	var count = 0;
+	
+	for(var i = 0; i < stackSize(inventory); i++)
+		if(inventory[i] == it)
+			count++;
+	
+	return count;
+}
+
 var currentRoom = NULL;
 var lastRoom = NULL;
 

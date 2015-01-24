@@ -31,5 +31,36 @@ objectType item_gumChewed("chewed gum")
 	{
 		icon = anim('iface/mushroom.duc', 0);
 	}
+	
+	event default
+	{
+		say(ego, "I've heard an old, folk saying about chewing the same gum twice.");
+	}
+}
+
+objectType item_book("Game Design for Dummies")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "Maybe it's full big and heavy, but I don't think it has got any more uses.")
+	}
+}
+
+objectType item_newspaper("newspaper")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "It's too soft and fragile.");
+	}
 }
 

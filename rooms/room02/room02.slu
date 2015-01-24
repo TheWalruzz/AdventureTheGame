@@ -40,8 +40,8 @@ sub room02()
 	addCharacter(ego, 200, 670, makeEgoAnim());
 
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
-	addScreenRegion(room02_abTransition, 1320, 590, 1420, 768, 0, 0, 0);
-	addScreenRegion(room02_bcTransition, 2660, 590, 2790, 768, 0, 0, 0);
+	addScreenRegion(room02_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
+	addScreenRegion(room02_bcTransition, 2660, 0, 2790, 768, 0, 0, 0);
 	
 	addOverlay('rooms/room02/express.png', 3776, 608);
 	addScreenRegion(room02_coffeeMachine, 3776, 608, 3826, 658, 3571, 710, EAST);
@@ -50,6 +50,9 @@ sub room02()
 	
 	addOverlay('rooms/room02/gum.png', 739, 645);
 	addScreenRegion(room02_gum, 739, 645, 739+50, 645+50, 700, 645, EAST);
+	
+	addCharacter(room02_book, 800, 645, anim('rooms/room02/book.duc', 0));
+	setCharacterExtra(room02_book, FIXEDSIZE);
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
@@ -233,8 +236,106 @@ objectType room02_gum("gum")
 	
 	event interactWith
 	{
-		say(ego, "I'll just pick one stick.");
+		if(countItems(item_gumWhole) < 3)
+			say(ego, "I'll just pick one stick.");
+		else
+			say(ego, pickOne("I feel like I'm controlled by someone.", "I don't want to, but somehow I have to.", "I will take it, but isn't it enough?"));
 		pushToStack(inventory, item_gumWhole);
+	}
+}
+
+objectType room02_book("book")
+{
+	event lookAt
+	{
+		say(ego, "Game Design for Dummies. I have read it. It makes a great paperweight.");
+	}
+	
+	event interactWith
+	{
+		say(ego, "I guess I could borrow it for a little while.");
+		pushToStack(inventory, item_book);
+		removeCharacter(room02_book);
+	}
+}
+
+objectType room02_newspaper("newspaper")
+{
+	event lookAt
+	{
+		say(ego, "It looks like a newspaper.");
+	}
+	
+	event interactWith
+	{
+		say(ego, "I can't reach it!");
+	}
+}
+
+objectType room02_chair("chair")
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.")); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
+
+objectType room02_rope("rope")
+{
+	event lookAt
+	{
+		say(ego, pickOne("It's just hanging there.", "A rope left by those strange intruders."));
+	}
+	
+	event item_book
+	{
+		#TODO exchange room02_rope with room02_ropeWithBook
+		
+		deleteFromStack(inventory, item_book);
+	}
+}
+
+objectType room02_ropeWithBook("rope with a book")
+{
+	event lookAt
+	{
+		say(ego, "It's still a rope. Now with an attached book.");
+	}
+	
+	event interactWith
+	{
+		#TODO throwing rope with a book on the shelf animation - ended with fail
+		say(ego, "Hmm, if I could only make it a bit stickier...");
+	}
+	
+	event item_gumChewed
+	{
+		#TODO exchange room02_ropeWithBook with room02_ropeFullyCombined
+		say(ego, "Well. Someone said that every puzzle has an answer.");
+		
+		deleteFromStack(inventory, item_gumChewed);
+	}
+}
+
+objectType room02_ropeFullyCombined("rope with a book and a gum")
+{
+	event lookAt
+	{
+		say(ego, "It's pretty nifty I think.");
+	}
+	
+	event interactWith
+	{
+		#TODO animation of newspaper being pulled of a shelf by our lovely combination of rope, book and gum
+		
+		pushToStack(inventory, item_newspaper);
+		
+		# remove character of newspaper
 	}
 }
 

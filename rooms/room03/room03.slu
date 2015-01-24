@@ -12,7 +12,7 @@ sub room03()
 	addCharacter(ego, 87, 670, makeEgoAnim());
 
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
-	addScreenRegion(room03_abTransition, 1320, 590, 1420, 768, 0, 0, 0);
+	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 
 	setCharacterWalkSpeed(ego, 2);
 }

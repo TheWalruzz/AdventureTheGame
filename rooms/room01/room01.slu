@@ -6,7 +6,6 @@ var room01_firstTalk = TRUE;
 
 sub room01()
 {
-	#TODO initialization
 	# first things first
 	setSceneDimensions(1366, 768);
 	addOverlay('rooms/room01/room01.png', 0, 0);
@@ -94,7 +93,7 @@ objectType room01_secretary("secretary")
 	
 	event walkToPerson
 	{
-		moveCharacter (ego, 650, 600); #TODO secretary coords
+		moveCharacter (ego, 650, 600);
 		turnCharacter (ego, EAST);
 	}
 }
