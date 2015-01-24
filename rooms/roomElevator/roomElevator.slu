@@ -16,24 +16,36 @@ sub roomElevator()
 	addScreenRegion(roomElevator_panel, 200, 158, 323, 497, 513, 668, WEST);
 	addScreenRegion(roomElevator_door, 432, 25, 862, 499, 649, 572, NORTH);
 	addScreenRegion(roomElevator_notification, 150, 123, 355, 200, 0, 0, 0);
+	
+	if(roomElevator_floor == 1)
+		roomElevator_floor = 2;
+	else if(roomElevator_floor == 2)
+		roomElevator_floor = 1;
+	
+	say(roomElevator_notification, "You have arrived at floor " + roomElevator_floor + ".");
 }
 
 objectType roomElevator_panel("control panel")
 {
-	event item_internIDcard
+	#event item_internIDcard
+	#{
+	#	if(roomElevator_floor == 1)
+	#	{
+	#		roomElevator_floor = 2;
+	#		#gotoRoom(room02);
+	#	}
+	#	else if(roomElevator_floor == 2)
+	#	{
+	#		roomElevator_floor = 1;
+	#		#gotoRoom(room01);
+	#	}
+	#	
+	#	say(roomElevator_notification, "You have arrived at floor " + roomElevator_floor + ".");
+	#}
+	
+	event default
 	{
-		if(roomElevator_floor == 1)
-		{
-			roomElevator_floor = 2;
-			#gotoRoom(room02);
-		}
-		else if(roomElevator_floor == 2)
-		{
-			roomElevator_floor = 1;
-			#gotoRoom(room01);
-		}
-		
-		say(roomElevator_notification, "You have arrived at floor " + roomElevator_floor + ".");
+		say(ego, "It's well beyond my comprehension.");
 	}
 }
 
@@ -51,6 +63,6 @@ objectType roomElevator_door("elevator door")
 
 objectType roomElevator_notification("")
 {
-	speechColor 100, 100, 160;
+	speechColor 100, 100, 100;
 }
 
