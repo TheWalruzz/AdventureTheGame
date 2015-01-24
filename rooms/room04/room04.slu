@@ -1,0 +1,30 @@
+sub room04()
+{
+	addOverlay('rooms/room04/room04.png', 0, 0);
+	setFloor('rooms/room04/room04.flo');
+	
+	setScale(450, 42);
+	
+	addCharacter(ego, 450, 670, makeEgoAnim());
+
+	addScreenRegion(room04_door, 1068, 271, 1216, 726, 1057, 709, WEST);
+
+	setCharacterWalkSpeed(ego, 2);
+}
+
+objectType room04_door("prison door")
+{
+	event lookAt
+	{
+		say(ego, "Very heavy door.");
+	}
+	
+	event interactWith
+	{
+		say(ego, "*knock* *knock*");
+		pause(10);
+		say(ego, "I guess nobody is here.");
+	}
+	
+	# interactions after puzzle was solved
+}
