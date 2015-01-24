@@ -28,7 +28,7 @@ objectType room01_elevator("elevator")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		moveCharacter(ego, 0, 0); #TODO elevator entrance coords
+		#moveCharacter(ego, 920, 550); #TODO elevator entrance coords
 		gotoRoom(roomElevator);
 	}
 }

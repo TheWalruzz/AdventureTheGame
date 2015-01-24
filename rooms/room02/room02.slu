@@ -6,6 +6,8 @@ sub room02a()
 	addOverlay('rooms/room02/room02.png', 0, 0);
 	setFloor('rooms/room02/room02.flo');
 	
+	setScale(450, 42);
+	
 	addCharacter(ego, 200, 670, makeEgoAnim());
 	
 	# add other stuff

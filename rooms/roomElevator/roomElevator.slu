@@ -5,7 +5,10 @@ sub roomElevator()
 	addOverlay('rooms/roomElevator/roomElevator.png', 0, 0);
 	setFloor('rooms/roomElevator/roomElevator.flo');
 	
-	addCharacter (ego, 600, 600, makeEgoAnim());
+	setScale(160, 50);
+	
+	addCharacter (ego, 380, 840, makeEgoAnim());
+	turnCharacter (ego, NORTH);
 	
 	# some other stuff
 }
