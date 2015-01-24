@@ -1,0 +1,78 @@
+# intro on the beginning of the game
+
+sub a() {
+	setCharacterWalkSpeed(intro_person, 1);	
+	forceCharacter(intro_person, 1500, 600);
+}
+sub b() {
+	setCharacterWalkSpeed(intro_person2, 1);	
+	forceCharacter(intro_person2, 1500, 600);
+}
+sub c() {
+	setCharacterWalkSpeed(intro_person3, 1);	
+	forceCharacter(intro_person3, -500, 600);
+}
+sub d() {
+	setCharacterWalkSpeed(intro_person3, 2);
+	forceCharacter(intro_car, -500, 720);
+}
+
+sub intro()
+{
+	#TODO initialization
+	# first things first
+	addOverlay('rooms/intro/intro.png', 0, 0);
+	setScale(400, 150);
+	
+	addCharacter (intro_person, 100, 650, makeEgoAnim());
+	addCharacter (intro_person2, 600, 620, makeEgoAnim());
+	addCharacter (intro_person3, 1000, 630, makeEgoAnim());
+	
+	addCharacter (intro_car, 1500, 720, costume(anim ('rooms/intro/car.duc', 0),anim ('rooms/intro/car.duc', 0),anim ('rooms/intro/car.duc', 0)));
+	setCharacterExtra(intro_car, FIXEDSIZE);
+	
+	addScreenRegion(intro_narrator, 650, 720, 650, 720, 0, 0, 0);
+
+	
+	spawnSub(a);
+	spawnSub(b);
+	spawnSub(c);
+	spawnSub(d);
+	fadeIn();
+	
+	pause(20);
+	setSpeechSpeed(300);
+	
+	say(intro_narrator, "Deep in the USA");
+	pause(10);
+	say(intro_narrator, "Near future");
+	pause(20);
+	setSpeechSpeed(200);
+	
+	gotoRoom(room01);
+	# some other stuff
+	
+}
+
+objectType intro_car("autko brum brum")
+{
+}
+
+objectType intro_person("someone")
+{
+}
+
+objectType intro_person2("someone")
+{
+}
+
+objectType intro_person3("someone")
+{
+}
+
+objectType intro_narrator("narrator")
+{
+	speechColor 0, 200, 54;
+	
+}
+
