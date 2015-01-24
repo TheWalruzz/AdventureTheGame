@@ -36,6 +36,7 @@ iface\talk.slu
 iface\verbs.slu
 rooms\room01\room01.slu
 rooms\roomElevator\roomElevator.slu
+rooms\roomElevator\roomElevatorIntro.slu
 iface\items.slu
 rooms\room02\room02.slu
 rooms\intro\intro.slu
