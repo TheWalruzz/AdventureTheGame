@@ -6,6 +6,7 @@ sub keys (k) {
 	if (k == "1") gotoRoom(room01);
 	if (k == "2") gotoRoom(roomElevator);
 	if (k == "3") gotoRoom(room02);
+	if (k == "4") gotoRoom(room03);
 	
 	if(k == "c") pushToStack(inventory, item_internIDcard);
 }
