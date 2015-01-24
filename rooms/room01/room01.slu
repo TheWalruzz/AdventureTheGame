@@ -13,12 +13,19 @@ sub room01()
 	
 	setScale(160, 100);
 	
-	addCharacter (ego, 400, 400, makeEgoAnim());
+	addCharacter (ego, -100, 700, makeEgoAnim());
+	setCharacterWalkSpeed(ego, 2);
 	
 	addScreenRegion(room01_elevator, 329, 240, 494, 401, 402, 416, -1);
 	
 	addCharacter (room01_secretary, 920, 550, makeEgoAnim());
 
+	moveCharacter(ego, 600, 700);
+	
+	say(ego, "LOLWUT");
+	say(room01_secretary, "fcuk u");
+	say(ego, "no u ;'(");
+	
 	# some other stuff
 	
 }
@@ -28,14 +35,14 @@ objectType room01_elevator("elevator")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		#moveCharacter(ego, 920, 550); #TODO elevator entrance coords
+		moveCharacter(ego, 300, 250); #TODO elevator entrance coords
 		gotoRoom(roomElevator);
 	}
 }
 
 objectType room01_secretary("secretary")
 {
-	speechColor 140, 0, 160;
+	speechColor 200, 42, 200;
 	
 	event lookAt
 	{
@@ -62,7 +69,7 @@ objectType room01_secretary("secretary")
 	
 	event walkToPerson
 	{
-		moveCharacter (ego, 0, 0); #TODO secretary coords
+		moveCharacter (ego, 650, 600); #TODO secretary coords
 		turnCharacter (ego, EAST);
 	}
 }

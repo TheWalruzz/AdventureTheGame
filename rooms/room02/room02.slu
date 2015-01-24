@@ -9,7 +9,10 @@ sub room02a()
 	setScale(450, 42);
 	
 	addCharacter(ego, 200, 670, makeEgoAnim());
+
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
+
+	setCharacterWalkSpeed(ego, 2);
 	
 	# add other stuff
 }
