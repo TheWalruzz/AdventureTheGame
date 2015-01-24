@@ -10,6 +10,8 @@ sub roomElevator()
 	addCharacter (ego, 380, 840, makeEgoAnim());
 	turnCharacter (ego, NORTH);
 	
+	addScreenRegion(roomElevator_panel, 200, 158, 323, 497, 513, 668, -1);
+	
 	# some other stuff
 }
 
@@ -17,7 +19,7 @@ objectType roomElevator_panel("control panel")
 {
 	event item_internIDcard
 	{
-		#TODO elevator logic (AI everywhere!!!!11one)
+		gotoRoom(room02);
 	}
 }
 
