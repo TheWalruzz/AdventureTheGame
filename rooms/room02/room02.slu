@@ -53,6 +53,9 @@ sub room02()
 	
 	addCharacter(room02_book, 800, 645, anim('rooms/room02/book.duc', 0));
 	setCharacterExtra(room02_book, FIXEDSIZE);
+	
+	addCharacter(room02_newspaper, 4040, 308, anim('rooms/room02/newspaper.duc', 0));
+	setCharacterExtra(room02_newspaper, FIXEDSIZE);
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
@@ -210,6 +213,10 @@ objectType room02_cable("cable")
 		{
 			#TODO all hell breaks loose
 			
+			# aftermath
+			addCharacter(room02_rope, 3777, 69, anim('rooms/room02/rope.duc', 0));
+			setCharacterExtra(room02_rope, FIXEDSIZE);
+			
 			room02_beforeAttack = FALSE;
 		}
 		else
@@ -294,7 +301,11 @@ objectType room02_rope("rope")
 	
 	event item_book
 	{
-		#TODO exchange room02_rope with room02_ropeWithBook
+		removeCharacter(room02_rope);
+		addCharacter(room02_ropeWithBook, 3777, 69, anim('rooms/room02/rope.duc', 1));
+		setCharacterExtra(room02_ropeWithBook, FIXEDSIZE);
+		
+		say(ego, "Sometimes I'm afraid of my genius.");
 		
 		deleteFromStack(inventory, item_book);
 	}
@@ -315,7 +326,11 @@ objectType room02_ropeWithBook("rope with a book")
 	
 	event item_gumChewed
 	{
-		#TODO exchange room02_ropeWithBook with room02_ropeFullyCombined
+		removeCharacter(room02_ropeWithBook);
+	
+		addCharacter(room02_ropeFullyCombined, 3777, 69, anim('rooms/room02/rope.duc', 2));
+		setCharacterExtra(room02_ropeFullyCombined, FIXEDSIZE);
+	
 		say(ego, "Well. Someone said that every puzzle has an answer.");
 		
 		deleteFromStack(inventory, item_gumChewed);
@@ -335,7 +350,7 @@ objectType room02_ropeFullyCombined("rope with a book and a gum")
 		
 		pushToStack(inventory, item_newspaper);
 		
-		# remove character of newspaper
+		removeCharacter(room02_newspaper);
 	}
 }
 
