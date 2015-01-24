@@ -1,9 +1,18 @@
 sub roomElevator()
 {
-
+	#TODO initialization
+	# first things first
+	#addOverlay('rooms/roomElevator/roomElevator.tga');
+	#setFloor('rooms/roomElevator/roomElevator.flo');
+	
+	# some other stuff
 }
 
 objectType roomElevator_panel("control panel")
 {
-
+	event item_internIDcard
+	{
+		#TODO elevator logic (AI everywhere!!!!11one)
+	}
 }
+

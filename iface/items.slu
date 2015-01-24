@@ -1,0 +1,14 @@
+# items:
+objectType item_internIDcard("intern ID card")
+{
+	event getIcon
+	{
+		#icon = anim('iface/items.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "No way! My new precious ID card is meant for greater purposes than that!");
+	}
+}
+

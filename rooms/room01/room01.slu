@@ -8,25 +8,31 @@ sub room01()
 {
 	#TODO initialization
 	# first things first
-	addOverlay('rooms/room01/room01.tga');
+	addOverlay('rooms/room01/room01.png', 0, 0);
 	setFloor('rooms/room01/room01.flo');
 	
+	setScale(360, 50);
+	
+	addCharacter (ego, 400, 400, makeEgoAnim());
+	
+	
 	# some other stuff
+	
 }
 
 objectType room01_elevator("elevator")
 {
-	event oneArrow = arrowEast;
+	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		forceCharacter(ego, 0, 0); #TODO elevator entrance coords
+		moveCharacter(ego, 0, 0); #TODO elevator entrance coords
 		gotoRoom(roomElevator);
 	}
 }
 
 objectType room01_secretary("secretary")
 {
-	speechColor 160, 0, 160;
+	speechColor 140, 0, 160;
 	
 	event lookAt
 	{
@@ -50,24 +56,11 @@ objectType room01_secretary("secretary")
 		else
 			say(room01_secretary, pickOne("I'm busy. Go away.", "Just go."));
 	}
-}
-
-# items:
-objectType item_internIDcard("intern ID card")
-{
-	event getIcon
-	{
-		icon = anim('iface/items.duc', 0);
-	}
 	
-	event default
+	event walkToPerson
 	{
-		say(ego, "No way! My new precious ID card is meant for greater purposes than that!");
-	}
-	
-	event roomElevator_panel
-	{
-		#TODO roomElevator logic
+		moveCharacter (ego, 0, 0); #TODO secretary coords
+		turnCharacter (ego, EAST);
 	}
 }
 

@@ -1,6 +1,7 @@
 sub init ()
 {
-	setFont('demofont.duc', "ÉABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\"'/?!.,;:()*%& -~`@", 32);
+	#setFont('demofont.duc', "ÉABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\"'/?!.,;:()*%& -~`@", 32);
+	setFont('bulkyFont.duc', "!\"#$%&'()*+,-./PQRSTUVWXYZ[\\]0123456789:;<=>?abcdefghijklmno@ABCDEFGHIJKLMNOpqrstuvwxyz{|} ", 25);
 	setDefaultMusicVolume(150);
 	onKeyboard(keys);
 	addStatus();
