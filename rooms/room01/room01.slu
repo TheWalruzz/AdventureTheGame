@@ -20,11 +20,24 @@ sub room01()
 	
 	addCharacter (room01_secretary, 920, 550, makeEgoAnim());
 
-	moveCharacter(ego, 600, 700);
-	
-	say(ego, "LOLWUT");
-	say(room01_secretary, "fcuk u");
-	say(ego, "no u ;'(");
+	if(room01_firstTalk)
+	{
+		room01_firstTalk = FALSE;
+		
+		moveCharacter(ego, 600, 700);
+		
+		say(ego, "My name is Max Burton and I want to make games!");
+		say(room01_secretary, "New intern I presume?");
+		say(ego, "Well... Yeah.");
+		say(room01_secretary, "Burton... Burton... Oh. Here's your ID.");
+		say(room01_secretary, "Just use the elevator to get to your floor.");
+		
+		pushToStack(inventory, item_internIDcard);
+		say(ego, "Okay, thanks!");
+	} else {
+		jumpCharacter(ego, 410, 420);
+		
+	}
 	
 	# some other stuff
 	
@@ -35,7 +48,7 @@ objectType room01_elevator("elevator")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		moveCharacter(ego, 300, 250); #TODO elevator entrance coords
+		#moveCharacter(ego, 300, 250); #TODO elevator entrance coords
 		gotoRoom(roomElevator);
 	}
 }
@@ -51,20 +64,9 @@ objectType room01_secretary("secretary")
 	
 	event interactWith
 	{
-		if(room01_firstTalk)
-		{
-			room01_firstTalk = FALSE;
-			
-			say(ego, "My name is Max Burton and I want to make games!");
-			say(room01_secretary, "New intern I suppose?");
-			say(ego, "Well... Yeah.");
-			say(room01_secretary, "Burton... Burton... Oh. Here's your ID.");
-			say(room01_secretary, "Just use the elevator to get to your floor.");
-			
-			pushToStack(inventory, item_internIDcard);
-		}
-		else
-			say(room01_secretary, pickOne("I'm busy. Go away.", "Just go."));
+		say(ego, "Uhm, so what should I do now?");
+		say(room01_secretary, "I already told you to use the elevator. Put your ID in the scanner.");
+		say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
 	}
 	
 	event walkToPerson
