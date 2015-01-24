@@ -1,4 +1,5 @@
 var busy = TRUE;
+var hideInventory = TRUE;
 
 sub go () {
 	onLeftMouse (leftClick);
@@ -106,8 +107,11 @@ sub gotoRoom (r) {
 	lastRoom = currentRoom;
 	currentRoom = r;
 
-	addCharacter (inventoryIcon, 20, 755, anim ('iface/mouse.duc', 5));
-	setCharacterExtra (inventoryIcon, ICON);
+	if(hideInventory == FALSE)
+	{
+		addCharacter (inventoryIcon, 20, 755, anim ('iface/mouse.duc', 5));
+		setCharacterExtra (inventoryIcon, ICON);
+	}
 
 	# Now, finally call the function to build the new room
 	r ();

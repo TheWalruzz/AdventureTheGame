@@ -35,6 +35,8 @@ sub room01()
 		
 		pushToStack(inventory, item_internIDcard);
 		say(ego, "Okay, thanks!");
+		
+		hideInventory = FALSE;
 	} else {
 		jumpCharacter(ego, 410, 420);
 		

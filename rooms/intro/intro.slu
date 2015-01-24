@@ -49,6 +49,8 @@ sub intro()
 	pause(20);
 	setSpeechSpeed(200);
 	
+	hideInventory = FALSE;
+	
 	gotoRoom(room01);
 	# some other stuff
 	
