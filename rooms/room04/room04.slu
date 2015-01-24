@@ -1,5 +1,6 @@
 sub room04()
 {
+	setSceneDimensions(1366, 768);
 	addOverlay('rooms/room04/room04.png', 0, 0);
 	setFloor('rooms/room04/room04.flo');
 	
@@ -7,7 +8,7 @@ sub room04()
 	
 	addCharacter(ego, 450, 670, makeEgoAnim());
 
-	addScreenRegion(room04_door, 1068, 271, 1216, 726, 1057, 709, WEST);
+	addScreenRegion(room04_door, 1068, 271, 1216, 726, 1057, 709, EAST);
 
 	setCharacterWalkSpeed(ego, 2);
 }
@@ -22,7 +23,7 @@ objectType room04_door("prison door")
 	event interactWith
 	{
 		say(ego, "*knock* *knock*");
-		pause(150);
+		pause(100);
 		say(ego, "I guess nobody is here.");
 	}
 	

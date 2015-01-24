@@ -3,6 +3,7 @@ var roomElevator_floor = 1;
 sub roomElevator()
 {
 	# first things first
+	setSceneDimensions(1366, 768);
 	addOverlay('rooms/roomElevator/roomElevator.png', 0, 0);
 	setFloor('rooms/roomElevator/roomElevator.flo');
 	

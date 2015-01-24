@@ -8,6 +8,7 @@ sub room01()
 {
 	#TODO initialization
 	# first things first
+	setSceneDimensions(1366, 768);
 	addOverlay('rooms/room01/room01.png', 0, 0);
 	setFloor('rooms/room01/room01.flo');
 	
