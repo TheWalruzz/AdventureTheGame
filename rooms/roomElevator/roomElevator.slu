@@ -9,6 +9,7 @@ sub roomElevator()
 	setScale(160, 50);
 	
 	addCharacter (ego, 380, 840, makeEgoAnim());
+	setCharacterWalkSpeed(ego, 3);
 	turnCharacter (ego, NORTH);
 	
 	addScreenRegion(roomElevator_panel, 200, 158, 323, 497, 513, 668, WEST);

@@ -9,6 +9,7 @@ sub room02a()
 	setScale(450, 42);
 	
 	addCharacter(ego, 200, 670, makeEgoAnim());
+	setCharacterWalkSpeed(ego, 2);
 	
 	# add other stuff
 }

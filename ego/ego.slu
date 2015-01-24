@@ -1,7 +1,7 @@
 # The main character. If you don't want to be able to perform actions on
 # this character, change the name to the empty string ("").
 objectType ego ("Max") {
-	speechColour 128, 255, 128;
+	speechColour 255, 255, 255;
 #	event lookAt {
 #		say (ego, "That's pretty hard, you know.");
 #	}
@@ -16,11 +16,18 @@ sub makeEgoAnim () {
 	return costume (
 		# STANDING STILL...
 		anim ('ego/alien.duc', 4),
+		anim ('ego/alien.duc', 12),
 		anim ('ego/alien.duc', 11),
+		anim ('ego/alien.duc', 14),
 		# WALKING...
-		anim ('ego/alien.duc', wait (0, 2), wait (1, 2), wait (2, 2), wait (3, 2)),
-		anim ('ego/alien.duc', wait (7, 2), wait (8, 2), wait (9, 2), wait (10, 2)),
+		anim ('ego/alien.duc', wait (0, 4), wait (1, 4), wait (2, 4), wait (3, 4)),
+		anim ('ego/alien.duc', wait (12, 4), wait (13, 4)),
+		anim ('ego/alien.duc', wait (7, 4), wait (8, 4), wait (9, 4), wait (10, 4)),
+		anim ('ego/alien.duc', wait (14, 4), wait (15, 4)),
 		# TALKING...
 		anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5),
-		anim ('ego/alien.duc', 11));
+		anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5),
+		anim ('ego/alien.duc', 11),
+		anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5)					
+   				);
 }
