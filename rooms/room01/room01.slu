@@ -26,6 +26,7 @@ sub room01()
 		
 		moveCharacter(ego, 600, 700);
 		
+		say(ego, "Hi!");
 		say(ego, "My name is Max Burton and I want to make games!");
 		say(room01_secretary, "New intern I presume?");
 		say(ego, "Well... Yeah.");
@@ -65,7 +66,7 @@ objectType room01_secretary("secretary")
 	event interactWith
 	{
 		say(ego, "Uhm, so what should I do now?");
-		say(room01_secretary, "I already told you to use the elevator. Put your ID in the scanner.");
+		say(room01_secretary, "I already told you to use the elevator. Put your ID in its scanner.");
 		say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
 	}
 	
