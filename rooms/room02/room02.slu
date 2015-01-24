@@ -49,7 +49,7 @@ sub room02()
 	addOverlay('rooms/room02/cable.png', 3776, 658);
 	
 	addOverlay('rooms/room02/gum.png', 739, 645);
-	addScreenRegion(room02_gum, 739, 645, 739+50, 645+50, 700, 645);
+	addScreenRegion(room02_gum, 739, 645, 739+50, 645+50, 700, 645, EAST);
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
