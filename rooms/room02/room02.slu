@@ -1,0 +1,12 @@
+var room02 = room02a;
+
+sub room02a()
+{
+	setSceneDimensions(4098, 768);
+	addOverlay('rooms/room02/room02.png', 0, 0);
+	setFloor('rooms/room02/room02.flo');
+	
+	addCharacter(ego, 200, 670, makeEgoAnim());
+	
+	# add other stuff
+}
