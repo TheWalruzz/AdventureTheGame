@@ -69,6 +69,14 @@ sub room02()
 	setCharacterExtra(room02_lineobst, FIXEDSIZE);
 	setCharacterExtra(room02_lineobst2, FIXEDSIZE);
 	
+	
+	addCharacter(room02_noSmokingSign, 100, 100, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
+	setCharacterExtra(room02_noSmokingSign, FIXEDSIZE);
+
+	addCharacter(room02_superderpy, 200 , 308, anim('rooms/room02/newspaper.duc', 0));
+	setCharacterExtra(room02_superderpy, FIXEDSIZE);
+	
+	
 	spawnSub(lineSub);
 	spawnSub(lineSub2);
 	spawnSub(lineSub3);
@@ -321,11 +329,50 @@ objectType room02_rope("rope")
 	}
 }
 
+var comicSans = 0;
+
+objectType room02_noSmokingSign("no smoking sign")
+{
+	event lookAt
+	{
+		
+		if (comicSans == 0) say(ego, "It's a \"smoking forbidden\" sign written in fabulous Comic Sans.");
+		if (comicSans == 1) say(ego, "Comic Sans makes everything look good!");
+		if (comicSans == 2) say(ego, "That's the second prettiest font I've ever seen!");
+		if (comicSans == 3) say(ego, "I could stare at those letters for an eternity.");
+		if (comicSans == 4) say(ego, "I wonder if there's Comic Sans in heaven.");
+		if (comicSans == 5) say(ego, "Those letters look EXACTLY like from a comicbook!");
+		if (comicSans == 6) say(ego, "Is it just me or my life got better by looking at Comic Sans?");
+		if (comicSans == 7) { say(ego, "You know what this world needs?"); say(ego, "More Comic Sans."); }
+		if (comicSans == 8) say(ego, "Now THAT'S some font with style!");
+		if (comicSans == 9) say(ego, "Take that, Times New Roman!");
+		if (comicSans == 10) { say(ego, "I've found the meaning of life. It's 42."); pause(30); say(ego, "...written in Comic Sans."); }
+		if (comicSans == 11) say(ego, "This font makes everything about 20% cooler.");		
+
+		comicSans += 1;
+		if (comicSans == 12) {
+			comicSans = 1;
+		}
+	}
+}
+
+objectType room02_superderpy("a badge")
+{
+	event lookAt
+	{
+		say(ego, "It says: \"Ask me about Super Derpy.\"");
+	}
+	event interactWith
+	{
+		say(ego, "No, thanks. I don't want to be asked about Super Derpy.");
+	}
+}
+
 objectType room02_ropeWithBook("rope with a book")
 {
 	event lookAt
 	{
-		say(ego, "It's still a rope. Now with an attached book.");
+		say(ego, "It's still a rope, but now with an attached book.");
 	}
 	
 	event interactWith

@@ -1,0 +1,31 @@
+
+sub roomElevatorIntro()
+{
+	# first things first
+	setSceneDimensions(1366, 768);
+	addOverlay('rooms/roomElevator/roomElevator.png', 0, 0);
+	setFloor('rooms/roomElevator/roomElevator.flo');
+	
+	setScale(160, 500);
+	
+	addCharacter (ego, 380, 840, makeEgoAnim());
+	setCharacterWalkSpeed(ego, 3);
+	turnCharacter (ego, NORTH);
+
+	addScreenRegion(roomElevatorIntro_notification, 150, 123, 355, 200, 0, 0, 0);
+	
+	pause(50);
+	
+	playMovie('rooms/roomElevator/elevator.webm');
+	
+	pause(50);
+	
+	gotoRoom(room02);
+}
+
+
+objectType roomElevatorIntro_notification("")
+{
+	speechColor 100, 100, 160;
+}
+
