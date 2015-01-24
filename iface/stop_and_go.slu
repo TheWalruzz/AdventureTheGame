@@ -74,6 +74,18 @@ sub fadeOut()
 	transitionLevel(0);
 }
 
+sub smoothScroll(startX, x)
+{
+	var camX = 0;
+	
+	for(var x = startX; camX <= x; camX++)
+	{
+		var camX += (x - camX) / 4;
+		aimCamera(camX, 384);
+		pause(1);
+	}
+}
+
 var currentRoom = NULL;
 var lastRoom = NULL;
 

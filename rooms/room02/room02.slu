@@ -1,6 +1,7 @@
-var room02 = room02a;
+var room02_part = "a";
+var room02_centerX = 683;
 
-sub room02a()
+sub room02()
 {
 	setSceneDimensions(4098, 768);
 	addOverlay('rooms/room02/room02.png', 0, 0);
@@ -11,10 +12,31 @@ sub room02a()
 	addCharacter(ego, 200, 670, makeEgoAnim());
 
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
+	addScreenRegion(room02_abTransition, 1340, 610, 1400, 768, 0, 0, 0);
+	addScreenRegion(room02_bcTransition, 2680, 610, 2770, 768, 0, 0, 0);
 
 	setCharacterWalkSpeed(ego, 2);
-	
-	# add other stuff
+}
+
+sub room02a()
+{
+	room02_part = "a";
+	smoothScroll(room02_centerX, 683);
+	room02_centerX = 683;
+}
+
+sub room02b()
+{
+	room02_part = "b";
+	smoothScroll(room02_centerX, 2049);
+	room02_centerX = 2049;
+}
+
+sub room02c()
+{
+	room02_part = "c";
+	smoothScroll(room02_centerX, 3415);
+	room02_centerX = 3415;
 }
 
 objectType room02_elevatorDoor("elevator door")
@@ -25,3 +47,41 @@ objectType room02_elevatorDoor("elevator door")
 		gotoRoom(roomElevator);
 	}
 }
+
+objectType room02_abTransition("go")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		if(room02_part == "a")
+		{
+			moveCharacter(ego, 1400, getObjectY(ego));
+			room02b();
+			
+		}
+		else if(room02_part == "b")
+		{
+			moveCharacter(ego, 1320, getObjectY(ego));
+			room02a();
+		}
+	}
+}
+
+objectType room02_bcTransition("go")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		if(room02_part == "b")
+		{
+			moveCharacter(ego, 2730, getObjectY(ego));
+			room02c();
+		}
+		else if(room02_part == "c")
+		{
+			moveCharacter(ego, 2730, getObjectY(ego));
+			room02b();
+		}
+	}
+}
+
