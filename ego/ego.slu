@@ -32,19 +32,35 @@ objectType ego ("Max") {
 sub makeEgoAnim () {
 	return costume (
 		# STANDING STILL...
-		anim ('ego/alien.duc', 4),
-		anim ('ego/alien.duc', 12),
-		anim ('ego/alien.duc', 11),
-		anim ('ego/alien.duc', 14),
+		#anim ('ego/alien.duc', 4),
+		#anim ('ego/alien.duc', 12),
+		#anim ('ego/alien.duc', 11),
+		#anim ('ego/alien.duc', 14),
 		# WALKING...
-		anim ('ego/alien.duc', wait (0, 4), wait (1, 4), wait (2, 4), wait (3, 4)),
-		anim ('ego/alien.duc', wait (12, 4), wait (13, 4)),
-		anim ('ego/alien.duc', wait (7, 4), wait (8, 4), wait (9, 4), wait (10, 4)),
-		anim ('ego/alien.duc', wait (14, 4), wait (15, 4)),
+		#anim ('ego/alien.duc', wait (0, 4), wait (1, 4), wait (2, 4), wait (3, 4)),
+		#anim ('ego/alien.duc', wait (12, 4), wait (13, 4)),
+		#anim ('ego/alien.duc', wait (7, 4), wait (8, 4), wait (9, 4), wait (10, 4)),
+		#anim ('ego/alien.duc', wait (14, 4), wait (15, 4)),
 		# TALKING...
-		anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5),
-		anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5),
-		anim ('ego/alien.duc', 11),
-		anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5)					
-   				);
+		#anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5),
+		#anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5),
+		#anim ('ego/alien.duc', 11),
+		#anim ('ego/alien.duc', wait (6, 2), wait (4, 2), 5, 6, 5, 4, 6, 4, 5)
+		
+		# STANDING
+		anim('ego/ego.duc', 0),
+		anim('ego/ego.duc', -2),
+		anim('ego/ego.duc', 1),
+		anim('ego/ego.duc', 2),
+		# WALKING
+		anim ('ego/ego.duc', wait (3, 4), wait (4, 4), wait (5, 4), wait (6, 4)),
+		anim ('ego/ego.duc', wait (-11, 4), wait (-12, 4), wait (-13, 4), wait (-14, 4)),
+		anim ('ego/ego.duc', wait (7, 4), wait (8, 4), wait (9, 4), wait (10, 4)),
+		anim ('ego/ego.duc', wait (11, 4), wait (12, 4), wait (13, 4), wait (14, 4)),
+		# TALKING
+		anim('ego/ego.duc', 0),
+		anim('ego/ego.duc', -2),
+		anim('ego/ego.duc', 1),
+		anim('ego/ego.duc', 2)
+   	);
 }

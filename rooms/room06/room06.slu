@@ -4,7 +4,27 @@ sub room06()
 	addOverlay('rooms/room06/room06.png', 0, 0);
 	setFloor('rooms/room06/room06.flo');
 	
-	setScale(450, 42);
+	setScale(450, 420);
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
+	
+	#TODO SECRET's speech and so on
+}
+
+objectType room06_powerButton("power button")
+{
+	event lookAt
+	{
+		say(ego, "It's a pretty big button!");
+	}
+	
+	event interactWith
+	{
+		say(ego, "I can't reach it from here.");
+	}
+	
+	event item_broom
+	{
+		#TODO ending scene - YOU WIN!!!!111one
+	}
 }

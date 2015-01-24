@@ -22,7 +22,7 @@ sub intro()
 	#TODO initialization
 	# first things first
 	addOverlay('rooms/intro/intro.png', 0, 0);
-	setScale(400, 150);
+	setScale(250, 1000);
 	
 	addCharacter (intro_person, 100, 650, makeEgoAnim());
 	addCharacter (intro_person2, 600, 620, makeEgoAnim());

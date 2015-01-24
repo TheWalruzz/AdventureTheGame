@@ -7,14 +7,17 @@ sub room03()
 	addOverlay('rooms/room03/room03.png', 0, 0);
 	setFloor('rooms/room03/room03.flo');
 	
-	setScale(450, 42);
+	setScale(450, 420);
 	
 	addCharacter(ego, 87, 670, makeEgoAnim());
+	
+	addCharacter(room03_broom, 1860, 580, anim('rooms/room03/broom.duc', 0));
+	setCharacterExtra(room03_broom, FIXEDSIZE);
 
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 
-	setCharacterWalkSpeed(ego, 2);
+	#setCharacterWalkSpeed(ego, 2);
 }
 
 sub gotoRoom03Part(part, x)
@@ -51,3 +54,21 @@ objectType room03_abTransition("go")
 		}
 	}
 }
+
+objectType room03_broom("broom")
+{
+	event lookAt
+	{
+		say(ego, "What a slick broom.");
+	}
+	
+	event interactWith
+	{
+		say(ego, "I'll take it.");
+		
+		pushToStack(inventory, item_broom);
+		
+		removeCharacter(room03_broom);
+	}
+}
+

@@ -35,7 +35,7 @@ sub room02()
 	addOverlay('rooms/room02/room02.png', 0, 0);
 	setFloor('rooms/room02/room02.flo');
 	
-	setScale(450, 42);
+	setScale(450, 420);
 	
 	addCharacter(ego, 200, 670, makeEgoAnim());
 
@@ -73,7 +73,7 @@ sub room02()
 	spawnSub(lineSub2);
 	spawnSub(lineSub3);
 	
-	setCharacterWalkSpeed(ego, 2);
+	#setCharacterWalkSpeed(ego, 2);
 	
 }
 
@@ -190,7 +190,7 @@ objectType room02_superior("superior")
 	
 	event walkToPerson
 	{
-		moveCharacter (ego, room02_superior);
+		moveCharacter (ego, 2300, 680);
 		turnCharacter (ego, WEST);
 	}
 }

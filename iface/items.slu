@@ -64,3 +64,16 @@ objectType item_newspaper("newspaper")
 	}
 }
 
+objectType item_broom("broom")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "Brooms may be considered magical by some, but I don't think it will work here.");
+	}
+}
+

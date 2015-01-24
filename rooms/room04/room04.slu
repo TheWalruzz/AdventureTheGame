@@ -4,13 +4,13 @@ sub room04()
 	addOverlay('rooms/room04/room04.png', 0, 0);
 	setFloor('rooms/room04/room04.flo');
 	
-	setScale(450, 42);
+	setScale(450, 420);
 	
 	addCharacter(ego, 450, 670, makeEgoAnim());
 
 	addScreenRegion(room04_door, 1068, 271, 1216, 726, 1057, 709, EAST);
 
-	setCharacterWalkSpeed(ego, 2);
+	#setCharacterWalkSpeed(ego, 2);
 }
 
 objectType room04_door("prison door")

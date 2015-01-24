@@ -11,10 +11,10 @@ sub room01()
 	addOverlay('rooms/room01/room01.png', 0, 0);
 	setFloor('rooms/room01/room01.flo');
 	
-	setScale(160, 100);
+	setScale(160, 1000);
 	
 	addCharacter (ego, -100, 700, makeEgoAnim());
-	setCharacterWalkSpeed(ego, 2);
+	#setCharacterWalkSpeed(ego, 2);
 	
 	
 	addCharacter (room01_secretary, 920, 485, costume(
