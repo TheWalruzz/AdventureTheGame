@@ -17,7 +17,6 @@ sub room01()
 	addCharacter (ego, -100, 700, makeEgoAnim());
 	setCharacterWalkSpeed(ego, 2);
 	
-	addScreenRegion(room01_elevator, 329, 240, 494, 401, 402, 416, -1);
 	
 	addCharacter (room01_secretary, 920, 550, makeEgoAnim());
 
@@ -25,6 +24,7 @@ sub room01()
 	{
 		room01_firstTalk = FALSE;
 		
+		addScreenRegion(room01_elevator_firsttime, 329, 240, 494, 401, 402, 416, -1);
 		moveCharacter(ego, 600, 700);
 		
 		say(ego, "Hi!");
@@ -40,6 +40,7 @@ sub room01()
 		hideInventory = FALSE;
 	} else {
 		jumpCharacter(ego, 410, 420);
+		addScreenRegion(room01_elevator, 329, 240, 494, 401, 402, 416, -1);
 		
 	}
 	
@@ -47,12 +48,30 @@ sub room01()
 	
 }
 
+objectType room01_elevator_firsttime("elevator")
+{
+	speechColor 100, 100, 100;
+	
+	event lookAt
+	{
+		say(ego, "It's an automated elevator connected to ID authentication system.");
+	}
+	event interactWith
+	{
+		say(ego, "I need to show it my ID, I guess.");
+	}
+	event item_internIDcard
+	{
+		say(room01_elevator_firsttime, "Welcome!");
+		gotoRoom(roomElevator);
+	}
+}
+
 objectType room01_elevator("elevator")
 {
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		#moveCharacter(ego, 300, 250); #TODO elevator entrance coords
 		gotoRoom(roomElevator);
 	}
 }
