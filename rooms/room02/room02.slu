@@ -1,6 +1,31 @@
 var room02_part = "a";
 var room02_centerX = 683;
 
+sub lineSub() {
+	setCharacterWalkSpeed(room02_line, 5);
+	
+	loop {
+		forceCharacter(room02_line, 3900, 530);
+		jumpCharacter(room02_line, 0, 530);
+	}
+}
+sub lineSub2() {
+	setCharacterWalkSpeed(room02_line2, 5);
+	
+	loop {
+		forceCharacter(room02_line2, 0, 530);
+		jumpCharacter(room02_line2, -3900, 530);
+	}
+}
+sub lineSub3() {
+	setCharacterWalkSpeed(room02_line3, 5);
+	
+	loop {
+		forceCharacter(room02_line3, 7800, 530);
+		jumpCharacter(room02_line3, 3900, 530);
+	}
+}
+
 sub room02()
 {
 	setSceneDimensions(4098, 768);
@@ -15,7 +40,24 @@ sub room02()
 	addScreenRegion(room02_abTransition, 1320, 610, 1420, 768, 0, 0, 0);
 	addScreenRegion(room02_bcTransition, 2660, 610, 2790, 768, 0, 0, 0);
 
+	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
+	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
+	addCharacter(room02_line3, 3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
+	
+	addCharacter(room02_lineobst, 0, 544, makeStaticCostume(anim ('rooms/room02/line.duc', 1)));
+	addCharacter(room02_lineobst2, 4098, 535, makeStaticCostume(anim ('rooms/room02/line.duc', 0)));
+	setCharacterExtra(room02_line, FIXEDSIZE);
+	setCharacterExtra(room02_line2, FIXEDSIZE);
+	setCharacterExtra(room02_line3, FIXEDSIZE);
+	setCharacterExtra(room02_lineobst, FIXEDSIZE);
+	setCharacterExtra(room02_lineobst2, FIXEDSIZE);
+	
+	spawnSub(lineSub);
+	spawnSub(lineSub2);
+	spawnSub(lineSub3);
+	
 	setCharacterWalkSpeed(ego, 2);
+	
 }
 
 sub gotoRoom02Part(part, x)
@@ -25,6 +67,17 @@ sub gotoRoom02Part(part, x)
 	room02_centerX = x;
 	
 	#arrowTarget();
+}
+
+objectType room02_line("") {
+}
+objectType room02_line2("") {
+}
+objectType room02_line3("") {
+}
+objectType room02_lineobst("") {
+}
+objectType room02_lineobst2("") {
 }
 
 objectType room02_elevatorDoor("elevator door")

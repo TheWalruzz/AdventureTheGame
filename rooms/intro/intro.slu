@@ -28,7 +28,7 @@ sub intro()
 	addCharacter (intro_person2, 600, 620, makeEgoAnim());
 	addCharacter (intro_person3, 1000, 630, makeEgoAnim());
 	
-	addCharacter (intro_car, 1500, 720, costume(anim ('rooms/intro/car.duc', 0),anim ('rooms/intro/car.duc', 0),anim ('rooms/intro/car.duc', 0)));
+	addCharacter (intro_car, 1500, 720, makeStaticCostume(anim ('rooms/intro/car.duc', 0)));
 	setCharacterExtra(intro_car, FIXEDSIZE);
 	
 	addScreenRegion(intro_narrator, 650, 720, 650, 720, 0, 0, 0);

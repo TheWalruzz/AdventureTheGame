@@ -132,3 +132,7 @@ sub pickVerb () {
 		go ();
 	}
 }
+
+sub makeStaticCostume (x) {
+		return costume(x,x,x);
+}
