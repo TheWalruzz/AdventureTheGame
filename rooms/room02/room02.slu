@@ -243,11 +243,17 @@ objectType room02_gum("gum")
 	
 	event interactWith
 	{
-		if(countItems(item_gumWhole) < 3)
-			say(ego, "I'll just pick one stick.");
+		var count = countItems(item_gumWhole) + countItems(item_gumChewed);
+		if(count < 6)
+		{
+			if(count < 3)
+				say(ego, "I'll just pick one stick.");
+			else
+				say(ego, pickOne("I feel like I'm controlled by someone.", "I don't want to, but somehow I have to.", "I will take it, but isn't it enough?"));
+			pushToStack(inventory, item_gumWhole);
+		}
 		else
-			say(ego, pickOne("I feel like I'm controlled by someone.", "I don't want to, but somehow I have to.", "I will take it, but isn't it enough?"));
-		pushToStack(inventory, item_gumWhole);
+			say(ego, "Okay, that's enough! I'm not going to take any more gum with me!");
 	}
 }
 

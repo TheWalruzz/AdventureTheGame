@@ -5,8 +5,8 @@ var currentInvItem = NULL;
 objectType inventoryIcon ("inventory") {
 	event oneCursor = arrowTarget;
 	event onlyAction {
-		var rowsNeeded = (stackSize (inventory) - 1) / 9;
-		var x = 1000, y = 190 - rowsNeeded * 25;
+		#var rowsNeeded = (stackSize (inventory) - 1) / 9;
+		#var x = 1000, y = 190 - rowsNeeded * 25;
 		freeze ();
 
 		darkBackground ();
@@ -17,22 +17,40 @@ objectType inventoryIcon ("inventory") {
 		# Big black crosshair showing the centre of the screen
 		# blankArea (0, 239, 639, 240);
 		# blankArea (319, 0, 320, 479);
+		
+		var i = 0, j = 0, x = 0, y = 0, startX = 683 - (9/2)*50, startY = 384 - (7/2)*50;
 
-		while (invItems) {
-			if (x > 550) {
-				if (stackSize (invItems) < 9) {
-					x = 345 - stackSize (invItems) * 25;
-				} else {
-					x = 120;
-				}
-				y += 50;
-			}
+		#while (invItems) {
+		#	if (x > 550) {
+		#		if (stackSize (invItems) < 9) {
+		#			x = 345 - stackSize (invItems) * 25;
+		#		} else {
+		#			x = 120;
+		#		}
+		#		y += 50;
+		#	}
+		#	var thisItem = popFromStack (invItems);
+		#	callEvent (getIcon, thisItem);
+		#	pasteImage (icon, x, y);
+		#	addScreenRegion (thisItem, x - 18, y - 18, x + 18, y + 18, 0, 0, 0);
+		#	x += 50;
+		#}
+		
+		while(invItems)
+		{
+			x =  startX + ((i%9) * 50);
+			y = startY + (j*50);
+			
+			i++;
+			if(i % 9 == 0)
+				j++;
+			
 			var thisItem = popFromStack (invItems);
 			callEvent (getIcon, thisItem);
 			pasteImage (icon, x, y);
 			addScreenRegion (thisItem, x - 18, y - 18, x + 18, y + 18, 0, 0, 0);
-			x += 50;
 		}
+		
 		addStatus ();
 		invGo ();
 		while (howFrozen ()) pause (1);
