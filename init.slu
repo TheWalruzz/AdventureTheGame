@@ -6,7 +6,7 @@ sub init ()
 	onKeyboard(keys);
 	addStatus();
 	
-	setSpeechSpeed(50);
+	setSpeechSpeed(165);
 	
 	stop();
 	gotoRoom(room01);

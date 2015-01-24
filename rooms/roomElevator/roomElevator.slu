@@ -49,6 +49,6 @@ objectType roomElevator_door("elevator door")
 
 objectType roomElevator_notification("")
 {
-	speechColor 50, 50, 50;
+	speechColor 100, 100, 100;
 }
 
