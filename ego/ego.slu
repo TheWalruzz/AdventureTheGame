@@ -8,6 +8,14 @@ objectType ego ("Max") {
 #	event interactWith {
 #		say (ego, "There's time and place for everything... But not now.");
 #	}
+
+	event item_gumWhole
+	{
+		deleteFromStack(inventory, item_gumWhole);
+		pushToStack(inventory, item_gumChewed);
+		
+		say(ego, "I feel refreshed.");
+	}
 }
 
 # This function returns the ego's standard costume - which beats including it in

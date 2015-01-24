@@ -8,7 +8,7 @@ sub leftClick () {
 	# In case we're walking already...
 	stopCharacter (ego);
 	
-	if(overObject == ego)
+	if(overObject == ego && currentInvItem == NULL)
 	{
 		moveCharacter(ego, getMouseX(), getMouseY());
 		return;

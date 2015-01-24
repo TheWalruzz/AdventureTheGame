@@ -47,6 +47,9 @@ sub room02()
 	addScreenRegion(room02_coffeeMachine, 3776, 608, 3826, 658, 3571, 710, EAST);
 	
 	addOverlay('rooms/room02/cable.png', 3776, 658);
+	
+	addOverlay('rooms/room02/gum.png', 739, 645);
+	addScreenRegion(room02_gum, 739, 645, 739+50, 645+50, 700, 645);
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
@@ -172,11 +175,16 @@ objectType room02_superior("superior")
 	
 	event interactWith
 	{
-		moveCharacter(ego, room02_superior);
 		say(ego, "Excuse me...");
 		say(room02_superior, "Got a coffee?");
 		say(ego, "No, but...");
 		say(room02_superior, "Then go get it!");
+	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, room02_superior);
+		turnCharacter (ego, WEST);
 	}
 }
 
@@ -213,6 +221,20 @@ objectType room02_cable("cable")
 			say(ego, "Hmmmmm! It makes me feel great. Smarter! More aggresive!");
 			
 		}
+	}
+}
+
+objectType room02_gum("gum")
+{
+	event lookAt
+	{
+		say(ego, "Minty fresh!");
+	}
+	
+	event interactWith
+	{
+		say(ego, "I'll just pick one stick.");
+		pushToStack(inventory, item_gumWhole);
 	}
 }
 

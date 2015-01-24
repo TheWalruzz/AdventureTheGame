@@ -30,7 +30,7 @@ sub skipper () {
 }
 
 sub handleFocus (o) {
-	if (o && o != ego) {
+	if (o && (o != ego || currentInvItem != NULL)) {
 		if (! callEvent (oneCursor, o)) setCursor (anim ('iface/mouse.duc', 2));
 	} else {
 		setCursor (anim ('iface/mouse.duc', 0));
@@ -47,7 +47,7 @@ sub drawStatusLine (overObject) {
 				statusText ("Use " + currentInvItem + " with");
 			}				
 		} else {
-			statusText ((overObject && overObject != ego ? overObject : "") + ((overObject != cancel) ? (thisObject ? thisObject : "") : ""));
+			statusText ((overObject && overObject != ego && currentInvItem == NULL ? overObject : "") + ((overObject != cancel) ? (thisObject ? thisObject : "") : ""));
 		}
 	}
 }

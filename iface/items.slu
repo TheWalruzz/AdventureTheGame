@@ -12,3 +12,24 @@ objectType item_internIDcard("intern ID card")
 	}
 }
 
+objectType item_gumWhole("chewing gum")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "No way! My new precious ID card is meant for greater purposes than that!");
+	}
+}
+
+objectType item_gumChewed("chewed gum")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+}
+
