@@ -76,11 +76,11 @@ sub fadeOut()
 
 sub smoothScroll(startX, x)
 {
-	var camX = 0;
+	var camX = startX;
 	
-	for(var x = startX; camX <= x; camX++)
+	while((startX <= x) ? (camX <= x) : camX >= x)
 	{
-		var camX += (x - camX) / 4;
+		camX += (x - camX) / 16;
 		aimCamera(camX, 384);
 		pause(1);
 	}

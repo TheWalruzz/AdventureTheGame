@@ -12,31 +12,19 @@ sub room02()
 	addCharacter(ego, 200, 670, makeEgoAnim());
 
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
-	addScreenRegion(room02_abTransition, 1340, 610, 1400, 768, 0, 0, 0);
-	addScreenRegion(room02_bcTransition, 2680, 610, 2770, 768, 0, 0, 0);
+	addScreenRegion(room02_abTransition, 1320, 610, 1420, 768, 0, 0, 0);
+	addScreenRegion(room02_bcTransition, 2660, 610, 2790, 768, 0, 0, 0);
 
 	setCharacterWalkSpeed(ego, 2);
 }
 
-sub room02a()
+sub gotoRoom02Part(part, x)
 {
-	room02_part = "a";
-	smoothScroll(room02_centerX, 683);
-	room02_centerX = 683;
-}
-
-sub room02b()
-{
-	room02_part = "b";
-	smoothScroll(room02_centerX, 2049);
-	room02_centerX = 2049;
-}
-
-sub room02c()
-{
-	room02_part = "c";
-	smoothScroll(room02_centerX, 3415);
-	room02_centerX = 3415;
+	room02_part = part;
+	smoothScroll(room02_centerX, x);
+	room02_centerX = x;
+	
+	arrowTarget();
 }
 
 objectType room02_elevatorDoor("elevator door")
@@ -56,13 +44,13 @@ objectType room02_abTransition("go")
 		if(room02_part == "a")
 		{
 			moveCharacter(ego, 1400, getObjectY(ego));
-			room02b();
+			gotoRoom02Part("b", 2049);
 			
 		}
 		else if(room02_part == "b")
 		{
-			moveCharacter(ego, 1320, getObjectY(ego));
-			room02a();
+			moveCharacter(ego, 1300, getObjectY(ego));
+			gotoRoom02Part("a", 683);
 		}
 	}
 }
@@ -74,13 +62,13 @@ objectType room02_bcTransition("go")
 	{
 		if(room02_part == "b")
 		{
-			moveCharacter(ego, 2730, getObjectY(ego));
-			room02c();
+			moveCharacter(ego, 2770, getObjectY(ego));
+			gotoRoom02Part("c", 3415);
 		}
 		else if(room02_part == "c")
 		{
-			moveCharacter(ego, 2730, getObjectY(ego));
-			room02b();
+			moveCharacter(ego, 2700, getObjectY(ego));
+			gotoRoom02Part("b", 2049);
 		}
 	}
 }
