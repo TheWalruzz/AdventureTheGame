@@ -78,9 +78,9 @@ sub smoothScroll(startX, x)
 {
 	var camX = startX;
 	
-	while((startX <= x) ? (camX <= x) : camX >= x)
+	while((x > startX) ? (camX < x) : (camX > x))
 	{
-		camX += (x - camX) / 16;
+		camX += (x - startX) / 45;
 		aimCamera(camX, 384);
 		pause(1);
 	}
