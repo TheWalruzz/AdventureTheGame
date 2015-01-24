@@ -1,6 +1,7 @@
+var roomElevator_floor = 1;
+
 sub roomElevator()
 {
-	#TODO initialization
 	# first things first
 	addOverlay('rooms/roomElevator/roomElevator.png', 0, 0);
 	setFloor('rooms/roomElevator/roomElevator.flo');
@@ -10,16 +11,44 @@ sub roomElevator()
 	addCharacter (ego, 380, 840, makeEgoAnim());
 	turnCharacter (ego, NORTH);
 	
-	addScreenRegion(roomElevator_panel, 200, 158, 323, 497, 513, 668, -1);
-	
-	# some other stuff
+	addScreenRegion(roomElevator_panel, 200, 158, 323, 497, 513, 668, WEST);
+	addScreenRegion(roomElevator_door, 432, 25, 862, 499, 649, 572, NORTH);
+	addScreenRegion(roomElevator_notification, 150, 123, 355, 200, 0, 0, 0);
 }
 
 objectType roomElevator_panel("control panel")
 {
 	event item_internIDcard
 	{
-		gotoRoom(room02);
+		if(roomElevator_floor == 1)
+		{
+			roomElevator_floor = 2;
+			#gotoRoom(room02);
+		}
+		else if(roomElevator_floor == 2)
+		{
+			roomElevator_floor = 1;
+			#gotoRoom(room01);
+		}
+		
+		say(roomElevator_notification, "You have arrived at floor " + roomElevator_floor + ".");
 	}
+}
+
+objectType roomElevator_door("elevator door")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		if(roomElevator_floor == 1)
+			gotoRoom(room01);
+		else if(roomElevator_floor == 2)
+			gotoRoom(room02);
+	}
+}
+
+objectType roomElevator_notification("")
+{
+	speechColor 50, 50, 50;
 }
 

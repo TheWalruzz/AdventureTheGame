@@ -5,6 +5,9 @@ sub init ()
 	setDefaultMusicVolume(150);
 	onKeyboard(keys);
 	addStatus();
+	
+	setSpeechSpeed(50);
+	
 	stop();
 	gotoRoom(room01);
 	go();

@@ -46,7 +46,7 @@ sub drawStatusLine (overObject) {
 				statusText ("Use " + currentInvItem + " with");
 			}				
 		} else {
-			statusText ((overObject ? overObject : "") + ((overObject != cancel) ? (thisObject ? thisObject : "") : ""));
+			statusText ((overObject && overObject != ego ? overObject : "") + ((overObject != cancel) ? (thisObject ? thisObject : "") : ""));
 		}
 	}
 }
