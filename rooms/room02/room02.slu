@@ -217,6 +217,8 @@ objectType room02_cable("cable")
 			addCharacter(room02_rope, 3777, 69, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_rope, FIXEDSIZE);
 			
+			removeCharacter(room02_superior);
+			
 			room02_beforeAttack = FALSE;
 		}
 		else
