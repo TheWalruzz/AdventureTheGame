@@ -98,7 +98,7 @@ objectType room05_director("director")
 	
 	event lookAt
 	{
-		say(ego, "He seems comepletely absorbed by new Mad Cows expansion.");
+		say(ego, "He seems comepletely absorbed by new Angry Cows expansion.");
 	}
 	
 	event interactWith
