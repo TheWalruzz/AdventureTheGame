@@ -14,7 +14,7 @@ objectType ego ("Max") {
 		deleteFromStack(inventory, item_gumWhole);
 		pushToStack(inventory, item_gumChewed);
 		
-		say(ego, "I feel refreshed.");
+		say(ego, "Well, it was certainly a fresh maker.");
 	}
 	
 	event item_newspaper

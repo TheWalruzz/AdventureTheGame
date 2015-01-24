@@ -143,7 +143,6 @@ objectType room02_bcTransition("go")
 			moveCharacter(ego, 2650, getObjectY(ego));
 			gotoRoom02Part("b", 2049);
 			
-			
 			if(! room02_crossedCB)
 			{
 				callEvent(talkingToEgo, room02_superior);
@@ -169,6 +168,8 @@ objectType talkingToEgo("") {}
 
 objectType room02_superior("superior")
 {
+	speechColor 230, 10, 50;
+	
 	event talkingToEgo
 	{
 		say(room02_superior, "Hey! Are you that new intern?");
@@ -291,7 +292,8 @@ objectType room02_chair("chair")
 {
 	event lookAt
 	{
-		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.")); # a somewhat hidden text
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+		"It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", )); # a somewhat hidden text
 	}
 	
 	event interactWith
@@ -349,7 +351,7 @@ objectType room02_ropeFullyCombined("rope with a book and a gum")
 {
 	event lookAt
 	{
-		say(ego, "It's pretty nifty I think.");
+		say(ego, "It came out pretty nifty.");
 	}
 	
 	event interactWith
