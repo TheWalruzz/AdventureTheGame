@@ -1,6 +1,9 @@
 var room02_part = "a";
 var room02_centerX = 683;
 
+var room02_crossedCB = FALSE;
+var room02_beforeAttack = TRUE;
+
 sub lineSub() {
 	setCharacterWalkSpeed(room02_line, 5);
 	
@@ -39,6 +42,11 @@ sub room02()
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
 	addScreenRegion(room02_abTransition, 1320, 590, 1420, 768, 0, 0, 0);
 	addScreenRegion(room02_bcTransition, 2660, 590, 2790, 768, 0, 0, 0);
+	
+	addOverlay('rooms/room02/express.png', 3776, 608);
+	addScreenRegion(room02_coffeeMachine, 3776, 608, 3826, 658, 3571, 710, EAST);
+	
+	addOverlay('rooms/room02/cable.png', 3776, 658);
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
@@ -120,8 +128,90 @@ objectType room02_bcTransition("go")
 		}
 		else if(room02_part == "c")
 		{
+			if(! room02_crossedCB)
+				addCharacter(room02_superior, 1950, 681, makeEgoAnim());
+		
 			moveCharacter(ego, 2650, getObjectY(ego));
 			gotoRoom02Part("b", 2049);
+			
+			
+			if(! room02_crossedCB)
+			{
+				callEvent(talkingToEgo, room02_superior);
+				
+				room02_crossedCB = TRUE;
+			}
+		}
+	}
+}
+
+objectType room02_coffeeMachine("coffee machine")
+{
+	event interactWith
+	{
+		if(! room02_crossedCB)
+			say(ego, "Thanks, I've already had my morning coffee.");
+		else
+			say(ego, "It's not working.");
+	}
+}
+
+objectType talkingToEgo("") {}
+
+objectType room02_superior("superior")
+{
+	event talkingToEgo
+	{
+		say(room02_superior, "Hey! Are you that new intern?");
+		say(ego, "Yep! Ready to make some games!");
+		say(room02_superior, "Great. Make me some coffee then.");
+		say(ego, "Oh. Okay.");
+		
+		addScreenRegion(room02_cable, 3776, 658, 3826, 708, 3571, 710, EAST);
+	}
+	
+	event interactWith
+	{
+		moveCharacter(ego, room02_superior);
+		say(ego, "Excuse me...");
+		say(room02_superior, "Got a coffee?");
+		say(ego, "No, but...");
+		say(room02_superior, "Then go get it!");
+	}
+}
+
+objectType room02_cable("cable")
+{
+	event lookAt
+	{
+		if(room02_beforeAttack)
+		{
+			say(ego, "Hey!");
+			say(ego, "It's not connected!");
+		}
+		else
+			say(ego, "It's plugged in now.");
+	}
+	
+	event interactWith
+	{
+		if(room02_beforeAttack)
+		{
+			#TODO all hell breaks loose
+			
+			room02_beforeAttack = FALSE;
+		}
+		else
+		{
+			say(ego, "Mmmm, it smells good.");
+			pause(25);
+			say(ego, "Maybe I should try it.");
+			pause(25);
+			say(ego, "*slurp* *slurp*");
+			pause(50);
+			
+			say(ego, "Hmmmmm! It makes me feel great. Smarter! More aggresive!");
+			
 		}
 	}
 }
