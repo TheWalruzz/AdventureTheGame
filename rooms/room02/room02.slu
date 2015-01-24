@@ -293,7 +293,7 @@ objectType room02_chair("chair")
 	event lookAt
 	{
 		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
-		"It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", )); # a somewhat hidden text
+		"It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
 	}
 	
 	event interactWith
