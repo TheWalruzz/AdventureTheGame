@@ -22,7 +22,7 @@ objectType room04_door("prison door")
 	event interactWith
 	{
 		say(ego, "*knock* *knock*");
-		pause(10);
+		pause(150);
 		say(ego, "I guess nobody is here.");
 	}
 	
