@@ -2,4 +2,7 @@ sub keys (k) {
 	if (k == " ") showBoxes ();
 	if (k == "f") showFloor ();
 	if (k == "ESCAPE") quitGame ();
+	
+	
+	if(k == "c") pushToStack(inventory, item_internIDcard);
 }

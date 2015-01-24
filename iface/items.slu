@@ -3,7 +3,7 @@ objectType item_internIDcard("intern ID card")
 {
 	event getIcon
 	{
-		#icon = anim('iface/items.duc', 0);
+		icon = anim('iface/mushroom.duc', 0);
 	}
 	
 	event default
