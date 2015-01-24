@@ -1,0 +1,10 @@
+sub room06()
+{
+	setSceneDimensions(1366, 768);
+	addOverlay('rooms/room06/room06.png', 0, 0);
+	setFloor('rooms/room06/room06.flo');
+	
+	setScale(450, 42);
+	
+	addCharacter(ego, 91, 660, makeEgoAnim());
+}

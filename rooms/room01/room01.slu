@@ -17,7 +17,11 @@ sub room01()
 	setCharacterWalkSpeed(ego, 2);
 	
 	
-	addCharacter (room01_secretary, 920, 550, makeEgoAnim());
+	addCharacter (room01_secretary, 920, 485, costume(
+		anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), 
+		anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), 
+		anim('rooms/room01/secretary.duc', 1), anim('rooms/room01/secretary.duc', 1), anim('rooms/room01/secretary.duc', 1), anim('rooms/room01/secretary.duc', 1)));
+	setCharacterExtra(room01_secretary, FIXEDSIZE);
 
 	if(room01_firstTalk)
 	{

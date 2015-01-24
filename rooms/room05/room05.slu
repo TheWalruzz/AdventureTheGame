@@ -1,0 +1,64 @@
+sub room05()
+{
+	setSceneDimensions(1366, 768);
+	addOverlay('rooms/room05/room05.png', 0, 0);
+	setFloor('rooms/room05/room05.flo');
+	
+	setScale(450, 42);
+	
+	addCharacter(ego, 91, 660, makeEgoAnim());
+	addScreenRegion(room05_drawer1, 200, 430, 302, 465, 332, 618, WEST);
+	addScreenRegion(room05_drawer2, 200, 466, 302, 517, 332, 618, WEST);
+	addScreenRegion(room05_closet, 85, 221, 187, 530, 332, 618, WEST);
+	addScreenRegion(room05_safe, 434, 231, 557, 382, 332, 618, EAST);
+	
+	setCharacterWalkSpeed(ego, 2);
+}
+
+objectType room05_drawer1("upper drawer")
+{
+	event interactWith
+	{
+		say(ego, pickOne(
+			"The Secret of Monkey Island... That's not it.",
+			"Well, he has some dirty secrets... But I don't think that's it.",
+			"Oh! There's some secret blueprints... For a coffee machine?",
+			"Ouch... I think something bit me."
+		));
+	}
+}
+
+objectType room05_drawer2("lower drawer")
+{
+	event interactWith
+	{
+		say(ego, "It's so full it won't even open.");
+	}
+}
+
+objectType room05_closet("closet")
+{
+	event interactWith
+	{
+		say(ego, "I don't want to. I think I've heard bones rattling inside.");
+	}
+	
+	event lookAt
+	{
+		say(ego, "It's an ordinary closet.");
+	}
+}
+
+objectType room05_safe("safe")
+{
+	event interactWith
+	{
+		#TODO fight with director
+	}
+	
+	event lookAt
+	{
+		say(ego, "I'll be damned if this safe didn't contain the Secret.");
+	}
+}
+

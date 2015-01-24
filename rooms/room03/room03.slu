@@ -29,7 +29,7 @@ objectType room03_door("door")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		#TODO transport player to boss' room
+		gotoRoom(room05);
 	}
 }
 

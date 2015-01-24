@@ -8,6 +8,8 @@ sub keys (k) {
 	if (k == "3") gotoRoom(room02);
 	if (k == "4") gotoRoom(room03);
 	if (k == "5") gotoRoom(room04);
+	if (k == "6") gotoRoom(room05);
+	if (k == "7") gotoRoom(room06);
 	
 	if(k == "c") pushToStack(inventory, item_gumWhole);
 }
