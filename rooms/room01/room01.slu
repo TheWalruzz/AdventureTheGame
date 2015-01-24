@@ -11,16 +11,16 @@ sub room01()
 	addOverlay('rooms/room01/room01.png', 0, 0);
 	setFloor('rooms/room01/room01.flo');
 	
-	setScale(160, 1000);
+	setScale(340, 400);
 	
 	addCharacter (ego, -100, 700, makeEgoAnim());
-	#setCharacterWalkSpeed(ego, 2);
+	setCharacterWalkSpeed(ego, 8);
 	
 	
 	addCharacter (room01_secretary, 920, 485, costume(
 		anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), 
 		anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), 
-		anim('rooms/room01/secretary.duc', 1), anim('rooms/room01/secretary.duc', 1), anim('rooms/room01/secretary.duc', 1), anim('rooms/room01/secretary.duc', 1)));
+		anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4)), anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4)), anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4)), anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4))));
 	setCharacterExtra(room01_secretary, FIXEDSIZE);
 
 	if(room01_firstTalk)
@@ -82,6 +82,7 @@ objectType room01_elevator("elevator")
 objectType room01_secretary("secretary")
 {
 	speechColor 200, 42, 200;
+	speechGap 10;
 	
 	event lookAt
 	{

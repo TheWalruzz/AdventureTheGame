@@ -1,19 +1,19 @@
 # intro on the beginning of the game
 
 sub a() {
-	setCharacterWalkSpeed(intro_person, 1);	
+	setCharacterWalkSpeed(intro_person, 6);	
 	forceCharacter(intro_person, 1500, 600);
 }
 sub b() {
-	setCharacterWalkSpeed(intro_person2, 1);	
+	setCharacterWalkSpeed(intro_person2, 6);	
 	forceCharacter(intro_person2, 1500, 600);
 }
 sub c() {
-	setCharacterWalkSpeed(intro_person3, 1);	
+	setCharacterWalkSpeed(intro_person3, 6);	
 	forceCharacter(intro_person3, -500, 600);
 }
 sub d() {
-	setCharacterWalkSpeed(intro_person3, 2);
+	setCharacterWalkSpeed(intro_person3, 7);
 	forceCharacter(intro_car, -500, 720);
 }
 
@@ -22,7 +22,7 @@ sub intro()
 	#TODO initialization
 	# first things first
 	addOverlay('rooms/intro/intro.png', 0, 0);
-	setScale(250, 1000);
+	setScale(225, 1500);
 	
 	addCharacter (intro_person, 100, 650, makeEgoAnim());
 	addCharacter (intro_person2, 600, 620, makeEgoAnim());

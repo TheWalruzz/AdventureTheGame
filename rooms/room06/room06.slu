@@ -8,6 +8,10 @@ sub room06()
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
+	addScreenRegion(room06_secret, 396, 165, 545, 221, 0, 0, 0);
+	addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
+	
+	
 	#TODO SECRET's speech and so on
 }
 
@@ -28,3 +32,9 @@ objectType room06_powerButton("power button")
 		#TODO ending scene - YOU WIN!!!!111one
 	}
 }
+
+objectType room06_secret("") # just for talking
+{
+	speechColor 220, 20, 60;
+}
+
