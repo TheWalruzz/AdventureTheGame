@@ -15,6 +15,7 @@ sub room01()
 	
 	addCharacter (ego, 400, 400, makeEgoAnim());
 	
+	addScreenRegion(room01_elevator, 329, 240, 494, 401, 402, 416, -1);
 	
 	# some other stuff
 	

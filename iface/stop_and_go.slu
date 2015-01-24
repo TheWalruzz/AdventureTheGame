@@ -29,7 +29,7 @@ sub skipper () {
 }
 
 sub handleFocus (o) {
-	if (o) {
+	if (o && o != ego) {
 		if (! callEvent (oneCursor, o)) setCursor (anim ('iface/mouse.duc', 2));
 	} else {
 		setCursor (anim ('iface/mouse.duc', 0));

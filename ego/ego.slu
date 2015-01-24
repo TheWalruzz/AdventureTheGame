@@ -2,12 +2,12 @@
 # this character, change the name to the empty string ("").
 objectType ego ("Max") {
 	speechColour 128, 255, 128;
-	event lookAt {
-		say (ego, "That's pretty hard, you know.");
-	}
-	event interactWith {
-		say (ego, "There's time and place for everything... But not now.");
-	}
+#	event lookAt {
+#		say (ego, "That's pretty hard, you know.");
+#	}
+#	event interactWith {
+#		say (ego, "There's time and place for everything... But not now.");
+#	}
 }
 
 # This function returns the ego's standard costume - which beats including it in

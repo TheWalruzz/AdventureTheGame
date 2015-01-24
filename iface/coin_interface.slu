@@ -7,6 +7,12 @@ sub leftClick () {
 
 	# In case we're walking already...
 	stopCharacter (ego);
+	
+	if(overObject == ego)
+	{
+		moveCharacter(ego, getMouseX(), getMouseY());
+		return;
+	}
 
 	# Did we click an object?
 	if (overObject) {

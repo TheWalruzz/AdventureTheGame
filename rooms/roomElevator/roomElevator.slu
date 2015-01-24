@@ -2,8 +2,10 @@ sub roomElevator()
 {
 	#TODO initialization
 	# first things first
-	#addOverlay('rooms/roomElevator/roomElevator.tga');
-	#setFloor('rooms/roomElevator/roomElevator.flo');
+	addOverlay('rooms/roomElevator/roomElevator.png', 0, 0);
+	setFloor('rooms/roomElevator/roomElevator.flo');
+	
+	addCharacter (ego, 600, 600, makeEgoAnim());
 	
 	# some other stuff
 }
