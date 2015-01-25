@@ -7,59 +7,76 @@ sub roomElevator()
 	addOverlay('rooms/roomElevator/roomElevator.png', 0, 0);
 	setFloor('rooms/roomElevator/roomElevator.flo');
 	
-	setScale(160, 500);
+	setScale(50, 550);
 	
-	addCharacter (ego, 380, 840, makeEgoAnim());
-	setCharacterWalkSpeed(ego, 4);
-	turnCharacter (ego, NORTH);
+	addCharacter (ego, 580, 550, makeEgoAnim());
+	setCharacterWalkSpeed(ego, 10);
 	
-	addScreenRegion(roomElevator_panel, 200, 158, 323, 497, 513, 668, WEST);
-	addScreenRegion(roomElevator_door, 432, 25, 862, 499, 649, 572, NORTH);
 	addScreenRegion(roomElevator_notification, 150, 123, 355, 200, 0, 0, 0);
 	
+	#if(roomElevator_floor == 1)
+	#	roomElevator_floor = 2;
+	#else if(roomElevator_floor == 2)
+	#	roomElevator_floor = 1;
+	
+	forceCharacter(ego, 450, 840);
+	turnCharacter (ego, WEST);
+	
+	pause(10);
+
+	say(roomElevator_notification, "To which floor do you wish to go?");
+	
+	if(roomElevator_floor != 1)
+		addSpeechChoice("Reception", 1);
+	if(roomElevator_floor != 2)
+		addSpeechChoice("Software Development Room", 2);
+	if(roomElevator_floor != 3 && room01_talkedToRebels == TRUE)
+		addSpeechChoice("CEO Office", 3);
+	if(roomElevator_floor != 4 && afterPrison == TRUE)
+		addSpeechChoice("Basement", 4);
+		
+	roomElevator_floor = getSpeechChoice(NULL);
+	
+	var text = "You have arrived at ", location, room;
+	
 	if(roomElevator_floor == 1)
-		roomElevator_floor = 2;
+	{
+		location = "Reception";
+		room = room01;
+	}
 	else if(roomElevator_floor == 2)
-		roomElevator_floor = 1;
+	{
+		location = "Software Development Room";
+		room = room02;
+	}
+	else if(roomElevator_floor == 3)
+	{
+		location = "CEO Office";
+		room = room05;
+	}
+	else if(roomElevator_floor == 4)
+	{
+		location = "Basement";
+		room = room06;
+	}
 	
-	say(roomElevator_notification, "You have arrived at floor " + roomElevator_floor + ".");
+	playSound('rooms/roomElevator/elevator2.wav');
+	pause(200);
+	
+	playSound('rooms/roomElevator/ding.wav');
+	stopSound('rooms/roomElevator/elevator2.wav');
+	
+	say(roomElevator_notification, text + location + ".");
+	
+	
+	moveCharacter(ego, 650, 0);
+	setCharacterWalkSpeed(ego, 5);
+	
+	gotoRoom(room);
 }
 
-objectType roomElevator_panel("control panel")
-{
-	#event item_internIDcard
-	#{
-	#	if(roomElevator_floor == 1)
-	#	{
-	#		roomElevator_floor = 2;
-	#		#gotoRoom(room02);
-	#	}
-	#	else if(roomElevator_floor == 2)
-	#	{
-	#		roomElevator_floor = 1;
-	#		#gotoRoom(room01);
-	#	}
-	#	
-	#	say(roomElevator_notification, "You have arrived at floor " + roomElevator_floor + ".");
-	#}
-	
-	event default
-	{
-		say(ego, "It's well beyond my comprehension.");
-	}
-}
 
-objectType roomElevator_door("elevator door")
-{
-	event oneCursor = arrowEast;
-	event onlyAction
-	{
-		if(roomElevator_floor == 1)
-			gotoRoom(room01);
-		else if(roomElevator_floor == 2)
-			gotoRoom(room02);
-	}
-}
+
 
 objectType roomElevator_notification("")
 {

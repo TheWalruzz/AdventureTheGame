@@ -81,6 +81,8 @@ sub invClick () {
 			go();
 			
 			showInventory();
+			
+			return;
 		}
 		
 		invGo ();

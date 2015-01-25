@@ -44,6 +44,7 @@ sub room02()
 	setScale(450, 420);
 	
 	addCharacter(ego, 200, 670, makeEgoAnim());
+	turnCharacter(ego, EAST);
 
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
 	addScreenRegion(room02_abTransition, 1320, 0, 1420, 768, 0, 0, 0);

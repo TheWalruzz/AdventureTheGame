@@ -52,6 +52,8 @@ sub roomElevatorIntro()
 	moveCharacter(ego, 650, 0);
 	setCharacterWalkSpeed(ego, 5);
 	
+	roomElevator_floor = 2;
+	
 	gotoRoom(room02);
 }
 
