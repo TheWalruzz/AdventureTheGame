@@ -8,10 +8,16 @@ sub room07()
 	
 	if (straightFromPrison) {
 		addCharacter(ego, 200, 720, makeEgoAnim());
+		say(ego, "It worked! I can't believe!");
+		say(ego, "And yet they say you cannot solve any major problems just with potatoes.");
+		say(ego, "Sadly, the picklock broke in action. RIP.");
+		turnCharacter (ego, EAST);
 	} else if (straightFromSecret) {
 		addCharacter(ego, 1200, 720, makeEgoAnim());		
+		turnCharacter (ego, WEST);
 	} else {
 		addCharacter(ego, 722, 600, makeEgoAnim());
+		turnCharacter (ego, SOUTH);
 	}
 	
 	addScreenRegion(room07_prison, 35, 256, 190, 768, 200, 720, WEST);

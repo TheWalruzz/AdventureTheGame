@@ -17,7 +17,18 @@ sub room03()
 	
 	setScale(450, 420);
 	
-	addCharacter(ego, 87, 670, makeEgoAnim());
+	if (straightFromBoss) {
+		addCharacter(ego, 87, 670, makeEgoAnim());
+		turnCharacter(ego, EAST);
+	} else {
+		addCharacter(ego, 2608, 697, makeEgoAnim());
+		turnCharacter(ego, WEST);
+		room03_part = "b";
+		room03_centerX = 2049;
+		aimCamera(room03_centerX, 384);
+		
+	}
+	straightFromBoss = FALSE;
 	
 	if (room03_broomTaken == FALSE) {
 		addCharacter(room03_broom, 1860, 580, anim('rooms/room03/broom.duc', 0));
@@ -60,6 +71,11 @@ objectType room03_door("door")
 			gotoRoom(room05);
 		}
 	}
+	
+	event item_bossKey {
+		say(ego, "It matches!");
+		gotoRoom(room05);
+	}
 }
 
 objectType room03_chuck("chuck the plant") {
@@ -67,16 +83,25 @@ objectType room03_chuck("chuck the plant") {
 		say(ego, "What a nice plant!");
 	}
 	event interactWith {
-		say(ego, "Whooops!");
-		narratorSay("CHuck breaks");
-		think(room03_chuck, "Oh no, not again...");
-		narratorSay("wild ID arrives");
-		
-		pushToStack(inventory, item_bossIDcard);
-		
-		room03_chuckBroken = TRUE;
-		room03_idTaken = FALSE;
-		
+		if (room03_idTaken) 
+			narratorSay("Max touches the plant.");
+			say(ego, "Hey, there's a key behind it!");
+			turnCharacter(ego, WEST);
+			pause(10);
+			turnCharacter(ego, EAST);
+			pause(10);
+			turnCharacter(ego, NORTH);
+			say(ego, "I'll just lend it for a while.");
+			pushToStack(inventory, item_bossKey);
+
+			#pushToStack(inventory, item_bossIDcard);
+			
+			room03_chuckBroken = TRUE;
+			room03_idTaken = FALSE;
+		} else {
+			narratorSay("Max touches the plant with great love and care.");
+			narratorSay("Plant seems to be happy.");
+		}
 		
 	}
 }

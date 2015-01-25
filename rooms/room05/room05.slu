@@ -1,3 +1,6 @@
+
+var straightFromBoss = FALSE;
+	
 sub room05()
 {
 	setSceneDimensions(1366, 768);
@@ -8,8 +11,10 @@ sub room05()
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
+	straightFromBoss = TRUE;
+	
 	if (afterPrison) {
-		
+		addCharacter(room05_bossIDCard, 774, 625, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	} else {
 	
 		addCharacter(room05_director, 774, 625, costume(
@@ -37,21 +42,32 @@ sub room05()
 	setCharacterWalkSpeed(ego, 8);
 }
 
+objectType room05_bossIDcard("ID card") {
+	event lookAt {
+		lookedAtCard = TRUE;
+	}
+	event interactWith {
+		if (! lookedAtCard) {
+			say("Hey, it CEO's ID! He must have dropped it when leaving!");
+
+			pushToStack(inventory, item_bossIDcard);
+			
+			removeCharacter(room05_bossIDcard);
+		}
+	}
+}
+
 objectType room05_drawer1("upper drawer")
 {
 	event interactWith
 	{
 		say(ego, pickOne(
-			"The Secret of Monkey Island... That's not it.",
+			"The Secret of Monkey Island... I don't think that's it.",
 			"Well, he has some dirty secrets... But I don't think that's it.",
 			"Oh! There's some secret blueprints... For a coffee machine?",
 			"Ouch... I think something bit me."
 		));
-		say(room05_director, "Don't upset me. I'm the 9th player on the highscore list.");
-		say(ego, "Shouldn't you be running the company?");
-		say(room05_director, "I'm betatesting.");
-		say(room05_director, "Yeah.");
-		say(room05_director, "That's right.");
+
 	}
 }
 
@@ -80,10 +96,11 @@ objectType room05_safe("safe")
 {
 	event interactWith
 	{
+		say(room05_director, "What are you doing?");
+		say(room05_director, "Well, these are not the secrets you are looking for.");
 		say(room05_director, "Argh.");
 		say(room05_director, "My score was over 9000 and I've lost my focus because of you!");
 		say(room05_director, "Ah, digging for secrets, I see?");
-		say(room05_director, "Well, these are not the secrets you are looking for.");
 		pause(30);
 		say(room05_director, "Security!");
 		pause(5);
@@ -124,6 +141,11 @@ objectType room05_director("CEO")
 	{
 		say(ego, "Hello?");
 		say(room05_director, "Go away. I'm trying to beat the Kypax Dream level on expert difficulty.");
+		say(room05_director, "I'm the 9th player on the highscore list.");
+		say(ego, "Shouldn't you be running the company?");
+		say(room05_director, "I'm betatesting.");
+		say(room05_director, "Yeah.");
+		say(room05_director, "That's right.");		
 	}
 	
 	event walkToPerson

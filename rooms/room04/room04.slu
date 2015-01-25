@@ -10,7 +10,7 @@ sub room04()
 	addOverlay('rooms/room04/room04.png', 0, 0);
 	setFloor('rooms/room04/room04.flo');
 	
-	setScale(450, 420);
+	setScale(400, 380);
 	
 	addCharacter(ego, 450, 670, makeEgoAnim());
 
