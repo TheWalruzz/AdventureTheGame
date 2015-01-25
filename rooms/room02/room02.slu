@@ -527,11 +527,26 @@ objectType room02_newspaper("newspaper")
 	
 	event item_ropeFullyCombined
 	{
+		narratorSay("Max throws the book attached on a rope towards the newspaper.");
+		narratorSay("It sticks to the book thanks to the gum.");
 		say(ego, "It worked!");
 		
 		pushToStack(inventory, item_newspaper);
 		removeCharacter(room02_newspaper);
 	}
+	
+	event item_ropeWithBook
+	{
+		narratorSay("Max throws the book attached on a rope towards the newspaper.");
+		narratorSay("Unfortunately, it slided from the self without taking the newspaper with it.");
+		say(ego, "Darmn... If only I had something sticky...");
+	}
+	
+	event item_rope
+	{
+		say(ego, "Rope alone won't really help here.");
+	}
+	
 }
 
 sub readNewspaper() {

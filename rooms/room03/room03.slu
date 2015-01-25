@@ -47,7 +47,7 @@ sub room03()
 
 		
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
-	addScreenRegion(room03_exit, 0, 768, 200, 768, 0, 768, WEST);
+	addScreenRegion(room03_exit, 0, 0, 200, 768, 0, 768, WEST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 	addScreenRegion(room03_posterFarm, 745, 87, 1012, 420, 866, 616, NORTH);
 
