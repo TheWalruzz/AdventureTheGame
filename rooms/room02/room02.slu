@@ -36,6 +36,7 @@ sub lineSub3() {
 sub room02()
 {
 	room02_part = "a";
+	room02_centerX = 683;
 	
 	setSceneDimensions(4098, 768);
 	addOverlay('rooms/room02/room02.png', 0, 0);
