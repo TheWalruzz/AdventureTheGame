@@ -492,7 +492,15 @@ objectType room06_secPuzzle("second panel")
 				}
 			} else {
 				wins = 0;
-				say(room06_secPuzzle, "Wrong! It should have been: " + answer);
+				say(room06_secPuzzle, "Wrong! It should have been " + answer);
+			}
+			
+			if (stackSize(sums) >= 8) {
+				unfreeze();
+				say(room06_secPuzzle, "Too many attempts in one session!");
+				choices = newStack();
+				values = newStack();
+				return;
 			}
 			
 			
