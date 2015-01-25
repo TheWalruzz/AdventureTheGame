@@ -104,9 +104,8 @@ sub narratorSay(text)
 	stop();
 	darkBackground();
 	addScreenRegion(narrator, 683, 384, 684, 385, 0, 0, 0);
-	say(narrator, "Narrator: " + text);
+	say(narrator, text);
 	removeScreenRegion(narrator);
-	#unfreeze();
 	go();
 	unfreeze();
 }
