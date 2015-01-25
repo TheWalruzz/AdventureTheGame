@@ -422,7 +422,7 @@ objectType room06_secPuzzle("second panel")
 		
 		var a = random(5);
 		var b = random(5);
-		var sum = a + b;
+		var sum = random(9);
 		
 		pushToStack(firsts, a);
 		pushToStack(seconds, b);
@@ -430,15 +430,15 @@ objectType room06_secPuzzle("second panel")
 
 		var wins = 0;
 		
-		var ii = 0;
-		while (ii < 10) {
-			enqueue(choices, ii);
-			enqueue(values, ii);
-			ii = ii + 1;
+		var i = 0;
+		while (i < 10) {
+			enqueue(choices, i);
+			enqueue(values, i);
+			i = i + 1;
 		}
 		enqueue(choices, "Uhm, gotta go, bye!");
 		enqueue(values, -1);
-		
+		var answer = 0; var aa = 0; var bb = 0; var ssum = 0;
 		
 		loop {
 			addSpeechChoicesFromStacks(choices, values);	
@@ -447,21 +447,21 @@ objectType room06_secPuzzle("second panel")
 			setBurnColor(255,255,255);
 			burnString(20,20, "SOLVE THIS THREE TIMES IN ROW");
 
-			var i = stackSize(sums);
-			while (i > 0) {
-				burnString(20, 20 + (i) * 40, firsts[i-1] + " + " + seconds[i-1] + " = " + sums[i-1]);
-				i = i - 1;
+			i = 0;
+			while (i < stackSize(sums)) {
+				burnString(20, 20 + (i+1) * 40, firsts[i] + " + " + seconds[i] + " = " + sums[i]);
+				i = i + 1;
 			}
 			
-			var aa = random(5);
-			var bb = random(5);
-			var ssum = aa + bb;
+			aa = random(5);
+			bb = random(5);
+			ssum = aa + bb;
 			
-			var answer = firsts[stackSize(sums)-1] + seconds[stackSize(sums)-1];
+			answer = firsts[stackSize(sums)-1] + seconds[stackSize(sums)-1];
 
-			pushToStack(firsts, aa);
-			pushToStack(seconds, bb);
-			pushToStack(sums, answer);
+			enqueue(firsts, aa);
+			enqueue(seconds, bb);
+			enqueue(sums, answer);
 			
 			burnString(20, 40 + stackSize(sums) * 40, aa + " + " + bb + " = ?");
 			
