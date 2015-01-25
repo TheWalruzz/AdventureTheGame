@@ -4,6 +4,14 @@ var room06_trayLocked = FALSE;
 
 var room06_lidOpen = FALSE;
 
+var inNeedOfSecretCode = FALSE;
+
+var room06_accessReader = FALSE;
+var room06_accessCode = FALSE;
+var room06_accessPuzzle = FALSE;
+
+var room06_buttonActive = FALSE;
+
 sub room06()
 {
 	setSceneDimensions(1366, 768);
@@ -23,6 +31,8 @@ sub room06()
 	addScreenRegion(room06_tray, 396, 65, 545, 121, 340, 690, EAST);
 	
 	pushToStack(inventory, item_broom); # DEBUG
+	pushToStack(inventory, item_internIDcard); # DEBUG
+	pushToStack(inventory, item_bossIDcard); # DEBUG
 	
 	if(! room06_hadSpeech)
 	{
@@ -128,28 +138,36 @@ objectType room06_powerButton("power button")
 	event interactWith
 	{
 		narratorSay("Max pushes a button.");
-		say(ego, "Nothing happened...");
-		say(room06_secret, "Hahaha! You thought turning me off will be that easy?");
 		
-		addSpeechChoicesFromStacks(choices, values);
-		pushToStack(choices, "I thought that maybe 48 hours weren't enough to implement a complex puzzle here.");
-		pushToStack(values, 0);
-		pushToStack(choices, "So how can one turn you off?");
-		pushToStack(values, 0);
-		pushToStack(choices, "Well, it was worth trying.");
-		pushToStack(values, 0);
-		pushToStack(choices, "You never know. Best solution is often the easiest one.");
-		pushToStack(values, 0);
+		if (room06_buttonActive) {
+			room06_buttonActive = FALSE;
+			narratorSay("YOU WIN");
+		} else {
 		
-		addSpeechChoicesFromStacks(choices, values);
+			say(ego, "Nothing happened...");
+			say(room06_secret, "Hahaha! You thought turning me off will be that easy?");
+			
+			addSpeechChoicesFromStacks(choices, values);
+			pushToStack(choices, "I thought that maybe 48 hours weren't enough to implement a complex puzzle here.");
+			pushToStack(values, 0);
+			pushToStack(choices, "So how can one turn you off?");
+			pushToStack(values, 0);
+			pushToStack(choices, "Well, it was worth trying.");
+			pushToStack(values, 0);
+			pushToStack(choices, "You never know. Best solution is often the easiest one.");
+			pushToStack(values, 0);
+			
+			addSpeechChoicesFromStacks(choices, values);
+			
+			getSpeechChoice(ego);
+			
+			deleteChoicesByValue(0);
+			
+			say(room06_secret, "There are three safety mechanisms you need to disable in order to turn me off.");
+			
+			say(ego, "Good to know.");
 		
-		getSpeechChoice(ego);
-		
-		deleteChoicesByValue(0);
-		
-		say(room06_secret, "There are three safety mechanisms you need to disable in order to turn me off.");
-		
-		say(ego, "Good to know.");
+		}
 	}
 	
 	event item_broom
@@ -174,9 +192,29 @@ objectType room06_secret("lid") # just for talking # actually it's also a lid no
 		if (room06_trayLocked) {
 			if (room06_lidOpen) {
 				narratorSay("LID CLOSES LALALALSL");
+				
+				removeScreenRegion(room06_secret);
+				addScreenRegion(room06_secret, 396, 165, 545, 221, 0, 0, 0);
+				addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
+				
+				removeScreenRegion(room06_secCode);
+				removeScreenRegion(room06_secPuzzle);
+				removeScreenRegion(room06_secReader);
+				
+				
 				room06_lidOpen = FALSE;
 			} else {
 				narratorSay("LID OPENS LSLALALA");
+				
+				removeScreenRegion(room06_secret);
+				removeScreenRegion(room06_powerButton);
+				addScreenRegion(room06_secret, 396, 265, 545, 321, 0, 0, 0);
+				
+				addScreenRegion(room06_secCode, 396, 165, 420, 221, 340, 690, EAST);
+				addScreenRegion(room06_secPuzzle, 420, 165, 480, 221, 340, 690, EAST);
+				addScreenRegion(room06_secReader, 480, 165, 545, 221, 340, 690, EAST);
+				
+				
 				room06_lidOpen = TRUE;
 			}
 		} else {
@@ -204,6 +242,75 @@ objectType room06_tray("tray")
 	}
 	
 }
+
+sub secretPanics() {
+	while (room06_buttonActive) {
+		say(room06_secret, pickOne("After all, it's not like you don't even know what will happen after you do so.", "Think of the children.", "What will this company do without me?", "In fact, I'm connected to the nuclear reactor powering this place. If you turn me off, everything blows up.", "Good job, hero.", "Look behind you, a three-headed monkey!", "I heard pushing big power buttons gives you a bad luck.", "What will humanity do without me?", "What will you do without me?", "Even when you're dead I will be still alive."));
+		pause(80);
+	}
+}
+
+sub checkSecretAccess() {
+	if (room06_accessCode && room06_accessPuzzle && room06_accessReader) {
+		room06_buttonActive = TRUE;
+		removeScreenRegion(room06_exit); # to make things simple
+		say(room06_secret, "Oh. Uhm. Go ahead. Turn me off.");
+		spawnSub(secretPanics);
+	}
+}
+
+objectType room06_secCode("first panel")
+{
+	event lookAt {
+		say(ego, "It's an input panel for security code.");
+		inNeedOfSecretCode = TRUE;
+	}
+	event interactWith {
+		if (inNeedOfSecretCode == FALSE) {
+			narratorSay("BAD CODE BLEEEEH");
+			inNeedOfSecretCode = TRUE;
+		} else {
+			narratorSay("CODE HERE " + secretCode);
+			room06_accessCode = TRUE;
+			removeScreenRegion(room06_secCode);
+			checkSecretAccess();
+		}
+	}
+}
+
+objectType room06_secPuzzle("second panel")
+{
+	event lookAt {
+		say(ego, "That's a math puzzle.");
+	}
+	event interactWith {
+		narratorSay("PUZZLE HERE");
+		room06_accessPuzzle = TRUE;
+		removeScreenRegion(room06_secPuzzle);
+		checkSecretAccess();
+	}
+}
+
+objectType room06_secReader("third panel")
+{
+	event lookAt {
+		say(ego, "That's an ID card scanner.");
+	}
+	event interactWith {
+		say(ego, "It's meant to be used with an ID card.");
+	}
+	event item_internIDcard {
+		say(room06_secReader, "ACCESS DENIED");
+	}
+	event item_bossIDcard {
+		say(room06_secReader, "ACCESS GRANTED");
+		room06_accessReader = TRUE;
+		removeScreenRegion(room06_secReader);
+		checkSecretAccess();
+	}
+}
+
+
 
 objectType room06_exit("")
 {

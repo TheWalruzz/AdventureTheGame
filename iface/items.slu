@@ -12,6 +12,20 @@ objectType item_internIDcard("intern ID card")
 	}
 }
 
+objectType item_bossIDcard("boss ID card")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		#say(ego, "I feel great power and no responsibility!");
+		say(ego, "I'll better keep it to myself.");
+	}
+}
+
 objectType item_gumWhole("chewing gum")
 {
 	event getIcon
