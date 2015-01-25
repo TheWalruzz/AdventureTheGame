@@ -116,3 +116,60 @@ objectType item_picklock("picklock")
 	}
 }
 
+objectType item_rope("rope")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event item_book
+	{
+		deleteFromStack(inventory, item_rope);
+		deleteFromStack(inventory, item_book);
+		pushToStack(inventory, item_ropeWithBook);
+		
+		say(ego, "Sometimes I'm afraid of my genius.");
+	}
+
+	event default
+	{
+		say(ego, "I'm not sure it will work.");
+	}
+}
+
+objectType item_ropeWithBook("rope with a book")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event item_gumChewed
+	{
+		deleteFromStack(inventory, item_ropeWithBook);
+		deleteFromStack(inventory, item_gumChewed);
+		pushToStack(inventory, item_ropeFullyCombined);
+	
+		say(ego, "Well. Someone said that every puzzle has an answer.");
+	}
+	
+	event default
+	{
+		say(ego, "There is time and place for everything... But not now.");
+	}
+}
+
+objectType item_ropeFullyCombined("rope with a book and a gum")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "Nope. I would look wierd doing it.");
+	}
+}
+

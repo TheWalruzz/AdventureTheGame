@@ -13,6 +13,6 @@ sub init ()
 	
 	stop();
 
-	gotoRoom(room06);
+	gotoRoom(intro);
 	go();
 }
