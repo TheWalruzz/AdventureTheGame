@@ -272,7 +272,7 @@ objectType room02_cable("cable")
 	{
 		if(room02_beforeAttack)
 		{
-			fadeOut();
+			fadeOut(); # temporary stuff
 			
 			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope3, FIXEDSIZE);
@@ -326,7 +326,7 @@ objectType room02_cable("cable")
 			
 			pause(35);
 			
-			fadeIn();
+			fadeIn(); # temporary stuff
 			
 			spawnSub(aaa);
 			spawnSub(bbb);
