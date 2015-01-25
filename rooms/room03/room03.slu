@@ -1,6 +1,11 @@
 var room03_part = "a";
 var room03_centerX = 683;
 
+var room03_chuckBroken = FALSE;
+var room03_idTaken = FALSE;
+
+var room03_broomTaken = FALSE;
+
 sub room03()
 {
 	setSceneDimensions(2724, 768);
@@ -11,14 +16,28 @@ sub room03()
 	
 	addCharacter(ego, 87, 670, makeEgoAnim());
 	
-	addCharacter(room03_broom, 1860, 580, anim('rooms/room03/broom.duc', 0));
-	setCharacterExtra(room03_broom, FIXEDSIZE);
+	if (room03_broomTaken == FALSE) {
+		addCharacter(room03_broom, 1860, 580, anim('rooms/room03/broom.duc', 0));
+		setCharacterExtra(room03_broom, FIXEDSIZE);
+	}
 
+	if (room03_chuckBroken) {
+		# rysowanie martwego chucka
+		if (room03_idTaken == FALSE) {
+			# rysowanie idka
+		}
+	} else {
+		addCharacter(room03_chuck, 800, 645, anim('rooms/room02/book.duc', 0));
+		setCharacterExtra(room03_chuck, FIXEDSIZE);
+	}
+		
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 	addScreenRegion(room03_posterFarm, 745, 87, 1012, 420, 866, 616, NORTH);
 
 	setCharacterWalkSpeed(ego, 8);
+	
+	room03_part = "a";
 }
 
 sub gotoRoom03Part(part, x)
@@ -33,7 +52,30 @@ objectType room03_door("door")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		gotoRoom(room05);
+		if (afterPrison) {
+			say(ego, "It's locked.");
+		} else {
+			gotoRoom(room05);
+		}
+	}
+}
+
+objectType room03_chuck("chuck the plant") {
+	event lookAt {
+		say(ego, "What a nice plant!");
+	}
+	event interactWith {
+		say(ego, "Whooops!");
+		narratorSay("CHuck breaks");
+		think(room03_chuck, "Oh no, not again...");
+		narratorSay("wild ID arrives");
+		
+		pushToStack(inventory, item_bossIDcard);
+		
+		room03_chuckBroken = TRUE;
+		room03_idTaken = FALSE;
+		
+		
 	}
 }
 
@@ -70,6 +112,8 @@ objectType room03_broom("broom")
 		pushToStack(inventory, item_broom);
 		
 		removeCharacter(room03_broom);
+		
+		room03_broomTaken = TRUE;
 	}
 }
 

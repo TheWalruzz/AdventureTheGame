@@ -30,6 +30,8 @@ sub room06()
 
 	addScreenRegion(room06_tray, 396, 65, 545, 121, 340, 690, EAST);
 	
+	# REMEMBER TO CHECK FOR LOCKED TRAY AND OPENED LID AND SOLVED PUZZLES!
+	
 	pushToStack(inventory, item_broom); # DEBUG
 	pushToStack(inventory, item_internIDcard); # DEBUG
 	pushToStack(inventory, item_bossIDcard); # DEBUG
@@ -147,7 +149,6 @@ objectType room06_powerButton("power button")
 			say(ego, "Nothing happened...");
 			say(room06_secret, "Hahaha! You thought turning me off will be that easy?");
 			
-			addSpeechChoicesFromStacks(choices, values);
 			pushToStack(choices, "I thought that maybe 48 hours weren't enough to implement a complex puzzle here.");
 			pushToStack(values, 0);
 			pushToStack(choices, "So how can one turn you off?");
@@ -262,19 +263,148 @@ sub checkSecretAccess() {
 objectType room06_secCode("first panel")
 {
 	event lookAt {
-		say(ego, "It's an input panel for security code.");
-		inNeedOfSecretCode = TRUE;
+		say(ego, "It's some kind of input panel.");
 	}
 	event interactWith {
-		if (inNeedOfSecretCode == FALSE) {
-			narratorSay("BAD CODE BLEEEEH");
 			inNeedOfSecretCode = TRUE;
-		} else {
-			narratorSay("CODE HERE " + secretCode);
-			room06_accessCode = TRUE;
-			removeScreenRegion(room06_secCode);
-			checkSecretAccess();
-		}
+			
+			freeze();
+			blankScreen();
+			
+			var enteredCode = "";
+			
+			setBurnColor(255,255,255);
+			burnString(20,20, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
+			
+			
+			pushToStack(choices, "A");
+			pushToStack(values, "A");
+			pushToStack(choices, "B");
+			pushToStack(values, "B");
+			pushToStack(choices, "H");
+			pushToStack(values, "H");
+			pushToStack(choices, "O");
+			pushToStack(values, "O");
+			pushToStack(choices, "L");
+			pushToStack(values, "L");
+			pushToStack(choices, "M");
+			pushToStack(values, "M");
+			pushToStack(choices, "Y");
+			pushToStack(values, "Y");
+			pushToStack(choices, "Q");
+			pushToStack(values, "Q");
+			
+			addSpeechChoicesFromStacks(choices, values);			
+			
+			var choice = getSpeechChoice(ego);
+			
+			enteredCode = enteredCode + choice;
+			
+			values = newStack();
+			choices = newStack();
+			
+			blankScreen();
+			
+			burnString(20,20, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
+			burnString(100, 100, enteredCode);
+
+			pushToStack(choices, "Z");
+			pushToStack(values, "Z");
+			pushToStack(choices, "B");
+			pushToStack(values, "B");
+			pushToStack(choices, "X");
+			pushToStack(values, "X");
+			pushToStack(choices, "P");
+			pushToStack(values, "P");
+			pushToStack(choices, "G");
+			pushToStack(values, "G");
+			pushToStack(choices, "A");
+			pushToStack(values, "A");
+			pushToStack(choices, "Y");
+			pushToStack(values, "Y");
+			pushToStack(choices, "R");
+			pushToStack(values, "R");
+			
+			addSpeechChoicesFromStacks(choices, values);			
+			
+			choice = getSpeechChoice(ego);
+			
+			enteredCode = enteredCode + choice;
+			
+			values = newStack();
+			choices = newStack();
+			
+			blankScreen();
+			
+			burnString(20,20, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
+			burnString(100, 100, enteredCode);
+			
+			pushToStack(choices, "S");
+			pushToStack(values, "S");
+			pushToStack(choices, "G");
+			pushToStack(values, "G");
+			pushToStack(choices, "N");
+			pushToStack(values, "N");
+			pushToStack(choices, "Z");
+			pushToStack(values, "Z");
+			pushToStack(choices, "A");
+			pushToStack(values, "A");
+			pushToStack(choices, "R");
+			pushToStack(values, "R");
+			pushToStack(choices, "W");
+			pushToStack(values, "W");
+			pushToStack(choices, "E");
+			pushToStack(values, "E");
+			
+			addSpeechChoicesFromStacks(choices, values);			
+			
+			choice = getSpeechChoice(ego);
+			
+			enteredCode = enteredCode + choice;
+
+			values = newStack();
+			choices = newStack();
+			
+			blankScreen();
+			#var secretCode = pickOne("ABS2", "BZG5", "HXN3", "OPZ6", "LPA1", "BXR5", "MPW0", "YGE5");
+			
+			burnString(20,20, "ENTER FORTH CHARACTER OF THE ACCESS CODE");
+			burnString(100, 100, enteredCode);
+			
+			pushToStack(choices, "2");
+			pushToStack(values, "2");
+			pushToStack(choices, "5");
+			pushToStack(values, "5");
+			pushToStack(choices, "3");
+			pushToStack(values, "3");
+			pushToStack(choices, "6");
+			pushToStack(values, "6");
+			pushToStack(choices, "1");
+			pushToStack(values, "1");
+			pushToStack(choices, "0");
+			pushToStack(values, "0");
+			pushToStack(choices, "7");
+			pushToStack(values, "7");
+			
+			addSpeechChoicesFromStacks(choices, values);			
+			
+			choice = getSpeechChoice(ego);
+			
+			enteredCode = enteredCode + choice;			
+			
+			if(enteredCode == secretCode) {
+				unfreeze();
+				say(room06_secCode, "ACCESS GRANTED");				
+			
+				inNeedOfSecretCode = FALSE;
+				room06_accessCode = TRUE;
+				removeScreenRegion(room06_secCode);
+				checkSecretAccess();
+			
+			} else {
+				unfreeze();
+				say(room06_secCode, "ACCESS DENIED");				
+			}
 	}
 }
 

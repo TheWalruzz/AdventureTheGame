@@ -98,7 +98,7 @@ objectType room01_secretary("secretary")
 			say(room01_secretary, "I already told you to use the elevator. Put your ID in its scanner.");
 			say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
 		}
-		else if(! room01_talkedToRebels)
+		else if((! room01_talkedToRebels) && room02_newspaperTaken)
 		{
 			say(room01_secretary, "Oh, it's you again. I told you already - I'm busy.");
 			
@@ -202,8 +202,16 @@ objectType room01_secretary("secretary")
 		else
 		{
 			say(ego, "Hi!");
-			say(room01_secretary, "Umm...");
-			say(ego, "Nevermind");
+			say(room01_secretary, "Umm... Hi?");
+			if (inNeedOfSecretCode) {
+				say(ego, "Do you know the code for the SECRET?");
+				say(room01_secretary, "Sure, it's " + secretCode);
+				say(ego, "Great, thank you!");
+				say(room01_secretary, "Will you now quit bothering me? I'm busy!");
+				say(ego, "Okay, okay!");
+			} else {
+				say(ego, "Well... Nevermind.");
+			}
 		}
 	}
 	
