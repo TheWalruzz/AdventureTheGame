@@ -2,6 +2,8 @@ var room04_lookedAtDoor = FALSE;
 
 var afterPrison = FALSE;
 
+var straightFromPrison = FALSE;
+
 sub room04()
 {
 	setSceneDimensions(1366, 768);
@@ -24,6 +26,9 @@ sub room04()
 	fadeIn();
 	
 	say(ego, "What kind of company has its very own prison inside their headquarters?");
+
+	straightFromPrison = TRUE;
+	
 }
 
 objectType room04_door("prison door")
@@ -47,7 +52,7 @@ objectType room04_door("prison door")
 	}
 	
 	event item_picklock {
-		gotoRoom(room06); # TODO: korytarz
+		gotoRoom(room07);
 	}
 	
 }

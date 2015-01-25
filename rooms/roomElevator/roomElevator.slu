@@ -57,8 +57,9 @@ sub roomElevator()
 	else if(roomElevator_floor == 4)
 	{
 		location = "Basement";
-		room = room06;
+		room = room07;
 	}
+	turnCharacter (ego, NORTH);
 	
 	playSound('rooms/roomElevator/elevator2.wav');
 	pause(200);

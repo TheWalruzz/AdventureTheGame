@@ -1,0 +1,53 @@
+sub room07()
+{
+	setSceneDimensions(1366, 768);
+	addOverlay('rooms/room07/room07.png', 0, 0);
+	setFloor('rooms/room07/room07.flo');
+	
+	setScale(290, 490);
+	
+	if (straightFromPrison) {
+		addCharacter(ego, 200, 720, makeEgoAnim());
+	} else if (straightFromSecret) {
+		addCharacter(ego, 1200, 720, makeEgoAnim());		
+	} else {
+		addCharacter(ego, 722, 600, makeEgoAnim());
+	}
+	
+	addScreenRegion(room07_prison, 35, 256, 190, 768, 200, 720, WEST);
+	addScreenRegion(room07_elevator, 570, 225, 875, 570, 722, 600, NORTH);
+	addScreenRegion(room07_secret, 1200, 250, 1333, 768, 1200, 720, EAST);
+
+	straightFromPrison = FALSE;
+	straightFromSecret = FALSE;
+	
+	setCharacterWalkSpeed(ego, 8);
+}
+
+
+objectType room07_elevator("elevator")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		gotoRoom(roomElevator);
+	}
+}
+
+objectType room07_secret("mysterious door")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		gotoRoom(room06);
+	}
+}
+
+objectType room07_prison("prison")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		say(ego, "I can't see why would I want to imprison myself once again.");
+	}
+}
