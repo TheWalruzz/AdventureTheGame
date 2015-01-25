@@ -16,11 +16,7 @@ objectType interactWith ("Interact with ") {
 objectType cancel ("Cancel") {}
 
 # The "Use item on..." action
-objectType useItemOn ("Use item on ") {
-	event default {
-		say (ego, "I'm not sure what to do with it.");
-	}
-}
+objectType useInventory("Inventory") {}
 
 # An event for setting a different mouse cursor when hovering over a
 # particular object type

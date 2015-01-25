@@ -519,6 +519,14 @@ objectType room02_newspaper("newspaper")
 	{
 		say(ego, "I can't reach it!");
 	}
+	
+	event item_ropeFullyCombined
+	{
+		say(ego, "It worked!");
+		
+		pushToStack(inventory, item_newspaper);
+		removeCharacter(room02_newspaper);
+	}
 }
 
 objectType room02_chair("chair")
