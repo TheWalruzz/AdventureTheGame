@@ -73,13 +73,24 @@ sub invClick () {
 		stop ();
 		findEvent (currentInvItem, o);
 		currentInvItem = NULL;
+		
+		if(callEvent(getIcon, o))
+		{
+			unfreeze ();
+			handleFocus (NULL);
+			go();
+			
+			showInventory();
+		}
+		
 		invGo ();
 	} else {
 		stop ();
 
 		# By default, clicking an inventory object selects it...
 		# that's unless it's got an "inventoryClick" event
-		if (! callEvent (inventoryClick, o)) currentInvItem = o;
+		if (! callEvent (inventoryClick, o)) 
+			currentInvItem = o;
 
 		invGo ();
 	}

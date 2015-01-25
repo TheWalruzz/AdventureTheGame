@@ -33,6 +33,16 @@ objectType item_gumWhole("chewing gum")
 		icon = anim('iface/mushroom.duc', 0);
 	}
 	
+	event item_book
+	{
+		say(ego, "Sadly, it's not sticking.");
+	}
+	
+	event item_ropeWithBook
+	{
+		say(ego, "Sadly, it's not sticking.");
+	}
+	
 	event default
 	{
 		say(ego, "Sticking gum to it won't help.");
@@ -57,6 +67,15 @@ objectType item_book("Game Design for Dummies")
 	event getIcon
 	{
 		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event item_gumChewed
+	{
+		deleteFromStack(inventory, item_gumChewed);
+		deleteFromStack(inventory, item_book);
+		pushToStack(inventory, item_bookWithGum);
+		
+		say(ego, "I surprised myself again.");
 	}
 	
 	event default
@@ -131,6 +150,15 @@ objectType item_rope("rope")
 		
 		say(ego, "Sometimes I'm afraid of my genius.");
 	}
+	
+	event item_bookWithGum
+	{
+		deleteFromStack(inventory, item_bookWithGum);
+		deleteFromStack(inventory, item_rope);
+		pushToStack(inventory, item_ropeFullyCombined);
+		
+		say(ego, "Well. Someone said that every puzzle has an answer.");
+	}
 
 	event default
 	{
@@ -170,6 +198,19 @@ objectType item_ropeFullyCombined("rope with a book and a gum")
 	event default
 	{
 		say(ego, "Nope. I would look wierd doing it.");
+	}
+}
+
+objectType item_bookWithGum("book with a gum")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "Sometimes I do crazy things. But not this time.");
 	}
 }
 
