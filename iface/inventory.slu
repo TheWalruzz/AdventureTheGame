@@ -2,42 +2,46 @@ var inventory = newStack();
 var icon;
 var currentInvItem = NULL;
 
+sub showInventory() {
+	#var rowsNeeded = (stackSize (inventory) - 1) / 9;
+	#var x = 1000, y = 190 - rowsNeeded * 25;
+	freeze ();
+	
+	darkBackground ();
+	mixOverlay ('iface/invback.tga', CENTRE, CENTRE);
+	
+	var invItems = copyStack (inventory);
+	
+	# Big black crosshair showing the centre of the screen
+	# blankArea (0, 239, 639, 240);
+	# blankArea (319, 0, 320, 479);
+	
+	var i = 0, j = 0, x = 0, y = 0, startX = 683 - (9/2)*50, startY = 384 - (7/2)*50;
+	
+	while(invItems)
+	{
+		x =  startX + ((i%9) * 50);
+		y = startY + (j*50);
+		
+		i++;
+		if(i % 9 == 0)
+			j++;
+		
+		var thisItem = popFromStack (invItems);
+		callEvent (getIcon, thisItem);
+		pasteImage (icon, x, y);
+		addScreenRegion (thisItem, x - 18, y - 18, x + 18, y + 18, 0, 0, 0);
+	}
+	
+	addStatus ();
+	invGo ();
+	while (howFrozen ()) pause (1);	
+}
+
 objectType inventoryIcon ("inventory") {
 	event oneCursor = arrowTarget;
 	event onlyAction {
-		#var rowsNeeded = (stackSize (inventory) - 1) / 9;
-		#var x = 1000, y = 190 - rowsNeeded * 25;
-		freeze ();
-
-		darkBackground ();
-		mixOverlay ('iface/invback.tga', CENTRE, CENTRE);
-
-		var invItems = copyStack (inventory);
-
-		# Big black crosshair showing the centre of the screen
-		# blankArea (0, 239, 639, 240);
-		# blankArea (319, 0, 320, 479);
-		
-		var i = 0, j = 0, x = 0, y = 0, startX = 683 - (9/2)*50, startY = 384 - (7/2)*50;
-		
-		while(invItems)
-		{
-			x =  startX + ((i%9) * 50);
-			y = startY + (j*50);
-			
-			i++;
-			if(i % 9 == 0)
-				j++;
-			
-			var thisItem = popFromStack (invItems);
-			callEvent (getIcon, thisItem);
-			pasteImage (icon, x, y);
-			addScreenRegion (thisItem, x - 18, y - 18, x + 18, y + 18, 0, 0, 0);
-		}
-		
-		addStatus ();
-		invGo ();
-		while (howFrozen ()) pause (1);
+		showInventory();
 	}
 }
 

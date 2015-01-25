@@ -21,7 +21,7 @@ objectType item_gumWhole("chewing gum")
 	
 	event default
 	{
-		say(ego, "No way! My new precious ID card is meant for greater purposes than that!");
+		say(ego, "Sticking gum to it won't help.");
 	}
 }
 
@@ -74,6 +74,31 @@ objectType item_broom("broom")
 	event default
 	{
 		say(ego, "Brooms may be considered magical by some, but I don't think it will work here.");
+	}
+}
+
+objectType item_potato("potato")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	event default
+	{
+		say(ego, "Sticking potatoes in your problems isn't exactly the best way to deal with them."); 
+	}
+}
+
+objectType item_picklock("picklock")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "It doesn't need to be opened.");
 	}
 }
 
