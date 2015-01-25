@@ -126,13 +126,10 @@ sub room02()
 	
 	setCharacterWalkSpeed(ego, 9);
 	
-	if(room02_beforeAttack == FALSE)
+	if(room02_beforeAttack == FALSE && (itemsCount(item_rope) == 1 || itemsCount(item_ropeWithBook) == 1 || itemsCount(item_rope) == 1))
 	{
-		#pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 300);
-		#pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 300);
 		
-		addCharacter(room02_rope, 3500, 580, anim('rooms/room02/rope.duc', 0));
-		setCharacterExtra(room02_rope, FIXEDSIZE);
+		addCharacter(room02_rope, 3533, 652, anim('rooms/room02/book.duc', 0));
 	}
 	
 }
@@ -275,13 +272,16 @@ objectType room02_cable("cable")
 	{
 		if(room02_beforeAttack)
 		{
-			#TODO something fancy to exclaim the arrival of rebels
-		
-			pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 580);
-			pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 580);
+			fadeOut();
 			
-			addCharacter(room02_rope, 3500, 580, anim('rooms/room02/rope.duc', 0));
-			setCharacterExtra(room02_rope, FIXEDSIZE);
+			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
+			setCharacterExtra(room02_tempRope3, FIXEDSIZE);
+			
+			addCharacter(room02_tempRope2, 3302, 520, anim('rooms/room02/rope.duc', 0));
+			setCharacterExtra(room02_tempRope2, FIXEDSIZE);
+			
+			addCharacter(room02_tempRope1, 3500, 520, anim('rooms/room02/rope.duc', 0));
+			setCharacterExtra(room02_tempRope1, FIXEDSIZE);
 			
 			addCharacter(room02_rebel1, 3000, 250, costume(
 					anim('rooms/room02/rebel.duc', 0),
@@ -323,6 +323,10 @@ objectType room02_cable("cable")
 					NULL, NULL, NULL, NULL
 				));
 			setCharacterExtra(room02_rebel3, FIXEDSIZE);
+			
+			pause(35);
+			
+			fadeIn();
 			
 			spawnSub(aaa);
 			spawnSub(bbb);
@@ -367,7 +371,20 @@ objectType room02_cable("cable")
 			say(room02_talkBox, "Damn. They know nothing.");
 			say(room02_talkBox, "Without knowing the Secret we will never be able to give back gaming its former glory.");
 			say(room02_talkBox, "Guys, let's roll.");
-			pause(30);
+			
+			fadeOut();
+			
+			removeCharacter(room02_tempRope1);
+			removeCharacter(room02_tempRope2);
+			removeCharacter(room02_tempRope3);
+			
+			addCharacter(room02_rope, 3533, 652, anim('rooms/room02/book.duc', 0));
+			setCharacterExtra(room02_rope, FIXEDSIZE);
+			
+			pause(35);
+			
+			fadeIn();
+			
 			say(ego, "Secret? What are they talking about?");
 			say(ego, "Gaming's former glory? Rebellion?");
 			say(ego, "I'm confused. Maybe there's something in the papers?");
@@ -508,19 +525,29 @@ objectType room02_rope("rope")
 {
 	event lookAt
 	{
-		say(ego, pickOne("It's just hanging there.", "A rope left by those strange intruders."));
+		say(ego, pickOne("It's just lying there.", "A rope left by those strange intruders."));
 	}
 	
-	event item_book
+	event interactWith
 	{
+		say(ego, "What a nice rope!");
+	
+		pushToStack(inventory, item_rope);
+		
 		removeCharacter(room02_rope);
-		addCharacter(room02_ropeWithBook, 3500, 620, anim('rooms/room02/rope.duc', 1));
-		setCharacterExtra(room02_ropeWithBook, FIXEDSIZE);
-		
-		say(ego, "Sometimes I'm afraid of my genius.");
-		
-		deleteFromStack(inventory, item_book);
 	}
+}
+
+objectType room02_tempRope1("")
+{
+}
+
+objectType room02_tempRope2("")
+{
+}
+
+objectType room02_tempRope3("")
+{
 }
 
 var comicSans = 0;
@@ -562,48 +589,6 @@ objectType room02_superderpy("a badge")
 	}
 }
 
-objectType room02_ropeWithBook("rope with a book")
-{
-	event lookAt
-	{
-		say(ego, "It's still a rope, but now with an attached book.");
-	}
-	
-	event interactWith
-	{
-		#TODO throwing rope with a book on the shelf animation - ended with fail
-		say(ego, "Hmm, if I could only make it a bit stickier...");
-	}
-	
-	event item_gumChewed
-	{
-		removeCharacter(room02_ropeWithBook);
-	
-		addCharacter(room02_ropeFullyCombined, 3777, 69, anim('rooms/room02/rope.duc', 2));
-		setCharacterExtra(room02_ropeFullyCombined, FIXEDSIZE);
-	
-		say(ego, "Well. Someone said that every puzzle has an answer.");
-		
-		deleteFromStack(inventory, item_gumChewed);
-	}
-}
-
-objectType room02_ropeFullyCombined("rope with a book and a gum")
-{
-	event lookAt
-	{
-		say(ego, "It came out pretty nifty.");
-	}
-	
-	event interactWith
-	{
-		#TODO animation of newspaper being pulled of a shelf by our lovely combination of rope, book and gum
-		
-		pushToStack(inventory, item_newspaper);
-		
-		removeCharacter(room02_newspaper);
-	}
-}
 
 objectType room02_employee1("employee")
 {
