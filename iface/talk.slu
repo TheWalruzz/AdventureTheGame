@@ -14,6 +14,27 @@
 var speechChoices = newStack ();
 var gotSpeechClick;
 
+var choices = newStack(), values = newStack();
+sub addSpeechChoicesFromStacks(a, b)
+{
+	for(var i =0; i < stackSize(choices); i++)
+	{
+		addSpeechChoice(a[i], b[i]);
+	}
+}
+
+sub deleteChoicesByValue(n)
+{
+	for(var i = 0; i < stackSize(values); i++)
+	{
+		if(values[i] == n)
+		{
+			deleteFromStack(values, n);
+			deleteFromStack(choices, choices[i]);
+		}
+	}
+}
+
 sub addSpeechChoice (a, b) {
 
 	# Is the stack of choices empty? If so, change the status bar
@@ -37,7 +58,7 @@ sub getSpeechChoice (character) {
 	hideCharacter (inventoryIcon);
 	onLeftMouse (speechClick);
 	loop {
-		var selected = (537 - getMouseY ()) / 32 - 1;
+		var selected = (830 - getMouseY ()) / 32 - 1;
 			
 		gotSpeechClick = FALSE;
 		lightStatus (selected - 1);

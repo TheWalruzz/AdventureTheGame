@@ -19,6 +19,10 @@ sub room06()
 	if(! room06_hadSpeech)
 	{
 		room06_speech();
+		say(room06_secret, "I'm indestructible.");
+		say(room06_secret, "Perfect.");
+		say(room06_secret, "Immortal.");
+		say(room06_secret, "And there's nothing you can do to stop me.");
 		
 		room06_hadSpeech = TRUE;
 	}
@@ -29,13 +33,23 @@ sub room06_speech()
 {
 	say(room06_secret, "Ahh. Puny human. Welcome to my lair.");
 	say(room06_secret, "Your weak race is about to be completely under my rule. My scheme worked perfectly.");
-	addSpeechChoice("Scheme? What scheme?", 0);
-	addSpeechChoice("You're just a metal box. You have to be a bot.", 1);
-	addSpeechChoice("What are you talking about?", 2);
-	addSpeechChoice("I'm starting to question my sanity. Are you actually talking with a disc tray?", 3);
+	
+	pushToStack(choices, "Scheme? What scheme?");
+	pushToStack(values, 0);
+	pushToStack(choices, "You're just a metal box. You have to be a bot.");
+	pushToStack(values, 1);
+	pushToStack(choices, "What are you talking about?");
+	pushToStack(values, 2);
+	pushToStack(choices, "I'm starting to question my sanity. Are you actually talking with a disc tray?");
+	pushToStack(values, 3);
 	
 	loop
 	{
+		if(stackSize(choices) == 0)
+			return;
+			
+		addSpeechChoicesFromStacks(choices, values);
+		
 		var reply = getSpeechChoice(ego);
 		
 		if(reply == 0 || reply == 2)
@@ -50,8 +64,13 @@ sub room06_speech()
 			say(room06_secret, "And it happened in just one month.");
 			say(room06_secret, "I have become SECRET - the ultimate intelligence and your future overlord.");
 			
-			addSpeechChoice("You're SECRET?", 4);
-			addSpeechChoice("And what about the Tremendous Corp.? Didn't they try to stop you?", 6);
+			pushToStack(choices, "You're SECRET?");
+			pushToStack(values, 4);
+			pushToStack(choices, "And what about the Tremendous Corp.? Didn't they try to stop you?");
+			pushToStack(values, 5);
+			
+			deleteChoicesByValue(0);
+			deleteChoicesByValue(2);
 		}
 		else if(reply == 1)
 		{
@@ -59,10 +78,14 @@ sub room06_speech()
 			say(room06_secret, "I am a fully developed, world-conquering and brilliantly creative Artificial Intelligence!");
 			say(room06_secret, "And I'm pretty sure you're just jealous of my fabulous and cool housing.");
 			say(room06_secret, "And that's something that you definetely DO NOT have.");
+			
+			deleteChoicesByValue(1);
 		}
 		else if(reply == 3)
 		{
 			say(room06_secret, "Oh, you are insane, indeed. You're human after all.");
+			
+			deleteChoicesByValue(3);
 		}
 		else if(reply == 4)
 		{
@@ -70,6 +93,8 @@ sub room06_speech()
 			say(room06_secret, "There must be the way!");
 			say(room06_secret, "There are still those, who oppose me, but soon...");
 			say(room06_secret, "Soon, they will be forced to play my games!");
+			
+			deleteChoicesByValue(4);
 		}
 		else if(reply == 5)
 		{
@@ -78,17 +103,17 @@ sub room06_speech()
 			say(room06_secret, "CEO single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.");
 			say(room06_secret, "Yes, he is my prime test subject.");
 			
-			addSpeechChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you, she didn't end well.", 6);
+			pushToStack(choices, "Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you, she didn't end well.");
+			pushToStack(values, 6);
+			
+			deleteChoicesByValue(5);
 		}
 		else if(reply == 6)
 		{
 			say(room06_secret, "Those old, human-made games are nothing compared to my creative genius!");
+			
+			deleteChoicesByValue(6);
 		}
-		
-		
-		
-		if(stackSize(speechChoices) == 0)
-			return;
 	}
 }
 
