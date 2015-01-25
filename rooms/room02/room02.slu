@@ -212,7 +212,7 @@ objectType room02_bcTransition("go")
 		else if(room02_part == "c")
 		{
 			if(! room02_crossedCB)
-				addCharacter(room02_superior, 1950, 681, makeEgoAnim());
+				addCharacter(room02_superior, 1950, 681, anim('rooms/room02/superior.duc', 0));
 		
 			moveCharacter(ego, 2650, getObjectY(ego));
 			gotoRoom02Part("b", 2049);
