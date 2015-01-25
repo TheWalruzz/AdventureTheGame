@@ -25,10 +25,8 @@ sub roomElevatorIntro()
 	playSound('rooms/roomElevator/buzzbg.wav');
 	
 	
-	addCharacter(roomElevatorIntro_door, 0, 0, costume(
-		anim('rooms/roomElevator/door.duc', wait(0, 16), wait(1, 4), wait(2,8), wait(1, 12), wait(1, 4), wait(2,8), wait(1, 12), wait(0, 20)),
-		anim('rooms/roomElevator/door.duc', 1),
-		anim('rooms/roomElevator/door.duc', 1)
+	addCharacter(roomElevatorIntro_door, 0, 0, makeStaticCostume(
+		anim('rooms/roomElevator/door.duc', wait(0, 16), wait(1, 4), wait(2,8), wait(1, 12), wait(1, 4), wait(2,8), wait(1, 12), wait(0, 20))
 	));
 	setCharacterExtra(roomElevatorIntro_door, FIXEDSIZE);
 	

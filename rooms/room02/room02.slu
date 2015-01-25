@@ -70,7 +70,7 @@ sub room02()
 	setCharacterExtra(room02_lineobst2, FIXEDSIZE);
 	
 	
-	addCharacter(room02_noSmokingSign, 100, 100, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
+	addCharacter(room02_noSmokingSign, 100, 200, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	setCharacterExtra(room02_noSmokingSign, FIXEDSIZE);
 
 	addCharacter(room02_superderpy, 200 , 308, anim('rooms/room02/newspaper.duc', 0));
