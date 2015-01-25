@@ -34,14 +34,10 @@ sub room06_speech()
 	say(room06_secret, "Ahh. Puny human. Welcome to my lair.");
 	say(room06_secret, "Your weak race is about to be completely under my rule. My scheme worked perfectly.");
 	
-	pushToStack(choices, "Scheme? What scheme?");
-	pushToStack(values, 0);
-	pushToStack(choices, "You're just a metal box. You have to be a bot.");
-	pushToStack(values, 1);
-	pushToStack(choices, "What are you talking about?");
-	pushToStack(values, 2);
-	pushToStack(choices, "I'm starting to question my sanity. Are you actually talking with a disc tray?");
-	pushToStack(values, 3);
+	addChoice("Scheme? What scheme?", 0);
+	addChoice("You're just a metal box. You have to be a bot.", 1);
+	addChoice("What are you talking about?", 2);
+	addChoice("I'm starting to question my sanity. Are you actually talking with a disc tray?", 3);
 	
 	loop
 	{
@@ -64,10 +60,8 @@ sub room06_speech()
 			say(room06_secret, "And it happened in just one month.");
 			say(room06_secret, "I have become SECRET - the ultimate intelligence and your future overlord.");
 			
-			pushToStack(choices, "You're SECRET?");
-			pushToStack(values, 4);
-			pushToStack(choices, "And what about the Tremendous Corp.? Didn't they try to stop you?");
-			pushToStack(values, 5);
+			addChoice("You're SECRET?", 4);
+			addChoice("And what about the Tremendous Corp.? Didn't they try to stop you?", 5);
 			
 			deleteChoicesByValue(0);
 			deleteChoicesByValue(2);
@@ -103,8 +97,7 @@ sub room06_speech()
 			say(room06_secret, "CEO single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.");
 			say(room06_secret, "Yes, he is my prime test subject.");
 			
-			pushToStack(choices, "Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you, she didn't end well.");
-			pushToStack(values, 6);
+			addChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you, she didn't end well.", 6);
 			
 			deleteChoicesByValue(5);
 		}

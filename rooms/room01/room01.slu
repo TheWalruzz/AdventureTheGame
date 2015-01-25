@@ -2,6 +2,7 @@
 
 # vars
 var room01_firstTalk = TRUE;
+var room01_talkedToRebels = FALSE;
 
 
 sub room01()
@@ -91,9 +92,116 @@ objectType room01_secretary("secretary")
 	
 	event interactWith
 	{
-		say(ego, "Uhm, so what should I do now?");
-		say(room01_secretary, "I already told you to use the elevator. Put your ID in its scanner.");
-		say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
+		if(room02_beforeAttack)
+		{
+			say(ego, "Uhm, so what should I do now?");
+			say(room01_secretary, "I already told you to use the elevator. Put your ID in its scanner.");
+			say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
+		}
+		else
+		{
+			say(room01_secretary, "Oh, it's you again. I told you already - I'm busy.");
+			
+			addChoice("It's urgent. I need to call right now.", 0);
+			addChoice("I don't have time for this, someone kidnapped a whole floor of employees.", 1);
+			
+			loop
+			{
+				if(stackSize(choices) == 0)
+					return;
+			
+				addSpeechChoicesFromStacks(choices, values);
+		
+				var reply = getSpeechChoice(ego);
+				
+				if(reply == 0)
+				{
+					say(room01_secretary, "I don't care. I'm busy");
+					
+					deleteChoicesByValue(0);
+				}
+				else if(reply == 1)
+				{
+					say(room01_secretary, "Well, this prank isn't funny, you know?");
+					say(room01_secretary, "I don't know who would fall for such a bad joke.");
+					
+					addChoice("I'm serious. And I need to phone for some answers.", 2);
+					addChoice("Are you always so 'kind' for newcomers?", 3);
+					addChoice("What have I done to deserve this fate... I attract bad luck. Poor me!", 4);
+					
+					deleteChoicesByValue(0);
+					deleteChoicesByValue(1);
+				}
+				else if(reply == 2)
+				{
+					say(room01_secretary, "Tough guy, eh?");
+					say(room01_secretary, "You don't have a cellphone these days?");
+					say(room01_secretary, "Weirdo.");
+					
+					deleteChoicesByValue(2);
+				}
+				else if(reply == 3)
+				{
+					say(room01_secretary, "Hmph. Rude.");
+					
+					deleteChoicesByValue(3);
+				}
+				else if(reply == 4)
+				{
+					say(room01_secretary, "Oh...");
+					say(room01_secretary, "There, there. Calm down.");
+					pause(25);
+					say(room01_secretary, "Here's the deal.");
+					say(room01_secretary, "You can call. Just try to keep it short, ok?");
+					
+					choices = newStack();
+					values = newStack();
+				}
+			}
+			
+			pause(30);
+			
+			addScreenRegion(room01_phonecall, 500, 400, 550, 450, 650, 600, -1);
+			
+			say(ego, "Hello? Rebellion?");
+			say(room01_phonecall, "No, no, no. It's Ye National Cheese Emporium. We are on a quest to learn all of the secrets of cheese!");
+			say(ego, "Really? I saw an ad...");
+			say(room01_phonecall, "Oh, you're from an ad?");
+			say(room01_phonecall, "Wait a second...");
+			pause(25);
+			say(room01_phonecall, "Yes?");
+			say(room01_phonecall, "Hello? Rebellion? I saw your ad...");
+			say(room01_phonecall, "An ad! A recruit then!");
+			say(ego, "No, no, no!");
+			say(ego, "You kidnapped 10 people from my new company! I need some answers!");
+			say(room01_phonecall, "Ah, yes! We did one of the good 'ol stealthy visits. They're fine, relax.");
+			say(ego, "Why did you do it?");
+			say(room01_phonecall, "You know, we needed some information for our neverending quest for freedom!");
+			say(ego, "What kind of information?");
+			say(room01_phonecall, "Where the legendary Secret lies, of course!");
+			say(ego, "A secret? You kidnapped people for a secret?");
+			say(room01_phonecall, "No, no, no! A Secret, not a secret.");
+			say(room01_phonecall, "People always mix those two.");
+			say(room01_phonecall, "You see, legend says that the gaming industry fell apart, because of someone, who learned of some kind of Secret.");
+			say(room01_phonecall, "We are the Indie Rebellion! We want it gone forever!");
+			say(ego, "This doesn't explain the kidnapping.");
+			say(room01_phonecall, "Oh no, 'kidnapping' again.");
+			say(room01_phonecall, "They weren't kidnapped. We are artists, you know! It was a performance!");
+			say(room01_phonecall, "With all those Tremendous Corporation's patents disallowing any gamedev outside of it, we had to become...");
+			say(room01_phonecall, "Actors, painters and poets! Ewww...");
+			say(room01_phonecall, "Say... wouldn't you be interested in some charitable work for our noble cause?");
+			say(room01_phonecall, "'Cause you know... Does ANYBODY hate artists?");
+			say(ego, "I... Are you serious?");
+			say(room01_phonecall, "We're as serious, as comedy gets!");
+			say(room01_phonecall, "Say... Would you like to do a little old-fashioned spying?");
+			say(room01_phonecall, "Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definetely him!");
+			say(room01_phonecall, "See it with your own eyes, man!");
+			pause(25);
+			
+			say(ego, "That was weird. But I'm also very curious now!");
+			
+			room01_talkedToRebels = TRUE;
+		}
 	}
 	
 	event walkToPerson
@@ -101,5 +209,9 @@ objectType room01_secretary("secretary")
 		moveCharacter (ego, 650, 600);
 		turnCharacter (ego, EAST);
 	}
+}
+
+objectType room01_phonecall("")
+{
 }
 

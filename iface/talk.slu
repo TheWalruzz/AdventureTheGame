@@ -35,6 +35,12 @@ sub deleteChoicesByValue(n)
 	}
 }
 
+sub addChoice(a, b)
+{
+	pushToStack(choices, a);
+	pushToStack(values, b);
+}
+
 sub addSpeechChoice (a, b) {
 
 	# Is the stack of choices empty? If so, change the status bar
