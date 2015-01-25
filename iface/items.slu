@@ -26,6 +26,20 @@ objectType item_bossIDcard("boss ID card")
 	}
 }
 
+
+objectType item_bossKey("a key")
+{
+	event getIcon
+	{
+		icon = anim('iface/mushroom.duc', 0);
+	}
+	
+	event default
+	{
+		say(ego, "I'll better keep it to myself.");
+	}
+}
+
 objectType item_gumWhole("chewing gum")
 {
 	event getIcon

@@ -12,6 +12,6 @@ sub init ()
 	setSpeechSpeed(200);
 	
 	stop();
-	gotoRoom(room06);
+	gotoRoom(intro);
 	go();
 }
