@@ -81,6 +81,7 @@ sub room02()
 		addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
 		addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
 		addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		
 	
 		addCharacter(room02_employee4, 1500, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
 		addCharacter(room02_employee5, 1802, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
@@ -94,17 +95,26 @@ sub room02()
 	else
 	{
 		addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee1, FIXEDSIZE);
 		addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee2, FIXEDSIZE);
 		addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-
+		setCharacterExtra(room02_employee3, FIXEDSIZE);
 		addCharacter(room02_employee4, 1500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee4, FIXEDSIZE);
 		addCharacter(room02_employee5, 1802, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee5, FIXEDSIZE);
 		addCharacter(room02_employee6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee6, FIXEDSIZE);
 		addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee7, FIXEDSIZE);
 
 		addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee8, FIXEDSIZE);
 		addCharacter(room02_employee9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee9, FIXEDSIZE);
 		addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_employee10, FIXEDSIZE);
 	}
 	
 	if(room02_crossedCB && room02_beforeAttack)
@@ -328,14 +338,20 @@ objectType room02_cable("cable")
 			removeCharacter(room02_employee6);
 			removeCharacter(room02_employee7);
 			
-			addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-			addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-			addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-	
-			addCharacter(room02_employee4, 1500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-			addCharacter(room02_employee5, 1802, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-			addCharacter(room02_employee6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-			addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			addCharacter(room02_chair1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			setCharacterExtra(room02_chair1, FIXEDSIZE);
+			addCharacter(room02_chair2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			setCharacterExtra(room02_chair2, FIXEDSIZE);
+			addCharacter(room02_chair3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			setCharacterExtra(room02_chair3, FIXEDSIZE);
+			addCharacter(room02_chair4, 1500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			setCharacterExtra(room02_chair4, FIXEDSIZE);
+			addCharacter(room02_chair5, 1802, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			setCharacterExtra(room02_chair5, FIXEDSIZE);
+			addCharacter(room02_chair6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			setCharacterExtra(room02_chair6, FIXEDSIZE);
+			addCharacter(room02_chair7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			setCharacterExtra(room02_chair7, FIXEDSIZE);
 	
 			spawnSub(aa);
 			spawnSub(bb);
@@ -382,24 +398,24 @@ objectType room02_cable("cable")
 sub aa()
 {
 	removeCharacter(room02_employee10);
-	addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-	setCharacterExtra(room02_employee10, FIXEDSIZE);
+	addCharacter(room02_chair10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	setCharacterExtra(room02_chair10, FIXEDSIZE);
 	forceCharacter(room02_rebel3, 3500, -150);
 }
 
 sub bb()
 {
 	removeCharacter(room02_employee9);
-	addCharacter(room02_employee9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-	setCharacterExtra(room02_employee9, FIXEDSIZE);
+	addCharacter(room02_chair9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	setCharacterExtra(room02_chair9, FIXEDSIZE);
 	forceCharacter(room02_rebel2, 3302, -150);
 }
 
 sub cc()
 {
 	removeCharacter(room02_employee8);
-	addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-	setCharacterExtra(room02_employee8, FIXEDSIZE);
+	addCharacter(room02_chair8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	setCharacterExtra(room02_chair8, FIXEDSIZE);
 	forceCharacter(room02_rebel1, 3000, -150);
 }
 
@@ -698,6 +714,27 @@ objectType room02_employee10("employee")
 			say(room02_employee10, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
+
+objectType room02_chair1("chair")
+{}
+objectType room02_chair2("chair")
+{}
+objectType room02_chair3("chair")
+{}
+objectType room02_chair4("chair")
+{}
+objectType room02_chair5("chair")
+{}
+objectType room02_chair6("chair")
+{}
+objectType room02_chair7("chair")
+{}
+objectType room02_chair8("chair")
+{}
+objectType room02_chair9("chair")
+{}
+objectType room02_chair10("chair")
+{}
 
 objectType room02_rebel1("rebel")
 {
