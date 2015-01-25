@@ -1,5 +1,7 @@
 var room04_lookedAtDoor = FALSE;
 
+var afterPrison = FALSE;
+
 sub room04()
 {
 	setSceneDimensions(1366, 768);
@@ -34,6 +36,7 @@ objectType room04_door("prison door")
 		say(ego, "If only I could make some kind of picklock...");
 		
 		room04_lookedAtDoor = TRUE;
+		afterPrison = TRUE;
 	}
 	
 	event interactWith

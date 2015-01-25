@@ -1,4 +1,8 @@
-var room06_hadSpeech = FALSE;
+var room06_hadSpeech = TRUE;
+
+var room06_trayLocked = FALSE;
+
+var room06_lidOpen = FALSE;
 
 sub room06()
 {
@@ -6,7 +10,7 @@ sub room06()
 	addOverlay('rooms/room06/room06.png', 0, 0);
 	setFloor('rooms/room06/room06.flo');
 	
-	setScale(400, 490);
+	setScale(400, 300);
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
@@ -15,6 +19,10 @@ sub room06()
 	addScreenRegion(room06_secret, 396, 165, 545, 221, 0, 0, 0);
 	addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
 	addScreenRegion(room06_exit, 0, 0, 50, 768, 75, 670, WEST);
+
+	addScreenRegion(room06_tray, 396, 65, 545, 121, 340, 690, EAST);
+	
+	pushToStack(inventory, item_broom); # DEBUG
 	
 	if(! room06_hadSpeech)
 	{
@@ -121,12 +129,34 @@ objectType room06_powerButton("power button")
 {
 	event lookAt
 	{
-		say(ego, "It's a pretty big button!");
+		say(ego, "It's a big, pretty power button!");
 	}
 	
 	event interactWith
 	{
-		say(ego, "I can't reach it from here.");
+		narratorSay("Max pushes a button.");
+		say(ego, "Nothing happened...");
+		say(room06_secret, "Hahaha! You thought turning me off will be that easy?");
+		
+		addSpeechChoicesFromStacks(choices, values);
+		pushToStack(choices, "I thought that maybe 48 hours weren't enough to implement a complex puzzle here.");
+		pushToStack(values, 0);
+		pushToStack(choices, "So how can one turn you off?");
+		pushToStack(values, 0);
+		pushToStack(choices, "Well, it was worth trying.");
+		pushToStack(values, 0);
+		pushToStack(choices, "You never know. Best solution is often the easiest one.");
+		pushToStack(values, 0);
+		
+		addSpeechChoicesFromStacks(choices, values);
+		
+		getSpeechChoice(ego);
+		
+		deleteChoicesByValue(0);
+		
+		say(room06_secret, "There are three safety mechanisms you need to disable in order to turn me off.");
+		
+		say(ego, "Good to know.");
 	}
 	
 	event item_broom
@@ -135,9 +165,51 @@ objectType room06_powerButton("power button")
 	}
 }
 
-objectType room06_secret("") # just for talking
+objectType room06_secret("lid") # just for talking # actually it's also a lid now :3
 {
 	speechColor 220, 20, 60;
+	
+	event lookAt {
+		if (room06_lidOpen) {
+			say(ego, "The lid is opened.");
+		} else {
+			say(ego, "It's a closed lid.");
+		}
+	}
+	
+	event interactWith {
+		if (room06_trayLocked) {
+			if (room06_lidOpen) {
+				narratorSay("LID CLOSES LALALALSL");
+				room06_lidOpen = FALSE;
+			} else {
+				narratorSay("LID OPENS LSLALALA");
+				room06_lidOpen = TRUE;
+			}
+		} else {
+			narratorSay("Max reaches out to open the lid...");
+			say(room06_secret, "Not so fast! Keep your hands away from me!");
+			narratorSay("...but SECRET's moving tray almost ripped off his fingers!");
+		}
+	}
+	
+}
+
+objectType room06_tray("tray")
+{
+	event item_broom {
+		say(ego, "Hey, SECRET!");
+		say(room06_secret, "Yes, naive human?");
+		narratorSay("Max throws a broom at the lid.");
+		deleteFromStack(inventory, item_broom);
+		
+		say(room06_secret, "Oh, I see. That's a good one.");
+		say(room06_secret, "Nevertheless, your efforts are useless. You won't be able to bypass the security mechanisms.");
+		say(ego, "Thanks for your support! I'll keep trying anyway.");
+		
+		room06_trayLocked = TRUE;
+	}
+	
 }
 
 objectType room06_exit("")
