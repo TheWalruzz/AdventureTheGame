@@ -23,7 +23,7 @@ sub room05()
 	addScreenRegion(room05_drawer1, 200, 430, 302, 465, 236, 586, WEST);
 	addScreenRegion(room05_drawer2, 200, 466, 302, 517, 236, 586, WEST);
 	addScreenRegion(room05_closet, 85, 221, 187, 530, 332, 618, WEST);
-	addScreenRegion(room05_safe, 434, 231, 557, 382, 332, 618, EAST);
+	addScreenRegion(room05_safe, 434, 231, 557, 382, 505, 603, NORTH);
 	addScreenRegion(room05_exit, 0, 0, 50, 768, 75, 670, WEST);
 	
 	setCharacterWalkSpeed(ego, 8);
@@ -74,7 +74,18 @@ objectType room05_safe("safe")
 	{
 		say(room05_director, "Argh.");
 		say(room05_director, "My score was over 9000 and I've lost my focus because of you!");
+		say(room05_director, "Ah, digging for secrets, I see?");
+		say(room05_director, "Well, these are not the secrets you are looking for.");
+		pause(30);
 		say(room05_director, "Security!");
+		pause(5);
+		addCharacter(room05_security, 112, 650, anim('rooms/room05/security.duc', 0));
+		setCharacterExtra(room05_security, FIXEDSIZE);
+		say(room05_security, "You're coming with me, son.");
+		
+		fadeOut();
+		pause(25);
+		gotoRoom(room04);
 	}
 	
 	event lookAt
@@ -92,7 +103,7 @@ objectType room05_exit("")
 	}
 }
 
-objectType room05_director("director")
+objectType room05_director("CEO")
 {
 	speechColor 255, 255, 255;
 	
@@ -113,4 +124,10 @@ objectType room05_director("director")
 		turnCharacter (ego, EAST);
 	}
 }
+
+objectType room05_security("security guard")
+{
+	speechColor 255, 255, 255;	
+}
+
 

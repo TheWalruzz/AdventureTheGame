@@ -98,6 +98,11 @@ sub countItems(it)
 	return count;
 }
 
+sub abs(x)
+{
+	return (x<0) ? -x : x ;
+}
+
 var currentRoom = NULL;
 var lastRoom = NULL;
 

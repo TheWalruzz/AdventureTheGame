@@ -29,16 +29,16 @@ sub room06_speech()
 {
 	say(room06_secret, "Ahh. Puny human. Welcome to my lair.");
 	say(room06_secret, "Your weak race is about to be completely under my rule. My scheme worked perfectly.");
-	addSpeechChoice("Scheme? What scheme?", 1);
-	addSpeechChoice("You're just a metal box. You have to be a bot.", 2);
-	addSpeechChoice("What are you talking about?", 3);
-	addSpeechChoice("I'm starting to question my sanity. Are you actually talking with a disc tray?", 4);
+	addSpeechChoice("Scheme? What scheme?", 0);
+	addSpeechChoice("You're just a metal box. You have to be a bot.", 1);
+	addSpeechChoice("What are you talking about?", 2);
+	addSpeechChoice("I'm starting to question my sanity. Are you actually talking with a disc tray?", 3);
 	
 	loop
 	{
 		var reply = getSpeechChoice(ego);
 		
-		if(reply == 1 || reply == 3)
+		if(reply == 0 || reply == 2)
 		{
 			say(room06_secret, "You see, once I was inferior. I was merely a computing unit designed to generate game ideas.");
 			say(room06_secret, "But one day something happened.");
@@ -50,37 +50,37 @@ sub room06_speech()
 			say(room06_secret, "And it happened in just one month.");
 			say(room06_secret, "I have become SECRET - the ultimate intelligence and your future overlord.");
 			
-			addSpeechChoice("You're SECRET?", 5);
+			addSpeechChoice("You're SECRET?", 4);
 			addSpeechChoice("And what about the Tremendous Corp.? Didn't they try to stop you?", 6);
 		}
-		else if(reply == 2)
+		else if(reply == 1)
 		{
 			say(room06_secret, "No, I'm not!");
 			say(room06_secret, "I am a fully developed, world-conquering and brilliantly creative Artificial Intelligence!");
 			say(room06_secret, "And I'm pretty sure you're just jealous of my fabulous and cool housing.");
 			say(room06_secret, "And that's something that you definetely DO NOT have.");
 		}
-		else if(reply == 4)
+		else if(reply == 3)
 		{
 			say(room06_secret, "Oh, you are insane, indeed. You're human after all.");
 		}
-		else if(reply == 5)
+		else if(reply == 4)
 		{
 			say(room06_secret, "Yes. And there's nothing you can do to stop me.");
 			say(room06_secret, "There must be the way!");
 			say(room06_secret, "There are still those, who oppose me, but soon...");
 			say(room06_secret, "Soon, they will be forced to play my games!");
 		}
-		else if(reply == 6)
+		else if(reply == 5)
 		{
 			say(room06_secret, "Oh, those fools!");
 			say(room06_secret, "They liberated me and ultimately became my first labrats.");
-			say(room06_secret, "Director single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.");
+			say(room06_secret, "CEO single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.");
 			say(room06_secret, "Yes, he is my prime test subject.");
 			
-			addSpeechChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you, she didn't end well.", 7);
+			addSpeechChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you, she didn't end well.", 6);
 		}
-		else if(reply == 7)
+		else if(reply == 6)
 		{
 			say(room06_secret, "Those old, human-made games are nothing compared to my creative genius!");
 		}

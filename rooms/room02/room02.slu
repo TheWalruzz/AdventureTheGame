@@ -76,12 +76,51 @@ sub room02()
 	addCharacter(room02_superderpy, 200 , 308, anim('rooms/room02/newspaper.duc', 0));
 	setCharacterExtra(room02_superderpy, FIXEDSIZE);
 	
+	if(room02_beforeAttack)
+	{
+		addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+	
+		addCharacter(room02_employee4, 1500, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		addCharacter(room02_employee5, 1802, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		addCharacter(room02_employee6, 2104, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+	
+		addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		addCharacter(room02_employee9, 3302, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+		addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/employee.duc', 0)));
+	}
+	else
+	{
+		addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+
+		addCharacter(room02_employee4, 1500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room02_employee5, 1802, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room02_employee6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+
+		addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room02_employee9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	}
 	
 	spawnSub(lineSub);
 	spawnSub(lineSub2);
 	spawnSub(lineSub3);
 	
-	setCharacterWalkSpeed(ego, 8);
+	setCharacterWalkSpeed(ego, 24);
+	
+	if(room02_beforeAttack == FALSE)
+	{
+		pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 300);
+		pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 300);
+		
+		addCharacter(room02_rope, 3500, 580, anim('rooms/room02/rope.duc', 0));
+		setCharacterExtra(room02_rope, FIXEDSIZE);
+	}
 	
 }
 
@@ -222,10 +261,86 @@ objectType room02_cable("cable")
 		{
 			#TODO all hell breaks loose
 			
-			# aftermath
-			addCharacter(room02_rope, 3777, 69, anim('rooms/room02/rope.duc', 0));
+			pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 580);
+			pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 580);
+			
+			addCharacter(room02_rope, 3500, 580, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_rope, FIXEDSIZE);
 			
+			addCharacter(room02_rebel1, 3000, 250, costume(
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					anim('rooms/room02/rebel.duc', wait(2, 4), wait(2, 4)),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					NULL, NULL, NULL, NULL
+				));
+			
+			setCharacterExtra(room02_rebel1, FIXEDSIZE);
+			
+			addCharacter(room02_rebel2, 3302, 250, costume(
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					anim('rooms/room02/rebel.duc', wait(2, 4), wait(2, 4)),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					NULL, NULL, NULL, NULL
+				));
+				
+			setCharacterExtra(room02_rebel2, FIXEDSIZE);
+			
+			addCharacter(room02_rebel3, 3500, 250, costume(
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', 0),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					anim('rooms/room02/rebel.duc', wait(2, 4), wait(2, 4)),
+					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
+					NULL, NULL, NULL, NULL
+				));
+			setCharacterExtra(room02_rebel3, FIXEDSIZE);
+			
+			forceCharacter(room02_rebel1, 3000, 470);
+			forceCharacter(room02_rebel2, 3302, 470);
+			forceCharacter(room02_rebel3, 3500, 470);
+			
+			removeCharacter(room02_employee1);
+			removeCharacter(room02_employee2);
+			removeCharacter(room02_employee3);
+			removeCharacter(room02_employee4);
+			removeCharacter(room02_employee5);
+			removeCharacter(room02_employee6);
+			removeCharacter(room02_employee7);
+			
+			
+			
+			
+			addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	
+			addCharacter(room02_employee4, 1500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			addCharacter(room02_employee5, 1802, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			addCharacter(room02_employee6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	
+			
+			spawnSub(aa);
+			spawnSub(bb);
+			spawnSub(cc);
+			
+			#TODO whispers of rebellion
+			
+			
+			# aftermath
 			removeCharacter(room02_superior);
 			
 			room02_beforeAttack = FALSE;
@@ -243,6 +358,33 @@ objectType room02_cable("cable")
 			
 		}
 	}
+}
+
+sub aa()
+{
+	removeCharacter(room02_employee10);
+	addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	setCharacterExtra(room02_employee10, FIXEDSIZE);
+	forceCharacter(room02_rebel3, 3500, -150);
+	removeCharacter(room02_rebel3);
+}
+
+sub bb()
+{
+	removeCharacter(room02_employee9);
+	addCharacter(room02_employee9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	setCharacterExtra(room02_employee9, FIXEDSIZE);
+	forceCharacter(room02_rebel2, 3302, -150);
+	removeCharacter(room02_rebel2);
+}
+
+sub cc()
+{
+	removeCharacter(room02_employee8);
+	addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+	setCharacterExtra(room02_employee8, FIXEDSIZE);
+	forceCharacter(room02_rebel1, 3000, -150);
+	removeCharacter(room02_rebel1);
 }
 
 objectType room02_gum("gum")
@@ -320,7 +462,7 @@ objectType room02_rope("rope")
 	event item_book
 	{
 		removeCharacter(room02_rope);
-		addCharacter(room02_ropeWithBook, 3777, 69, anim('rooms/room02/rope.duc', 1));
+		addCharacter(room02_ropeWithBook, 3500, 620, anim('rooms/room02/rope.duc', 1));
 		setCharacterExtra(room02_ropeWithBook, FIXEDSIZE);
 		
 		say(ego, "Sometimes I'm afraid of my genius.");
@@ -409,5 +551,120 @@ objectType room02_ropeFullyCombined("rope with a book and a gum")
 		
 		removeCharacter(room02_newspaper);
 	}
+}
+
+objectType room02_employee1("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee1, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee2("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee2, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee3("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee3, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee4("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee4, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee5("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee5, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee6("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee6, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee7("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee7, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee8("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee8, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee9("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee9, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_employee10("employee")
+{
+	speechColor 255, 255, 255;
+	
+	event interactWith
+	{
+		say(room02_employee10, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+	}
+}
+
+objectType room02_rebel1("rebel")
+{
+	speechColor 255, 255, 255;
+}
+
+objectType room02_rebel2("rebel")
+{
+	speechColor 255, 255, 255;
+}
+
+objectType room02_rebel3("rebel")
+{
+	speechColor 255, 255, 255;
 }
 

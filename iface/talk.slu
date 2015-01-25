@@ -37,7 +37,8 @@ sub getSpeechChoice (character) {
 	hideCharacter (inventoryIcon);
 	onLeftMouse (speechClick);
 	loop {
-		var selected = (755 - getMouseY ()) / 32 - 1;
+		var selected = (537 - getMouseY ()) / 32 - 1;
+			
 		gotSpeechClick = FALSE;
 		lightStatus (selected - 1);
 

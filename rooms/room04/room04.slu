@@ -11,6 +11,8 @@ sub room04()
 	addScreenRegion(room04_door, 1068, 271, 1216, 726, 1057, 709, EAST);
 
 	setCharacterWalkSpeed(ego, 8);
+	
+	fadeIn();
 }
 
 objectType room04_door("prison door")
@@ -23,7 +25,7 @@ objectType room04_door("prison door")
 	event interactWith
 	{
 		say(ego, "*knock* *knock*");
-		pause(100);
+		pause(90);
 		say(ego, "I guess nobody is here.");
 	}
 	
