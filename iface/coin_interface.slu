@@ -86,7 +86,7 @@ sub leftClick () {
 			addScreenRegion (lookAt,	x + 32,	y + 20,	x + 59,  y + 49, 0, 0, NORTH);
 			addScreenRegion (interactWith,	x + 74,	y,	x + 101, y + 24, 0, 0, NORTH);
 			addScreenRegion (cancel,	x + 17,	y + 54,	x + 75,  y + 77, 0, 0, NORTH);
-			addScreenRegion (useItemOn,		x,	y + 1,	x + 23,  y + 21, 0, 0, NORTH);
+			addScreenRegion (useInventory,		x,	y + 1,	x + 23,  y + 21, 0, 0, NORTH);
 
 			# Pop!
 			playSound ('iface/pop.wav');
@@ -122,6 +122,10 @@ sub pickVerb () {
 	if(gotVerb == cancel)
 	{
 		return;
+	}
+	else if(gotVerb == useInventory)
+	{
+		showInventory();
 	}
 	else if (gotVerb) {
 		if (! callEvent (walkToPerson, gotObject)) {
