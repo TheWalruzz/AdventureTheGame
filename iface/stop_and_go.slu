@@ -47,7 +47,7 @@ sub drawStatusLine (overObject) {
 				statusText ("Use " + currentInvItem + " with");
 			}				
 		} else {
-			statusText ((overObject && overObject != ego && currentInvItem == NULL ? overObject : "") + ((overObject != cancel) ? (thisObject ? thisObject : "") : ""));
+			statusText ((overObject && overObject != ego && currentInvItem == NULL ? overObject : "") + ((overObject != cancel && overObject != useInventory) ? (thisObject ? thisObject : "") : ""));
 		}
 	}
 }

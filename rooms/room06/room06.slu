@@ -26,7 +26,6 @@ sub room06()
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
 	setCharacterWalkSpeed(ego, 8);
-		
 
 	addCharacter(room06_secret, 528, 87, costume(
 		anim('rooms/room06/tray.duc', 0), anim('rooms/room06/tray.duc', 0), anim('rooms/room06/tray.duc', 0), anim('rooms/room06/tray.duc', 0),
