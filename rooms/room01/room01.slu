@@ -105,11 +105,8 @@ objectType room01_secretary("secretary")
 			addChoice("It's urgent. I need to call right now.", 0);
 			addChoice("I don't have time for this, someone kidnapped a whole floor of employees.", 1);
 			
-			loop
+			while(stackSize(choices) != 0)
 			{
-				if(stackSize(choices) == 0)
-					return;
-			
 				addSpeechChoicesFromStacks(choices, values);
 		
 				var reply = getSpeechChoice(ego);
@@ -127,7 +124,7 @@ objectType room01_secretary("secretary")
 					
 					addChoice("I'm serious. And I need to phone for some answers.", 2);
 					addChoice("Are you always so 'kind' for newcomers?", 3);
-					addChoice("What have I done to deserve this fate... I attract bad luck. Poor me!", 4);
+					addChoice("What have I done to deserve this fate... I attract bad luck. Poor me! And I really need to call...", 4);
 					
 					deleteChoicesByValue(0);
 					deleteChoicesByValue(1);
