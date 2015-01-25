@@ -47,10 +47,13 @@ sub room06()
 	#pushToStack(inventory, item_broom); # DEBUG
 	#pushToStack(inventory, item_internIDcard); # DEBUG
 	#pushToStack(inventory, item_bossIDcard); # DEBUG
-	
-	if (room06_lidOpen == TRUE) {
+	#say(ego, secretCode); #DEBUG	
+
+	if (room06_trayLocked == TRUE) {
 		addOverlay('rooms/room06/room06blocked.png', 0, 0);		
 	}
+	
+	room06_lidOpen = FALSE;
 	
 	if(! room06_hadSpeech)
 	{
@@ -67,6 +70,7 @@ sub room06()
 
 sub room06_speech()
 {
+	pause(10);
 	say(room06_secret, "Ahh. Puny human. Welcome to my lair.");
 	say(room06_secret, "Your weak race is about to be completely under my rule. My scheme worked perfectly.");
 	
@@ -154,43 +158,48 @@ objectType room06_powerButton("power button")
 	}
 	
 	event interactWith
-	{
-		narratorSay("Max pushes a button.");
-		
+	{		
 		if (room06_buttonActive == TRUE) {
 			room06_buttonActive = FALSE;
 			narratorSay("Congratulations! You won!");
+			
 			fadeOut();
+			blankScreen();
+			fadeIn();
 			
 			narratorSay("The game industry has returned to its greatness!");
-			narratorSay("Games are once again done with their creators hearts, instead of being put together like on a production line!");
+			narratorSay("Games are once again done with their creators' hearts, instead of being put together like on a production line!");
 			narratorSay("Indie game devs can once again do what they really love!");
 			narratorSay("Indie gamers can once again play what they really love!");
 			narratorSay("Your heroic act saved the humanity!");
-			narratorSay("The greatest poets wrote a poetry about what you did!");
+			narratorSay("The greatest poets write poems about what you did!");
 			narratorSay("The global warming has been stopped!");
 			narratorSay("Peace has finally arrived everywhere on the world!");
-			narratorSay("The poverty problem has been finally solved!");
+			narratorSay("The poverty problem has been solved once and for all!");
 			narratorSay("Three crazy gamedevs did a game about you in 48h during Global Game Jam!");
 			narratorSay("...all thanks to what you just did.");
 			
 			pause(50);
 			
 			narratorSay("The Gamejam Game About Games, Secrets and Stuff");
-			narratorSay("Made by Konrad Burandt, Sebastian Krzyszkowiak and Paweł Radej.");
-			narratorSay("The game has been made on Poznań Game Jam, part of Global Game Jam 2015.");
+			narratorSay("Made by Konrad Burandt, Sebastian Krzyszkowiak and Pawel Radej.");
+			narratorSay("The game has been made on Poznan Game Jam, part of Global Game Jam 2015.");
 			narratorSay("So...");
 			narratorSay("...what do we do now?");
 			narratorSay("Turn off the computer and go make some friends!");
 			pause(20);
-			narratorSay("[just kidding, I know you'll play some other game anyway]");
-			narratorSay("So that's it.");
+			narratorSay("Just kidding, I know you'll play some other game anyway.");
+			narratorSay("So that's it...");
 			
 			pause(100);
 
+			forceCharacter(ego, 1600, 660);
+			
 			narratorSay("THE END");
 			
-			freeze();
+			pause(50);
+			
+			quitGame();
 			return;
 		} else {
 		
@@ -258,16 +267,16 @@ objectType room06_lid("lid") # just for talking # actually it's also a lid now :
 				
 				removeScreenRegion(room06_lid);
 				removeScreenRegion(room06_powerButton);
-				addScreenRegion(room06_lid, 396, 265, 545, 321, 0, 0, 0);
+				addScreenRegion(room06_lid, 396, 230, 545, 321, 0, 0, 0);
 				
 				if (room06_accessCode == FALSE) {
-					addScreenRegion(room06_secCode, 396, 165, 420, 221, 340, 690, EAST);
+					addScreenRegion(room06_secCode, 436, 174, 460, 200, 340, 690, EAST);
 				}
 				if (room06_accessPuzzle == FALSE) {
-					addScreenRegion(room06_secPuzzle, 420, 165, 480, 221, 340, 690, EAST);
+					addScreenRegion(room06_secPuzzle, 466, 180, 490, 207, 340, 690, EAST);
 				}
 				if (room06_accessReader == FALSE) {
-					addScreenRegion(room06_secReader, 480, 165, 545, 221, 340, 690, EAST);
+					addScreenRegion(room06_secReader, 495, 185, 520, 220, 340, 690, EAST);
 				}
 				
 				room06_lidOpen = TRUE;

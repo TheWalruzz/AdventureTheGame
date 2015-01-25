@@ -13,10 +13,11 @@ sub room05()
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
+	lookedAtCard = FALSE;
 	
 	if (afterPrison == TRUE) {
 		if (pickedUpCard == FALSE) {
-			addCharacter(room05_bossIDcard, 774, 625, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+			addCharacter(room05_bossIDcard, 824, 675, makeStaticCostume(anim('rooms/room05/card.duc', 0)));
 		}
 	} else {
 	
@@ -53,15 +54,14 @@ objectType room05_bossIDcard("ID card") {
 	event interactWith {
 		if (lookedAtCard == FALSE) {
 			say(ego, "Hey, it CEO's ID! He must have dropped it when leaving!");
-
-			pushToStack(inventory, item_bossIDcard);
-			
-			removeCharacter(room05_bossIDcard);
-			
-			say(ego, "Now I can feel great power and no responsibility!");
-			
-			pickedUpCard = TRUE;
 		}
+		pushToStack(inventory, item_bossIDcard);
+		
+		removeCharacter(room05_bossIDcard);
+		
+		say(ego, "Now I can feel great power and no responsibility!");
+		
+		pickedUpCard = TRUE;
 	}
 }
 
@@ -72,12 +72,10 @@ objectType room05_drawer1("upper drawer")
 		if (afterPrison == TRUE) {
 			say(ego, "Nothing interesting here.");
 		} else {
-		say(ego, pickOne(
-			"The Secret of Monkey Island... I don't think that's it.",
-			"Well, he has some dirty secrets... But I don't think that's it.",
-			"Oh! There's some secret blueprints... For a coffee machine?",
-			"Ouch... I think something bit me."
-		));
+			say(ego, "Well, he has some dirty secrets... But I doubt these are the ones I'm looking for.");
+			say(ego, "The Secret of Monkey Island... I don't think that's it.");
+			say(ego, "Oh! There're some secret blueprints... For a coffee machine?");
+			say(ego,"Ouch... I think something bit me.");
 		}
 	}
 }
@@ -152,7 +150,7 @@ objectType room05_director("CEO")
 	
 	event lookAt
 	{
-		say(ego, "He seems comepletely absorbed by new Angry Cows expansion.");
+		say(ego, "He seems completely absorbed by new Angry Cows expansion.");
 	}
 	
 	event interactWith

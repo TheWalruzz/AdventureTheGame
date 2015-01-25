@@ -55,10 +55,10 @@ sub room02()
 	addOverlay('rooms/room02/express.png', 0, 0);
 	addScreenRegion(room02_coffeeMachine, 3776, 608, 4026, 658, 3571, 710, EAST);
 	
-	addOverlay('rooms/room02/cable.png', 3776, 658);
+	#addOverlay('rooms/room02/cable.png', 3776, 658);
 	
-	addOverlay('rooms/room02/gum.png', 739, 645);
-	addScreenRegion(room02_gum, 739, 645, 739+50, 645+50, 700, 645, EAST);
+	addOverlay('rooms/room02/gum.png', 4000, 630);
+	addScreenRegion(room02_gum, 4000, 630, 4000+68, 645+49, 3900, 630, SOUTH);
 	
 	if (room02_bookTaken == FALSE) {
 		addCharacter(room02_book, 800, 645, anim('rooms/room02/booknew.duc', 0));
@@ -83,10 +83,10 @@ sub room02()
 	setCharacterExtra(room02_lineobst2, FIXEDSIZE);
 	
 	
-	addCharacter(room02_noSmokingSign, 100, 200, makeStaticCostume(anim ('rooms/room02/palenie.duc', 0)));
+	addCharacter(room02_noSmokingSign, 2500, 220, makeStaticCostume(anim ('rooms/room02/palenie.duc', 0)));
 	setCharacterExtra(room02_noSmokingSign, FIXEDSIZE);
 
-	addCharacter(room02_superderpy, 200 , 308, anim('rooms/room02/newspaper.duc', 0));
+	addCharacter(room02_superderpy, 50 , 760, anim('rooms/room02/badge.duc', 0));
 	setCharacterExtra(room02_superderpy, FIXEDSIZE);
 	
 	if(room02_beforeAttack)
@@ -130,9 +130,10 @@ sub room02()
 		setCharacterExtra(room02_employee10, FIXEDSIZE);
 	}
 	
-	if(room02_crossedCB && room02_beforeAttack)
-		addScreenRegion(room02_cable, 3776, 658, 3826, 708, 3571, 710, EAST);
-	
+	if(room02_crossedCB && room02_beforeAttack) {
+		addScreenRegion(room02_cable, 4000-68, 645+49, 4010, 768, 4000-68, 730, SOUTH);
+	}
+
 	spawnSub(lineSub);
 	spawnSub(lineSub2);
 	spawnSub(lineSub3);
@@ -263,7 +264,7 @@ objectType room02_superior("superior")
 		say(room02_superior, "Great. Make me some coffee then.");
 		say(ego, "Oh. Okay.");
 		
-		addScreenRegion(room02_cable, 3776, 658, 3826, 708, 3571, 710, EAST);
+		addScreenRegion(room02_cable, 4000-68, 645+49, 4010, 768, 4000-68, 730, SOUTH);
 	}
 	
 	event interactWith
@@ -298,7 +299,7 @@ objectType room02_cable("cable")
 	{
 		if(room02_beforeAttack)
 		{
-			narratorSay("Max goes under the table to connect the plug, when...");
+			narratorSay("Max goes under the table to connect the plug, when suddenly...");
 			fadeOut(); # temporary stuff
 			jumpCharacter(ego, 200, 600);
 			
@@ -398,7 +399,7 @@ objectType room02_cable("cable")
 			say(room02_talkBox, "Tell us now! Rebellion is the only chance to get good games back!");
 			pause(35);
 			say(room02_talkBox, "Damn. They know nothing.");
-			say(room02_talkBox, "Without knowing the Secret we will never be able to give back gaming its former glory.");
+			say(room02_talkBox, "Without knowing the Secret we will never be able to give gaming back its former glory.");
 			say(room02_talkBox, "Maybe the ad in newspaper will help us...");
 			say(room02_talkBox, "Guys, let's roll.");
 			
@@ -535,18 +536,18 @@ objectType room02_newspaper("newspaper")
 	event item_ropeFullyCombined
 	{
 		narratorSay("Max throws the book attached on a rope towards the newspaper.");
+		removeCharacter(room02_newspaper);
 		narratorSay("It sticks to the book thanks to the gum.");
 		say(ego, "It worked!");
 		
 		room02_newspaperTaken = TRUE;
 		pushToStack(inventory, item_newspaper);
-		removeCharacter(room02_newspaper);
 	}
 	
 	event item_ropeWithBook
 	{
 		narratorSay("Max throws the book attached on a rope towards the newspaper.");
-		narratorSay("Unfortunately, it slided from the self without taking the newspaper with it.");
+		narratorSay("Unfortunately, it slided from the shelf without taking the newspaper with it.");
 		say(ego, "Darmn... If only I had something sticky...");
 	}
 	
@@ -558,14 +559,18 @@ objectType room02_newspaper("newspaper")
 }
 
 sub readNewspaper() {
-	room02_newspaperRead = TRUE;
-	say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
-	pause(15);
-	say(ego, "Oh! What an interesting ad!");
-	say(ego, "Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-274-345-81!");
-	turnCharacter(ego, SOUTH);
-	pause(10);
-	say(ego, "I'd say it's a bit intriguing.");
+	if (room02_newspaperRead == FALSE) {
+		say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
+		pause(15);
+		say(ego, "Oh! What an interesting ad!");
+		say(ego, "\"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-274-345-81!\"");
+		turnCharacter(ego, SOUTH);
+		pause(10);
+		say(ego, "I'd say it's a bit intriguing.");
+		room02_newspaperRead = TRUE;
+	} else {
+		say(ego, "\"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-274-345-81!\"");		
+	}
 }
 
 objectType room02_chair("chair")
@@ -640,7 +645,7 @@ objectType room02_noSmokingSign("no smoking sign")
 	}
 }
 
-objectType room02_superderpy("a badge")
+objectType room02_superderpy("a lost badge")
 {
 	event lookAt
 	{

@@ -14,11 +14,11 @@ sub room03()
 
 	setSceneDimensions(2724, 768);
 	addOverlay('rooms/room03/room03.png', 0, 0);
-	
+
 	if (afterPrison == FALSE) {
 		addOverlay('rooms/room03/room03open.png', 0, 0);
 	} else {
-		addCharacter(room03_chuck, 2500, 489, anim('rooms/room03/plant.duc', 0));
+		addCharacter(room03_chuck, 2500, 589, anim('rooms/room03/plant.duc', 0));
 		setCharacterExtra(room03_chuck, FIXEDSIZE);
 		
 	}
@@ -41,7 +41,7 @@ sub room03()
 	straightFromBoss = FALSE;
 	
 	if (room03_broomTaken == FALSE) {
-		addCharacter(room03_broom, 1860, 580, anim('rooms/room03/broom.duc', 0));
+		addCharacter(room03_broom, 1960, 580, anim('rooms/room03/broom.duc', 0));
 		setCharacterExtra(room03_broom, FIXEDSIZE);
 	}
 
@@ -96,13 +96,14 @@ objectType room03_chuck("chuck the plant") {
 	}
 	event interactWith {
 		if (room03_idTaken == FALSE) {
-			narratorSay("Max touches the plant.");
 			say(ego, "Hey, there's a key behind it!");
+			pause(10);
 			turnCharacter(ego, WEST);
-			pause(10);
+			pause(30);
 			turnCharacter(ego, EAST);
-			pause(10);
+			pause(35);
 			turnCharacter(ego, NORTH);
+			pause(10);
 			say(ego, "I'll just lend it for a while.");
 			pushToStack(inventory, item_bossKey);
 

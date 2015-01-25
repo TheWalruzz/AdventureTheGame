@@ -109,6 +109,11 @@ objectType item_newspaper("newspaper")
 	{
 		say(ego, "It's too soft and fragile.");
 	}
+	
+	event inventoryClick
+	{
+		readNewspaper();		
+	}
 }
 
 objectType item_broom("broom")
