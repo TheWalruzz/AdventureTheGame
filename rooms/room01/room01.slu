@@ -98,7 +98,7 @@ objectType room01_secretary("secretary")
 			say(room01_secretary, "I already told you to use the elevator. Put your ID in its scanner.");
 			say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
 		}
-		else if((room01_talkedToRebels == FALSE) && room02_newspaperTaken == TRUE)
+		else if((room01_talkedToRebels == FALSE) && room02_newspaperRead == TRUE)
 		{
 			say(room01_secretary, "Oh, it's you again. I told you already - I'm busy.");
 			

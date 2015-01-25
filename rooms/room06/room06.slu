@@ -22,7 +22,7 @@ sub room06()
 	setFloor('rooms/room06/room06.flo');
 	
 	setScale(400, 300);
-	
+		
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
 	setCharacterWalkSpeed(ego, 8);
@@ -160,6 +160,38 @@ objectType room06_powerButton("power button")
 		if (room06_buttonActive == TRUE) {
 			room06_buttonActive = FALSE;
 			narratorSay("Congratulations! You won!");
+			fadeOut();
+			
+			narratorSay("The game industry has returned to its greatness!");
+			narratorSay("Games are once again done with their creators hearts, instead of being put together like on a production line!");
+			narratorSay("Indie game devs can once again do what they really love!");
+			narratorSay("Indie gamers can once again play what they really love!");
+			narratorSay("Your heroic act saved the humanity!");
+			narratorSay("The greatest poets wrote a poetry about what you did!");
+			narratorSay("The global warming has been stopped!");
+			narratorSay("Peace has finally arrived everywhere on the world!");
+			narratorSay("The poverty problem has been finally solved!");
+			narratorSay("Three crazy gamedevs did a game about you in 48h during Global Game Jam!");
+			narratorSay("...all thanks to what you just did.");
+			
+			pause(50);
+			
+			narratorSay("The Gamejam Game About Games, Secrets and Stuff");
+			narratorSay("Made by Konrad Burandt, Sebastian Krzyszkowiak and Paweł Radej.");
+			narratorSay("The game has been made on Poznań Game Jam, part of Global Game Jam 2015.");
+			narratorSay("So...");
+			narratorSay("...what do we do now?");
+			narratorSay("Turn off the computer and go make some friends!");
+			pause(20);
+			narratorSay("[just kidding, I know you'll play some other game anyway]");
+			narratorSay("So that's it.");
+			
+			pause(100);
+
+			narratorSay("THE END");
+			
+			freeze();
+			return;
 		} else {
 		
 			say(ego, "Nothing happened...");
@@ -228,10 +260,15 @@ objectType room06_lid("lid") # just for talking # actually it's also a lid now :
 				removeScreenRegion(room06_powerButton);
 				addScreenRegion(room06_lid, 396, 265, 545, 321, 0, 0, 0);
 				
-				addScreenRegion(room06_secCode, 396, 165, 420, 221, 340, 690, EAST);
-				addScreenRegion(room06_secPuzzle, 420, 165, 480, 221, 340, 690, EAST);
-				addScreenRegion(room06_secReader, 480, 165, 545, 221, 340, 690, EAST);
-				
+				if (room06_accessCode == FALSE) {
+					addScreenRegion(room06_secCode, 396, 165, 420, 221, 340, 690, EAST);
+				}
+				if (room06_accessPuzzle == FALSE) {
+					addScreenRegion(room06_secPuzzle, 420, 165, 480, 221, 340, 690, EAST);
+				}
+				if (room06_accessReader == FALSE) {
+					addScreenRegion(room06_secReader, 480, 165, 545, 221, 340, 690, EAST);
+				}
 				
 				room06_lidOpen = TRUE;
 			}
@@ -254,11 +291,11 @@ objectType room06_tray("tray")
 		say(room06_secret, "Yes, naive human?");
 		narratorSay("Max throws a broom at the lid.");
 		deleteFromStack(inventory, item_broom);
+		addOverlay('rooms/room06/room06blocked.png', 0, 0);
 		
 		say(room06_secret, "Oh, I see. That's a good one.");
 		say(room06_secret, "Nevertheless, your efforts are useless. You won't be able to bypass the security mechanisms.");
 		say(ego, "Thanks for your support! I'll keep trying anyway.");
-		addOverlay('rooms/room06/room06blocked.png', 0, 0);
 		
 		room06_trayLocked = TRUE;
 	}
@@ -290,12 +327,14 @@ objectType room06_secCode("first panel")
 			inNeedOfSecretCode = TRUE;
 			
 			freeze();
+			setBlankColor(0,0,0);
+			
 			blankScreen();
 			
 			var enteredCode = "";
 			
-			setBurnColor(255,255,255);
-			burnString(20,20, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
+			setPasteColor(255,255,255);
+			pasteString(20,20, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
 			
 			
 			enqueue(choices, "A");
@@ -323,11 +362,12 @@ objectType room06_secCode("first panel")
 			
 			values = newStack();
 			choices = newStack();
+			setBlankColor(0,0,0);
 			
 			blankScreen();
 			
-			burnString(20,20, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
-			burnString(100, 100, enteredCode);
+			pasteString(20,20, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
+			pasteString(100, 100, enteredCode);
 
 			enqueue(choices, "Z");
 			enqueue(values, "Z");
@@ -354,11 +394,12 @@ objectType room06_secCode("first panel")
 			
 			values = newStack();
 			choices = newStack();
+			setBlankColor(0,0,0);
 			
 			blankScreen();
 			
-			burnString(20,20, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
-			burnString(100, 100, enteredCode);
+			pasteString(20,20, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
+			pasteString(100, 100, enteredCode);
 			
 			enqueue(choices, "S");
 			enqueue(values, "S");
@@ -385,12 +426,13 @@ objectType room06_secCode("first panel")
 
 			values = newStack();
 			choices = newStack();
+			setBlankColor(0,0,0);
 			
 			blankScreen();
 			#var secretCode = pickOne("ABS2", "BZG5", "HXN3", "OPZ6", "LPA1", "BXR5", "MPW0", "YGE5");
 			
-			burnString(20,20, "ENTER FORTH CHARACTER OF THE ACCESS CODE");
-			burnString(100, 100, enteredCode);
+			pasteString(20,20, "ENTER FORTH CHARACTER OF THE ACCESS CODE");
+			pasteString(100, 100, enteredCode);
 			
 			enqueue(choices, "2");
 			enqueue(values, "2");
@@ -467,14 +509,15 @@ objectType room06_secPuzzle("second panel")
 		
 		loop {
 			addSpeechChoicesFromStacks(choices, values);	
+			setBlankColor(0,0,0);
 			
 			blankScreen();
-			setBurnColor(255,255,255);
-			burnString(20,20, "SOLVE THIS THREE TIMES IN ROW");
+			setPasteColor(255,255,255);
+			pasteString(20,20, "SOLVE THIS THREE TIMES IN ROW");
 
 			i = 0;
 			while (i < stackSize(sums)) {
-				burnString(20, 20 + (i+1) * 40, firsts[i] + " + " + seconds[i] + " = " + sums[i]);
+				pasteString(20, 20 + (i+1) * 40, firsts[i] + " + " + seconds[i] + " = " + sums[i]);
 				i = i + 1;
 			}
 			
@@ -487,7 +530,7 @@ objectType room06_secPuzzle("second panel")
 			enqueue(seconds, bb);
 			enqueue(sums, answer);
 			
-			burnString(20, 40 + stackSize(sums) * 40, aa + " + " + bb + " = ?");
+			pasteString(20, 40 + stackSize(sums) * 40, aa + " + " + bb + " = ?");
 			
 			var choice = getSpeechChoice(ego);
 			

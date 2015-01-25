@@ -6,6 +6,7 @@ var room02_beforeAttack = TRUE;
 
 var room02_bookTaken = FALSE;
 var room02_newspaperTaken = FALSE;
+var room02_newspaperRead = FALSE;
 var room02_ropeTaken = FALSE;
 
 sub lineSub() {
@@ -141,7 +142,7 @@ sub room02()
 	if(room02_beforeAttack == FALSE && room02_ropeTaken == FALSE)
 	{
 		
-		addCharacter(room02_rope, 3533, 652, anim('rooms/room02/book.duc', 0));
+		addCharacter(room02_rope, 3533, 652, anim('rooms/room02/rope2.duc', 0));
 	}
 	
 }
@@ -231,8 +232,21 @@ objectType room02_coffeeMachine("coffee machine")
 	{
 		if(! room02_crossedCB)
 			say(ego, "Thanks, I've already had my morning coffee.");
-		else
-			say(ego, "It's not working.");
+		else {
+			if (room02_beforeAttack == FALSE) {
+				say(ego, "Mmmm, it smells good.");
+				pause(25);
+				say(ego, "Maybe I should try it.");
+				pause(25);
+				say(ego, "*slurp* *slurp*");
+				pause(50);
+				
+				say(ego, "Hmmmmm! It makes me feel great. Smarter! More aggresive!");
+				
+			} else {
+				say(ego, "It's not working.");
+			}
+		}
 	}
 }
 
@@ -417,14 +431,7 @@ objectType room02_cable("cable")
 		}
 		else
 		{
-			say(ego, "Mmmm, it smells good.");
-			pause(25);
-			say(ego, "Maybe I should try it.");
-			pause(25);
-			say(ego, "*slurp* *slurp*");
-			pause(50);
-			
-			say(ego, "Hmmmmm! It makes me feel great. Smarter! More aggresive!");
+			say(ego, "It's already connected.");
 		}
 	}
 }
@@ -531,6 +538,7 @@ objectType room02_newspaper("newspaper")
 		narratorSay("It sticks to the book thanks to the gum.");
 		say(ego, "It worked!");
 		
+		room02_newspaperTaken = TRUE;
 		pushToStack(inventory, item_newspaper);
 		removeCharacter(room02_newspaper);
 	}
@@ -550,7 +558,7 @@ objectType room02_newspaper("newspaper")
 }
 
 sub readNewspaper() {
-	room02_newspaperTaken = TRUE;
+	room02_newspaperRead = TRUE;
 	say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
 	pause(15);
 	say(ego, "Oh! What an interesting ad!");
@@ -640,7 +648,7 @@ objectType room02_superderpy("a badge")
 	}
 	event interactWith
 	{
-		say(ego, "No, thanks. I don't want to people asking me about Super Derpy.");
+		say(ego, "No, thanks. I don't want people asking me about Super Derpy.");
 	}
 }
 

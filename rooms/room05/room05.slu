@@ -1,6 +1,7 @@
 
 
 var lookedAtCard = FALSE;
+var pickedUpCard = FALSE;
 	
 sub room05()
 {
@@ -14,7 +15,9 @@ sub room05()
 	
 	
 	if (afterPrison == TRUE) {
-		addCharacter(room05_bossIDcard, 774, 625, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		if (pickedUpCard == FALSE) {
+			addCharacter(room05_bossIDcard, 774, 625, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		}
 	} else {
 	
 		addCharacter(room05_director, 774, 625, costume(
@@ -54,6 +57,10 @@ objectType room05_bossIDcard("ID card") {
 			pushToStack(inventory, item_bossIDcard);
 			
 			removeCharacter(room05_bossIDcard);
+			
+			say(ego, "Now I can feel great power and no responsibility!");
+			
+			pickedUpCard = TRUE;
 		}
 	}
 }
