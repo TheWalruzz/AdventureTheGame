@@ -438,7 +438,7 @@ objectType room06_secPuzzle("second panel")
 		}
 		enqueue(choices, "Uhm, gotta go, bye!");
 		enqueue(values, -1);
-		var answer = 0; var aa = 0; var bb = 0; var ssum = 0;
+		var answer = 0; var aa = 0; var bb = 0;
 		
 		loop {
 			addSpeechChoicesFromStacks(choices, values);	
@@ -455,7 +455,6 @@ objectType room06_secPuzzle("second panel")
 			
 			aa = random(5);
 			bb = random(5);
-			ssum = aa + bb;
 			
 			answer = firsts[stackSize(sums)-1] + seconds[stackSize(sums)-1];
 
