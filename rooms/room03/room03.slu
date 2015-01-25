@@ -83,7 +83,7 @@ objectType room03_chuck("chuck the plant") {
 		say(ego, "What a nice plant!");
 	}
 	event interactWith {
-		if (room03_idTaken) 
+		if (room03_idTaken) {
 			narratorSay("Max touches the plant.");
 			say(ego, "Hey, there's a key behind it!");
 			turnCharacter(ego, WEST);

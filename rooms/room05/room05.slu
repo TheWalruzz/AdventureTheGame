@@ -1,5 +1,7 @@
 
 var straightFromBoss = FALSE;
+
+var lookedAtCard = FALSE;
 	
 sub room05()
 {
@@ -14,7 +16,7 @@ sub room05()
 	straightFromBoss = TRUE;
 	
 	if (afterPrison) {
-		addCharacter(room05_bossIDCard, 774, 625, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		addCharacter(room05_bossIDcard, 774, 625, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	} else {
 	
 		addCharacter(room05_director, 774, 625, costume(
@@ -45,6 +47,7 @@ sub room05()
 objectType room05_bossIDcard("ID card") {
 	event lookAt {
 		lookedAtCard = TRUE;
+		say("Hey, it CEO's ID! He must have dropped it when leaving!");
 	}
 	event interactWith {
 		if (! lookedAtCard) {
