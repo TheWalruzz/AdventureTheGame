@@ -107,6 +107,9 @@ sub room02()
 		addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	}
 	
+	if(room02_crossedCB)
+		addScreenRegion(room02_cable, 3776, 658, 3826, 708, 3571, 710, EAST);
+	
 	spawnSub(lineSub);
 	spawnSub(lineSub2);
 	spawnSub(lineSub3);
@@ -149,7 +152,10 @@ objectType room02_elevatorDoor("elevator door")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		gotoRoom(roomElevator);
+		if(! room02_beforeAttack)
+			gotoRoom(roomElevator);
+		else
+			say(ego, "I don't think it's wise to leave early on the first day on new job.");
 	}
 }
 
@@ -259,6 +265,8 @@ objectType room02_cable("cable")
 	{
 		if(room02_beforeAttack)
 		{
+			#TODO something fancy to exclaim the arrival of rebels
+		
 			pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 580);
 			pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 580);
 			
@@ -306,9 +314,11 @@ objectType room02_cable("cable")
 				));
 			setCharacterExtra(room02_rebel3, FIXEDSIZE);
 			
-			forceCharacter(room02_rebel1, 3000, 470);
-			forceCharacter(room02_rebel2, 3302, 470);
-			forceCharacter(room02_rebel3, 3500, 470);
+			spawnSub(aaa);
+			spawnSub(bbb);
+			spawnSub(ccc);
+			
+			pause(300);
 			
 			removeCharacter(room02_employee1);
 			removeCharacter(room02_employee2);
@@ -327,15 +337,13 @@ objectType room02_cable("cable")
 			addCharacter(room02_employee6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 			addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	
-			
-			
 			spawnSub(aa);
 			spawnSub(bb);
 			spawnSub(cc);
 			
-			addScreenRegion(room02_talkBox, 3277, 119, 3408, 156, 0, 0, 0);
+			pause(300);
 			
-			pause(150);
+			addScreenRegion(room02_talkBox, 3277, 119, 3408, 156, 0, 0, 0);
 			
 			say(room02_talkBox, "What do you mean by 'I don't know where the Secret is'?!");
 			say(room02_talkBox, "Tell us now! Rebellion is the only chance to get good games back!");
@@ -393,6 +401,21 @@ sub cc()
 	addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	setCharacterExtra(room02_employee8, FIXEDSIZE);
 	forceCharacter(room02_rebel1, 3000, -150);
+}
+
+sub aaa()
+{
+	forceCharacter(room02_rebel1, 3000, 470);
+}
+
+sub bbb()
+{
+	forceCharacter(room02_rebel2, 3302, 470);
+}
+
+sub ccc()
+{
+	forceCharacter(room02_rebel3, 3500, 470);
 }
 
 objectType room02_gum("gum")

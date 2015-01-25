@@ -11,7 +11,7 @@ sub intro()
 	setScale(225, 1500);
 	
 	addCharacter(intro_plane, 1500, 800, anim('rooms/intro/plane.duc', 0));
-	setCharacterWalkSpeed(intro_plane, 9);
+	setCharacterWalkSpeed(intro_plane, 8);
 	setCharacterExtra(intro_plane, FIXEDSIZE);
 	
 	addScreenRegion(intro_narrator, 650, 720, 650, 720, 0, 0, 0);
