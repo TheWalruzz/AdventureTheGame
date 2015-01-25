@@ -70,8 +70,8 @@ sub leftClick () {
 			var y = getMouseScreenY () - 52;
 			if (x < 0) x = 0;
 			if (y < 0) y = 0;
-			if (x > 640 - 102) x = 640 - 102;
-			if (y > 480 - 94) y = 480 - 94;
+			if (x > 1366 - 102) x = 1366 - 102;
+			if (y > 768 - 94) y = 768 - 94;
 
 			# Remember which object we're going to manipulate
 			thisObject = overObject;
