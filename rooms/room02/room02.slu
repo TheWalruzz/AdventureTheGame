@@ -519,7 +519,7 @@ objectType room02_noSmokingSign("no smoking sign")
 		if (comicSans == 2) say(ego, "That's the second prettiest font I've ever seen!");
 		if (comicSans == 3) say(ego, "I could stare at those letters for an eternity.");
 		if (comicSans == 4) say(ego, "I wonder if there's Comic Sans in heaven.");
-		if (comicSans == 5) say(ego, "Those letters look EXACTLY like from a comicbook!");
+		if (comicSans == 5) say(ego, "These letters look EXACTLY like from a comicbook!");
 		if (comicSans == 6) say(ego, "Is it just me or my life got better by looking at Comic Sans?");
 		if (comicSans == 7) { say(ego, "You know what this world needs?"); say(ego, "More Comic Sans."); }
 		if (comicSans == 8) say(ego, "Now THAT'S some font with style!");
@@ -542,7 +542,7 @@ objectType room02_superderpy("a badge")
 	}
 	event interactWith
 	{
-		say(ego, "No, thanks. I don't want to be asked about Super Derpy.");
+		say(ego, "No, thanks. I don't want to people asking me about Super Derpy.");
 	}
 }
 
