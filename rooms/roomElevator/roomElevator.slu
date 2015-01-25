@@ -26,13 +26,11 @@ sub roomElevator()
 
 	say(roomElevator_notification, "To which floor do you wish to go?");
 	
-	if(roomElevator_floor != 1)
 		addSpeechChoice("Reception", 1);
-	if(roomElevator_floor != 2)
 		addSpeechChoice("Software Development Room", 2);
-	if(roomElevator_floor != 3 && room01_talkedToRebels == TRUE)
+	if(room01_talkedToRebels == TRUE)
 		addSpeechChoice("CEO Office", 3);
-	if(roomElevator_floor != 4 && afterPrison == TRUE)
+	if(afterPrison == TRUE)
 		addSpeechChoice("Basement", 4);
 		
 	roomElevator_floor = getSpeechChoice(NULL);
@@ -52,7 +50,7 @@ sub roomElevator()
 	else if(roomElevator_floor == 3)
 	{
 		location = "CEO Office";
-		room = room05;
+		room = room03;
 	}
 	else if(roomElevator_floor == 4)
 	{

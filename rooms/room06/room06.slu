@@ -48,6 +48,10 @@ sub room06()
 	#pushToStack(inventory, item_internIDcard); # DEBUG
 	#pushToStack(inventory, item_bossIDcard); # DEBUG
 	
+	if (room06_lidOpen == TRUE) {
+		addOverlay('rooms/room06/room06blocked.png', 0, 0);		
+	}
+	
 	if(! room06_hadSpeech)
 	{
 		room06_speech();
@@ -153,9 +157,9 @@ objectType room06_powerButton("power button")
 	{
 		narratorSay("Max pushes a button.");
 		
-		if (room06_buttonActive) {
+		if (room06_buttonActive == TRUE) {
 			room06_buttonActive = FALSE;
-			narratorSay("YOU WIN");
+			narratorSay("Congratulations! You won!");
 		} else {
 		
 			say(ego, "Nothing happened...");
@@ -190,7 +194,7 @@ objectType room06_secret("lid") # just for talking # actually it's also a lid no
 	speechColor 220, 20, 60;
 	
 	event lookAt {
-		if (room06_lidOpen) {
+		if (room06_lidOpen == TRUE) {
 			say(ego, "The lid is opened.");
 		} else {
 			say(ego, "It's a closed lid.");
@@ -198,9 +202,10 @@ objectType room06_secret("lid") # just for talking # actually it's also a lid no
 	}
 	
 	event interactWith {
-		if (room06_trayLocked) {
-			if (room06_lidOpen) {
-				narratorSay("LID CLOSES LALALALSL");
+		if (room06_trayLocked == TRUE) {
+			if (room06_lidOpen == TRUE) {
+				addOverlay('rooms/room06/room06.png', 0, 0);
+				
 				
 				removeScreenRegion(room06_secret);
 				addScreenRegion(room06_secret, 396, 165, 545, 221, 0, 0, 0);
@@ -213,7 +218,8 @@ objectType room06_secret("lid") # just for talking # actually it's also a lid no
 				
 				room06_lidOpen = FALSE;
 			} else {
-				narratorSay("LID OPENS LSLALALA");
+				addOverlay('rooms/room06/room06.png', 0, 0);
+				addOverlay('rooms/room06/room06open.png', 0, 0);
 				
 				removeScreenRegion(room06_secret);
 				removeScreenRegion(room06_powerButton);
@@ -225,6 +231,9 @@ objectType room06_secret("lid") # just for talking # actually it's also a lid no
 				
 				
 				room06_lidOpen = TRUE;
+			}
+			if (room06_trayLocked == TRUE) {
+				addOverlay('rooms/room06/room06blocked.png', 0, 0);
 			}
 		} else {
 			narratorSay("Max reaches out to open the lid...");
@@ -246,6 +255,7 @@ objectType room06_tray("tray")
 		say(room06_secret, "Oh, I see. That's a good one.");
 		say(room06_secret, "Nevertheless, your efforts are useless. You won't be able to bypass the security mechanisms.");
 		say(ego, "Thanks for your support! I'll keep trying anyway.");
+		addOverlay('rooms/room06/room06blocked.png', 0, 0);
 		
 		room06_trayLocked = TRUE;
 	}
@@ -260,7 +270,7 @@ sub secretPanics() {
 }
 
 sub checkSecretAccess() {
-	if (room06_accessCode && room06_accessPuzzle && room06_accessReader) {
+	if (room06_accessCode == TRUE && room06_accessPuzzle == TRUE && room06_accessReader == TRUE) {
 		room06_buttonActive = TRUE;
 		removeScreenRegion(room06_exit); # to make things simple
 		say(room06_secret, "Oh. Uhm. Go ahead. Turn me off.");

@@ -1,10 +1,11 @@
 var room03_part = "a";
 var room03_centerX = 683;
 
-var room03_chuckBroken = FALSE;
 var room03_idTaken = FALSE;
 
 var room03_broomTaken = FALSE;
+
+var straightFromBoss = FALSE;
 
 sub room03()
 {
@@ -13,11 +14,20 @@ sub room03()
 
 	setSceneDimensions(2724, 768);
 	addOverlay('rooms/room03/room03.png', 0, 0);
+	
+	if (afterPrison == FALSE) {
+		addOverlay('rooms/room03/room03open.png', 0, 0);
+	} else {
+		addCharacter(room03_chuck, 2527, 419, anim('rooms/room02/book.duc', 0));
+		setCharacterExtra(room03_chuck, FIXEDSIZE);
+		
+	}
+	
 	setFloor('rooms/room03/room03.flo');
 	
 	setScale(450, 420);
 	
-	if (straightFromBoss) {
+	if (straightFromBoss == FALSE) {
 		addCharacter(ego, 87, 670, makeEgoAnim());
 		turnCharacter(ego, EAST);
 	} else {
@@ -35,17 +45,9 @@ sub room03()
 		setCharacterExtra(room03_broom, FIXEDSIZE);
 	}
 
-	if (room03_chuckBroken) {
-		# rysowanie martwego chucka
-		if (room03_idTaken == FALSE) {
-			# rysowanie idka
-		}
-	} else {
-		addCharacter(room03_chuck, 800, 645, anim('rooms/room02/book.duc', 0));
-		setCharacterExtra(room03_chuck, FIXEDSIZE);
-	}
 		
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
+	addScreenRegion(room03_exit, 0, 768, 200, 768, 0, 768, WEST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 	addScreenRegion(room03_posterFarm, 745, 87, 1012, 420, 866, 616, NORTH);
 
@@ -65,7 +67,7 @@ objectType room03_door("door")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		if (afterPrison) {
+		if (afterPrison == TRUE) {
 			say(ego, "It's locked.");
 		} else {
 			gotoRoom(room05);
@@ -78,12 +80,22 @@ objectType room03_door("door")
 	}
 }
 
+objectType room03_exit("elevator")
+{
+	event oneCursor = arrowEast;
+	event onlyAction
+	{
+		gotoRoom(roomElevator);
+	}
+}
+
+
 objectType room03_chuck("chuck the plant") {
 	event lookAt {
 		say(ego, "What a nice plant!");
 	}
 	event interactWith {
-		if (room03_idTaken) {
+		if (room03_idTaken == FALSE) {
 			narratorSay("Max touches the plant.");
 			say(ego, "Hey, there's a key behind it!");
 			turnCharacter(ego, WEST);
@@ -96,8 +108,7 @@ objectType room03_chuck("chuck the plant") {
 
 			#pushToStack(inventory, item_bossIDcard);
 			
-			room03_chuckBroken = TRUE;
-			room03_idTaken = FALSE;
+			room03_idTaken = TRUE;
 		} else {
 			narratorSay("Max touches the plant with great love and care.");
 			narratorSay("Plant seems to be happy.");

@@ -1,5 +1,4 @@
 
-var straightFromBoss = FALSE;
 
 var lookedAtCard = FALSE;
 	
@@ -13,9 +12,8 @@ sub room05()
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
-	straightFromBoss = TRUE;
 	
-	if (afterPrison) {
+	if (afterPrison == TRUE) {
 		addCharacter(room05_bossIDcard, 774, 625, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	} else {
 	
@@ -50,7 +48,7 @@ objectType room05_bossIDcard("ID card") {
 		say("Hey, it CEO's ID! He must have dropped it when leaving!");
 	}
 	event interactWith {
-		if (! lookedAtCard) {
+		if (lookedAtCard == FALSE) {
 			say("Hey, it CEO's ID! He must have dropped it when leaving!");
 
 			pushToStack(inventory, item_bossIDcard);
@@ -100,10 +98,10 @@ objectType room05_safe("safe")
 	event interactWith
 	{
 		say(room05_director, "What are you doing?");
+		say(room05_director, "Ah, digging for secrets, I see?");
 		say(room05_director, "Well, these are not the secrets you are looking for.");
 		say(room05_director, "Argh.");
 		say(room05_director, "My score was over 9000 and I've lost my focus because of you!");
-		say(room05_director, "Ah, digging for secrets, I see?");
 		pause(30);
 		say(room05_director, "Security!");
 		pause(5);
@@ -127,6 +125,8 @@ objectType room05_exit("")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
+		straightFromBoss = TRUE;
+		
 		gotoRoom(room03);
 	}
 }
