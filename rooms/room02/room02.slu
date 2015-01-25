@@ -107,7 +107,7 @@ sub room02()
 		addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	}
 	
-	if(room02_crossedCB)
+	if(room02_crossedCB && room02_beforeAttack)
 		addScreenRegion(room02_cable, 3776, 658, 3826, 708, 3571, 710, EAST);
 	
 	spawnSub(lineSub);
