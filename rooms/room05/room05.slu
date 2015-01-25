@@ -7,19 +7,27 @@ sub room05()
 	setScale(290, 490);
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
-	addCharacter(room05_director, 774, 625, costume(
-			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
-			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
-			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
-			anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
-			
-			NULL, NULL, NULL, NULL,
-			
-			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
-			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
-			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
-			anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4))
-		));
+	
+	if (afterPrison) {
+		
+	} else {
+	
+		addCharacter(room05_director, 774, 625, costume(
+				anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+				anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+				anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+				anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
+				
+				NULL, NULL, NULL, NULL,
+				
+				anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
+				anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
+				anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4)),
+				anim('rooms/room05/director.duc', wait(0, 4), wait(2, 4))
+			));
+	
+	}
+	
 	addScreenRegion(room05_drawer1, 200, 430, 302, 465, 236, 586, WEST);
 	addScreenRegion(room05_drawer2, 200, 466, 302, 517, 236, 586, WEST);
 	addScreenRegion(room05_closet, 85, 221, 187, 530, 332, 618, WEST);
