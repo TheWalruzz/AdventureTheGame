@@ -82,7 +82,7 @@ sub room02()
 	setCharacterExtra(room02_lineobst2, FIXEDSIZE);
 	
 	
-	addCharacter(room02_noSmokingSign, 100, 200, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
+	addCharacter(room02_noSmokingSign, 100, 200, makeStaticCostume(anim ('rooms/room02/palenie.duc', 0)));
 	setCharacterExtra(room02_noSmokingSign, FIXEDSIZE);
 
 	addCharacter(room02_superderpy, 200 , 308, anim('rooms/room02/newspaper.duc', 0));
@@ -284,7 +284,9 @@ objectType room02_cable("cable")
 	{
 		if(room02_beforeAttack)
 		{
+			narratorSay("Max goes under the table to connect the plug, when...");
 			fadeOut(); # temporary stuff
+			jumpCharacter(ego, 0, 0);
 			
 			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope3, FIXEDSIZE);
@@ -340,6 +342,7 @@ objectType room02_cable("cable")
 			
 			fadeIn(); # temporary stuff
 			
+			
 			spawnSub(aaa);
 			spawnSub(bbb);
 			spawnSub(ccc);
@@ -382,6 +385,7 @@ objectType room02_cable("cable")
 			pause(35);
 			say(room02_talkBox, "Damn. They know nothing.");
 			say(room02_talkBox, "Without knowing the Secret we will never be able to give back gaming its former glory.");
+			say(room02_talkBox, "Maybe the ad in newspaper will help us...");
 			say(room02_talkBox, "Guys, let's roll.");
 			
 			fadeOut();
@@ -390,6 +394,7 @@ objectType room02_cable("cable")
 			removeCharacter(room02_tempRope2);
 			removeCharacter(room02_tempRope3);
 			
+			jumpCharacter(3500, 652);
 			addCharacter(room02_rope, 3533, 652, anim('rooms/room02/book.duc', 0));
 			setCharacterExtra(room02_rope, FIXEDSIZE);
 			
@@ -527,6 +532,17 @@ objectType room02_newspaper("newspaper")
 		pushToStack(inventory, item_newspaper);
 		removeCharacter(room02_newspaper);
 	}
+}
+
+sub readNewspaper() {
+	room02_newspaperTaken = TRUE;
+	say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
+	pause(15);
+	say(ego, "Oh! What an interesting ad!");
+	say(ego, "Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-274-345-81!");
+	turnCharacter(ego, SOUTH);
+	pause(10);
+	say(ego, "I'd say it's a bit intriguing.");
 }
 
 objectType room02_chair("chair")
@@ -724,25 +740,136 @@ objectType room02_employee10("employee")
 }
 
 objectType room02_chair1("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair2("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair3("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair4("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair5("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair6("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair7("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair8("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair9("chair")
-{}
+{
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+}
 objectType room02_chair10("chair")
-{}
+{	
+	event lookAt
+	{
+		say(ego, pickOne("Sadly, it's not a fabulous Chippendale-style chair.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.",
+						 "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground.", "It seems fixed to the ground." )); # a somewhat hidden text
+	}
+	
+	event interactWith
+	{
+		say(ego, "It won't even budge.");
+	}
+	
+}
 
 objectType room02_rebel1("rebel")
 {

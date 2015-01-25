@@ -72,7 +72,7 @@ objectType room04_window("window bars")
 	}
 	event item_potato
 	{
-		if (room04_lookedAtDoor) {
+		if (room04_lookedAtDoor == TRUE) {
 			say(ego, "Hmm... I've go an idea that's so stupid I really want to try it.");
 			narratorSay("Max uses strangely sharp window bars to scrape a picklock out of the potato.");
 			deleteFromStack(inventory, item_potato);

@@ -19,9 +19,7 @@ objectType ego ("Max") {
 	
 	event item_newspaper
 	{
-		say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
-		pause(25);
-		say(ego, "Oh! An ad!");
+		readNewspaper();
 		
 		#TODO rebel ad graphics etc.
 	}
