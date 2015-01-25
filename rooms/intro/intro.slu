@@ -1,18 +1,17 @@
 # intro on the beginning of the game
 
 sub d() {
-	forceCharacter(intro_plane, -500, 200);
+	forceCharacter(intro_plane, -400, 700);
 }
 
 sub intro()
 {
-	#TODO initialization
 	# first things first
 	addOverlay('rooms/intro/intro.png', 0, 0);
 	setScale(225, 1500);
 	
-	addCharacter(intro_plane, 1500, 200, anim('rooms/intro/plane.duc', 0));
-	setCharacterWalkSpeed(intro_plane, 15);
+	addCharacter(intro_plane, 1500, 800, anim('rooms/intro/plane.duc', 0));
+	setCharacterWalkSpeed(intro_plane, 9);
 	setCharacterExtra(intro_plane, FIXEDSIZE);
 	
 	addScreenRegion(intro_narrator, 650, 720, 650, 720, 0, 0, 0);
@@ -20,9 +19,8 @@ sub intro()
 	addCharacter(intro_building, 683, 768, anim('rooms/intro/building.duc', 0));
 	setCharacterExtra(intro_building, FIXEDSIZE);
 	
-	
 	spawnSub(d);
-	fadeIn();
+	#fadeIn();
 	
 	pause(20);
 	setSpeechSpeed(300);

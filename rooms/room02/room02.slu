@@ -111,7 +111,7 @@ sub room02()
 	spawnSub(lineSub2);
 	spawnSub(lineSub3);
 	
-	setCharacterWalkSpeed(ego, 24);
+	setCharacterWalkSpeed(ego, 9);
 	
 	if(room02_beforeAttack == FALSE)
 	{
@@ -259,8 +259,6 @@ objectType room02_cable("cable")
 	{
 		if(room02_beforeAttack)
 		{
-			#TODO all hell breaks loose
-			
 			pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 580);
 			pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 580);
 			
@@ -320,9 +318,6 @@ objectType room02_cable("cable")
 			removeCharacter(room02_employee6);
 			removeCharacter(room02_employee7);
 			
-			
-			
-			
 			addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 			addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 			addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
@@ -333,12 +328,29 @@ objectType room02_cable("cable")
 			addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	
 			
+			
 			spawnSub(aa);
 			spawnSub(bb);
 			spawnSub(cc);
 			
-			#TODO whispers of rebellion
+			addScreenRegion(room02_talkBox, 3277, 119, 3408, 156, 0, 0, 0);
 			
+			pause(150);
+			
+			say(room02_talkBox, "What do you mean by 'I don't know where the Secret is'?!");
+			say(room02_talkBox, "Tell us now! Rebellion is the only chance to get good games back!");
+			pause(35);
+			say(room02_talkBox, "Damn. They know nothing.");
+			say(room02_talkBox, "Without knowing the Secret we will never be able to give back gaming its former glory.");
+			say(room02_talkBox, "Guys, let's roll.");
+			pause(30);
+			say(ego, "Secret? What are they talking about?");
+			say(ego, "Gaming's former glory? Rebellion?");
+			say(ego, "I'm confused. Maybe there's something in the papers?");
+			
+			removeCharacter(room02_rebel3);
+			removeCharacter(room02_rebel2);
+			removeCharacter(room02_rebel1);
 			
 			# aftermath
 			removeCharacter(room02_superior);
@@ -355,7 +367,6 @@ objectType room02_cable("cable")
 			pause(50);
 			
 			say(ego, "Hmmmmm! It makes me feel great. Smarter! More aggresive!");
-			
 		}
 	}
 }
@@ -366,7 +377,6 @@ sub aa()
 	addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	setCharacterExtra(room02_employee10, FIXEDSIZE);
 	forceCharacter(room02_rebel3, 3500, -150);
-	removeCharacter(room02_rebel3);
 }
 
 sub bb()
@@ -375,7 +385,6 @@ sub bb()
 	addCharacter(room02_employee9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	setCharacterExtra(room02_employee9, FIXEDSIZE);
 	forceCharacter(room02_rebel2, 3302, -150);
-	removeCharacter(room02_rebel2);
 }
 
 sub cc()
@@ -384,7 +393,6 @@ sub cc()
 	addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	setCharacterExtra(room02_employee8, FIXEDSIZE);
 	forceCharacter(room02_rebel1, 3000, -150);
-	removeCharacter(room02_rebel1);
 }
 
 objectType room02_gum("gum")
@@ -423,6 +431,11 @@ objectType room02_book("book")
 		pushToStack(inventory, item_book);
 		removeCharacter(room02_book);
 	}
+}
+
+objectType room02_talkBox("")
+{
+	speechColor 255, 255, 255;
 }
 
 objectType room02_newspaper("newspaper")
@@ -559,7 +572,8 @@ objectType room02_employee1("employee")
 	
 	event interactWith
 	{
-		say(room02_employee1, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee1, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -569,7 +583,8 @@ objectType room02_employee2("employee")
 	
 	event interactWith
 	{
-		say(room02_employee2, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee2, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -579,7 +594,8 @@ objectType room02_employee3("employee")
 	
 	event interactWith
 	{
-		say(room02_employee3, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee3, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -589,7 +605,8 @@ objectType room02_employee4("employee")
 	
 	event interactWith
 	{
-		say(room02_employee4, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee4, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -599,7 +616,8 @@ objectType room02_employee5("employee")
 	
 	event interactWith
 	{
-		say(room02_employee5, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee5, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -609,7 +627,8 @@ objectType room02_employee6("employee")
 	
 	event interactWith
 	{
-		say(room02_employee6, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee6, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -619,7 +638,8 @@ objectType room02_employee7("employee")
 	
 	event interactWith
 	{
-		say(room02_employee7, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee7, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -629,7 +649,8 @@ objectType room02_employee8("employee")
 	
 	event interactWith
 	{
-		say(room02_employee8, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee8, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -639,7 +660,8 @@ objectType room02_employee9("employee")
 	
 	event interactWith
 	{
-		say(room02_employee9, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee9, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
@@ -649,7 +671,8 @@ objectType room02_employee10("employee")
 	
 	event interactWith
 	{
-		say(room02_employee10, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working", "You're starting to damage my calm."));
+		if(room02_beforeAttack)
+			say(room02_employee10, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
 	}
 }
 
