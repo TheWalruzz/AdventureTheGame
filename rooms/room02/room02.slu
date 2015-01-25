@@ -255,7 +255,7 @@ objectType talkingToEgo("") {}
 
 objectType room02_superior("superior")
 {
-	speechColor 230, 10, 50;
+	speechColor 255, 255, 255;
 	
 	event talkingToEgo
 	{

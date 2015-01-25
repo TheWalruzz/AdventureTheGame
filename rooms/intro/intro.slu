@@ -25,9 +25,9 @@ sub intro()
 	pause(20);
 	setSpeechSpeed(300);
 	
-	say(intro_narrator, "Somewhere in the USA.");
+	say(intro_narrator, "Somewhere in the USA");
 	pause(10);
-	say(intro_narrator, "In not so distant future...");
+	say(intro_narrator, "in not so distant future");
 	pause(20);
 	setSpeechSpeed(200);
 	
@@ -44,7 +44,7 @@ objectType intro_plane("plane")
 
 objectType intro_narrator("narrator")
 {
-	speechColor 0, 200, 54;
+	speechColor 255, 255, 255;
 }
 
 objectType intro_building("building")

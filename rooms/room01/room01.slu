@@ -54,7 +54,7 @@ sub room01()
 
 objectType room01_elevator_firsttime("elevator")
 {
-	speechColor 100, 100, 100;
+	speechColor 150, 150, 150;
 	
 	event lookAt
 	{
@@ -82,7 +82,7 @@ objectType room01_elevator("elevator")
 
 objectType room01_secretary("secretary")
 {
-	speechColor 200, 42, 200;
+	speechColor 255, 255, 255;
 	speechGap 10;
 	
 	event lookAt

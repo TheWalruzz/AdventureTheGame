@@ -232,7 +232,7 @@ objectType room06_powerButton("power button")
 
 objectType room06_secret("lid") # just for talking # actually it's also a lid now :3
 {
-	speechColor 220, 20, 60;
+	speechColor 200, 200, 200;
 }
 
 objectType room06_lid("lid") # just for talking # actually it's also a lid now :3

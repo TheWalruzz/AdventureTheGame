@@ -79,6 +79,6 @@ sub roomElevator()
 
 objectType roomElevator_notification("")
 {
-	speechColor 100, 100, 100;
+	speechColor 150, 150, 150;
 }
 
