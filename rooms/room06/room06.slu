@@ -170,11 +170,7 @@ objectType room06_powerButton("power button")
 		
 		}
 	}
-	
-	event item_broom
-	{
-		#TODO ending scene - YOU WIN!!!!111one
-	}
+
 }
 
 objectType room06_secret("lid") # just for talking # actually it's also a lid now :3
@@ -277,22 +273,22 @@ objectType room06_secCode("first panel")
 			burnString(20,20, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
 			
 			
-			pushToStack(choices, "A");
-			pushToStack(values, "A");
-			pushToStack(choices, "B");
-			pushToStack(values, "B");
-			pushToStack(choices, "H");
-			pushToStack(values, "H");
-			pushToStack(choices, "O");
-			pushToStack(values, "O");
-			pushToStack(choices, "L");
-			pushToStack(values, "L");
-			pushToStack(choices, "M");
-			pushToStack(values, "M");
-			pushToStack(choices, "Y");
-			pushToStack(values, "Y");
-			pushToStack(choices, "Q");
-			pushToStack(values, "Q");
+			enqueue(choices, "A");
+			enqueue(values, "A");
+			enqueue(choices, "B");
+			enqueue(values, "B");
+			enqueue(choices, "H");
+			enqueue(values, "H");
+			enqueue(choices, "O");
+			enqueue(values, "O");
+			enqueue(choices, "L");
+			enqueue(values, "L");
+			enqueue(choices, "M");
+			enqueue(values, "M");
+			enqueue(choices, "Y");
+			enqueue(values, "Y");
+			enqueue(choices, "Q");
+			enqueue(values, "Q");
 			
 			addSpeechChoicesFromStacks(choices, values);			
 			
@@ -308,22 +304,22 @@ objectType room06_secCode("first panel")
 			burnString(20,20, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
 			burnString(100, 100, enteredCode);
 
-			pushToStack(choices, "Z");
-			pushToStack(values, "Z");
-			pushToStack(choices, "B");
-			pushToStack(values, "B");
-			pushToStack(choices, "X");
-			pushToStack(values, "X");
-			pushToStack(choices, "P");
-			pushToStack(values, "P");
-			pushToStack(choices, "G");
-			pushToStack(values, "G");
-			pushToStack(choices, "A");
-			pushToStack(values, "A");
-			pushToStack(choices, "Y");
-			pushToStack(values, "Y");
-			pushToStack(choices, "R");
-			pushToStack(values, "R");
+			enqueue(choices, "Z");
+			enqueue(values, "Z");
+			enqueue(choices, "B");
+			enqueue(values, "B");
+			enqueue(choices, "X");
+			enqueue(values, "X");
+			enqueue(choices, "P");
+			enqueue(values, "P");
+			enqueue(choices, "G");
+			enqueue(values, "G");
+			enqueue(choices, "A");
+			enqueue(values, "A");
+			enqueue(choices, "Y");
+			enqueue(values, "Y");
+			enqueue(choices, "R");
+			enqueue(values, "R");
 			
 			addSpeechChoicesFromStacks(choices, values);			
 			
@@ -339,22 +335,22 @@ objectType room06_secCode("first panel")
 			burnString(20,20, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
 			burnString(100, 100, enteredCode);
 			
-			pushToStack(choices, "S");
-			pushToStack(values, "S");
-			pushToStack(choices, "G");
-			pushToStack(values, "G");
-			pushToStack(choices, "N");
-			pushToStack(values, "N");
-			pushToStack(choices, "Z");
-			pushToStack(values, "Z");
-			pushToStack(choices, "A");
-			pushToStack(values, "A");
-			pushToStack(choices, "R");
-			pushToStack(values, "R");
-			pushToStack(choices, "W");
-			pushToStack(values, "W");
-			pushToStack(choices, "E");
-			pushToStack(values, "E");
+			enqueue(choices, "S");
+			enqueue(values, "S");
+			enqueue(choices, "G");
+			enqueue(values, "G");
+			enqueue(choices, "N");
+			enqueue(values, "N");
+			enqueue(choices, "Z");
+			enqueue(values, "Z");
+			enqueue(choices, "A");
+			enqueue(values, "A");
+			enqueue(choices, "R");
+			enqueue(values, "R");
+			enqueue(choices, "W");
+			enqueue(values, "W");
+			enqueue(choices, "E");
+			enqueue(values, "E");
 			
 			addSpeechChoicesFromStacks(choices, values);			
 			
@@ -371,26 +367,29 @@ objectType room06_secCode("first panel")
 			burnString(20,20, "ENTER FORTH CHARACTER OF THE ACCESS CODE");
 			burnString(100, 100, enteredCode);
 			
-			pushToStack(choices, "2");
-			pushToStack(values, "2");
-			pushToStack(choices, "5");
-			pushToStack(values, "5");
-			pushToStack(choices, "3");
-			pushToStack(values, "3");
-			pushToStack(choices, "6");
-			pushToStack(values, "6");
-			pushToStack(choices, "1");
-			pushToStack(values, "1");
-			pushToStack(choices, "0");
-			pushToStack(values, "0");
-			pushToStack(choices, "7");
-			pushToStack(values, "7");
+			enqueue(choices, "2");
+			enqueue(values, "2");
+			enqueue(choices, "5");
+			enqueue(values, "5");
+			enqueue(choices, "3");
+			enqueue(values, "3");
+			enqueue(choices, "6");
+			enqueue(values, "6");
+			enqueue(choices, "1");
+			enqueue(values, "1");
+			enqueue(choices, "0");
+			enqueue(values, "0");
+			enqueue(choices, "7");
+			enqueue(values, "7");
 			
 			addSpeechChoicesFromStacks(choices, values);			
 			
 			choice = getSpeechChoice(ego);
 			
 			enteredCode = enteredCode + choice;			
+
+			values = newStack();
+			choices = newStack();
 			
 			if(enteredCode == secretCode) {
 				unfreeze();
@@ -403,7 +402,7 @@ objectType room06_secCode("first panel")
 			
 			} else {
 				unfreeze();
-				say(room06_secCode, "ACCESS DENIED");				
+				say(room06_secCode, "ACCESS DENIED");
 			}
 	}
 }
@@ -414,10 +413,92 @@ objectType room06_secPuzzle("second panel")
 		say(ego, "That's a math puzzle.");
 	}
 	event interactWith {
-		narratorSay("PUZZLE HERE");
-		room06_accessPuzzle = TRUE;
-		removeScreenRegion(room06_secPuzzle);
-		checkSecretAccess();
+		
+		freeze();
+		
+		var firsts = newStack();
+		var seconds = newStack();
+		var sums = newStack();
+		
+		var a = random(5);
+		var b = random(5);
+		var sum = random(9);
+		
+		pushToStack(firsts, a);
+		pushToStack(seconds, b);
+		pushToStack(sums, sum);
+
+		var wins = 0;
+		
+		var i = 0;
+		while (i < 10) {
+			enqueue(choices, i);
+			enqueue(values, i);
+			i = i + 1;
+		}
+		enqueue(choices, "Uhm, gotta go, bye!");
+		enqueue(values, -1);
+		var answer = 0; var aa = 0; var bb = 0; var ssum = 0;
+		
+		loop {
+			addSpeechChoicesFromStacks(choices, values);	
+			
+			blankScreen();
+			setBurnColor(255,255,255);
+			burnString(20,20, "SOLVE THIS THREE TIMES IN ROW");
+
+			i = 0;
+			while (i < stackSize(sums)) {
+				burnString(20, 20 + (i+1) * 40, firsts[i] + " + " + seconds[i] + " = " + sums[i]);
+				i = i + 1;
+			}
+			
+			aa = random(5);
+			bb = random(5);
+			ssum = aa + bb;
+			
+			answer = firsts[stackSize(sums)-1] + seconds[stackSize(sums)-1];
+
+			enqueue(firsts, aa);
+			enqueue(seconds, bb);
+			enqueue(sums, answer);
+			
+			burnString(20, 40 + stackSize(sums) * 40, aa + " + " + bb + " = ?");
+			
+			var choice = getSpeechChoice(ego);
+			
+			if (choice == -1) {
+				choices = newStack();
+				values = newStack();
+				unfreeze();
+				return;
+			}
+			
+			if (choice == answer) {
+				wins = wins + 1;
+				say(room06_secPuzzle, "Correct!");
+				if (wins < 3) {
+					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + " times more.");
+				} else {
+					unfreeze();
+					say(room06_secPuzzle, "ACCESS GRANTED");
+					room06_accessPuzzle = TRUE;
+					removeScreenRegion(room06_secPuzzle);
+					checkSecretAccess();	
+					
+					choices = newStack();
+					values = newStack();
+					return;
+				}
+			} else {
+				wins = 0;
+				say(room06_secPuzzle, "Wrong! It should have been: " + answer);
+			}
+			
+			
+		}
+		
+		
 	}
 }
 

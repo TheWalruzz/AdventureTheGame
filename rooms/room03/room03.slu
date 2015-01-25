@@ -8,6 +8,9 @@ var room03_broomTaken = FALSE;
 
 sub room03()
 {
+	room03_part = "a";
+	room03_centerX = 683;
+
 	setSceneDimensions(2724, 768);
 	addOverlay('rooms/room03/room03.png', 0, 0);
 	setFloor('rooms/room03/room03.flo');
@@ -37,7 +40,6 @@ sub room03()
 
 	setCharacterWalkSpeed(ego, 8);
 	
-	room03_part = "a";
 }
 
 sub gotoRoom03Part(part, x)
