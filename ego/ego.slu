@@ -65,6 +65,3 @@ sub makeEgoAnim () {
    	);
 }
 
-sub narratorSay(x) {
-	say(ego, "narrator: " + x); # TODO
-}

@@ -98,9 +98,22 @@ sub countItems(it)
 	return count;
 }
 
-sub abs(x)
+sub narratorSay(text)
 {
-	return (x<0) ? -x : x ;
+	freeze();
+	stop();
+	darkBackground();
+	addScreenRegion(narrator, 683, 384, 684, 385, 0, 0, 0);
+	say(narrator, "Narrator: " + text);
+	removeScreenRegion(narrator);
+	#unfreeze();
+	go();
+	unfreeze();
+}
+
+objectType narrator("")
+{
+	speechColor 255, 255, 255;
 }
 
 var currentRoom = NULL;

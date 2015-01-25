@@ -128,8 +128,8 @@ sub room02()
 	
 	if(room02_beforeAttack == FALSE)
 	{
-		pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 300);
-		pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 300);
+		#pasteImage(anim('rooms/room02/rope.duc', 0), 3000, 300);
+		#pasteImage(anim('rooms/room02/rope.duc', 0), 3302, 300);
 		
 		addCharacter(room02_rope, 3500, 580, anim('rooms/room02/rope.duc', 0));
 		setCharacterExtra(room02_rope, FIXEDSIZE);
@@ -162,7 +162,7 @@ objectType room02_elevatorDoor("elevator door")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		if(! room02_beforeAttack)
+		if(! room02_beforeAttack && countItems(item_newspaper) == 1)
 			gotoRoom(roomElevator);
 		else
 			say(ego, "I don't think it's wise to leave early on the first day on new job.");
