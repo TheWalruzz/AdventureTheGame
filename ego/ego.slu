@@ -64,3 +64,7 @@ sub makeEgoAnim () {
 		anim('ego/ego.duc', 2)
    	);
 }
+
+sub narratorSay(x) {
+	say(ego, "narrator: " + x); # TODO
+}

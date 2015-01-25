@@ -1,3 +1,7 @@
+var room04_lookedAtDoor = FALSE;
+
+var afterPrison = FALSE;
+
 sub room04()
 {
 	setSceneDimensions(1366, 768);
@@ -10,9 +14,16 @@ sub room04()
 
 	addScreenRegion(room04_door, 1068, 271, 1216, 726, 1057, 709, EAST);
 
+	addScreenRegion(room04_window, 530, 225, 740, 360, 630, 630, NORTH);
+	
+	addCharacter(room04_potato, 230, 730, makeStaticCostume(anim ('rooms/room04/potato.duc', 0)));
+	setCharacterExtra(room04_potato, FIXEDSIZE);
+	
 	setCharacterWalkSpeed(ego, 8);
 	
 	fadeIn();
+	
+	say(ego, "What kind of company has its very own prison inside their headquarters?");
 }
 
 objectType room04_door("prison door")
@@ -20,6 +31,12 @@ objectType room04_door("prison door")
 	event lookAt
 	{
 		say(ego, "Very heavy door.");
+		pause(40);
+		say(ego, "Hey, it has traditional keyhole instead of ID scanner.");
+		say(ego, "If only I could make some kind of picklock...");
+		
+		room04_lookedAtDoor = TRUE;
+		afterPrison = TRUE;
 	}
 	
 	event interactWith
@@ -29,5 +46,51 @@ objectType room04_door("prison door")
 		say(ego, "I guess nobody is here.");
 	}
 	
-	# interactions after puzzle was solved
+	event item_picklock {
+		gotoRoom(room06); # TODO: korytarz
+	}
+	
+}
+objectType room04_picklock("picklock")
+{
+}
+
+objectType room04_window("window bars")
+{
+	event lookAt
+	{
+		say(ego, "Being there would be a bit more bearable if only there wasn't a wall right behind that window...");
+	}
+	event interactWith
+	{
+		say(ego, "These bars have edges so sharp I could slice a cake with it.");
+	}
+	event item_potato
+	{
+		if (room04_lookedAtDoor) {
+			say(ego, "Hmm... I've go an idea that's so stupid I really want to try it.");
+			narratorSay("Max uses strangely sharp window bars to scrape a picklock out of the potato.");
+			deleteFromStack(inventory, item_potato);
+			pushToStack(inventory, item_picklock);
+			say(ego, "Having been a scout sure does pay off!");
+		} else {
+			say(ego, "I could scrape something out of the potato with these bars.");
+			say(ego, "But what?");
+		}
+	}
+}
+
+objectType room04_potato("potato")
+{
+	event lookAt
+	{
+		say(ego, "It's a potato.");
+		say(ego, "I wonder what has it done to be locked in prison.");
+	}
+	event interactWith
+	{
+		say(ego, "I'm not hungry right now, I'll save it for later.");
+		pushToStack(inventory, item_potato);
+		removeCharacter(room04_potato);
+	}
 }

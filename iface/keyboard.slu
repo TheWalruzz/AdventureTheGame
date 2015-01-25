@@ -11,5 +11,7 @@ sub keys (k) {
 	if (k == "6") gotoRoom(room05);
 	if (k == "7") gotoRoom(room06);
 	
+	if (k == "i") showInventory();
+	
 	if(k == "c") pushToStack(inventory, item_gumWhole);
 }
