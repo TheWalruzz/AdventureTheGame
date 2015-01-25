@@ -115,8 +115,8 @@ objectType narrator("")
 	speechColor 255, 255, 255;
 }
 
-var currentRoom = NULL;
-var lastRoom = NULL;
+#var currentRoom = NULL;
+#var lastRoom = NULL;
 
 sub gotoRoom (r) {
 	# Get rid of all the object types
@@ -132,8 +132,8 @@ sub gotoRoom (r) {
 
 	# Fix the variables lastRoom and currentRoom
 	# (We don't NEED them, but they are useful in scripts)
-	lastRoom = currentRoom;
-	currentRoom = r;
+	#lastRoom = currentRoom;
+	#currentRoom = r;
 
 	if(hideInventory == FALSE)
 	{

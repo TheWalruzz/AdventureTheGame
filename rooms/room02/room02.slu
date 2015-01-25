@@ -4,6 +4,10 @@ var room02_centerX = 683;
 var room02_crossedCB = FALSE;
 var room02_beforeAttack = TRUE;
 
+var room02_bookTaken = FALSE;
+var room02_newspaperTaken = FALSE;
+var room02_ropeTaken = FALSE;
+
 sub lineSub() {
 	setCharacterWalkSpeed(room02_line, 5);
 	
@@ -31,6 +35,8 @@ sub lineSub3() {
 
 sub room02()
 {
+	room02_part = "a";
+	
 	setSceneDimensions(4098, 768);
 	addOverlay('rooms/room02/room02.png', 0, 0);
 	setFloor('rooms/room02/room02.flo');
@@ -51,11 +57,15 @@ sub room02()
 	addOverlay('rooms/room02/gum.png', 739, 645);
 	addScreenRegion(room02_gum, 739, 645, 739+50, 645+50, 700, 645, EAST);
 	
-	addCharacter(room02_book, 800, 645, anim('rooms/room02/book.duc', 0));
-	setCharacterExtra(room02_book, FIXEDSIZE);
+	if (room02_bookTaken == FALSE) {
+		addCharacter(room02_book, 800, 645, anim('rooms/room02/book.duc', 0));
+		setCharacterExtra(room02_book, FIXEDSIZE);
+	}
 	
-	addCharacter(room02_newspaper, 4040, 308, anim('rooms/room02/newspaper.duc', 0));
-	setCharacterExtra(room02_newspaper, FIXEDSIZE);
+	if (room02_newspaperTaken == FALSE) {
+		addCharacter(room02_newspaper, 4040, 308, anim('rooms/room02/newspaper.duc', 0));
+		setCharacterExtra(room02_newspaper, FIXEDSIZE);
+	}
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
 	addCharacter(room02_line2, -3900, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
@@ -126,7 +136,7 @@ sub room02()
 	
 	setCharacterWalkSpeed(ego, 9);
 	
-	if(room02_beforeAttack == FALSE && (itemsCount(item_rope) == 1 || itemsCount(item_ropeWithBook) == 1 || itemsCount(item_rope) == 1))
+	if(room02_beforeAttack == FALSE && room02_ropeTaken == FALSE)
 	{
 		
 		addCharacter(room02_rope, 3533, 652, anim('rooms/room02/book.duc', 0));
@@ -486,6 +496,8 @@ objectType room02_book("book")
 		say(ego, "I guess I could borrow it for a little while.");
 		pushToStack(inventory, item_book);
 		removeCharacter(room02_book);
+		room02_bookTaken = TRUE;
+		
 	}
 }
 
@@ -534,6 +546,8 @@ objectType room02_rope("rope")
 	
 		pushToStack(inventory, item_rope);
 		
+		room02_ropeTaken = TRUE;
+
 		removeCharacter(room02_rope);
 	}
 }
@@ -588,7 +602,6 @@ objectType room02_superderpy("a badge")
 		say(ego, "No, thanks. I don't want to people asking me about Super Derpy.");
 	}
 }
-
 
 objectType room02_employee1("employee")
 {

@@ -20,7 +20,7 @@ sub intro()
 	setCharacterExtra(intro_building, FIXEDSIZE);
 	
 	spawnSub(d);
-	#fadeIn();
+	fadeIn();
 	
 	pause(20);
 	setSpeechSpeed(300);
