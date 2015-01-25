@@ -51,8 +51,8 @@ sub room02()
 	addScreenRegion(room02_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 	addScreenRegion(room02_bcTransition, 2660, 0, 2790, 768, 0, 0, 0);
 	
-	addOverlay('rooms/room02/express.png', 3776, 608);
-	addScreenRegion(room02_coffeeMachine, 3776, 608, 3826, 658, 3571, 710, EAST);
+	addOverlay('rooms/room02/express.png', 0, 0);
+	addScreenRegion(room02_coffeeMachine, 3776, 608, 4026, 658, 3571, 710, EAST);
 	
 	addOverlay('rooms/room02/cable.png', 3776, 658);
 	
@@ -60,7 +60,7 @@ sub room02()
 	addScreenRegion(room02_gum, 739, 645, 739+50, 645+50, 700, 645, EAST);
 	
 	if (room02_bookTaken == FALSE) {
-		addCharacter(room02_book, 800, 645, anim('rooms/room02/book.duc', 0));
+		addCharacter(room02_book, 800, 645, anim('rooms/room02/booknew.duc', 0));
 		setCharacterExtra(room02_book, FIXEDSIZE);
 	}
 	
@@ -286,7 +286,7 @@ objectType room02_cable("cable")
 		{
 			narratorSay("Max goes under the table to connect the plug, when...");
 			fadeOut(); # temporary stuff
-			jumpCharacter(ego, 0, 0);
+			jumpCharacter(ego, 200, 600);
 			
 			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope3, FIXEDSIZE);
@@ -394,8 +394,8 @@ objectType room02_cable("cable")
 			removeCharacter(room02_tempRope2);
 			removeCharacter(room02_tempRope3);
 			
-			jumpCharacter(3500, 652);
-			addCharacter(room02_rope, 3533, 652, anim('rooms/room02/book.duc', 0));
+			jumpCharacter(ego, 3500, 652);
+			addCharacter(room02_rope, 3533, 652, anim('rooms/room02/rope2.duc', 0));
 			setCharacterExtra(room02_rope, FIXEDSIZE);
 			
 			pause(35);

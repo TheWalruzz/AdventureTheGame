@@ -45,11 +45,11 @@ sub room05()
 objectType room05_bossIDcard("ID card") {
 	event lookAt {
 		lookedAtCard = TRUE;
-		say("Hey, it CEO's ID! He must have dropped it when leaving!");
+		say(ego, "Hey, it CEO's ID! He must have dropped it when leaving!");
 	}
 	event interactWith {
 		if (lookedAtCard == FALSE) {
-			say("Hey, it CEO's ID! He must have dropped it when leaving!");
+			say(ego, "Hey, it CEO's ID! He must have dropped it when leaving!");
 
 			pushToStack(inventory, item_bossIDcard);
 			
