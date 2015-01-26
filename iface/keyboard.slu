@@ -1,20 +1,38 @@
 sub keys (k) {
-	if (k == " ") showBoxes ();
-	if (k == "f") showFloor ();
-	if (k == "ESCAPE") quitGame ();
+	#if (k == " ") showBoxes ();
+	#if (k == "f") showFloor ();
+	if (k == "ESCAPE") {
+		if (saveGame("auto")) {
+			quitGame ();
+		}
+	}
+
+	if (k == "a") {
+		narratorSay("Loading auto save");
+		loadGame("auto");
+	}
 	
-	if (k == "1") gotoRoom(room01);
-	if (k == "2") gotoRoom(room02);
-	if (k == "3") gotoRoom(room03);
-	if (k == "4") gotoRoom(room04);
-	if (k == "5") gotoRoom(room05);
-	if (k == "6") gotoRoom(room06);
-	if (k == "7") gotoRoom(room07);
+	if (k == "s") {
+		narratorSay("Saving game");
+		saveGame("save");
+	}
+	if (k == "l") {
+		narratorSay("Loading saved game");
+		loadGame("save");
+	}
 	
-	if (k == "0") gotoRoom(roomElevator);
+	#if (k == "1") gotoRoom(room01);
+	#if (k == "2") gotoRoom(room02);
+	#if (k == "3") gotoRoom(room03);
+	#if (k == "4") gotoRoom(room04);
+	#if (k == "5") gotoRoom(room05);
+	#if (k == "6") gotoRoom(room06);
+	#if (k == "7") gotoRoom(room07);
+	
+	#if (k == "0") gotoRoom(roomElevator);
 	
 
 	if (k == "i") showInventory();
 	
-	if(k == "c") pushToStack(inventory, item_gumWhole);
+	#if(k == "c") pushToStack(inventory, item_gumWhole);
 }

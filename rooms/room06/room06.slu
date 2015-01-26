@@ -164,6 +164,7 @@ objectType room06_powerButton("power button")
 			narratorSay("Congratulations! You won!");
 			
 			fadeOut();
+			jumpCharacter(room06_secret, 3000, 500);
 			blankScreen();
 			fadeIn();
 			
