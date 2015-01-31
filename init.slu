@@ -1,5 +1,7 @@
 var secretCode = pickOne("ABS2", "BZG5", "HXN3", "OPZ6", "LPA1", "BXR5", "MPW0", "YGE5");
 
+var DEBUG = FALSE;
+
 sub init ()
 {
 	setFont('demofont.duc', "ÉABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\"'/?!.,;:()*%& -~`@+=", 32);
@@ -12,6 +14,6 @@ sub init ()
 	setSpeechSpeed(200);
 	
 	stop();
-	gotoRoom(intro);
+	gotoRoom(DEBUG ? roomElevator : intro);
 	go();
 }

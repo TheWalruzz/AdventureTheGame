@@ -17,10 +17,14 @@ var gotSpeechClick;
 var choices = newStack(), values = newStack();
 sub addSpeechChoicesFromStacks(a, b)
 {
-	for(var i =0; i < stackSize(choices); i++)
+	for(var i =0; i < stackSize(a); i++)
 	{
 		addSpeechChoice(a[i], b[i]);
 	}
+}
+
+sub applyChoices() {
+	addSpeechChoicesFromStacks(choices, values);
 }
 
 sub deleteChoicesByValue(n)
@@ -35,10 +39,23 @@ sub deleteChoicesByValue(n)
 	}
 }
 
+sub addValueChoice(a) {
+	addChoice(a, a);
+}
+
+sub clearChoices() {
+	choices = newStack();
+	values = newStack();
+}
+
 sub addChoice(a, b)
 {
-	pushToStack(choices, a);
-	pushToStack(values, b);
+	enqueue(choices, a);
+	enqueue(values, b);
+}
+
+sub addSpeechValueChoice(a) {
+	addSpeechChoice(a, a);
 }
 
 sub addSpeechChoice (a, b) {
@@ -68,9 +85,15 @@ sub getSpeechChoice (character) {
 			
 		gotSpeechClick = FALSE;
 		lightStatus (selected - 1);
-
-		# Give the player a chance to click the mouse button...
-		pause (1);
+		
+		if (stackSize(speechChoices) == 1) {
+			# if only one choice is left, autoselect it
+			gotSpeechClick = TRUE;
+			selected = 1;
+		} else {
+			# Give the player a chance to click the mouse button...
+			pause (1);
+		}
 
 		# ...and check whether they did
 		if (gotSpeechClick) {

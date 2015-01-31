@@ -23,13 +23,12 @@ sub intro()
 	fadeIn();
 	
 	pause(20);
-	setSpeechSpeed(300);
+	setSpeechSpeed(250);
 	
 	say(intro_narrator, "Somewhere in the USA");
 	pause(10);
 	say(intro_narrator, "in not so distant future");
 	pause(20);
-	setSpeechSpeed(200);
 	
 	hideInventory = FALSE;
 	

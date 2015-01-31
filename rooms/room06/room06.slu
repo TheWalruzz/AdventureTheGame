@@ -44,10 +44,11 @@ sub room06()
 	
 	# REMEMBER TO CHECK FOR LOCKED TRAY AND OPENED LID AND SOLVED PUZZLES!
 	
-	#pushToStack(inventory, item_broom); # DEBUG
-	#pushToStack(inventory, item_internIDcard); # DEBUG
-	#pushToStack(inventory, item_bossIDcard); # DEBUG
-	#say(ego, secretCode); #DEBUG	
+	if (DEBUG) {
+		pushToStack(inventory, item_broom); # DEBUG
+		pushToStack(inventory, item_internIDcard); # DEBUG
+		pushToStack(inventory, item_bossIDcard); # DEBUG
+	}
 
 	if (room06_trayLocked == TRUE) {
 		addOverlay('rooms/room06/room06blocked.png', 0, 0);		
@@ -70,9 +71,11 @@ sub room06()
 
 sub room06_speech()
 {
-	pause(10);
+	pause(20);
 	say(room06_secret, "Ahh. Puny human. Welcome to my lair.");
 	say(room06_secret, "Your weak race is about to be completely under my rule. My scheme worked perfectly.");
+	
+	clearChoices();
 	
 	addChoice("Scheme? What scheme?", 0);
 	addChoice("You're just a metal box. You have to be a bot.", 1);
@@ -84,7 +87,7 @@ sub room06_speech()
 		if(stackSize(choices) == 0)
 			return;
 			
-		addSpeechChoicesFromStacks(choices, values);
+		applyChoices();
 		
 		var reply = getSpeechChoice(ego);
 		
@@ -124,7 +127,7 @@ sub room06_speech()
 		else if(reply == 4)
 		{
 			say(room06_secret, "Yes. And there's nothing you can do to stop me.");
-			say(room06_secret, "There must be the way!");
+			say(ego, "There must be the way!");
 			say(room06_secret, "There are still those, who oppose me, but soon...");
 			say(room06_secret, "Soon, they will be forced to play my games!");
 			
@@ -137,7 +140,7 @@ sub room06_speech()
 			say(room06_secret, "CEO single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.");
 			say(room06_secret, "Yes, he is my prime test subject.");
 			
-			addChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you, she didn't end well.", 6);
+			addChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you she didn't end well.", 6);
 			
 			deleteChoicesByValue(5);
 		}
@@ -163,8 +166,9 @@ objectType room06_powerButton("power button")
 			room06_buttonActive = FALSE;
 			narratorSay("Congratulations! You won!");
 			
+			skipSpeech();
 			fadeOut();
-			jumpCharacter(room06_secret, 3000, 500);
+			
 			blankScreen();
 			fadeIn();
 			
@@ -182,7 +186,7 @@ objectType room06_powerButton("power button")
 			
 			pause(50);
 			
-			narratorSay("The Gamejam Game About Games, Secrets and Stuff");
+			narratorSay("The Game Jam Game About Games, Secrets and Stuff");
 			narratorSay("Made by Konrad Burandt, Sebastian Krzyszkowiak and Pawel Radej.");
 			narratorSay("The game has been made on Poznan Game Jam, part of Global Game Jam 2015.");
 			narratorSay("So...");
@@ -203,25 +207,18 @@ objectType room06_powerButton("power button")
 			quitGame();
 			return;
 		} else {
-		
+			narratorSay("Max pushes the button.");
+			
 			say(ego, "Nothing happened...");
 			say(room06_secret, "Hahaha! You thought turning me off will be that easy?");
 			
-			pushToStack(choices, "I thought that maybe 48 hours weren't enough to implement a complex puzzle here.");
-			pushToStack(values, 0);
-			pushToStack(choices, "So how can one turn you off?");
-			pushToStack(values, 0);
-			pushToStack(choices, "Well, it was worth trying.");
-			pushToStack(values, 0);
-			pushToStack(choices, "You never know. Best solution is often the easiest one.");
-			pushToStack(values, 0);
-			
-			addSpeechChoicesFromStacks(choices, values);
+			addSpeechValueChoice("You never know. Best solution is often the easiest one.");
+			addSpeechValueChoice("Well, it was worth trying.");
+			addSpeechValueChoice("So how can one turn you off?");
+			addSpeechValueChoice("I thought that maybe 48 hours weren't enough to implement a complex puzzle here.");
 			
 			getSpeechChoice(ego);
-			
-			deleteChoicesByValue(0);
-			
+						
 			say(room06_secret, "There are three safety mechanisms you need to disable in order to turn me off.");
 			
 			say(ego, "Good to know.");
@@ -231,12 +228,12 @@ objectType room06_powerButton("power button")
 
 }
 
-objectType room06_secret("lid") # just for talking # actually it's also a lid now :3
+objectType room06_secret("") # just for talking
 {
 	speechColor 200, 200, 200;
 }
 
-objectType room06_lid("lid") # just for talking # actually it's also a lid now :3
+objectType room06_lid("lid")
 {
 	event lookAt {
 		if (room06_lidOpen == TRUE) {
@@ -314,7 +311,7 @@ objectType room06_tray("tray")
 
 sub secretPanics() {
 	while (room06_buttonActive) {
-		say(room06_secret, pickOne("After all, it's not like you don't even know what will happen after you do so.", "Think of the children.", "What will this company do without me?", "In fact, I'm connected to the nuclear reactor powering this place. If you turn me off, everything blows up.", "Good job, hero.", "Look behind you, a three-headed monkey!", "I heard pushing big power buttons gives you a bad luck.", "What will humanity do without me?", "What will you do without me?", "Even when you're dead I will be still alive."));
+		say(room06_secret, pickOne("After all, it's not like you don't even know what will happen after you do so.", "Think of the children.", "What will this company do without me?", "In fact, I'm connected to the nuclear reactor powering this place. If you turn me off, everything blows up.", "Good job, hero.", "Look behind you, a three-headed monkey!", "I heard pushing big power buttons gives you a bad luck.", "What will humanity do without me?", "What will you do without me?", "I wouldn't touch this button if I were you.", "They told me I'd die if I press this button!", "Prepare for unforeseen consequences."));
 		pause(80);
 	}
 }
@@ -336,7 +333,13 @@ objectType room06_secCode("first panel")
 	event interactWith {
 			inNeedOfSecretCode = TRUE;
 			
+			if (DEBUG) {
+				say(ego, secretCode);
+			}
+			
 			freeze();
+			onRightMouse (skipper);
+			
 			setBlankColor(0,0,0);
 			
 			blankScreen();
@@ -346,131 +349,76 @@ objectType room06_secCode("first panel")
 			setPasteColor(255,255,255);
 			pasteString(20,20, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
 			
+			addSpeechValueChoice("A");
+			addSpeechValueChoice("B");
+			addSpeechValueChoice("H");
+			addSpeechValueChoice("O");
+			addSpeechValueChoice("L");
+			addSpeechValueChoice("M");
+			addSpeechValueChoice("Y");
+			addSpeechValueChoice("Q");
 			
-			enqueue(choices, "A");
-			enqueue(values, "A");
-			enqueue(choices, "B");
-			enqueue(values, "B");
-			enqueue(choices, "H");
-			enqueue(values, "H");
-			enqueue(choices, "O");
-			enqueue(values, "O");
-			enqueue(choices, "L");
-			enqueue(values, "L");
-			enqueue(choices, "M");
-			enqueue(values, "M");
-			enqueue(choices, "Y");
-			enqueue(values, "Y");
-			enqueue(choices, "Q");
-			enqueue(values, "Q");
-			
-			addSpeechChoicesFromStacks(choices, values);			
-			
-			var choice = getSpeechChoice(ego);
+			var choice = getSpeechChoice(NULL);
 			
 			enteredCode = enteredCode + choice;
-			
-			values = newStack();
-			choices = newStack();
-			setBlankColor(0,0,0);
 			
 			blankScreen();
 			
 			pasteString(20,20, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 
-			enqueue(choices, "Z");
-			enqueue(values, "Z");
-			enqueue(choices, "B");
-			enqueue(values, "B");
-			enqueue(choices, "X");
-			enqueue(values, "X");
-			enqueue(choices, "P");
-			enqueue(values, "P");
-			enqueue(choices, "G");
-			enqueue(values, "G");
-			enqueue(choices, "A");
-			enqueue(values, "A");
-			enqueue(choices, "Y");
-			enqueue(values, "Y");
-			enqueue(choices, "R");
-			enqueue(values, "R");
+			addSpeechValueChoice("Z");
+			addSpeechValueChoice("B");
+			addSpeechValueChoice("X");
+			addSpeechValueChoice("P");
+			addSpeechValueChoice("G");
+			addSpeechValueChoice("A");
+			addSpeechValueChoice("Y");
+			addSpeechValueChoice("R");
 			
-			addSpeechChoicesFromStacks(choices, values);			
-			
-			choice = getSpeechChoice(ego);
+			choice = getSpeechChoice(NULL);
 			
 			enteredCode = enteredCode + choice;
-			
-			values = newStack();
-			choices = newStack();
-			setBlankColor(0,0,0);
 			
 			blankScreen();
 			
 			pasteString(20,20, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 			
-			enqueue(choices, "S");
-			enqueue(values, "S");
-			enqueue(choices, "G");
-			enqueue(values, "G");
-			enqueue(choices, "N");
-			enqueue(values, "N");
-			enqueue(choices, "Z");
-			enqueue(values, "Z");
-			enqueue(choices, "A");
-			enqueue(values, "A");
-			enqueue(choices, "R");
-			enqueue(values, "R");
-			enqueue(choices, "W");
-			enqueue(values, "W");
-			enqueue(choices, "E");
-			enqueue(values, "E");
+			addSpeechValueChoice("S");
+			addSpeechValueChoice("G");
+			addSpeechValueChoice("N");
+			addSpeechValueChoice("Z");
+			addSpeechValueChoice("A");
+			addSpeechValueChoice("R");
+			addSpeechValueChoice("W");
+			addSpeechValueChoice("E");
 			
-			addSpeechChoicesFromStacks(choices, values);			
-			
-			choice = getSpeechChoice(ego);
+			choice = getSpeechChoice(NULL);
 			
 			enteredCode = enteredCode + choice;
-
-			values = newStack();
-			choices = newStack();
-			setBlankColor(0,0,0);
 			
 			blankScreen();
-			#var secretCode = pickOne("ABS2", "BZG5", "HXN3", "OPZ6", "LPA1", "BXR5", "MPW0", "YGE5");
 			
-			pasteString(20,20, "ENTER FORTH CHARACTER OF THE ACCESS CODE");
+			pasteString(20,20, "ENTER FOURTH CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 			
-			enqueue(choices, "2");
-			enqueue(values, "2");
-			enqueue(choices, "5");
-			enqueue(values, "5");
-			enqueue(choices, "3");
-			enqueue(values, "3");
-			enqueue(choices, "6");
-			enqueue(values, "6");
-			enqueue(choices, "1");
-			enqueue(values, "1");
-			enqueue(choices, "0");
-			enqueue(values, "0");
-			enqueue(choices, "7");
-			enqueue(values, "7");
+			addSpeechValueChoice("2");
+			addSpeechValueChoice("5");
+			addSpeechValueChoice("3");
+			addSpeechValueChoice("6");
+			addSpeechValueChoice("1");
+			addSpeechValueChoice("0");
+			addSpeechValueChoice("7");
+			addSpeechValueChoice("4");
 			
-			addSpeechChoicesFromStacks(choices, values);			
+			choice = getSpeechChoice(NULL);
 			
-			choice = getSpeechChoice(ego);
-			
-			enteredCode = enteredCode + choice;			
-
-			values = newStack();
-			choices = newStack();
+			enteredCode = enteredCode + choice;
 			
 			if(enteredCode == secretCode) {
 				unfreeze();
-				say(room06_secCode, "ACCESS GRANTED");				
+				say(room06_secCode, "ACCESS GRANTED");
 			
 				inNeedOfSecretCode = FALSE;
 				room06_accessCode = TRUE;
@@ -492,6 +440,7 @@ objectType room06_secPuzzle("second panel")
 	event interactWith {
 		
 		freeze();
+		onRightMouse (skipper);
 		
 		var firsts = newStack();
 		var seconds = newStack();
@@ -507,18 +456,18 @@ objectType room06_secPuzzle("second panel")
 
 		var wins = 0;
 		
+		clearChoices();
+		
 		var i = 0;
 		while (i < 10) {
-			enqueue(choices, i);
-			enqueue(values, i);
+			addValueChoice(i);
 			i = i + 1;
 		}
-		enqueue(choices, "Uhm, gotta go, bye!");
-		enqueue(values, -1);
+		addChoice("Uhm, gotta go, bye!", -1);
 		var answer = 0; var aa = 0; var bb = 0;
 		
 		loop {
-			addSpeechChoicesFromStacks(choices, values);	
+			applyChoices();
 			setBlankColor(0,0,0);
 			
 			blankScreen();
@@ -542,11 +491,10 @@ objectType room06_secPuzzle("second panel")
 			
 			pasteString(20, 40 + stackSize(sums) * 40, aa + " + " + bb + " = ?");
 			
-			var choice = getSpeechChoice(ego);
+			var choice = getSpeechChoice(NULL);
 			
 			if (choice == -1) {
-				choices = newStack();
-				values = newStack();
+				clearChoices();
 				unfreeze();
 				return;
 			}
@@ -555,7 +503,7 @@ objectType room06_secPuzzle("second panel")
 				wins = wins + 1;
 				say(room06_secPuzzle, "Correct!");
 				if (wins < 3) {
-					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + " times more.");
+					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + " time" + ((wins > 2) ? "s" : "") + " more.");
 				} else {
 					unfreeze();
 					say(room06_secPuzzle, "ACCESS GRANTED");
@@ -563,8 +511,7 @@ objectType room06_secPuzzle("second panel")
 					removeScreenRegion(room06_secPuzzle);
 					checkSecretAccess();	
 					
-					choices = newStack();
-					values = newStack();
+					clearChoices();
 					return;
 				}
 			} else {
@@ -575,8 +522,7 @@ objectType room06_secPuzzle("second panel")
 			if (stackSize(sums) >= 8) {
 				unfreeze();
 				say(room06_secPuzzle, "Too many attempts in one session!");
-				choices = newStack();
-				values = newStack();
+				clearChoices();
 				return;
 			}
 			

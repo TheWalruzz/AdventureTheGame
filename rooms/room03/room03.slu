@@ -106,8 +106,6 @@ objectType room03_chuck("chuck the plant") {
 			pause(10);
 			say(ego, "I'll just lend it for a while.");
 			pushToStack(inventory, item_bossKey);
-
-			#pushToStack(inventory, item_bossIDcard);
 			
 			room03_idTaken = TRUE;
 		} else {

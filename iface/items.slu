@@ -21,7 +21,6 @@ objectType item_bossIDcard("boss ID card")
 	
 	event default
 	{
-		#say(ego, "I feel great power and no responsibility!");
 		say(ego, "I'll better keep it to myself.");
 	}
 }

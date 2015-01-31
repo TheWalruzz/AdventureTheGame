@@ -14,11 +14,6 @@ sub roomElevator()
 	
 	addScreenRegion(roomElevator_notification, 150, 123, 355, 200, 0, 0, 0);
 	
-	#if(roomElevator_floor == 1)
-	#	roomElevator_floor = 2;
-	#else if(roomElevator_floor == 2)
-	#	roomElevator_floor = 1;
-	
 	forceCharacter(ego, 450, 840);
 	turnCharacter (ego, WEST);
 	
@@ -26,20 +21,30 @@ sub roomElevator()
 
 	say(roomElevator_notification, "To which floor do you wish to go?");
 	
-		addSpeechChoice("Reception", 1);
-		addSpeechChoice("Software Development Room", 2);
-	if(room01_talkedToRebels == TRUE)
-		addSpeechChoice("CEO Office", 3);
-	if(afterPrison == TRUE)
-		addSpeechChoice("Basement", 4);
-		
+	if (DEBUG) {
+		addSpeechChoice("Intro (DEBUG)", 5);
+	}
+	addSpeechChoice("Reception", 1);
+	addSpeechChoice("Software Development Room", 2);
+	if (DEBUG || room01_talkedToRebels == TRUE) {
+		addSpeechChoice("CEO Office" + ((! room01_talkedToRebels) ? " (DEBUG)" : ""), 3);
+	}
+	if (DEBUG || afterPrison == TRUE) {
+		addSpeechChoice("Basement" + ((! afterPrison) ? " (DEBUG)" : ""), 4);
+	}
+	if (DEBUG) {
+		addSpeechChoice("Prison (DEBUG)", 6);
+		addSpeechChoice("CEO room (DEBUG)", 7);
+		addSpeechChoice("SECRET room (DEBUG)", 8);
+	}
+	
 	roomElevator_floor = getSpeechChoice(NULL);
 	
 	var text = "You have arrived at ", location, room;
 	
 	if(roomElevator_floor == 1)
 	{
-		location = "Reception";
+		location = "reception";
 		room = room01;
 	}
 	else if(roomElevator_floor == 2)
@@ -54,27 +59,46 @@ sub roomElevator()
 	}
 	else if(roomElevator_floor == 4)
 	{
-		location = "Basement";
+		location = "basement";
 		room = room07;
+	}
+	else if(roomElevator_floor == 5)
+	{
+		location = "this game's intro";
+		room = intro;
+	}
+	else if(roomElevator_floor == 6)
+	{
+		location = "prison";
+		room = room04;
+	}
+	else if(roomElevator_floor == 7)
+	{
+		location = "CEO room";
+		room = room05;
+	}
+	else if(roomElevator_floor == 8)
+	{
+		location = "SECRET room";
+		room = room06;
 	}
 	turnCharacter (ego, NORTH);
 	
-	playSound('rooms/roomElevator/elevator2.wav');
-	pause(200);
-	
-	playSound('rooms/roomElevator/ding.wav');
-	stopSound('rooms/roomElevator/elevator2.wav');
+	if (! DEBUG) {
+		playSound('rooms/roomElevator/elevator2.wav');
+		pause(200);
+		
+		playSound('rooms/roomElevator/ding.wav');
+		stopSound('rooms/roomElevator/elevator2.wav');
+	}
 	
 	say(roomElevator_notification, text + location + ".");
-	
 	
 	moveCharacter(ego, 650, 0);
 	setCharacterWalkSpeed(ego, 5);
 	
 	gotoRoom(room);
 }
-
-
 
 
 objectType roomElevator_notification("")
