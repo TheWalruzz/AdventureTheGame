@@ -52,6 +52,7 @@ objectType room04_door("prison door")
 	}
 	
 	event item_picklock {
+		deleteFromStack(inventory, item_picklock);
 		gotoRoom(room07);
 	}
 	
