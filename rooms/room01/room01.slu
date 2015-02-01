@@ -22,7 +22,7 @@ sub room01()
 		anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), 
 		anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), anim('rooms/room01/secretary.duc', 0), 
 		anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4)), anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4)), anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4)), anim('rooms/room01/secretary.duc', wait(1, 4), wait(2, 4))));
-	setCharacterExtra(room01_secretary, FIXEDSIZE);
+	setCharacterExtra(room01_secretary, FIXEDSIZE + RECTANGULAR);
 
 	if(room01_firstTalk)
 	{

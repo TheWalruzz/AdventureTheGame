@@ -53,7 +53,7 @@ sub room02()
 	addScreenRegion(room02_bcTransition, 2660, 0, 2790, 768, 0, 0, 0);
 	
 	addOverlay('rooms/room02/express.png', 0, 0);
-	addScreenRegion(room02_coffeeMachine, 3776, 608, 4026, 658, 3571, 710, EAST);
+	addScreenRegion(room02_coffeeMachine, 3826, 558, 3976, 708, 3571, 710, EAST);
 	
 	#addOverlay('rooms/room02/cable.png', 3776, 658);
 	
@@ -62,12 +62,12 @@ sub room02()
 	
 	if (room02_bookTaken == FALSE) {
 		addCharacter(room02_book, 800, 645, anim('rooms/room02/booknew.duc', 0));
-		setCharacterExtra(room02_book, FIXEDSIZE);
+		setCharacterExtra(room02_book, FIXEDSIZE + RECTANGULAR);
 	}
 	
 	if (room02_newspaperTaken == FALSE) {
 		addCharacter(room02_newspaper, 4040, 308, anim('rooms/room02/newspaper.duc', 0));
-		setCharacterExtra(room02_newspaper, FIXEDSIZE);
+		setCharacterExtra(room02_newspaper, FIXEDSIZE + RECTANGULAR);
 	}
 
 	addCharacter(room02_line, 0, 530, makeStaticCostume(anim ('rooms/room02/line.duc', 2)));
@@ -84,10 +84,10 @@ sub room02()
 	
 	
 	addCharacter(room02_noSmokingSign, 2500, 220, makeStaticCostume(anim ('rooms/room02/palenie.duc', 0)));
-	setCharacterExtra(room02_noSmokingSign, FIXEDSIZE);
+	setCharacterExtra(room02_noSmokingSign, FIXEDSIZE + RECTANGULAR);
 
 	addCharacter(room02_superderpy, 50 , 760, anim('rooms/room02/badge.duc', 0));
-	setCharacterExtra(room02_superderpy, FIXEDSIZE);
+	setCharacterExtra(room02_superderpy, FIXEDSIZE + RECTANGULAR);
 	
 	if(room02_beforeAttack)
 	{
@@ -131,7 +131,7 @@ sub room02()
 	}
 	
 	if(room02_crossedCB && room02_beforeAttack) {
-		addScreenRegion(room02_cable, 4000-68, 645+49, 4010, 768, 4000-68, 730, SOUTH);
+		addScreenRegion(room02_cable, 4000-38, 645+49, 4040, 768, 4000-68, 730, SOUTH);
 	}
 
 	spawnSub(lineSub);
@@ -293,7 +293,7 @@ objectType room02_superior("superior")
 		say(room02_superior, "Great. Make me some coffee then.");
 		say(ego, "Oh. Okay.");
 		
-		addScreenRegion(room02_cable, 4000-68, 645+49, 4010, 768, 4000-68, 730, SOUTH);
+		addScreenRegion(room02_cable, 4000-38, 645+49, 4040, 768, 4000-68, 730, SOUTH);
 	}
 	
 	event interactWith
@@ -341,13 +341,13 @@ objectType room02_cable("cable")
 			jumpCharacter(ego, 200, 600);
 			
 			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
-			setCharacterExtra(room02_tempRope3, FIXEDSIZE);
+			setCharacterExtra(room02_tempRope3, FIXEDSIZE + FRONT);
 			
 			addCharacter(room02_tempRope2, 3302, 520, anim('rooms/room02/rope.duc', 0));
-			setCharacterExtra(room02_tempRope2, FIXEDSIZE);
+			setCharacterExtra(room02_tempRope2, FIXEDSIZE + FRONT);
 			
 			addCharacter(room02_tempRope1, 3500, 520, anim('rooms/room02/rope.duc', 0));
-			setCharacterExtra(room02_tempRope1, FIXEDSIZE);
+			setCharacterExtra(room02_tempRope1, FIXEDSIZE + FRONT);
 			
 			addCharacter(room02_rebel1, 3000, 0, costume(
 					anim('rooms/room02/rebel.duc', 0),
@@ -361,7 +361,7 @@ objectType room02_cable("cable")
 					NULL, NULL, NULL, NULL
 				));
 			
-			setCharacterExtra(room02_rebel1, FIXEDSIZE);
+			setCharacterExtra(room02_rebel1, FIXEDSIZE + FRONT);
 			
 			addCharacter(room02_rebel2, 3302, 0, costume(
 					anim('rooms/room02/rebel.duc', 0),
@@ -375,7 +375,7 @@ objectType room02_cable("cable")
 					NULL, NULL, NULL, NULL
 				));
 				
-			setCharacterExtra(room02_rebel2, FIXEDSIZE);
+			setCharacterExtra(room02_rebel2, FIXEDSIZE + FRONT);
 			
 			addCharacter(room02_rebel3, 3500, 0, costume(
 					anim('rooms/room02/rebel.duc', 0),
@@ -388,7 +388,7 @@ objectType room02_cable("cable")
 					anim('rooms/room02/rebel.duc', wait(0, 4), wait(1, 4)),
 					NULL, NULL, NULL, NULL
 				));
-			setCharacterExtra(room02_rebel3, FIXEDSIZE);
+			setCharacterExtra(room02_rebel3, FIXEDSIZE + FRONT);
 			
 			pause(25);
 			

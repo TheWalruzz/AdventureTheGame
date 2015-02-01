@@ -21,7 +21,7 @@ sub room03()
 		addOverlay('rooms/room03/room03open.png', 0, 0);
 	} else {
 		addCharacter(room03_chuck, 2500, 589, anim('rooms/room03/plant.duc', 0));
-		setCharacterExtra(room03_chuck, FIXEDSIZE);
+		setCharacterExtra(room03_chuck, FIXEDSIZE + RECTANGULAR);
 		
 	}
 	
