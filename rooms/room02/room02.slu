@@ -304,6 +304,11 @@ objectType room02_superior("superior")
 		say(room02_superior, "Then go get it!");
 	}
 	
+	event lookAt
+	{
+		say(ego, "Looks like this is my new superior.");
+	}
+	
 	event walkToPerson
 	{
 		moveCharacter (ego, 2300, 680);
