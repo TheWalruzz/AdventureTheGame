@@ -37,9 +37,9 @@ sub room05()
 	
 	}
 	
-	addScreenRegion(room05_drawer1, 200, 430, 302, 465, 236, 586, WEST);
-	addScreenRegion(room05_drawer2, 200, 466, 302, 517, 236, 586, WEST);
-	addScreenRegion(room05_closet, 85, 221, 187, 530, 332, 618, WEST);
+	addScreenRegion(room05_drawer1, 200, 430, 302, 465, 236, 586, NORTH);
+	addScreenRegion(room05_drawer2, 200, 466, 302, 517, 236, 586, NORTH);
+	addScreenRegion(room05_closet, 85, 221, 187, 530, 140, 618, NORTH);
 	addScreenRegion(room05_safe, 434, 231, 557, 382, 505, 603, NORTH);
 	addScreenRegion(room05_exit, 0, 0, 50, 768, 75, 670, WEST);
 	
@@ -63,6 +63,12 @@ objectType room05_bossIDcard("ID card") {
 		say(ego, "Now I can feel great power and no responsibility!");
 		
 		pickedUpCard = TRUE;
+	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, 700, 690);
+		turnCharacter (ego, EAST);
 	}
 }
 

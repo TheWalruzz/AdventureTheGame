@@ -99,4 +99,10 @@ objectType room04_potato("potato")
 		pushToStack(inventory, item_potato);
 		removeCharacter(room04_potato);
 	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, 230, 700);
+		turnCharacter (ego, SOUTH);
+	}
 }

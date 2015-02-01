@@ -271,7 +271,7 @@ objectType room01_secretary("secretary")
 	
 	event walkToPerson
 	{
-		moveCharacter (ego, 650, 600);
+		moveCharacter (ego, 600, 700);
 		turnCharacter (ego, EAST);
 	}
 }

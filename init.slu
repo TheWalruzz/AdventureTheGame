@@ -1,4 +1,4 @@
-var DEBUG = FALSE;
+var DEBUG = TRUE;
 
 sub init ()
 {

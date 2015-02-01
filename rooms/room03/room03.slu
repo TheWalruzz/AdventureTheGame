@@ -116,6 +116,11 @@ objectType room03_chuck("chuck the plant") {
 		}
 		
 	}
+	event walkToPerson
+	{
+		moveCharacter (ego, 2500, 630);
+		turnCharacter (ego, NORTH);
+	}
 }
 
 objectType room03_abTransition("go")
@@ -153,6 +158,12 @@ objectType room03_broom("broom")
 		removeCharacter(room03_broom);
 		
 		room03_broomTaken = TRUE;
+	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, 1960, 600);
+		turnCharacter (ego, NORTH);
 	}
 }
 

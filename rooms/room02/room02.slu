@@ -532,6 +532,12 @@ objectType room02_book("book")
 		room02_bookTaken = TRUE;
 		
 	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, 740, 645);
+		turnCharacter (ego, EAST);
+	}
 }
 
 objectType room02_talkBox("")
@@ -543,16 +549,20 @@ objectType room02_newspaper("newspaper")
 {
 	event lookAt
 	{
+		turnCharacter(ego, EAST);
 		say(ego, "It looks like a newspaper.");
 	}
 	
 	event interactWith
 	{
+		turnCharacter(ego, EAST);
 		say(ego, "I can't reach it!");
 	}
 	
 	event item_ropeFullyCombined
 	{
+		moveCharacter(ego, 4096, 700);
+		turnCharacter(ego, EAST);
 		narratorSay("Max throws the book attached on a rope towards the newspaper.");
 		removeCharacter(room02_newspaper);
 		narratorSay("It sticks to the book thanks to the gum.");
@@ -564,6 +574,8 @@ objectType room02_newspaper("newspaper")
 	
 	event item_ropeWithBook
 	{
+		moveCharacter(ego, 4096, 700);
+		turnCharacter(ego, EAST);
 		narratorSay("Max throws the book attached on a rope towards the newspaper.");
 		narratorSay("Unfortunately, it slided from the shelf without taking the newspaper with it.");
 		say(ego, "Darmn... If only I had something sticky...");
@@ -571,6 +583,7 @@ objectType room02_newspaper("newspaper")
 	
 	event item_rope
 	{
+		turnCharacter(ego, EAST);
 		say(ego, "Rope alone won't really help here.");
 	}
 	
@@ -622,6 +635,12 @@ objectType room02_rope("rope")
 
 		removeCharacter(room02_rope);
 	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, 3470, 650);
+		turnCharacter (ego, EAST);
+	}
 }
 
 objectType room02_tempRope1("")
@@ -672,6 +691,12 @@ objectType room02_superderpy("a lost badge")
 	event interactWith
 	{
 		say(ego, "No, thanks. I don't want people asking me about Super Derpy.");
+	}
+	
+	event walkToPerson
+	{
+		moveCharacter (ego, 0, 768);
+		turnCharacter (ego, SOUTH);
 	}
 }
 
