@@ -29,6 +29,12 @@ sub skipper () {
 	skipSpeech ();
 }
 
+sub unfreezer(key) {
+	if (key == "ESCAPE") {
+		unfreeze();
+	}
+}
+
 sub handleFocus (o) {
 	if (o && (o != ego || currentInvItem != NULL)) {
 		if (! callEvent (oneCursor, o)) setCursor (anim ('iface/mouse.duc', 2));
@@ -100,18 +106,14 @@ sub countItems(it)
 
 sub narratorSay(text)
 {
-	if (! dialogInProgress) {
-		freeze();
-		stop();
-		darkBackground();
-	}
+	freeze();
+	onRightMouse(skipper);
+	onKeyboard(keys);
+	darkBackground();
 	addScreenRegion(narrator, 683, 384, 684, 385, 0, 0, 0);
 	say(narrator, text);
 	removeScreenRegion(narrator);
-	if (! dialogInProgress) {
-		go();
-		unfreeze();
-	}
+	unfreeze();
 }
 
 objectType narrator("")
@@ -177,13 +179,14 @@ sub doYouReallyWantToQuit() {
 	
 sub wantToQuitHandler(key) {
 	if (key == "y") {
-		unfreeze();
+		while (howFrozen() > 0) {
+			unfreeze();
+		}
 		if (saveGame("auto")) {
 			quitGame ();
 		}
 	}
 	if (key == "n" || key == "ESCAPE") {
 		unfreeze();
-		onKeyboard(keys);
 	}
 }
