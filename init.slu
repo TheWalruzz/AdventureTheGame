@@ -2,6 +2,14 @@ var DEBUG = FALSE;
 
 sub init ()
 {
+	if (fileExists("debug")) {
+		var debugStack = loadCustomData("debug");
+		var debugValue = dequeue(debugStack);
+		if (debugValue == "1") {
+			DEBUG = TRUE;
+		}
+	}
+	
 	setFont('demofont.duc', "ÉABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\"'/?!.,;:()*%& -~`@+=", 32);
 
 	setDefaultMusicVolume(150);
