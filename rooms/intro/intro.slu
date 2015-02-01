@@ -30,8 +30,6 @@ sub intro()
 	say(intro_narrator, "in not so distant future");
 	pause(20);
 	
-	hideInventory = FALSE;
-	
 	gotoRoom(room01);
 	# some other stuff
 	

@@ -184,7 +184,7 @@ objectType room06_powerButton("power button")
 			
 			skipSpeech();
 			fadeOut();
-			
+			hideCharacter(inventoryIcon);
 			blankScreen();
 			fadeIn();
 			

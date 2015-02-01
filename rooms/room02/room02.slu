@@ -312,6 +312,7 @@ objectType room02_cable("cable")
 
 			narratorSay("Max goes under the table to connect the plug, when suddenly...");
 			fadeOut(); # temporary stuff
+			hideCharacter(inventoryIcon);
 			jumpCharacter(ego, 200, 600);
 			
 			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
@@ -425,6 +426,7 @@ objectType room02_cable("cable")
 			setCharacterExtra(room02_rope, FIXEDSIZE);
 			
 			pause(35);
+			showCharacter(inventoryIcon);
 			
 			fadeIn();
 			

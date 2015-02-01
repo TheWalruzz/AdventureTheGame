@@ -36,12 +36,14 @@ sub room01()
 		say(room01_secretary, "New intern I presume?");
 		say(ego, "Well... Yeah.");
 		say(room01_secretary, "Burton... Burton... Oh. Here's your ID.");
+		hideInventory = FALSE;
+		showCharacter(inventoryIcon);
 		say(room01_secretary, "Just use the elevator to get to where you should be.");
 		
 		pushToStack(inventory, item_internIDcard);
 		say(ego, "Okay, thanks!");
 		
-		hideInventory = FALSE;
+
 	} else {
 		jumpCharacter(ego, 410, 420);
 		addScreenRegion(room01_elevator, 329, 240, 494, 401, 402, 416, -1);
@@ -154,7 +156,7 @@ objectType room01_secretary("secretary")
 					say(room01_secretary, "Here's the deal.");
 					say(room01_secretary, "You can call. Just try to keep it short, ok?");
 					say(ego, "Thanks!");
-					
+					deleteChoicesByValue(4);
 				}
 			}
 			

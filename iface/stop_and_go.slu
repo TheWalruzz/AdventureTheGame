@@ -139,10 +139,12 @@ sub gotoRoom (r) {
 	#lastRoom = currentRoom;
 	#currentRoom = r;
 
-	if(hideInventory == FALSE)
+	addCharacter (inventoryIcon, 20, 755, anim ('iface/mouse.duc', 5));
+	setCharacterExtra (inventoryIcon, ICON);
+	
+	if(hideInventory)
 	{
-		addCharacter (inventoryIcon, 20, 755, anim ('iface/mouse.duc', 5));
-		setCharacterExtra (inventoryIcon, ICON);
+		hideCharacter(inventoryIcon);
 	}
 
 	# Now, finally call the function to build the new room
