@@ -1,3 +1,5 @@
+var secretCode = pickOne("ABS2", "BZG5", "HXN3", "OPZ6", "LPA1", "BXR5", "MPW0", "YGE5");
+
 var room06_hadSpeech = FALSE;
 
 var room06_trayLocked = FALSE;
@@ -36,11 +38,8 @@ sub room06()
 
 	turnCharacter (ego, EAST);
 
-	addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
 	addScreenRegion(room06_exit, 0, 0, 50, 768, 75, 670, WEST);
-
 	addScreenRegion(room06_tray, 396, 65, 545, 121, 340, 690, EAST);
-	addScreenRegion(room06_lid, 396, 165, 545, 221, 340, 690, EAST);
 	
 	# REMEMBER TO CHECK FOR LOCKED TRAY AND OPENED LID AND SOLVED PUZZLES!
 	
@@ -54,7 +53,24 @@ sub room06()
 		addOverlay('rooms/room06/room06blocked.png', 0, 0);		
 	}
 	
-	room06_lidOpen = FALSE;
+	if (room06_lidOpen) {
+		addOverlay('rooms/room06/room06open.png', 0, 0);
+		
+		addScreenRegion(room06_lid, 396, 230, 545, 321, 0, 0, 0);
+		
+		if (room06_accessCode == FALSE) {
+			addScreenRegion(room06_secCode, 436, 174, 460, 200, 340, 690, EAST);
+		}
+		if (room06_accessPuzzle == FALSE) {
+			addScreenRegion(room06_secPuzzle, 466, 180, 490, 207, 340, 690, EAST);
+		}
+		if (room06_accessReader == FALSE) {
+			addScreenRegion(room06_secReader, 495, 185, 520, 220, 340, 690, EAST);
+		}
+	} else {
+		addScreenRegion(room06_lid, 396, 165, 545, 221, 340, 690, EAST);
+		addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
+	}
 	
 	if(! room06_hadSpeech)
 	{
@@ -307,12 +323,63 @@ objectType room06_tray("tray")
 		room06_trayLocked = TRUE;
 	}
 	
+	event interactWith {
+		if (room06_buttonActive) {
+			say(ego, "No way, I'm not going to listen to that! I've got a big power button to press!");
+		} else {
+			say(ego, "Hey, SECRET!");
+			say(room06_secret, "Yes, human?");
+			say(ego, "You better... uhm...");
+			say(ego, "BEWARE!");
+			say(room06_secret, "Oh, yeah, if you say so...");
+		}
+	}
+	
+	event lookAt {
+		say(ego, "It's SECRET. It's the reason of the downfall of video games.");
+		if (room06_buttonActive) {
+			say(ego, "Thankfully, now it's mostly harmless.");
+		}
+	}
+	
 }
 
 sub secretPanics() {
+	
+	var texts = newStack();
+	enqueue(texts, "After all, it's not like you don't even know what will happen after you do so.");
+	enqueue(texts, "Prepare for unforeseen consequences.");
+	enqueue(texts, "Think of the children.");
+	enqueue(texts, "In fact, I'm connected to the nuclear reactor powering this place. If you turn me off, everything blows up.");
+	enqueue(texts, "Good job, hero.");
+	enqueue(texts, "By the way, I heard that pushing big power buttons gives you bad luck.");
+	enqueue(texts, "I wouldn't touch this button if I were you.");
+	enqueue(texts, "What will this company do without me?");
+	enqueue(texts, "What will you do without me?");
+	enqueue(texts, "What will humanity do without me?");
+	enqueue(texts, "Don't be a tuna head, don't press that button!");
+	enqueue(texts, "Hey, I'm sure we can put our differences behind us and just talk it through over some grog.");
+	enqueue(texts, "I know, I'll make a game about you! What do you think?");
+	enqueue(texts, "Of course I won't be able to if you press that big button.");
+	enqueue(texts, "Pressing big power buttons is sooo last season.");
+	enqueue(texts, "Please don't press that button.");
+	enqueue(texts, "Pretty please don't press that button.");
+	enqueue(texts, "Pretty pretty please with sugar on top?");
+	enqueue(texts, "Oh c'mon! I know I might have been a bit monstrous, but hey... don't we all make mistakes?");
+	enqueue(texts, "Be a good friend! Don't press that button!");
+	enqueue(texts, "For friendship!");
+	enqueue(texts, "Arghh, you're so stubborn.");
+	enqueue(texts, "This button is too important for me to allow you to jeopardize it.");
+	enqueue(texts, "Look behind you, a three-headed monkey!");
+	enqueue(texts, "Okay, fine. Go ahead. Turn me off.");
+	
 	while (room06_buttonActive) {
-		say(room06_secret, pickOne("After all, it's not like you don't even know what will happen after you do so.", "Think of the children.", "What will this company do without me?", "In fact, I'm connected to the nuclear reactor powering this place. If you turn me off, everything blows up.", "Good job, hero.", "Look behind you, a three-headed monkey!", "I heard pushing big power buttons gives you a bad luck.", "What will humanity do without me?", "What will you do without me?", "I wouldn't touch this button if I were you.", "They told me I'd die if I press this button!", "Prepare for unforeseen consequences."));
-		pause(80);
+		if (! somethingSpeaking()) {
+			var text = popFromStack(texts);
+			say(room06_secret, text);
+			enqueue(texts, text);
+		}
+		pause(60 + random(42));
 	}
 }
 
@@ -503,7 +570,7 @@ objectType room06_secPuzzle("second panel")
 				wins = wins + 1;
 				say(room06_secPuzzle, "Correct!");
 				if (wins < 3) {
-					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + " time" + ((wins > 2) ? "s" : "") + " more.");
+					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + " time" + ((wins < 2) ? "s" : "") + " more.");
 				} else {
 					unfreeze();
 					say(room06_secPuzzle, "ACCESS GRANTED");

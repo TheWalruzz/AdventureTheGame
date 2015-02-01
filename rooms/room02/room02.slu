@@ -8,6 +8,7 @@ var room02_bookTaken = FALSE;
 var room02_newspaperTaken = FALSE;
 var room02_newspaperRead = FALSE;
 var room02_ropeTaken = FALSE;
+var room02_lookedAtCable = FALSE;
 
 sub lineSub() {
 	setCharacterWalkSpeed(room02_line, 5);
@@ -57,8 +58,8 @@ sub room02()
 	
 	#addOverlay('rooms/room02/cable.png', 3776, 658);
 	
-	addOverlay('rooms/room02/gum.png', 4000, 630);
-	addScreenRegion(room02_gum, 4000, 630, 4000+68, 645+49, 3900, 630, SOUTH);
+	addOverlay('rooms/room02/gum.png', 3720, 630);
+	addScreenRegion(room02_gum, 3720, 630, 3720+68, 645+49, 3600, 768, EAST);
 	
 	if (room02_bookTaken == FALSE) {
 		addCharacter(room02_book, 800, 645, anim('rooms/room02/booknew.duc', 0));
@@ -107,27 +108,27 @@ sub room02()
 	}
 	else
 	{
-		addCharacter(room02_employee1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee1, FIXEDSIZE);
-		addCharacter(room02_employee2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee2, FIXEDSIZE);
-		addCharacter(room02_employee3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee3, FIXEDSIZE);
-		addCharacter(room02_employee4, 1500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee4, FIXEDSIZE);
-		addCharacter(room02_employee5, 1802, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee5, FIXEDSIZE);
-		addCharacter(room02_employee6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee6, FIXEDSIZE);
-		addCharacter(room02_employee7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee7, FIXEDSIZE);
+		addCharacter(room02_chair1, 305, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair1, FIXEDSIZE);
+		addCharacter(room02_chair2, 607, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair2, FIXEDSIZE);
+		addCharacter(room02_chair3, 909, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair3, FIXEDSIZE);
+		addCharacter(room02_chair4, 1500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair4, FIXEDSIZE);
+		addCharacter(room02_chair5, 1802, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair5, FIXEDSIZE);
+		addCharacter(room02_chair6, 2104, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair6, FIXEDSIZE);
+		addCharacter(room02_chair7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair7, FIXEDSIZE);
 
-		addCharacter(room02_employee8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee8, FIXEDSIZE);
-		addCharacter(room02_employee9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee9, FIXEDSIZE);
-		addCharacter(room02_employee10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
-		setCharacterExtra(room02_employee10, FIXEDSIZE);
+		addCharacter(room02_chair8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair8, FIXEDSIZE);
+		addCharacter(room02_chair9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair9, FIXEDSIZE);
+		addCharacter(room02_chair10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
+		setCharacterExtra(room02_chair10, FIXEDSIZE);
 	}
 	
 	if(room02_crossedCB && room02_beforeAttack) {
@@ -144,6 +145,7 @@ sub room02()
 	{
 		
 		addCharacter(room02_rope, 3533, 652, anim('rooms/room02/rope2.duc', 0));
+		setCharacterExtra(room02_rope, FIXEDSIZE);
 	}
 	
 }
@@ -173,10 +175,12 @@ objectType room02_elevatorDoor("elevator door")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		if(! room02_beforeAttack && countItems(item_newspaper) == 1)
+		if(! room02_beforeAttack) {
 			gotoRoom(roomElevator);
-		else
+		}
+		else {
 			say(ego, "I don't think it's wise to leave early on the first day on new job.");
+		}
 	}
 }
 
@@ -290,15 +294,22 @@ objectType room02_cable("cable")
 		{
 			say(ego, "Hey!");
 			say(ego, "It's not connected!");
+			room02_lookedAtCable = TRUE;
 		}
-		else
+		else {
 			say(ego, "It's plugged in now.");
+		}
 	}
 	
 	event interactWith
 	{
 		if(room02_beforeAttack)
 		{
+			if (! room02_lookedAtCable) {
+				say(ego, "Hey!");
+				say(ego, "It's not connected!");
+			}
+
 			narratorSay("Max goes under the table to connect the plug, when suddenly...");
 			fadeOut(); # temporary stuff
 			jumpCharacter(ego, 200, 600);
@@ -312,7 +323,7 @@ objectType room02_cable("cable")
 			addCharacter(room02_tempRope1, 3500, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope1, FIXEDSIZE);
 			
-			addCharacter(room02_rebel1, 3000, 250, costume(
+			addCharacter(room02_rebel1, 3000, 0, costume(
 					anim('rooms/room02/rebel.duc', 0),
 					anim('rooms/room02/rebel.duc', 0),
 					anim('rooms/room02/rebel.duc', 0),
@@ -326,7 +337,7 @@ objectType room02_cable("cable")
 			
 			setCharacterExtra(room02_rebel1, FIXEDSIZE);
 			
-			addCharacter(room02_rebel2, 3302, 250, costume(
+			addCharacter(room02_rebel2, 3302, 0, costume(
 					anim('rooms/room02/rebel.duc', 0),
 					anim('rooms/room02/rebel.duc', 0),
 					anim('rooms/room02/rebel.duc', 0),
@@ -340,7 +351,7 @@ objectType room02_cable("cable")
 				
 			setCharacterExtra(room02_rebel2, FIXEDSIZE);
 			
-			addCharacter(room02_rebel3, 3500, 250, costume(
+			addCharacter(room02_rebel3, 3500, 0, costume(
 					anim('rooms/room02/rebel.duc', 0),
 					anim('rooms/room02/rebel.duc', 0),
 					anim('rooms/room02/rebel.duc', 0),
@@ -353,7 +364,7 @@ objectType room02_cable("cable")
 				));
 			setCharacterExtra(room02_rebel3, FIXEDSIZE);
 			
-			pause(35);
+			pause(25);
 			
 			fadeIn(); # temporary stuff
 			
@@ -362,7 +373,7 @@ objectType room02_cable("cable")
 			spawnSub(bbb);
 			spawnSub(ccc);
 			
-			pause(300);
+			pause(225);
 			
 			removeCharacter(room02_employee1);
 			removeCharacter(room02_employee2);
@@ -391,7 +402,7 @@ objectType room02_cable("cable")
 			spawnSub(bb);
 			spawnSub(cc);
 			
-			pause(300);
+			pause(320);
 			
 			addScreenRegion(room02_talkBox, 3277, 119, 3408, 156, 0, 0, 0);
 			
@@ -442,7 +453,7 @@ sub aa()
 	removeCharacter(room02_employee10);
 	addCharacter(room02_chair10, 3500, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	setCharacterExtra(room02_chair10, FIXEDSIZE);
-	forceCharacter(room02_rebel3, 3500, -150);
+	forceCharacter(room02_rebel3, 3500, -250);
 }
 
 sub bb()
@@ -450,7 +461,7 @@ sub bb()
 	removeCharacter(room02_employee9);
 	addCharacter(room02_chair9, 3302, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	setCharacterExtra(room02_chair9, FIXEDSIZE);
-	forceCharacter(room02_rebel2, 3302, -150);
+	forceCharacter(room02_rebel2, 3302, -250);
 }
 
 sub cc()
@@ -458,7 +469,7 @@ sub cc()
 	removeCharacter(room02_employee8);
 	addCharacter(room02_chair8, 3000, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 	setCharacterExtra(room02_chair8, FIXEDSIZE);
-	forceCharacter(room02_rebel1, 3000, -150);
+	forceCharacter(room02_rebel1, 3000, -250);
 }
 
 sub aaa()

@@ -72,10 +72,17 @@ objectType room05_drawer1("upper drawer")
 		if (afterPrison == TRUE) {
 			say(ego, "Nothing interesting here.");
 		} else {
-			say(ego, "Well, he has some dirty secrets... But I doubt these are the ones I'm looking for.");
-			say(ego, "The Secret of Monkey Island... I don't think that's it.");
-			say(ego, "Oh! There're some secret blueprints... For a coffee machine?");
-			say(ego,"Ouch... I think something bit me.");
+			say(ego, "Let's see...");
+			turnCharacter(ego, NORTH);
+			pause(60);
+			say(ego, "Well, he sure does have some dirty secrets... But I doubt these are the ones I'm interested in.");
+			pause(30);
+			say(ego, "There's something! The secret of...");
+			say(ego, "...Monkey Island. I don't think that's it.");
+			pause(25);
+			say(ego, "Oh! Some secret blueprints... For a coffee machine?");
+			pause(40);
+			say(ego, "Ouch... I think something bit me.");
 		}
 	}
 }

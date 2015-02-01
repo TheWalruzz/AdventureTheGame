@@ -1,7 +1,7 @@
 # The "Look at..." action
 objectType lookAt ("Look at ") {
 	event default {
-		say(ego, pickOne("Nice.", "Well, I'm looking at it.", "Neat."));
+		say(ego, pickOne("Nice.", "Well, I'm looking at it.", "Neat.", "Heavy."));
 	}
 }
 

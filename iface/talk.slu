@@ -11,6 +11,8 @@
 
 # See the new version of the outside/room.slu file for examples.
 
+var dialogInProgress = FALSE;
+
 var speechChoices = newStack ();
 var gotSpeechClick;
 
@@ -80,6 +82,7 @@ sub addSpeechChoice (a, b) {
 sub getSpeechChoice (character) {
 	hideCharacter (inventoryIcon);
 	onLeftMouse (speechClick);
+	dialogInProgress = TRUE;
 	loop {
 		var selected = (830 - getMouseY ()) / 32 - 1;
 			
@@ -134,6 +137,8 @@ sub getSpeechChoice (character) {
 				theValue = popFromStack (speechChoices);
 				speechChoices = newStack ();
 
+				dialogInProgress = FALSE;
+				
 				# Finally we return the value the player chose
 				return theValue;
 			}

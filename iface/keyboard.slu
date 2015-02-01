@@ -21,14 +21,16 @@ sub keys (k) {
 	}
 	
 	if (k == "s") {
-		narratorSay("Saving game");
-		saveGame("save");
+		if (saveGame("save")) {
+			narratorSay("Game saved");
+		}
 	}
 	if (k == "l") {
 		narratorSay("Loading saved game");
 		loadGame("save");
 	}
 	
-	if (k == "i") showInventory();
-	
+	if (k == "i" && ! dialogInProgress) {
+		showInventory();
+	}
 }
