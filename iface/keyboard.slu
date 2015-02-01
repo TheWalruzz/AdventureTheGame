@@ -14,8 +14,10 @@ sub keys (k) {
 	}
 
 	if (k == "a") {
-		narratorSay("Loading auto save");
-		loadGame("auto");
+		if (fileExists("auto")) {
+			narratorSay("Loading auto save");
+			loadGame("auto");
+		}
 	}
 	
 	if (k == "s") {
@@ -24,8 +26,10 @@ sub keys (k) {
 		}
 	}
 	if (k == "l") {
-		narratorSay("Loading saved game");
-		loadGame("save");
+		if (fileExists("save")) {
+			narratorSay("Loading saved game");
+			loadGame("save");
+		}
 	}
 	
 	if (k == "i" && ! dialogInProgress) {
