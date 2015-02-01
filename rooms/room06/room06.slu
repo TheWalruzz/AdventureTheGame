@@ -54,7 +54,7 @@ sub room06()
 	if (room06_lidOpen) {
 		addOverlay('rooms/room06/room06open.png', 0, 0);
 		
-		addScreenRegion(room06_lid, 396, 230, 545, 321, 0, 0, 0);
+		addScreenRegion(room06_lid, 396, 230, 545, 321, 340, 690, EAST);
 		
 		if (room06_accessCode == FALSE) {
 			addScreenRegion(room06_secCode, 436, 174, 460, 200, 340, 690, EAST);
@@ -286,7 +286,7 @@ objectType room06_lid("lid")
 				
 				
 				removeScreenRegion(room06_lid);
-				addScreenRegion(room06_lid, 396, 165, 545, 221, 0, 0, 0);
+				addScreenRegion(room06_lid, 396, 165, 545, 221, 340, 690, EAST);
 				addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
 				
 				removeScreenRegion(room06_secCode);
@@ -301,7 +301,7 @@ objectType room06_lid("lid")
 				
 				removeScreenRegion(room06_lid);
 				removeScreenRegion(room06_powerButton);
-				addScreenRegion(room06_lid, 396, 230, 545, 321, 0, 0, 0);
+				addScreenRegion(room06_lid, 396, 230, 545, 321, 340, 690, EAST);
 				
 				if (room06_accessCode == FALSE) {
 					addScreenRegion(room06_secCode, 436, 174, 460, 200, 340, 690, EAST);

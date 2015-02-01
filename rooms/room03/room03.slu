@@ -7,6 +7,8 @@ var room03_broomTaken = FALSE;
 
 var straightFromBoss = FALSE;
 
+var room03_doorOpened = FALSE;
+
 sub room03()
 {
 	room03_part = "a";
@@ -72,7 +74,7 @@ objectType room03_door("door")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
-		if (afterPrison == TRUE) {
+		if (afterPrison == TRUE && room03_doorOpened == FALSE) {
 			say(ego, "It's locked.");
 		} else {
 			gotoRoom(room05);
@@ -80,7 +82,10 @@ objectType room03_door("door")
 	}
 	
 	event item_bossKey {
-		say(ego, "It matches!");
+		if (! room03_doorOpened) {
+			say(ego, "It matches!");
+		}
+		room03_doorOpened = TRUE;
 		gotoRoom(room05);
 	}
 }
@@ -174,7 +179,7 @@ objectType room03_broom("broom")
 	
 	event walkToPerson
 	{
-		moveCharacter (ego, 1960, 600);
+		moveCharacter (ego, 1960, 650);
 		turnCharacter (ego, NORTH);
 	}
 }

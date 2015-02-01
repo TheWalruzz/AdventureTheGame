@@ -123,7 +123,10 @@ objectType room05_safe("safe")
 			say(ego, "This is not the secret I'm looking for.");
 		} else {
 			
+		pause(30);
 		say(room05_director, "What are you doing?");
+		turnCharacter(ego, EAST);
+		pause(20);
 		say(ego, "Uhm... I'm selling these fine leather jackets!");
 		say(room05_director, "Ah, digging for secrets, I see?");
 		say(room05_director, "Well, these are not the secrets you are looking for.");
@@ -134,6 +137,7 @@ objectType room05_safe("safe")
 		pause(5);
 		addCharacter(room05_security, 112, 650, anim('rooms/room05/security.duc', 0));
 		setCharacterExtra(room05_security, FIXEDSIZE);
+		turnCharacter(ego, WEST);
 		say(room05_security, "You're coming with me, son.");
 		
 		fadeOut();
