@@ -61,7 +61,7 @@ sub fadeIn()
 		transitionLevel(a);
 		pause(1);
 	}
-	transitionLevel(256);
+	transitionLevel(255);
 }
 
 sub fadeOut()

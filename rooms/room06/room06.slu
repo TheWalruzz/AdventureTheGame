@@ -186,42 +186,57 @@ objectType room06_powerButton("power button")
 		if (room06_buttonActive == TRUE) {
 			room06_buttonActive = FALSE;
 			narratorSay("Congratulations! You won!");
+			darkBackground();
 			
 			skipSpeech();
-			fadeOut();
-			hideCharacter(inventoryIcon);
-			blankScreen();
-			fadeIn();
+			#fadeOut();
+			var maxx = getObjectX(ego);
+			var maxy = getObjectY(ego);
+			removeAllCharacters();
+			addCharacter(ego, maxx, maxy, makeEgoAnim());
+			turnCharacter(ego, EAST);
 			
-			narratorSay("The game industry has returned to its greatness!");
-			narratorSay("Games are once again done with their creators' hearts, instead of being put together like on a production line!");
-			narratorSay("Indie game devs can once again do what they really love!");
-			narratorSay("Indie gamers can once again play what they really love!");
-			narratorSay("Your heroic act saved the humanity!");
-			narratorSay("The greatest poets write poems about what you did!");
-			narratorSay("The global warming has been stopped!");
-			narratorSay("Peace has finally arrived everywhere on the world!");
-			narratorSay("The poverty problem has been solved once and for all!");
-			narratorSay("Three crazy gamedevs did a game about you in 48h during Global Game Jam!");
-			narratorSay("...all thanks to what you just did.");
+			var i = 0;
+			while (i < 10) {
+				darkBackground();
+				i++;
+				pause(5);
+			}
+			
+			blankScreen();
+			#fadeIn();
+			
+			addScreenRegion(narrator, 683, 384, 684, 385, 0, 0, 0);
+			
+			say(narrator, "The game industry has returned to its greatness!");
+			say(narrator, "Games are once again done with their creators' hearts, instead of being put together like on a production line!");
+			say(narrator, "Indie game devs can once again do what they really love!");
+			say(narrator, "Indie gamers can once again play what they really love!");
+			say(narrator, "Your heroic act saved the humanity!");
+			say(narrator, "The greatest poets write poems about what you did!");
+			say(narrator, "The global warming has been stopped!");
+			say(narrator, "Peace has finally arrived everywhere on the world!");
+			say(narrator, "The poverty problem has been solved once and for all!");
+			say(narrator, "Three crazy gamedevs did a game about you in 48h during Global Game Jam!");
+			say(narrator, "...all thanks to what you just did.");
 			
 			pause(50);
 			
-			narratorSay("The Game Jam Game About Games, Secrets and Stuff");
-			narratorSay("Made by Konrad Burandt, Sebastian Krzyszkowiak and Pawel Radej.");
-			narratorSay("The game has been made on Poznan Game Jam, part of Global Game Jam 2015.");
-			narratorSay("So...");
-			narratorSay("...what do we do now?");
-			narratorSay("Turn off the computer and go make some friends!");
+			say(narrator, "The Game Jam Game About Games, Secrets and Stuff");
+			say(narrator, "Made by Konrad Burandt, Sebastian Krzyszkowiak and Pawel Radej.");
+			say(narrator, "The game has been made on Poznan Game Jam, part of Global Game Jam 2015.");
+			say(narrator, "So...");
+			say(narrator, "...what do we do now?");
+			say(narrator, "Turn off the computer and go make some friends!");
 			pause(20);
-			narratorSay("Just kidding, I know you'll play some other game anyway.");
-			narratorSay("So that's it...");
+			say(narrator, "Just kidding, I know you'll play some other game anyway.");
+			say(narrator, "So that's it...");
 			
 			pause(100);
 
 			forceCharacter(ego, 1600, 660);
 			
-			narratorSay("THE END");
+			say(narrator, "THE END");
 			
 			pause(50);
 			
