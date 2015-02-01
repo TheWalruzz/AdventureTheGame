@@ -156,7 +156,7 @@ objectType room01_secretary("secretary")
 					say(room01_secretary, "Here's the deal.");
 					say(room01_secretary, "You can call. Just try to keep it short, ok?");
 					say(ego, "Thanks!");
-					deleteChoicesByValue(4);
+					clearChoices();
 				}
 			}
 			
@@ -183,7 +183,7 @@ objectType room01_secretary("secretary")
 			say(ego, "A secret? You kidnapped people for a secret?");
 			say(room01_phonecall, "No, no, no! A Secret, not a secret.");
 			say(room01_phonecall, "People always mix those two.");
-			say(room01_phonecall, "You see, legend says that the gaming industry fell apart, because of someone, who learned of some kind of Secret.");
+			say(room01_phonecall, "You see, the legend says that the gaming industry fell apart because of someone who learned of some kind of Secret.");
 			say(room01_phonecall, "We are the Indie Rebellion! We want it gone forever!");
 			say(ego, "This doesn't explain the kidnapping.");
 			say(room01_phonecall, "Oh no, 'kidnapping' again.");
@@ -199,9 +199,59 @@ objectType room01_secretary("secretary")
 			say(room01_phonecall, "See it with your own eyes, man!");
 			pause(25);
 			
+			removeScreenRegion(room01_phonecall);
+			
 			say(ego, "That was weird. But I'm also very curious now!");
 			
 			room01_talkedToRebels = TRUE;
+		}
+		else if (room01_talkedToRebels && (afterPrison == FALSE)) {
+			say(ego, "Could I use the phone again?");
+			say(room01_secretary, "Dammit, fine, but keep it short!");
+			pause(30);
+			
+			addScreenRegion(room01_phonecall, 500, 400, 550, 450, 650, 600, -1);
+			say(ego, "Hello? Rebellion?");
+			say(room01_phonecall, "Oh, it's you again?");
+			
+			clearChoices();
+
+			addChoice("What was I supposed to do?", 0);
+			addChoice("Once again, why are you fighting Tremendous Corp.?", 1);
+			addChoice("Tell me more about the secret.", 2);
+			addChoice("Actually, nevermind. Bye!", 3);
+			
+			while (stackSize(choices) != 0) {
+				applyChoices();
+				var rep = getSpeechChoice(ego);
+				
+				if (rep == 3) {
+					clearChoices();
+				} else if (rep == 0) {
+					say(room01_phonecall, "Nothing special. Just a little bit of a good old-fashioned spying.");
+					say(room01_phonecall, "Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definetely him!");
+				} else if (rep == 1) {
+					say(room01_phonecall, "With all those Tremendous Corporation's patents disallowing any gamedev outside of it, it's hard not to.");
+					say(room01_phonecall, "Thanks to the Secret, they have grown uncontrollably and now control whole gamedev industry!");
+					say(room01_phonecall, "Every franchise, every IP, every game system that ever existed is now controled by Tremendous Corp. and any unauthorised usage is strictly forbidden.");
+					say(room01_phonecall, "You know, we don't want to spent our lives playing Angry Cows over and over again!");
+					say(ego, "I see...");
+				} else if (rep == 2) {
+					say(room01_phonecall, "You see, the legend says that the gaming industry fell apart because of someone who learned of some kind of Secret.");
+					say(room01_phonecall, "The Secret allowed him to gain control over the whole industry and make Tremendous Corporation what it is today.");
+					say(room01_phonecall, "We don't really know what it is yet, that's why we need to find some information about it.");
+					say(room01_phonecall, "Would you like to help?");
+					say(ego, "I see what I can do.");
+				}
+				
+				deleteChoicesByValue(3);
+				addChoice("That's all I wanted to know. Bye!", 3);
+				
+				deleteChoicesByValue(rep);
+			}
+			
+			removeScreenRegion(room01_phonecall);
+			
 		}
 		else
 		{
