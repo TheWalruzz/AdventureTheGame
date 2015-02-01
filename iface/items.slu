@@ -69,9 +69,9 @@ objectType item_gumChewed("chewed gum")
 		icon = anim('iface/mushroom.duc', 0);
 	}
 	
-	event default
+	event ego
 	{
-		say(ego, "I've heard an old, folk saying about chewing the same gum twice. I would rather not do it.");
+		say(ego, "I've heard an old folk saying about chewing the same gum twice. I would rather not do it.");
 	}
 }
 
@@ -88,7 +88,7 @@ objectType item_book("Game Design for Dummies")
 		deleteFromStack(inventory, item_book);
 		pushToStack(inventory, item_bookWithGum);
 		
-		say(ego, "I surprised myself again.");
+		say(ego, "Sometimes I'm afraid of my genius.");
 	}
 	
 	event default
@@ -202,7 +202,7 @@ objectType item_ropeWithBook("rope with a book")
 	
 	event default
 	{
-		say(ego, "There is time and place for everything... But not now.");
+		say(ego, "There is a time and place for everything... But this is not that time and place.");
 	}
 }
 
