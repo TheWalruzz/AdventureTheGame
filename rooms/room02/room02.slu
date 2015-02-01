@@ -46,8 +46,7 @@ sub room02()
 	
 	setScale(450, 420);
 	
-	addCharacter(ego, 200, 670, makeEgoAnim());
-	turnCharacter(ego, EAST);
+	addCharacter(ego, -100, 720, makeEgoAnim());
 
 	addScreenRegion(room02_elevatorDoor, 0, 358, 68, 664, 137, 707, WEST);
 	addScreenRegion(room02_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
@@ -147,6 +146,12 @@ sub room02()
 		addCharacter(room02_rope, 3533, 652, anim('rooms/room02/rope2.duc', 0));
 		setCharacterExtra(room02_rope, FIXEDSIZE);
 	}
+	if (room02_beforeAttack) {
+		moveCharacter(ego, 200, 720);
+	} else {
+		jumpCharacter(ego, 200, 720);
+	}
+	turnCharacter(ego, EAST);
 	
 }
 

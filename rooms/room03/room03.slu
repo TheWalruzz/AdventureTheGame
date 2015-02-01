@@ -26,32 +26,33 @@ sub room03()
 	setFloor('rooms/room03/room03.flo');
 	
 	setScale(450, 420);
-	
-	if (straightFromBoss == FALSE) {
-		addCharacter(ego, 87, 670, makeEgoAnim());
-		turnCharacter(ego, EAST);
-	} else {
-		addCharacter(ego, 2608, 697, makeEgoAnim());
-		turnCharacter(ego, WEST);
-		room03_part = "b";
-		room03_centerX = 2049;
-		aimCamera(room03_centerX, 384);
 		
-	}
-	straightFromBoss = FALSE;
-	
 	if (room03_broomTaken == FALSE) {
 		addCharacter(room03_broom, 1960, 580, anim('rooms/room03/broom.duc', 0));
 		setCharacterExtra(room03_broom, FIXEDSIZE);
 	}
-
-		
+	
+	
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
 	addScreenRegion(room03_exit, 0, 0, 200, 768, 0, 768, WEST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 	addScreenRegion(room03_posterFarm, 745, 87, 1012, 420, 866, 616, NORTH);
 
-	setCharacterWalkSpeed(ego, 8);
+	if (straightFromBoss == FALSE) {
+		addCharacter(ego, -50, 670, makeEgoAnim());
+		setCharacterWalkSpeed(ego, 8);
+		moveCharacter(ego, 87, 670);
+		turnCharacter(ego, EAST);
+	} else {
+		addCharacter(ego, 2608, 697, makeEgoAnim());
+		setCharacterWalkSpeed(ego, 8);
+		turnCharacter(ego, WEST);
+		room03_part = "b";
+		room03_centerX = 2049;
+		aimCamera(room03_centerX, 384);
+	}
+	
+	straightFromBoss = FALSE;
 	
 }
 
@@ -85,6 +86,7 @@ objectType room03_exit("elevator")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
+		forceCharacter(ego, -100, 768);
 		gotoRoom(roomElevator);
 	}
 }

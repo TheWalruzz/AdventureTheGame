@@ -44,6 +44,7 @@ sub room05()
 	addScreenRegion(room05_exit, 0, 0, 50, 768, 75, 670, WEST);
 	
 	setCharacterWalkSpeed(ego, 8);
+	turnCharacter(ego, EAST);
 }
 
 objectType room05_bossIDcard("ID card") {
