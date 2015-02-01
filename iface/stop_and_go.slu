@@ -162,6 +162,7 @@ sub pauseGame() {
 sub unpauseGame(key) {
 	unfreeze();
 	onKeyboard(keys);
+	key; # supress warning, key is unused intentionally
 }
 
 sub doYouReallyWantToQuit() {
