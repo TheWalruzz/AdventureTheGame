@@ -82,6 +82,7 @@ sub room06()
 		say(room06_secret, "Perfect.");
 		say(room06_secret, "Immortal.");
 		say(room06_secret, "And there's nothing you can do to stop me.");
+		say(room06_secret, "Resistance is futile. Get over it, human!");
 		
 		room06_hadSpeech = TRUE;
 	} else {
