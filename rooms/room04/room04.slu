@@ -29,6 +29,10 @@ sub room04()
 
 	straightFromPrison = TRUE;
 	
+	if (DEBUG) {
+		pushToStack(inventory, item_picklock);
+	}
+	
 }
 
 objectType room04_door("prison door")

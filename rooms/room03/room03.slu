@@ -52,6 +52,10 @@ sub room03()
 		aimCamera(room03_centerX, 384);
 	}
 	
+	if (DEBUG) {
+		pushToStack(inventory, item_bossKey);
+	}
+	
 	straightFromBoss = FALSE;
 	
 }
@@ -130,13 +134,21 @@ objectType room03_abTransition("go")
 	{
 		if(room03_part == "a")
 		{
-			moveCharacter(ego, 1430, getObjectY(ego));
+			if (DEBUG) {
+				jumpCharacter(ego, 1430, getObjectY(ego));
+			} else {
+				moveCharacter(ego, 1430, getObjectY(ego));
+			}
 			gotoRoom03Part("b", 2049);
 			
 		}
 		else if(room03_part == "b")
 		{
-			moveCharacter(ego, 1310, getObjectY(ego));
+			if (DEBUG) {
+				jumpCharacter(ego, 1310, getObjectY(ego));
+			} else {
+				moveCharacter(ego, 1310, getObjectY(ego));
+			}
 			gotoRoom03Part("a", 683);
 		}
 	}
