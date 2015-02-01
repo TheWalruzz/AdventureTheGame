@@ -10,9 +10,7 @@ sub keys (k) {
 	}
 	
 	if (k == "ESCAPE") {
-		if (saveGame("auto")) {
-			quitGame ();
-		}
+		doYouReallyWantToQuit();
 	}
 
 	if (k == "a") {
@@ -32,5 +30,9 @@ sub keys (k) {
 	
 	if (k == "i" && ! dialogInProgress) {
 		showInventory();
+	}
+	
+	if (k == " ") {
+		pauseGame();
 	}
 }

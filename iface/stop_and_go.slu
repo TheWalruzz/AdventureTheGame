@@ -150,3 +150,39 @@ sub gotoRoom (r) {
 	# Now, finally call the function to build the new room
 	r ();
 }
+
+sub pauseGame() {
+	freeze();
+	darkBackground();
+	setPasteColor(255,255,255);
+	pasteString(CENTER, 768/2 - 10, "Game paused");
+	onKeyboard(unpauseGame);
+}
+
+sub unpauseGame(key) {
+	unfreeze();
+	onKeyboard(keys);
+}
+
+sub doYouReallyWantToQuit() {
+	freeze();
+	darkBackground();
+	setPasteColor(255,255,255);
+	pasteString(CENTER, 768/2 - 30, "Do you really want to quit? Y/N");
+	setPasteColor(180, 180, 180);
+	pasteString(CENTER, 768/2 + 30, "HINT: Your game will be autosaved. Press A to load it later.");
+	onKeyboard(wantToQuitHandler);
+}
+	
+sub wantToQuitHandler(key) {
+	if (key == "y") {
+		unfreeze();
+		if (saveGame("auto")) {
+			quitGame ();
+		}
+	}
+	if (key == "n" || key == "ESCAPE") {
+		unfreeze();
+		onKeyboard(keys);
+	}
+}

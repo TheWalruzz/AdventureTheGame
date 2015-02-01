@@ -36,7 +36,9 @@ sub roomElevatorIntro()
 	pause(60);
 	
 	onRightMouse (skipElevatorMovie);
+	onKeyboard();
 	playMovie('rooms/roomElevator/elevator.webm');
+	onKeyboard(keys);
 	
 	removeCharacter(roomElevatorIntro_door);
 	
