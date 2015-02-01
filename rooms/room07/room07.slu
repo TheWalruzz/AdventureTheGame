@@ -27,6 +27,10 @@ sub room07()
 	straightFromPrison = FALSE;
 	straightFromSecret = FALSE;
 	
+	if (room06_hadSpeech) {
+		rename(room07_secret, "SECRET's room");
+	}
+	
 	setCharacterWalkSpeed(ego, 8);
 }
 
