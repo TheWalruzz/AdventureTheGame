@@ -359,6 +359,7 @@ sub secretPanics() {
 	enqueue(texts, "What will humanity do without me?");
 	enqueue(texts, "Don't be a tuna head, don't press that button!");
 	enqueue(texts, "Hey, I'm sure we can put our differences behind us and just talk it through over some grog.");
+	enqueue(texts, "How about a nice game of chess?");
 	enqueue(texts, "I know, I'll make a game about you! What do you think?");
 	enqueue(texts, "Of course I won't be able to if you press that big button.");
 	enqueue(texts, "Pressing big power buttons is sooo last season.");

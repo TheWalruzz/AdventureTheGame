@@ -116,7 +116,8 @@ objectType room05_safe("safe")
 			say(ego, "This is not the secret I'm looking for.");
 		} else {
 			
-			say(room05_director, "What are you doing?");
+		say(room05_director, "What are you doing?");
+		say(ego, "Uhm... I'm selling these fine leather jackets!");
 		say(room05_director, "Ah, digging for secrets, I see?");
 		say(room05_director, "Well, these are not the secrets you are looking for.");
 		say(room05_director, "Argh.");
