@@ -38,8 +38,11 @@ sub room03()
 	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
 	addScreenRegion(room03_exit, 0, 0, 200, 768, 0, 768, WEST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
+	addScreenRegion(room03_posterVikings, 200, 90, 485, 445, 340, 616, NORTH);
 	addScreenRegion(room03_posterFarm, 745, 87, 1012, 420, 866, 616, NORTH);
-
+	addScreenRegion(room03_posterCows, 1540, 90, 1850, 450, 1695, 616, NORTH);
+	addScreenRegion(room03_posterBrush, 2070, 66, 2375, 432, 2222, 616, NORTH);
+	
 	if (straightFromBoss == FALSE) {
 		addCharacter(ego, -50, 670, makeEgoAnim());
 		setCharacterWalkSpeed(ego, 8);
@@ -184,6 +187,21 @@ objectType room03_broom("broom")
 	}
 }
 
+objectType room03_posterVikings("poster")
+{
+	event lookAt
+	{
+		say(ego, "Seems like they haven't updated this wall for ages. There's already Vikings XXI out there!");
+		say(ego, "Not as fun as Vikings XX, though.");
+	}
+	
+	event interactWith
+	{
+		say(ego, "Nah, I didn't really like this one.");
+		say(ego, "If it was Vikings XVI though...");
+	}
+}
+
 objectType room03_posterFarm("poster")
 {
 	event lookAt
@@ -191,9 +209,41 @@ objectType room03_posterFarm("poster")
 		say(ego, "I'm Max Burton and this is my favorite game on this wall!");
 	}
 	
+	event interactWith
+	{
+		say(ego, "I already have one in my bedroom.");
+	}
+}
+
+objectType room03_posterCows("poster")
+{
+	event lookAt
+	{
+		say(ego, "I never really got that Angry Cows craze... yet this Inception Extension sounds like it could be fun!");
+	}
+	
+	event interactWith
+	{
+		say(ego, "No, thanks, I don't need an Angry Cows poster to feel fulfilled.");
+	}
+	
 	event default
 	{
-		say(ego, pickOne("I like the design.", "I have to admit - idea for this game is great!"));
+		say(ego, "I don't think cows would like that.");
+	}
+}
+
+objectType room03_posterBrush("poster")
+{
+	event lookAt
+	{
+		say(ego, "\"My name is Brush Guy Treepweed and I wanna be a painter!\" Haha, this guy's hilarious!");
+		say(ego, "The sole concept of Insult Paint Mixing is still cracking me up!");
+	}
+	
+	event interactWith
+	{
+		say(ego, "I love Brush Guy, but that would be stealing.");
 	}
 }
 
