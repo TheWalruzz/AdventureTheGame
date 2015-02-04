@@ -27,7 +27,7 @@ sub room03()
 	
 	setFloor('rooms/room03/room03.flo');
 	
-	setScale(450, 420);
+	setScale(200, 800);
 		
 	if (room03_broomTaken == FALSE) {
 		addCharacter(room03_broom, 1960, 580, anim('rooms/room03/broom.duc', 0));
