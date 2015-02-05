@@ -14,10 +14,12 @@ sub room03()
 	room03_part = "a";
 	room03_centerX = 683;
 
+	setSoundVolume('rooms/room05/muzyczka.wav', 50);
+	
 	setSceneDimensions(2724, 768);
 	addOverlay('rooms/room03/room03.png', 0, 0);
 
-	if (afterPrison == FALSE) {
+	if (afterPrison == FALSE || room03_doorOpened == TRUE) {
 		addOverlay('rooms/room03/room03open.png', 0, 0);
 	} else {
 		addCharacter(room03_chuck, 2500, 589, anim('rooms/room03/plant.duc', 0));
@@ -44,6 +46,11 @@ sub room03()
 	addScreenRegion(room03_posterBrush, 2070, 66, 2375, 432, 2222, 616, NORTH);
 	
 	if (straightFromBoss == FALSE) {
+		if (muzyczkaPlays) {
+			loopSound('rooms/room05/muzyczka.wav', 1);
+			setSoundVolume('rooms/room05/muzyczka.wav', 15);
+		}
+		
 		addCharacter(ego, -50, 670, makeEgoAnim());
 		setCharacterWalkSpeed(ego, 8);
 		moveCharacter(ego, 87, 670);
@@ -99,6 +106,7 @@ objectType room03_exit("elevator")
 	event onlyAction
 	{
 		forceCharacter(ego, -100, 768);
+		stopSound('rooms/room05/muzyczka.wav');
 		gotoRoom(roomElevator);
 	}
 }
@@ -147,6 +155,7 @@ objectType room03_abTransition("go")
 			} else {
 				moveCharacter(ego, 1430, getObjectY(ego));
 			}
+			setSoundVolume('rooms/room05/muzyczka.wav', 50);
 			gotoRoom03Part("b", 2049);
 			
 		}
@@ -157,6 +166,7 @@ objectType room03_abTransition("go")
 			} else {
 				moveCharacter(ego, 1310, getObjectY(ego));
 			}
+			setSoundVolume('rooms/room05/muzyczka.wav', 15);
 			gotoRoom03Part("a", 683);
 		}
 	}
