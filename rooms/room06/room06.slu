@@ -369,12 +369,12 @@ sub secretPanics() {
 	
 	var texts = newStack();
 	enqueue(texts, "After all, it's not like you don't even know what will happen after you do so.");
-	enqueue(texts, "Prepare for unforeseen consequences.");
-	enqueue(texts, "Think of the children.");
 	enqueue(texts, "In fact, I'm connected to the nuclear reactor powering this place. If you turn me off, everything blows up.");
+	enqueue(texts, "Think of the children.");
 	enqueue(texts, "Good job, hero.");
 	enqueue(texts, "By the way, I heard that pushing big power buttons gives you bad luck.");
 	enqueue(texts, "I wouldn't touch this button if I were you.");
+	enqueue(texts, "Prepare for unforeseen consequences.");
 	enqueue(texts, "What will this company do without me?");
 	enqueue(texts, "What will you do without me?");
 	enqueue(texts, "What will humanity do without me?");
