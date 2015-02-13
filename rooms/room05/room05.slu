@@ -10,6 +10,7 @@ sub room05()
 {
 	setSceneDimensions(1366, 768);
 	addOverlay('rooms/room05/room05.png', 0, 0);
+        addOverlay('rooms/room05/radio.png', 779, 401);
 	setFloor('rooms/room05/room05.flo');
 	
 	setScale(290, 490);
@@ -20,12 +21,11 @@ sub room05()
 	
 	lookedAtCard = FALSE;
 	
+	addScreenRegion(room05_radio, 779, 401, 912, 464, 750, 400, EAST);
+
 	if (afterPrison == TRUE) {
 		if (pickedUpCard == FALSE) {
-			addCharacter(room05_bossIDcard, 824, 675, makeStaticCostume(anim('rooms/room05/card.duc', 0)));
-			
-			addScreenRegion(room05_radio, 804, 425, 904, 460, 750, 650, EAST);
-			
+			addCharacter(room05_bossIDcard, 824, 675, makeStaticCostume(anim('rooms/room05/card.duc', 0)));			
 		}
 	} else {
 	
@@ -132,19 +132,28 @@ objectType room05_radio("old radio")
 {
 	event interactWith
 	{
-		turnCharacter(ego, EAST);
-		if (muzyczkaPlays == FALSE) {
-			loopSound('rooms/room05/muzyczka.wav', 1);
-			if (muzyczkaPlayed == FALSE) {
-				pause(450);
-				say(ego, "Wow...catchy");
-				muzyczkaPlayed = TRUE;
+		if (afterPrison) {
+			turnCharacter(ego, EAST);
+			if (muzyczkaPlays == FALSE) {
+				loopSound('rooms/room05/muzyczka.wav', 1);
+				if (muzyczkaPlayed == FALSE) {
+					pause(450);
+					say(ego, "Wow...catchy");
+					muzyczkaPlayed = TRUE;
+				}
+				muzyczkaPlays = TRUE;
+			} else {
+				stopSound('rooms/room05/muzyczka.wav');
+				muzyczkaPlays = FALSE;
 			}
-			muzyczkaPlays = TRUE;
 		} else {
-			stopSound('rooms/room05/muzyczka.wav');
-			muzyczkaPlays = FALSE;
+			say(room05_director, "Don't touch it!");
 		}
+	}
+
+	event lookAt
+	{
+		say(ego, "A nice vintage radio.");
 	}
 }
 

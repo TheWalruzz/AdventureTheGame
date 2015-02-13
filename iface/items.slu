@@ -215,7 +215,7 @@ objectType item_ropeFullyCombined("rope with a book and a gum")
 	
 	event default
 	{
-		say(ego, "Nope. I would look wierd doing it.");
+		say(ego, "Nope. I would look weird doing it.");
 	}
 }
 
