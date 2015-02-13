@@ -190,7 +190,11 @@ objectType room05_safe("safe")
 	
 	event lookAt
 	{
-		say(ego, "I'll be damned if this safe didn't contain the Secret.");
+		if (afterPrison == FALSE) {
+			say(ego, "I'll be damned if this safe didn't contain the Secret.");
+		} else {
+			say(ego, "This is not the secret I'm looking for.");
+		}
 	}
 }
 
