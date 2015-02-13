@@ -138,7 +138,7 @@ objectType room05_radio("old radio")
 				loopSound('rooms/room05/muzyczka.wav', 1);
 				if (muzyczkaPlayed == FALSE) {
 					pause(450);
-					say(ego, "Wow...catchy");
+					say(ego, "Wow... catchy!");
 					muzyczkaPlayed = TRUE;
 				}
 				muzyczkaPlays = TRUE;
