@@ -82,14 +82,14 @@ objectType room01_elevator("elevator")
 	}
 }
 
-objectType room01_secretary("secretary")
+objectType room01_secretary("receptionist")
 {
 	speechColor 255, 255, 255;
 	speechGap 10;
 	
 	event lookAt
 	{
-		say(ego, "She's a secretary. There's nothing more to it.");
+		say(ego, "She's a receptionist. There's nothing more to it.");
 	}
 
 	event item_broom
