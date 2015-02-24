@@ -55,6 +55,11 @@ objectType item_gumWhole("chewing gum")
 	{
 		say(ego, "Sadly, it's not sticking.");
 	}
+
+	event room01_secretary {
+		say(room01_secretary, "Are you suggesting something about my breath?");
+		say(ego, "Uhm, no! Nevermind!");
+	}
 	
 	event default
 	{
@@ -72,6 +77,15 @@ objectType item_gumChewed("chewed gum")
 	event ego
 	{
 		say(ego, "I've heard an old folk saying about chewing the same gum twice. I would rather not do it.");
+	}
+
+	event room01_secretary {
+		say(room01_secretary, "Eww, take that away from me!");
+	}
+
+	event default
+	{
+		say(ego, "Sticking gum to it won't help.");
 	}
 }
 
@@ -91,8 +105,13 @@ objectType item_book("Game Design for Dummies")
 			deleteFromStack(inventory, item_book);
 			pushToStack(inventory, item_bookWithGum);
 		
-			say(ego, "Sometimes I'm afraid of my genius.");
+			say(ego, "Sometimes I'm afraid of my own genius.");
 		}
+	}
+
+	event room01_secretary
+	{
+		say(ego, "I'd better stick to this book, something tells me it might be useful.");
 	}
 	
 	event default
@@ -125,10 +144,20 @@ objectType item_broom("broom")
 	{
 		icon = anim('iface/mushroom.duc', 0);
 	}
+
+	event room05_director
+	{
+		say(ego, "I won't do that, you pervert!");
+	}
+
+	event ego
+	{
+		say(ego, "Uhm... no. Whatever you were thinking, I won't.");
+	}
 	
 	event default
 	{
-		say(ego, "Brooms may be considered magical by some, but I don't think it will work here.");
+		say(ego, "Brooms may be considered magical by some, but I don't think that will work here.");
 	}
 }
 
@@ -138,6 +167,12 @@ objectType item_potato("potato")
 	{
 		icon = anim('iface/mushroom.duc', 0);
 	}
+
+	event ego
+	{
+		say(ego, "I'm not hungry.");
+	}
+
 	event default
 	{
 		say(ego, "Sticking potatoes in your problems isn't exactly the best way to deal with them."); 
@@ -182,9 +217,15 @@ objectType item_rope("rope")
 		say(ego, "Well. Someone said that every puzzle has an answer.");
 	}
 
+	event room01_secretary
+	{
+		say(ego, "Would you like to see my playroom?");
+		say(room01_secretary, "I'll pretend I haven't heard that.");
+	}
+
 	event default
 	{
-		say(ego, "I'm not sure it will work.");
+		say(ego, "I'm not sure it will help.");
 	}
 }
 
@@ -203,10 +244,14 @@ objectType item_ropeWithBook("rope with a book")
 	
 		say(ego, "Well. Someone said that every puzzle has an answer.");
 	}
+
+	event room01_secretary {
+		say(room01_secretary, "Is this some kind of modern art?");
+	}
 	
 	event default
 	{
-		say(ego, "There is a time and place for everything... But this is not that time and place.");
+		say(ego, "Nope. I would look weird doing it.");
 	}
 }
 
@@ -216,10 +261,22 @@ objectType item_ropeFullyCombined("rope with a book and a gum")
 	{
 		icon = anim('iface/mushroom.duc', 0);
 	}
+
+	event room01_secretary {
+		say(room01_secretary, "Is this some kind of modern art?");
+	}
+
+	event room05_director {
+		say(room05_director, "Is this some kind of modern art?");
+	}
+
+	event room06_tray {
+		say(room06_secret, "Is this some kind of modern art?");
+	}
 	
 	event default
 	{
-		say(ego, "Nope. I would look weird doing it.");
+		say(ego, "There is a time and place for everything... But this is not that time and place.");
 	}
 }
 
@@ -228,6 +285,12 @@ objectType item_bookWithGum("book with a gum")
 	event getIcon
 	{
 		icon = anim('iface/mushroom.duc', 0);
+	}
+
+	event room01_secretary {
+		say(room01_secretary, "Uhm... Okay. I don't wanna know why did you do that...");
+		say(room01_secretary, "...nor why you're showing it to me.");
+		say(room01_secretary, "Can't you understand that I'm busy?");
 	}
 	
 	event default

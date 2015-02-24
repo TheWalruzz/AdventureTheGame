@@ -92,12 +92,28 @@ objectType room01_secretary("secretary")
 		say(ego, "She's a secretary. There's nothing more to it.");
 	}
 
+	event item_broom
+	{
+		say(room01_secretary, "I don't need that.");
+	}
+
+	event item_bossIDcard
+	{
+		say(ego, "I don't think that's wise.");
+	}
+
 	event item_internIDcard
 	{
-		say(ego, "Uhm, so what am I supposed to do with that?");
-		say(room01_secretary, "I already told you to use the elevator. Put that ID into the scanner.");
+		if (room02_beforeAttack) {
+			say(ego, "Uhm, so what am I supposed to do with that?");
+			say(room01_secretary, "I already told you to use the elevator. Put that ID into the scanner.");
+		} else {
+			say(room01_secretary, "Yes?");
+			say(ego, "Uhm... Actually, I don't know why I showed you that.");
+			say(room01_secretary, "Quit bothering me!");
+		}
 	}
-	
+
 	event interactWith
 	{
 		if(room02_beforeAttack)

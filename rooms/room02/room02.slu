@@ -639,13 +639,13 @@ sub readNewspaper() {
 		say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
 		pause(15);
 		say(ego, "Oh! What an interesting ad!");
-		say(ego, "\"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-274-345-81!\"");
+		say(ego, "\"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-314-159-26!\"");
 		turnCharacter(ego, SOUTH);
 		pause(10);
 		say(ego, "I'd say it's a bit intriguing.");
 		room02_newspaperRead = TRUE;
 	} else {
-		say(ego, "\"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-274-345-81!\"");		
+		say(ego, "\"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-314-159-26!\"");
 	}
 }
 
@@ -667,7 +667,7 @@ objectType room02_rope("rope")
 {
 	event lookAt
 	{
-		say(ego, pickOne("It's just lying there.", "A rope left by those strange intruders."));
+		say(ego, "A rope left by those strange intruders.");
 	}
 	
 	event interactWith
