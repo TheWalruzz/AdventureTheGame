@@ -300,5 +300,6 @@ objectType room01_secretary("secretary")
 
 objectType room01_phonecall("")
 {
+        speechColor 200, 200, 200;
 }
 
