@@ -416,6 +416,7 @@ sub checkSecretAccess() {
 
 objectType room06_secCode("first panel")
 {
+	speechColor 200, 200, 200;
 	event lookAt {
 		say(ego, "It's some kind of input panel.");
 	}
@@ -432,11 +433,12 @@ objectType room06_secCode("first panel")
 			setBlankColor(0,0,0);
 			
 			blankScreen();
+			addOverlay('rooms/room06/monitor.png', 0, 0);
 			
 			var enteredCode = "";
 			
 			setPasteColor(255,255,255);
-			pasteString(20,20, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
+			pasteString(20,40, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
 			
 			addSpeechValueChoice("A");
 			addSpeechValueChoice("B");
@@ -452,8 +454,9 @@ objectType room06_secCode("first panel")
 			enteredCode = enteredCode + choice;
 			
 			blankScreen();
+			addOverlay('rooms/room06/monitor.png', 0, 0);
 			
-			pasteString(20,20, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
+			pasteString(20,40, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 
 			addSpeechValueChoice("Z");
@@ -470,8 +473,9 @@ objectType room06_secCode("first panel")
 			enteredCode = enteredCode + choice;
 			
 			blankScreen();
+			addOverlay('rooms/room06/monitor.png', 0, 0);
 			
-			pasteString(20,20, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
+			pasteString(20,40, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 			
 			addSpeechValueChoice("S");
@@ -488,8 +492,9 @@ objectType room06_secCode("first panel")
 			enteredCode = enteredCode + choice;
 			
 			blankScreen();
+			addOverlay('rooms/room06/monitor.png', 0, 0);
 			
-			pasteString(20,20, "ENTER FOURTH CHARACTER OF THE ACCESS CODE");
+			pasteString(20,40, "ENTER FOURTH CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 			
 			addSpeechValueChoice("2");
@@ -523,6 +528,7 @@ objectType room06_secCode("first panel")
 
 objectType room06_secPuzzle("second panel")
 {
+	speechColor 200, 200, 200;
 	event lookAt {
 		say(ego, "That's a math puzzle.");
 	}
@@ -560,12 +566,13 @@ objectType room06_secPuzzle("second panel")
 			setBlankColor(0,0,0);
 			
 			blankScreen();
+			addOverlay('rooms/room06/monitor.png', 0, 0);
 			setPasteColor(255,255,255);
-			pasteString(20,20, "SOLVE THIS THREE TIMES IN ROW");
+			pasteString(20,40, "SOLVE THIS THREE TIMES IN ROW");
 
 			i = 0;
 			while (i < stackSize(sums)) {
-				pasteString(20, 20 + (i+1) * 40, firsts[i] + " + " + seconds[i] + " = " + sums[i]);
+				pasteString(20, 40 + (i+1) * 40, firsts[i] + " + " + seconds[i] + " = " + sums[i]);
 				i = i + 1;
 			}
 			
@@ -578,7 +585,7 @@ objectType room06_secPuzzle("second panel")
 			enqueue(seconds, bb);
 			enqueue(sums, answer);
 			
-			pasteString(20, 40 + stackSize(sums) * 40, aa + " + " + bb + " = ?");
+			pasteString(20, 60 + stackSize(sums) * 40, aa + " + " + bb + " = ?");
 			
 			var choice = getSpeechChoice(NULL);
 			
@@ -624,6 +631,7 @@ objectType room06_secPuzzle("second panel")
 
 objectType room06_secReader("third panel")
 {
+	speechColor 200, 200, 200;
 	event lookAt {
 		say(ego, "That's an ID card scanner.");
 	}
