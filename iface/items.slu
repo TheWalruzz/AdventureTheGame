@@ -84,11 +84,15 @@ objectType item_book("Game Design for Dummies")
 	
 	event item_gumChewed
 	{
-		deleteFromStack(inventory, item_gumChewed);
-		deleteFromStack(inventory, item_book);
-		pushToStack(inventory, item_bookWithGum);
+		if (room02_beforeAttack == TRUE) {
+			say(ego, "I have no idea why would I want to do that.");
+		} else {
+			deleteFromStack(inventory, item_gumChewed);
+			deleteFromStack(inventory, item_book);
+			pushToStack(inventory, item_bookWithGum);
 		
-		say(ego, "Sometimes I'm afraid of my genius.");
+			say(ego, "Sometimes I'm afraid of my genius.");
+		}
 	}
 	
 	event default

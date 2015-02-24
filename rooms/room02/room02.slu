@@ -295,6 +295,26 @@ objectType room02_superior("superior")
 		
 		addScreenRegion(room02_cable, 4000-38, 645+49, 4040, 768, 4000-68, 730, SOUTH);
 	}
+
+	event item_internIDcard
+	{
+		say(room02_superior, "Your ID is not a coffee.");
+	}
+
+	event item_book
+	{
+		say(room02_superior, "This is a book, not a coffee.");
+	}
+
+	event item_gumWhole
+	{
+		say(room02_superior, "I don't want a chewing gum, I want a damn coffee!");
+	}
+
+	event item_gumChewed
+	{
+		say(room02_superior, "Eeew! That's DEFINITELY not a coffee!");
+	}
 	
 	event interactWith
 	{

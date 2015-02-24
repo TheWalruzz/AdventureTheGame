@@ -8,7 +8,7 @@ objectType lookAt ("Look at ") {
 # The "Interact with..." action
 objectType interactWith ("Interact with ") {
 	event default {
-		say (ego, pickOne("I'm not sure how.", "Nope."));
+		say (ego, pickOne("I'm not sure how.", "Nope.", "Hmm... Nah.", "I don't wanna."));
 	}
 }
 
@@ -40,5 +40,5 @@ sub findEvent (a, b) {
 		if (! callEvent (b, a))
 			if (! callEvent (default, a))
 				if (! callEvent (default, b))
-					say (ego, pickOne ("I don't think it's a good idea.", "I'm not a miracle maker."));
+					say (ego, pickOne ("I don't think it's a good idea.", "I'm not a miracle maker.", "Hmm... Nah.", "Nope.", "I don't think these go well together.", "I'm not sure how.", "It doesn't connect.", "That's pointless.", "I don't wanna."));
 }

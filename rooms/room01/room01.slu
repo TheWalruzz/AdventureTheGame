@@ -91,13 +91,19 @@ objectType room01_secretary("secretary")
 	{
 		say(ego, "She's a secretary. There's nothing more to it.");
 	}
+
+	event item_internIDcard
+	{
+		say(ego, "Uhm, so what am I supposed to do with that?");
+		say(room01_secretary, "I already told you to use the elevator. Put that ID into the scanner.");
+	}
 	
 	event interactWith
 	{
 		if(room02_beforeAttack)
 		{
 			say(ego, "Uhm, so what should I do now?");
-			say(room01_secretary, "I already told you to use the elevator. Put your ID in its scanner.");
+			say(room01_secretary, "I already told you to use the elevator. Put that ID into the scanner.");
 			say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
 		}
 		else if((room01_talkedToRebels == FALSE) && room02_newspaperRead == TRUE)
