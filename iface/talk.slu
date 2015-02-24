@@ -67,7 +67,8 @@ sub addSpeechChoice (a, b) {
 	if (! speechChoices) {
 		clearStatus ();
 		alignStatus (LEFT);
-		setStatusColour (255, 200, 55);
+		setStatusColour (222, 222, 222);
+		setLitStatusColour (255, 255, 255);
 		setCursor (anim ('iface/mouse.duc', 0))
 	}
 
