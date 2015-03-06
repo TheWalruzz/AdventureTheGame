@@ -4,6 +4,19 @@
 var room01_firstTalk = TRUE;
 var room01_talkedToRebels = FALSE;
 
+sub actionMusicDown() {
+        vol = 255;
+        loop {
+                setSoundVolume('music/8.ogg', vol);
+                vol=vol-5;
+                pause(1);
+                if (vol < 0) {
+                        stopSound('music/8.ogg');
+                        loopSound('music/3.ogg');
+                        return;
+                }
+        }
+}
 
 sub room01()
 {
@@ -185,6 +198,8 @@ objectType room01_secretary("receptionist")
 			pause(30);
 			
 			addScreenRegion(room01_phonecall, 500, 400, 550, 450, 650, 600, -1);
+
+			spawnSub(actionMusicDown);
 			
 			say(ego, "Hello? Rebellion?");
 			say(room01_phonecall, "No, no, no. It's Ye National Cheese Emporium. We are on a quest to learn all of the secrets of cheese!");

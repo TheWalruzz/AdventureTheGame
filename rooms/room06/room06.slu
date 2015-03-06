@@ -16,6 +16,47 @@ var room06_buttonActive = FALSE;
 
 var straightFromSecret = FALSE;
 
+sub prisonMusicDown() {
+        vol = 255;
+        loop {
+                setSoundVolume('music/5.ogg', vol);
+                vol=vol-5;
+                pause(1);
+                if (vol < 0) {
+                        stopSound('music/5.ogg');
+                        loopSound('music/11.ogg');
+                        return;
+                }
+        }
+}
+
+sub secretMusicDown() {
+        vol = 255;
+        loopSound('music/6.ogg');
+        loop {
+                setSoundVolume('music/11.ogg', vol);
+                vol=vol-5;
+                pause(1);
+                if (vol < 0) {
+                        stopSound('music/11.ogg');
+                        return;
+                }
+        }
+}
+
+sub endMusicDown() {
+        vol = 255;
+        loop {
+                setSoundVolume('music/6.ogg', vol);
+                vol=vol-2;
+                pause(1);
+                if (vol < 0) {
+                        stopSound('music/6.ogg');
+                        return;
+                }
+        }
+}
+
 sub room06()
 {
 	straightFromSecret = TRUE;
@@ -23,6 +64,7 @@ sub room06()
 	addOverlay('rooms/room06/room06.png', 0, 0);
 	setFloor('rooms/room06/room06.flo');
 	
+
 	setScale(400, 300);
 		
 	addCharacter(ego, -100, 720, makeEgoAnim());
@@ -76,6 +118,7 @@ sub room06()
 
 	if(! room06_hadSpeech)
 	{
+	        spawnSub(prisonMusicDown);
 		moveCharacter(ego, 200, 720);
 		room06_speech();
 		say(room06_secret, "I'm indestructible.");
@@ -186,6 +229,8 @@ objectType room06_powerButton("power button")
 	{		
 		if (room06_buttonActive == TRUE) {
 			room06_buttonActive = FALSE;
+			spawnSub(secretMusicDown);
+
 			narratorSay("Congratulations! You won!");
 			darkBackground();
 			
@@ -239,7 +284,9 @@ objectType room06_powerButton("power button")
 			
 			say(narrator, "THE END");
 			
-			pause(50);
+			endMusicDown();
+
+			pause(20);
 			
 			quitGame();
 			return;

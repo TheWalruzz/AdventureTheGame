@@ -14,7 +14,7 @@ sub room03()
 	room03_part = "a";
 	room03_centerX = 683;
 
-	setSoundVolume('rooms/room05/muzyczka.wav', 50);
+	setSoundVolume('rooms/room05/muzyczka.ogg', 50);
 	
 	setSceneDimensions(2724, 768);
 	addOverlay('rooms/room03/room03.png', 0, 0);
@@ -47,8 +47,8 @@ sub room03()
 	
 	if (straightFromBoss == FALSE) {
 		if (muzyczkaPlays) {
-			loopSound('rooms/room05/muzyczka.wav', 1);
-			setSoundVolume('rooms/room05/muzyczka.wav', 15);
+			loopSound('rooms/room05/muzyczka.ogg', 1);
+			setSoundVolume('rooms/room05/muzyczka.ogg', 15);
 		}
 		
 		addCharacter(ego, -50, 670, makeEgoAnim());
@@ -106,7 +106,7 @@ objectType room03_exit("elevator")
 	event onlyAction
 	{
 		forceCharacter(ego, -100, 768);
-		stopSound('rooms/room05/muzyczka.wav');
+		stopSound('rooms/room05/muzyczka.ogg');
 		gotoRoom(roomElevator);
 	}
 }
@@ -155,7 +155,7 @@ objectType room03_abTransition("go")
 			} else {
 				moveCharacter(ego, 1430, getObjectY(ego));
 			}
-			setSoundVolume('rooms/room05/muzyczka.wav', 50);
+			setSoundVolume('rooms/room05/muzyczka.ogg', 50);
 			gotoRoom03Part("b", 2049);
 			
 		}
@@ -166,7 +166,7 @@ objectType room03_abTransition("go")
 			} else {
 				moveCharacter(ego, 1310, getObjectY(ego));
 			}
-			setSoundVolume('rooms/room05/muzyczka.wav', 15);
+			setSoundVolume('rooms/room05/muzyczka.ogg', 15);
 			gotoRoom03Part("a", 683);
 		}
 	}

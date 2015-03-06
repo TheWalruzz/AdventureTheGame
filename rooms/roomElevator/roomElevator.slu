@@ -85,11 +85,11 @@ sub roomElevator()
 	turnCharacter (ego, NORTH);
 	
 	if (! DEBUG) {
-		playSound('rooms/roomElevator/elevator2.wav');
+		playSound('rooms/roomElevator/elevator2.ogg');
 		pause(200);
 		
-		playSound('rooms/roomElevator/ding.wav');
-		stopSound('rooms/roomElevator/elevator2.wav');
+		playSound('rooms/roomElevator/ding.ogg');
+		stopSound('rooms/roomElevator/elevator2.ogg');
 	}
 	
 	say(roomElevator_notification, text + location + ".");

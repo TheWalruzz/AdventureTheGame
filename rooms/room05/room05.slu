@@ -15,7 +15,12 @@ sub room05()
 	
 	setScale(290, 490);
 	
-	setSoundVolume('rooms/room05/muzyczka.wav', 255);
+	setSoundVolume('rooms/room05/muzyczka.ogg', 255);
+
+	if (muzyczkaPlays) {
+		setSoundVolume('music/11.ogg', 100);
+                setSoundVolume('music/5.ogg', 100);
+	}
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
@@ -135,7 +140,9 @@ objectType room05_radio("old radio")
 		if (afterPrison) {
 			turnCharacter(ego, EAST);
 			if (muzyczkaPlays == FALSE) {
-				loopSound('rooms/room05/muzyczka.wav', 1);
+				setSoundVolume('music/11.ogg', 100);
+                                setSoundVolume('music/5.ogg', 100);
+				loopSound('rooms/room05/muzyczka.ogg', 1);
 				if (muzyczkaPlayed == FALSE) {
 					pause(450);
 					say(ego, "Wow... catchy!");
@@ -143,7 +150,9 @@ objectType room05_radio("old radio")
 				}
 				muzyczkaPlays = TRUE;
 			} else {
-				stopSound('rooms/room05/muzyczka.wav');
+				stopSound('rooms/room05/muzyczka.ogg');
+				setSoundVolume('music/11.ogg', 255);
+                                setSoundVolume('music/5.ogg', 255);
 				muzyczkaPlays = FALSE;
 			}
 		} else {
@@ -204,7 +213,8 @@ objectType room05_exit("")
 	event onlyAction
 	{
 		straightFromBoss = TRUE;
-		
+		setSoundVolume('music/11.ogg', 255);
+                setSoundVolume('music/5.ogg', 255);
 		gotoRoom(room03);
 	}
 }

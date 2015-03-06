@@ -66,12 +66,12 @@ sub leftClick () {
 			# The object has more than one action, so let's bring up the coin
 
 			# Work out the top-left corner for the coin image...
-			var x = getMouseScreenX () - 50;
-			var y = getMouseScreenY () - 52;
+			var x = getMouseScreenX () - 63;
+			var y = getMouseScreenY () - 60;
 			if (x < 0) x = 0;
 			if (y < 0) y = 0;
-			if (x > 1366 - 102) x = 1366 - 102;
-			if (y > 768 - 94) y = 768 - 94;
+			if (x > 1366 - 126) x = 1366 - 126;
+			if (y > 768 - 120) y = 768 - 120;
 
 			# Remember which object we're going to manipulate
 			thisObject = overObject;
@@ -80,13 +80,13 @@ sub leftClick () {
 			freeze ();
 
 			# Draw our coin
-			mixOverlay ('iface/verbcoin.tga', x, y);
+			addOverlay ('iface/verbcoin.png', x, y);
 
 			# Add a screen region for each action... TODO new coords
-			addScreenRegion (lookAt,	x + 32,	y + 20,	x + 59,  y + 49, 0, 0, NORTH);
-			addScreenRegion (useInventory,	x + 74,	y,	x + 101, y + 24, 0, 0, NORTH);
-			addScreenRegion (cancel,	x + 17,	y + 54,	x + 75,  y + 77, 0, 0, NORTH);
-			addScreenRegion (interactWith,		x,	y + 1,	x + 23,  y + 21, 0, 0, NORTH);
+			addScreenRegion (lookAt,	x,	y + 40,	x + 50,  y + 80, 0, 0, NORTH);
+			addScreenRegion (useInventory,	x + 80,y + 40,	x + 126, y + 80, 0, 0, NORTH);
+			addScreenRegion (cancel,	x + 35,y + 80,x + 80,  y + 120, 0, 0, NORTH);
+			addScreenRegion (interactWith,	x + 35,y,	x + 80,  y + 40, 0, 0, NORTH);
 
 			# Pop!
 			playSound ('iface/pop.wav');
@@ -96,7 +96,7 @@ sub leftClick () {
 
 			# Same goes for the event handlers
 			onLeftMouse (pickVerb);
-			onFocusChange (handleFocus);
+			onFocusChange (handleFocusCoin);
 
 			# Call handleFocus once ourselves, with the mouse pointing at NULL (nothing)
 			handleFocus (NULL);
@@ -112,6 +112,13 @@ sub leftClick () {
 	}
 }
 
+sub handleFocusCoin(arg) {
+	if (arg) {
+		playSound ('iface/click.wav');
+	}
+	handleFocus(arg);
+}
+
 # This is the code for clicking the left mouse button when the verb coin's up
 sub pickVerb () {
 	var gotVerb = getOverObject ();
@@ -119,6 +126,7 @@ sub pickVerb () {
 	thisObject = NULL;
 	unfreeze ();
 	handleFocus (NULL);
+	playSound ('iface/click.wav');
 	if(gotVerb == cancel)
 	{
 		return;

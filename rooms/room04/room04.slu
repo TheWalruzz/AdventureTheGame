@@ -4,12 +4,28 @@ var afterPrison = FALSE;
 
 var straightFromPrison = FALSE;
 
+sub bossMusicDown() {
+        vol = 255;
+        loop {
+                setSoundVolume('music/3.ogg', vol);
+                vol=vol-5;
+                pause(1);
+                if (vol < 0) {
+                        stopSound('music/3.ogg');
+                        loopSound('music/5.ogg');
+                        return;
+                }
+        }
+}
+
 sub room04()
 {
 	setSceneDimensions(1366, 768);
 	addOverlay('rooms/room04/room04.png', 0, 0);
 	setFloor('rooms/room04/room04.flo');
 	
+	spawnSub(bossMusicDown);
+
 	setScale(400, 380);
 	
 	addCharacter(ego, 450, 670, makeEgoAnim());

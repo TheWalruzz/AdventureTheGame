@@ -10,6 +10,20 @@ var room02_newspaperRead = FALSE;
 var room02_ropeTaken = FALSE;
 var room02_lookedAtCable = FALSE;
 
+sub introMusicDown() {
+	vol = 255;
+        loop {
+                setSoundVolume('music/1.ogg', vol);
+                vol=vol-5;
+                pause(1);
+                if (vol < 0) {
+			stopSound('music/1.ogg');
+			loopSound('music/8.ogg');
+			return;
+		}
+        }
+}
+
 sub lineSub() {
 	setCharacterWalkSpeed(room02_line, 5);
 	
@@ -44,6 +58,8 @@ sub room02()
 	addOverlay('rooms/room02/room02.png', 0, 0);
 	setFloor('rooms/room02/room02.flo');
 	
+	loopSound('rooms/room02/belt.ogg');
+
 	setScale(450, 420);
 	
 	addCharacter(ego, -100, 720, makeEgoAnim());
@@ -185,6 +201,7 @@ objectType room02_elevatorDoor("elevator door")
 	event onlyAction
 	{
 		if(! room02_beforeAttack) {
+			stopSound('rooms/room02/belt.ogg');
 			gotoRoom(roomElevator);
 		}
 		else {
@@ -362,6 +379,7 @@ objectType room02_cable("cable")
 
 			narratorSay("Max goes under the table to connect the plug, when suddenly...");
 			fadeOut(); # temporary stuff
+			spawnSub(introMusicDown);
 			hideCharacter(inventoryIcon);
 			jumpCharacter(ego, 200, 600);
 			
@@ -596,6 +614,9 @@ objectType room02_newspaper("newspaper")
 	{
 		turnCharacter(ego, EAST);
 		say(ego, "It looks like a newspaper.");
+		if (! room02_beforeAttack) {
+			say(ego, "These intruders said something about their ad in newspaper. I better check it out!");
+		}
 	}
 	
 	event interactWith

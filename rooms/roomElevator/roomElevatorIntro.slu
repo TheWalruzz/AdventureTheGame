@@ -1,3 +1,24 @@
+var vol = 255;
+sub elevatorMusicDown() {
+	loop {
+		setSoundVolume('music/1.ogg', vol);
+		vol=vol-5;
+		pause(1);
+		if (vol < 50) return;
+	}
+}
+
+sub elevatorMusicUp() {
+	loop {
+		setSoundVolume('music/1.ogg', vol);
+		vol=vol+5;
+		pause(1);
+		if (vol >= 255) {
+			setSoundVolume('music/1.ogg', 255);
+			return;
+		}
+	}
+}
 
 sub roomElevatorIntro()
 {
@@ -18,11 +39,13 @@ sub roomElevatorIntro()
 	
 	pause(10);
 
-	playSound('rooms/roomElevator/elevator.wav');
+	playSound('rooms/roomElevator/elevator.ogg');
 	
 	pause(40);
 	
-	playSound('rooms/roomElevator/buzzbg.wav');
+	playSound('rooms/roomElevator/buzzbg.ogg');
+
+	spawnSub(elevatorMusicDown);
 	
 	
 	addCharacter(roomElevatorIntro_door, 0, 0, makeStaticCostume(
@@ -43,10 +66,12 @@ sub roomElevatorIntro()
 	removeCharacter(roomElevatorIntro_door);
 	
 	# play sound ding
-	playSound('rooms/roomElevator/ding.wav');
+	playSound('rooms/roomElevator/ding.ogg');
 
 	pause(40);
-		
+	
+	spawnSub(elevatorMusicUp);
+
 	say(ego, "Neat!");
 	
 	pause(10);
@@ -61,8 +86,8 @@ sub roomElevatorIntro()
 
 sub skipElevatorMovie() {
 	stopMovie();
-	stopSound('rooms/roomElevator/elevator.wav');
-	stopSound('rooms/roomElevator/buzzbg.wav');
+	stopSound('rooms/roomElevator/elevator.ogg');
+	stopSound('rooms/roomElevator/buzzbg.ogg');
 }
 objectType roomElevatorIntro_door("")
 {

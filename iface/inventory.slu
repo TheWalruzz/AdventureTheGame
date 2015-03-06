@@ -92,8 +92,9 @@ sub invClick () {
 
 		# By default, clicking an inventory object selects it...
 		# that's unless it's got an "inventoryClick" event
-		if (! callEvent (inventoryClick, o)) 
+		if (! callEvent (inventoryClick, o)) {
 			currentInvItem = o;
+		}
 
 		invGo ();
 	}

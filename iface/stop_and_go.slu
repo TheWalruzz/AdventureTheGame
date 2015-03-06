@@ -39,7 +39,12 @@ sub handleFocus (o) {
 	if (o && (o != ego || currentInvItem != NULL)) {
 		if (! callEvent (oneCursor, o)) setCursor (anim ('iface/mouse.duc', 2));
 	} else {
-		setCursor (anim ('iface/mouse.duc', 0));
+		if (! currentInvItem) {
+			setCursor (anim ('iface/mouse.duc', 0));
+		} else {
+			callEvent (getIcon, currentInvItem);
+                        setCursor(icon);
+		}
 	}
 	drawStatusLine (o);
 }
