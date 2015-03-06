@@ -1,7 +1,11 @@
 sub arrowEast () {
-	setCursor (anim ('iface/mouse.duc', 3));
+	setCursor (anim ('iface/mouse.duc', 0));
+}
+
+sub arrowWest () {
+	setCursor (anim ('iface/mouse.duc', 1));
 }
 
 sub arrowTarget () {
-	setCursor (anim ('iface/mouse.duc', 0));
+	setCursor (anim ('iface/mouse.duc', 6));
 }

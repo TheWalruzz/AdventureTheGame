@@ -46,7 +46,7 @@ objectType room07_elevator("elevator")
 
 objectType room07_secret("mysterious door")
 {
-	event oneCursor = arrowEast;
+	event oneCursor = arrowWest;
 	event onlyAction
 	{
 		gotoRoom(room06);

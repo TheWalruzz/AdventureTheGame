@@ -81,7 +81,7 @@ sub gotoRoom03Part(part, x)
 
 objectType room03_door("door")
 {
-	event oneCursor = arrowEast;
+	event oneCursor = arrowWest;
 	event onlyAction
 	{
 		if (afterPrison == TRUE && room03_doorOpened == FALSE) {
@@ -145,7 +145,14 @@ objectType room03_chuck("chuck the plant") {
 
 objectType room03_abTransition("go")
 {
-	event oneCursor = arrowEast;
+        event oneCursor 
+        {
+                if (room03_part == "a") { 
+                        arrowWest();
+                } else {
+                        arrowEast();
+                }
+        }
 	event onlyAction
 	{
 		if(room03_part == "a")

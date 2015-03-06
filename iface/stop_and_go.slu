@@ -21,7 +21,7 @@ sub stop () {
 	statusText ("");
 	onLeftMouse ();
 	onRightMouse (skipper);
-	setCursor (anim ('iface/mouse.duc', 1));
+	setCursor (anim ('iface/mouse.duc', wait(4, 10), wait(3, 10), wait(2, 10)));
 	busy = TRUE;
 }
 
@@ -37,10 +37,14 @@ sub unfreezer(key) {
 
 sub handleFocus (o) {
 	if (o && (o != ego || currentInvItem != NULL)) {
-		if (! callEvent (oneCursor, o)) setCursor (anim ('iface/mouse.duc', 2));
+		if (! currentInvItem) {
+			if (! callEvent (oneCursor, o)) setCursor (anim ('iface/mouse.duc', 6));
+		} else {
+			setCursor (anim ('iface/mouse.duc', wait(6, 5), wait(5, 5)));
+		}
 	} else {
 		if (! currentInvItem) {
-			setCursor (anim ('iface/mouse.duc', 0));
+			setCursor (anim ('iface/mouse.duc', 7));
 		} else {
 			callEvent (getIcon, currentInvItem);
                         setCursor(icon);
@@ -146,7 +150,7 @@ sub gotoRoom (r) {
 	#lastRoom = currentRoom;
 	#currentRoom = r;
 
-	addCharacter (inventoryIcon, 20, 755, anim ('iface/mouse.duc', 5));
+	addCharacter (inventoryIcon, -20, -755, anim ('iface/mouse.duc', 5)); # lazy way to hide it
 	setCharacterExtra (inventoryIcon, ICON);
 	
 	if(hideInventory)

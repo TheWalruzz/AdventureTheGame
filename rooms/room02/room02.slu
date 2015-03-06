@@ -212,7 +212,15 @@ objectType room02_elevatorDoor("elevator door")
 
 objectType room02_abTransition("go")
 {
-	event oneCursor = arrowEast;
+	event oneCursor
+	{
+		if (room02_part == "a") {
+			arrowWest();
+		} else {
+			arrowEast();
+		}
+	}
+
 	event onlyAction
 	{
 		if(room02_part == "a")
@@ -239,7 +247,14 @@ objectType room02_abTransition("go")
 
 objectType room02_bcTransition("go")
 {
-	event oneCursor = arrowEast;
+        event oneCursor 
+        {
+                if (room02_part == "b") { 
+                        arrowWest();
+                } else {
+                        arrowEast();
+                }
+        }
 	event onlyAction
 	{
 		if(room02_part == "b")
@@ -473,7 +488,7 @@ objectType room02_cable("cable")
 			
 			pause(320);
 			
-			addScreenRegion(room02_talkBox, 3277, 119, 3408, 156, 0, 0, 0);
+			addScreenRegion(room02_talkBox, 3342, 137, 3342, 137, 0, 0, 0);
 			
 			say(room02_talkBox, "What do you mean by 'I don't know where the Secret is'?!");
 			say(room02_talkBox, "Tell us now! Rebellion is the only chance to get good games back!");
