@@ -487,14 +487,14 @@ objectType room06_secCode("first panel")
 			setPasteColor(255,255,255);
 			pasteString(20,40, "ENTER FIRST CHARACTER OF THE ACCESS CODE");
 			
+			addSpeechValueChoice("Y");
+			addSpeechValueChoice("L");
+			addSpeechValueChoice("Q");
 			addSpeechValueChoice("A");
 			addSpeechValueChoice("B");
-			addSpeechValueChoice("H");
-			addSpeechValueChoice("O");
-			addSpeechValueChoice("L");
 			addSpeechValueChoice("M");
-			addSpeechValueChoice("Y");
-			addSpeechValueChoice("Q");
+			addSpeechValueChoice("O");
+			addSpeechValueChoice("H");
 			
 			var choice = getSpeechChoice(NULL);
 			
@@ -506,14 +506,14 @@ objectType room06_secCode("first panel")
 			pasteString(20,40, "ENTER SECOND CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 
-			addSpeechValueChoice("Z");
+			addSpeechValueChoice("R");
 			addSpeechValueChoice("B");
+			addSpeechValueChoice("Y");
+			addSpeechValueChoice("A");
+			addSpeechValueChoice("G");
 			addSpeechValueChoice("X");
 			addSpeechValueChoice("P");
-			addSpeechValueChoice("G");
-			addSpeechValueChoice("A");
-			addSpeechValueChoice("Y");
-			addSpeechValueChoice("R");
+			addSpeechValueChoice("Z");
 			
 			choice = getSpeechChoice(NULL);
 			
@@ -525,14 +525,14 @@ objectType room06_secCode("first panel")
 			pasteString(20,40, "ENTER THIRD CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 			
-			addSpeechValueChoice("S");
 			addSpeechValueChoice("G");
+			addSpeechValueChoice("E");
 			addSpeechValueChoice("N");
 			addSpeechValueChoice("Z");
-			addSpeechValueChoice("A");
-			addSpeechValueChoice("R");
 			addSpeechValueChoice("W");
-			addSpeechValueChoice("E");
+			addSpeechValueChoice("R");
+			addSpeechValueChoice("S");
+			addSpeechValueChoice("A");
 			
 			choice = getSpeechChoice(NULL);
 			
@@ -544,14 +544,14 @@ objectType room06_secCode("first panel")
 			pasteString(20,40, "ENTER FOURTH CHARACTER OF THE ACCESS CODE");
 			pasteString(100, 100, enteredCode);
 			
-			addSpeechValueChoice("2");
-			addSpeechValueChoice("5");
-			addSpeechValueChoice("3");
-			addSpeechValueChoice("6");
-			addSpeechValueChoice("1");
-			addSpeechValueChoice("0");
 			addSpeechValueChoice("7");
 			addSpeechValueChoice("4");
+			addSpeechValueChoice("0");
+			addSpeechValueChoice("6");
+			addSpeechValueChoice("1");
+			addSpeechValueChoice("3");
+			addSpeechValueChoice("2");
+			addSpeechValueChoice("5");
 			
 			choice = getSpeechChoice(NULL);
 			
