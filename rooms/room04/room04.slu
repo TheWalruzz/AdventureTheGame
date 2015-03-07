@@ -77,6 +77,7 @@ objectType room04_door("prison door")
 	event item_picklock {
 		deleteFromStack(inventory, item_picklock);
 		afterPrison = TRUE;
+		playSound('door.ogg');
 		gotoRoom(room07);
 	}
 	
@@ -119,7 +120,7 @@ objectType room04_scratches("scratches")
 	event interactWith
 	{
 		if (! room04_scratched) {
-			# TODO: sound
+			playSound('rooms/room04/scratch.ogg');
 			addOverlay('rooms/room04/scratch.png', 0, 0);
 			room04_scratched = TRUE;
 		} else {

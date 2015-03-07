@@ -195,7 +195,11 @@ objectType room01_secretary("receptionist")
 				}
 			}
 			
-			pause(30);
+			pause(10);
+
+			playSound('rooms/room01/phone.ogg');
+
+			pause(90);
 			
 			addScreenRegion(room01_phonecall, 500, 400, 550, 450, 650, 600, -1);
 
@@ -245,8 +249,12 @@ objectType room01_secretary("receptionist")
 		else if (room01_talkedToRebels && (afterPrison == FALSE)) {
 			say(ego, "Could I use the phone again?");
 			say(room01_secretary, "Dammit, fine, but keep it short!");
-			pause(30);
+			pause(10);
+
+			playSound('rooms/room01/phone.ogg');
 			
+			pause(90);
+
 			addScreenRegion(room01_phonecall, 500, 400, 550, 450, 650, 600, -1);
 			say(ego, "Hello? Rebellion?");
 			say(room01_phonecall, "Oh, it's you again?");

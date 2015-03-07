@@ -64,6 +64,7 @@ sub room06()
 	addOverlay('rooms/room06/room06.png', 0, 0);
 	setFloor('rooms/room06/room06.flo');
 	
+	loopSound('rooms/room06/fan.ogg');
 
 	setScale(400, 300);
 		
@@ -228,14 +229,23 @@ objectType room06_powerButton("power button")
 	
 	event interactWith
 	{		
+		playSound('rooms/room06/button.ogg');
 		if (room06_buttonActive == TRUE) {
+
+
+			stopSound('rooms/room06/fan.ogg');
+			playSound('rooms/room06/shutdown.ogg');
+
 			room06_buttonActive = FALSE;
 			spawnSub(secretMusicDown);
+
+                        skipSpeech();
+			pause(120);
 
 			narratorSay("Congratulations! You won!");
 			darkBackground();
 			
-			skipSpeech();
+			#skipSpeech();
 			#fadeOut();
 			var maxx = getObjectX(ego);
 			var maxy = getObjectY(ego);
@@ -292,7 +302,8 @@ objectType room06_powerButton("power button")
 			quitGame();
 			return;
 		} else {
-			narratorSay("Max pushes the button.");
+			#narratorSay("Max pushes the button.");
+			pause(50);
 			
 			say(ego, "Nothing happened...");
 			say(room06_secret, "Hahaha! You thought turning me off will be that easy?");
@@ -331,6 +342,7 @@ objectType room06_lid("lid")
 	event interactWith {
 		if (room06_trayLocked == TRUE) {
 			if (room06_lidOpen == TRUE) {
+				playSound('rooms/room06/lidclose.ogg');
 				addOverlay('rooms/room06/room06.png', 0, 0);
 				
 				
@@ -345,6 +357,7 @@ objectType room06_lid("lid")
 				
 				room06_lidOpen = FALSE;
 			} else {
+				playSound('rooms/room06/lidopen.ogg');
 				addOverlay('rooms/room06/room06.png', 0, 0);
 				addOverlay('rooms/room06/room06open.png', 0, 0);
 				
@@ -381,7 +394,8 @@ objectType room06_tray("tray")
 	event item_broom {
 		say(ego, "Hey, SECRET!");
 		say(room06_secret, "Yes, naive human?");
-		narratorSay("Max throws a broom at the lid.");
+		narratorSay("Max throws the broom at the lid.");
+		playSound('rooms/room06/broom.ogg');
 		deleteFromStack(inventory, item_broom);
 		addOverlay('rooms/room06/room06blocked.png', 0, 0);
 		
@@ -560,6 +574,7 @@ objectType room06_secCode("first panel")
 			
 			if(enteredCode == secretCode) {
 				unfreeze();
+				playSound('rooms/room06/granted.ogg');
 				say(room06_secCode, "ACCESS GRANTED");
 			
 				inNeedOfSecretCode = FALSE;
@@ -569,6 +584,7 @@ objectType room06_secCode("first panel")
 			
 			} else {
 				unfreeze();
+				playSound('rooms/room06/denied.ogg');
 				say(room06_secCode, "ACCESS DENIED");
 			}
 	}
@@ -645,11 +661,13 @@ objectType room06_secPuzzle("second panel")
 			
 			if (choice == answer) {
 				wins = wins + 1;
+				playSound('rooms/room06/granted.ogg');
 				say(room06_secPuzzle, "Correct!");
 				if (wins < 3) {
 					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + " time" + ((wins < 2) ? "s" : "") + " more.");
 				} else {
 					unfreeze();
+					playSound('rooms/room06/granted.ogg');
 					say(room06_secPuzzle, "ACCESS GRANTED");
 					room06_accessPuzzle = TRUE;
 					removeScreenRegion(room06_secPuzzle);
@@ -660,11 +678,13 @@ objectType room06_secPuzzle("second panel")
 				}
 			} else {
 				wins = 0;
+				playSound('rooms/room06/denied.ogg');
 				say(room06_secPuzzle, "Wrong! It should have been " + answer);
 			}
 			
 			if (stackSize(sums) >= 8) {
 				unfreeze();
+				playSound('rooms/room06/denied.ogg');
 				say(room06_secPuzzle, "Too many attempts in one session!");
 				clearChoices();
 				return;
@@ -687,9 +707,11 @@ objectType room06_secReader("third panel")
 		say(ego, "It's meant to be used with an ID card.");
 	}
 	event item_internIDcard {
+		playSound('rooms/room06/denied.ogg');
 		say(room06_secReader, "ACCESS DENIED");
 	}
 	event item_bossIDcard {
+		playSound('rooms/room06/granted.ogg');
 		say(room06_secReader, "ACCESS GRANTED");
 		room06_accessReader = TRUE;
 		removeScreenRegion(room06_secReader);
@@ -704,6 +726,7 @@ objectType room06_exit("")
 	event oneCursor = arrowEast;
 	event onlyAction
 	{
+		stopSound('rooms/room06/fan.ogg');
 		gotoRoom(room07);
 	}
 }

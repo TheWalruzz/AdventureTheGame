@@ -545,6 +545,7 @@ objectType room02_cable("cable")
 			removeCharacter(room02_tempRope3);
 			pause(25);
 			removeCharacter(room02_tempRope2);
+			playSound('rooms/room02/rope.ogg');
 			pause(20);
 			removeCharacter(room02_tempRope1);
 			addCharacter(room02_rope, 3533, 652, anim('rooms/room02/rope2.duc', 0));
@@ -724,7 +725,10 @@ objectType room02_newspaper("newspaper")
 
 sub readNewspaper() {
 	if (room02_newspaperRead == FALSE) {
+		playSound('rooms/room02/newspaper1.ogg');
+		pause(20);
 		say(ego, "Hmm... 'Scientist questioned for involvement in the Tentacle Incident'");
+		playSound('rooms/room02/newspaper2.ogg');
 		pause(15);
 		say(ego, "Oh! What an interesting ad!");
 		say(ego, "\"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-314-159-26!\"");

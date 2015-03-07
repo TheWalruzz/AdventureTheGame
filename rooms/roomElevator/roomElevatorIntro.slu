@@ -23,6 +23,7 @@ sub elevatorMusicUp() {
 sub roomElevatorIntro()
 {
 	# first things first
+	spawnSub(elevatorMusicDown);
 	setSceneDimensions(1366, 768);
 	addOverlay('rooms/roomElevator/roomElevator.png', 0, 0);
 	setFloor('rooms/roomElevator/roomElevator.flo');
@@ -45,8 +46,6 @@ sub roomElevatorIntro()
 	
 	playSound('rooms/roomElevator/buzzbg.ogg');
 
-	spawnSub(elevatorMusicDown);
-	
 	
 	addCharacter(roomElevatorIntro_door, 0, 0, makeStaticCostume(
 		anim('rooms/roomElevator/door.duc', wait(0, 16), wait(1, 4), wait(2,8), wait(1, 12), wait(1, 4), wait(2,8), wait(1, 12), wait(0, 20))

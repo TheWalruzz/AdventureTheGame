@@ -21,7 +21,7 @@ sub room05()
 		setSoundVolume('music/11.ogg', 50);
                 setSoundVolume('music/5.ogg', 50);
 	}
-	
+
 	addCharacter(ego, 91, 660, makeEgoAnim());
 	
 	lookedAtCard = FALSE;
@@ -34,7 +34,7 @@ sub room05()
 		}
 	        addScreenRegion(room05_computer, 965, 395, 1035, 500, 800, 666, EAST);
 	} else {
-	
+		loopSound('rooms/room05/keyboard.ogg');	
 		addCharacter(room05_director, 774, 625, costume(
 				anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
 				anim('rooms/room05/director.duc', wait(0, 4), wait(1, 4)),
@@ -101,6 +101,7 @@ objectType room05_drawer1("upper drawer")
 			} else {
 				say(ego, "Let's see...");
 				turnCharacter(ego, NORTH);
+				playSound('rooms/room05/drawer-open.ogg');
 				pause(60);
 				say(ego, "Well, he sure does have some dirty secrets... But I doubt these are the ones I'm interested in.");
 				pause(30);
@@ -110,6 +111,7 @@ objectType room05_drawer1("upper drawer")
 				say(ego, "Oh! Some secret blueprints... For a coffee machine?");
 				pause(40);
 				say(ego, "Ouch... I think something bit me.");
+				playSound('rooms/room05/drawer-close.ogg');
 				room05_drawerLooked = TRUE;
 			}
 		}
@@ -185,7 +187,7 @@ objectType room05_safe("safe")
 		if (afterPrison == TRUE) {
 			say(ego, "This is not the secret I'm looking for.");
 		} else {
-			
+		playSound('rooms/room05/safe.ogg');
 		pause(30);
 		say(room05_director, "What are you doing?");
 		turnCharacter(ego, EAST);
@@ -209,6 +211,7 @@ objectType room05_safe("safe")
 		
 		fadeOut();
 		pause(25);
+		stopSound('rooms/room05/keyboard.ogg');
 		gotoRoom(room04);
 		}
 	}
@@ -231,6 +234,7 @@ objectType room05_exit("")
 		straightFromBoss = TRUE;
 		setSoundVolume('music/11.ogg', 255);
                 setSoundVolume('music/5.ogg', 255);
+		stopSound('rooms/room05/keyboard.ogg');
 		gotoRoom(room03);
 	}
 }

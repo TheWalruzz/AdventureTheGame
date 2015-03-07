@@ -89,6 +89,7 @@ objectType room03_door("door")
 
 objectType room03_closedDoor("door") {
 	event item_bossKey {
+		playSound('door.ogg');
 		say(ego, "It maches!");
 		room03_doorOpened = TRUE;
 		gotoRoom(room05);
