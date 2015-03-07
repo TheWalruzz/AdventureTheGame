@@ -246,7 +246,7 @@ objectType item_ropeWithBook("rope with a book")
 	}
 
 	event room01_secretary {
-		say(room01_secretary, "Is this some kind of modern art?");
+		say(room01_secretary, "What is it? Some kind of modern art?");
 	}
 	
 	event default
@@ -263,15 +263,15 @@ objectType item_ropeFullyCombined("rope with a book and a gum")
 	}
 
 	event room01_secretary {
-		say(room01_secretary, "Is this some kind of modern art?");
+		say(room01_secretary, "What is it? Some kind of modern art?");
 	}
 
 	event room05_director {
-		say(room05_director, "Is this some kind of modern art?");
+		say(room05_director, "What is it? Some kind of modern art?");
 	}
 
 	event room06_tray {
-		say(room06_secret, "Is this some kind of modern art?");
+		say(room06_secret, "What is it? Some kind of modern art?");
 	}
 	
 	event default
