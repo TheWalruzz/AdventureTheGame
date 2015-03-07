@@ -10,7 +10,7 @@ sub init ()
 		}
 	}
 	
-	setFont('demofont.duc', "ÉABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789\"'/?!.,;:()*%& -~`@+=", 32);
+	setFont('coolstoryfont.duc', " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWX`YZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~", 30);
 
 	setDefaultMusicVolume(150);
 	onKeyboard(keys);

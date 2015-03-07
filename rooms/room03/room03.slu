@@ -21,10 +21,11 @@ sub room03()
 
 	if (afterPrison == FALSE || room03_doorOpened == TRUE) {
 		addOverlay('rooms/room03/room03open.png', 0, 0);
+		addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
 	} else {
+		addScreenRegion(room03_closedDoor, 2627, 419, 2698, 703, 2608, 697, EAST);
 		addCharacter(room03_chuck, 2500, 589, anim('rooms/room03/plant.duc', 0));
-		setCharacterExtra(room03_chuck, FIXEDSIZE + RECTANGULAR);
-		
+		setCharacterExtra(room03_chuck, FIXEDSIZE + RECTANGULAR);		
 	}
 	
 	setFloor('rooms/room03/room03.flo');
@@ -36,8 +37,6 @@ sub room03()
 		setCharacterExtra(room03_broom, FIXEDSIZE);
 	}
 	
-	
-	addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
 	addScreenRegion(room03_exit, 0, 0, 200, 768, 0, 768, WEST);
 	addScreenRegion(room03_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 	addScreenRegion(room03_posterVikings, 200, 90, 485, 445, 340, 616, NORTH);
@@ -84,19 +83,21 @@ objectType room03_door("door")
 	event oneCursor = arrowWest;
 	event onlyAction
 	{
-		if (afterPrison == TRUE && room03_doorOpened == FALSE) {
-			say(ego, "It's locked.");
-		} else {
-			gotoRoom(room05);
-		}
-	}
-	
+		gotoRoom(room05);
+	}	
+}
+
+objectType room03_closedDoor("door") {
 	event item_bossKey {
-		if (! room03_doorOpened) {
-			say(ego, "It matches!");
-		}
+		say(ego, "It maches!");
 		room03_doorOpened = TRUE;
 		gotoRoom(room05);
+	}
+	event lookAt {
+		say(ego, "It's locked.");
+	}
+	event interactWith {
+		say(ego, "It's locked.");
 	}
 }
 

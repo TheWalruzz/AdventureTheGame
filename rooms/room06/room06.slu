@@ -32,7 +32,7 @@ sub prisonMusicDown() {
 
 sub secretMusicDown() {
         vol = 255;
-        loopSound('music/6.ogg');
+        playSound('music/6.ogg');
         loop {
                 setSoundVolume('music/11.ogg', vol);
                 vol=vol-5;

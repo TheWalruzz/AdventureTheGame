@@ -62,6 +62,7 @@ sub roomElevatorIntro()
 	onKeyboard();
 	playMovie('rooms/roomElevator/elevator.webm');
 	onKeyboard(keys);
+	onRightMouse (skipper);
 	
 	removeCharacter(roomElevatorIntro_door);
 	

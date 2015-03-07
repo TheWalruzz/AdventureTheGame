@@ -18,8 +18,8 @@ sub room05()
 	setSoundVolume('rooms/room05/muzyczka.ogg', 255);
 
 	if (muzyczkaPlays) {
-		setSoundVolume('music/11.ogg', 100);
-                setSoundVolume('music/5.ogg', 100);
+		setSoundVolume('music/11.ogg', 50);
+                setSoundVolume('music/5.ogg', 50);
 	}
 	
 	addCharacter(ego, 91, 660, makeEgoAnim());
@@ -144,8 +144,8 @@ objectType room05_radio("old radio")
 		if (afterPrison) {
 			turnCharacter(ego, EAST);
 			if (muzyczkaPlays == FALSE) {
-				setSoundVolume('music/11.ogg', 100);
-                                setSoundVolume('music/5.ogg', 100);
+				setSoundVolume('music/11.ogg', 50);
+                                setSoundVolume('music/5.ogg', 50);
 				loopSound('rooms/room05/muzyczka.ogg', 1);
 				if (muzyczkaPlayed == FALSE) {
 					pause(450);

@@ -416,7 +416,9 @@ objectType room02_cable("cable")
 				say(ego, "It's not connected!");
 			}
 
-			narratorSay("Max goes under the table to connect the plug, when suddenly...");
+			say(ego, "Let me connect the plug...");
+
+			#narratorSay("Max goes under the table to connect the plug, when suddenly...");
 			#fadeOut(); # temporary stuff
 			spawnSub(introMusicDown);
 			hideCharacter(inventoryIcon);
@@ -424,7 +426,7 @@ objectType room02_cable("cable")
 
 			addOverlay('rooms/room02/undertable.png', 3787, 653);
 			
-			pause(20);
+			pause(100);
 
 			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope3, FIXEDSIZE + FRONT);
@@ -811,6 +813,11 @@ objectType room02_noSmokingSign("no smoking sign")
 			comicSans = 1;
 		}
 	}
+        event walkToPerson
+        {
+                moveCharacter (ego, 2500, 700);
+                turnCharacter (ego, NORTH);
+        }
 }
 
 objectType room02_superderpy("a lost badge")
