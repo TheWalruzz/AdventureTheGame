@@ -1,5 +1,7 @@
 var room04_lookedAtDoor = FALSE;
 
+var room04_scratched = FALSE;
+
 var afterPrison = FALSE;
 
 var straightFromPrison = FALSE;
@@ -34,6 +36,8 @@ sub room04()
 
 	addScreenRegion(room04_window, 530, 225, 740, 360, 630, 630, NORTH);
 	
+	addScreenRegion(room04_scratches, 690, 370, 775, 430, 705, 630, NORTH);
+
 	addCharacter(room04_potato, 230, 730, makeStaticCostume(anim ('rooms/room04/potato.duc', 0)));
 	setCharacterExtra(room04_potato, FIXEDSIZE);
 	
@@ -102,6 +106,24 @@ objectType room04_window("window bars")
 		} else {
 			say(ego, "I could scrape something out of the potato with these bars.");
 			say(ego, "But what?");
+		}
+	}
+}
+
+objectType room04_scratches("scratches")
+{
+	event lookAt
+	{
+		say(ego, "Someone must have been a very precious resource to the company.");
+	}
+	event interactWith
+	{
+		if (! room04_scratched) {
+			# TODO: sound
+			addOverlay('rooms/room04/scratch.png', 0, 0);
+			room04_scratched = TRUE;
+		} else {
+			say(ego, "Enough of scratching walls, let's get out of here.");
 		}
 	}
 }
