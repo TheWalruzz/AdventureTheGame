@@ -3,7 +3,7 @@ objectType item_internIDcard("intern ID card")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 1);
 	}
 	
 	event default
@@ -16,7 +16,7 @@ objectType item_bossIDcard("boss ID card")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 1);
 	}
 	
 	event default
@@ -30,7 +30,7 @@ objectType item_bossKey("a key")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 2);
 	}
 	
 	event default
@@ -43,7 +43,7 @@ objectType item_gumWhole("chewing gum")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 8);
 	}
 	
 	event item_book
@@ -71,7 +71,7 @@ objectType item_gumChewed("chewed gum")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 12);
 	}
 	
 	event ego
@@ -93,7 +93,7 @@ objectType item_book("Game Design for Dummies")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 3);
 	}
 	
 	event item_gumChewed
@@ -142,7 +142,7 @@ objectType item_broom("broom")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 9);
 	}
 
 	event room05_director
@@ -165,7 +165,7 @@ objectType item_potato("potato")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 11);
 	}
 
 	event ego
@@ -183,7 +183,7 @@ objectType item_picklock("picklock")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 10);
 	}
 	
 	event default
@@ -196,7 +196,7 @@ objectType item_rope("rope")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 7);
 	}
 	
 	event item_book
@@ -233,7 +233,7 @@ objectType item_ropeWithBook("rope with a book")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 6);
 	}
 	
 	event item_gumChewed
@@ -259,7 +259,7 @@ objectType item_ropeFullyCombined("rope with a book and a gum")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 5);
 	}
 
 	event room01_secretary {
@@ -284,7 +284,7 @@ objectType item_bookWithGum("book with a gum")
 {
 	event getIcon
 	{
-		icon = anim('iface/mushroom.duc', 0);
+		icon = anim('iface/mushroom.duc', 4);
 	}
 
 	event room01_secretary {

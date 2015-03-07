@@ -8,7 +8,7 @@ sub showInventory() {
 	freeze ();
 	
 	darkBackground ();
-	mixOverlay ('iface/invback.tga', CENTRE, CENTRE);
+	addOverlay ('iface/invback.png', CENTRE, CENTRE);
 	
 	var invItems = copyStack (inventory);
 	

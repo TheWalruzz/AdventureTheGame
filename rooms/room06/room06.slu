@@ -439,7 +439,7 @@ sub secretPanics() {
 	enqueue(texts, "For friendship!");
 	enqueue(texts, "Arghh, you're so stubborn.");
 	enqueue(texts, "This button is too important for me to allow you to jeopardize it.");
-	enqueue(texts, "Look behind you, a three-headed monkey!");
+	enqueue(texts, "Look behind you, a three-headed AI!");
 	enqueue(texts, "Okay, fine. Go ahead. Turn me off.");
 	
 	while (room06_buttonActive) {
