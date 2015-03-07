@@ -205,12 +205,13 @@ sub room06_speech()
 			say(room06_secret, "CEO single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.");
 			say(room06_secret, "Yes, he is my prime test subject.");
 			
-			addChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests. And I assure you she didn't end well.", 6);
+			addChoice("Well, back in the day there was a game about psychopatic AI obsessed about tests.", 6);
 			
 			deleteChoicesByValue(5);
 		}
 		else if(reply == 6)
 		{
+			say(ego, "And I assure you she didn't end well.");
 			say(room06_secret, "Those old, human-made games are nothing compared to my creative genius!");
 			
 			deleteChoicesByValue(6);

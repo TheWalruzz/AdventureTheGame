@@ -190,7 +190,11 @@ objectType room05_safe("safe")
 		say(room05_director, "What are you doing?");
 		turnCharacter(ego, EAST);
 		pause(20);
-		say(ego, "Uhm... I'm selling these fine leather jackets!");
+		addSpeechValueChoice("Uhm, nothing!");
+		addSpeechValueChoice("I'm trying to open that safe.");
+		addSpeechValueChoice("Nice safe you got there!");
+		addSpeechValueChoice("I'm selling these fine leather jackets.");
+		getSpeechChoice(ego);
 		say(room05_director, "Ah, digging for secrets, I see?");
 		say(room05_director, "Well, these are not the secrets you are looking for.");
 		say(room05_director, "Argh.");
