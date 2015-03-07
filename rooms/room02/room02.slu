@@ -68,12 +68,15 @@ sub room02()
 	addScreenRegion(room02_abTransition, 1320, 0, 1420, 768, 0, 0, 0);
 	addScreenRegion(room02_bcTransition, 2660, 0, 2790, 768, 0, 0, 0);
 	
-	addOverlay('rooms/room02/express.png', 0, 0);
-	addScreenRegion(room02_coffeeMachine, 3826, 558, 3976, 708, 3571, 710, EAST);
+	#addOverlay('rooms/room02/express.png', 0, 0);
+	addScreenRegion(room02_coffeeMachine, 3826, 558, 3976, 708, 4000-68, 730, SOUTH);
+
+	addCharacter(room02_table, 4098, 768, anim('rooms/room02/table.duc', 0));
+	setCharacterExtra(room02_table, FIXEDSIZE);
 	
 	#addOverlay('rooms/room02/cable.png', 3776, 658);
 	
-	addOverlay('rooms/room02/gum.png', 3720, 630);
+	#addOverlay('rooms/room02/gum.png', 3720, 630);
 	addScreenRegion(room02_gum, 3720, 630, 3720+68, 645+49, 3600, 768, EAST);
 	
 	if (room02_bookTaken == FALSE) {
@@ -193,6 +196,9 @@ objectType room02_line3("") {
 objectType room02_lineobst("") {
 }
 objectType room02_lineobst2("") {
+}
+
+objectType room02_table("") {
 }
 
 objectType room02_elevatorDoor("elevator door")
@@ -393,19 +399,29 @@ objectType room02_cable("cable")
 			}
 
 			narratorSay("Max goes under the table to connect the plug, when suddenly...");
-			fadeOut(); # temporary stuff
+			#fadeOut(); # temporary stuff
 			spawnSub(introMusicDown);
 			hideCharacter(inventoryIcon);
 			jumpCharacter(ego, 200, 600);
+
+			addOverlay('rooms/room02/undertable.png', 3787, 653);
 			
+			pause(20);
+
 			addCharacter(room02_tempRope3, 3000, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope3, FIXEDSIZE + FRONT);
 			
+			pause(10);
+
 			addCharacter(room02_tempRope2, 3302, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope2, FIXEDSIZE + FRONT);
+
+			pause(15);
 			
 			addCharacter(room02_tempRope1, 3500, 520, anim('rooms/room02/rope.duc', 0));
 			setCharacterExtra(room02_tempRope1, FIXEDSIZE + FRONT);
+
+			pause(10);
 			
 			addCharacter(room02_rebel1, 3000, 0, costume(
 					anim('rooms/room02/rebel.duc', 0),
@@ -448,16 +464,18 @@ objectType room02_cable("cable")
 				));
 			setCharacterExtra(room02_rebel3, FIXEDSIZE + FRONT);
 			
-			pause(25);
 			
-			fadeIn(); # temporary stuff
+			#fadeIn(); # temporary stuff
 			
 			
 			spawnSub(aaa);
+			pause(5);
+
 			spawnSub(bbb);
+			pause(10);
 			spawnSub(ccc);
 			
-			pause(225);
+			pause(185);
 			
 			removeCharacter(room02_employee1);
 			removeCharacter(room02_employee2);
@@ -482,9 +500,12 @@ objectType room02_cable("cable")
 			addCharacter(room02_chair7, 2406, 613, makeStaticCostume(anim('rooms/room02/chair.duc', 0)));
 			setCharacterExtra(room02_chair7, FIXEDSIZE);
 	
-			spawnSub(aa);
+			pause(5);
 			spawnSub(bb);
+			pause(20);
 			spawnSub(cc);
+			pause(15);
+			spawnSub(aa);
 			
 			pause(320);
 			
@@ -498,24 +519,35 @@ objectType room02_cable("cable")
 			say(room02_talkBox, "Maybe the ad in newspaper will help us...");
 			say(room02_talkBox, "Guys, let's roll.");
 			
-			fadeOut();
+			#fadeOut();
 			
-			removeCharacter(room02_tempRope1);
-			removeCharacter(room02_tempRope2);
+			pause(10);
 			removeCharacter(room02_tempRope3);
-			
-			jumpCharacter(ego, 3500, 652);
+			pause(25);
+			removeCharacter(room02_tempRope2);
+			pause(20);
+			removeCharacter(room02_tempRope1);
 			addCharacter(room02_rope, 3533, 652, anim('rooms/room02/rope2.duc', 0));
 			setCharacterExtra(room02_rope, FIXEDSIZE);
+			pause(10);
+			say(room02_talkBox, "Oops!");
+
+			pause(120);
+
+			addOverlay('rooms/room02/room02.png', 0, 0);
+
+			jumpCharacter(ego, 3800, 730);
 			
 			pause(35);
 			showCharacter(inventoryIcon);
 			
-			fadeIn();
+			#fadeIn();
 			
+			say(ego, "What the heck was that?");
 			say(ego, "Secret? What are they talking about?");
 			say(ego, "Gaming's former glory? Rebellion?");
 			say(ego, "I'm confused. Maybe there's something in the papers?");
+			say(ego, "I must check it out!");
 			
 			removeCharacter(room02_rebel3);
 			removeCharacter(room02_rebel2);
@@ -720,7 +752,7 @@ objectType room02_rope("rope")
 	event walkToPerson
 	{
 		moveCharacter (ego, 3470, 650);
-		turnCharacter (ego, EAST);
+		turnCharacter (ego, SOUTH);
 	}
 }
 
