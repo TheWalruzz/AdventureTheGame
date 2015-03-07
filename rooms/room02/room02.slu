@@ -187,11 +187,29 @@ sub gotoRoom02Part(part, x)
 	#arrowTarget();
 }
 
-objectType room02_line("") {
+objectType room02_line("production line") {
+	event lookAt {
+		say(ego, "This is where games are being assembled.");
+	}
+	event interactWith {
+		say(ego, "I'd rather stay away from that for now. I haven't got my health and safety training yet.");
+	}
 }
-objectType room02_line2("") {
+objectType room02_line2("production line") {
+        event lookAt {
+                say(ego, "This is where games are being assembled.");
+        }
+        event interactWith {
+                say(ego, "I'd rather stay away from that for now. I haven't got my health and safety training yet.");
+        }
 }
-objectType room02_line3("") {
+objectType room02_line3("production line") {
+        event lookAt {
+                say(ego, "This is where games are being assembled.");
+        }
+        event interactWith {
+                say(ego, "I'd rather stay away from that for now. I haven't got my health and safety training yet.");
+        }
 }
 objectType room02_lineobst("") {
 }
