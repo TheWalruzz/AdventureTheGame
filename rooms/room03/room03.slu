@@ -22,13 +22,13 @@ sub room03()
 	if (afterPrison == FALSE || room03_doorOpened == TRUE) {
 		addOverlay('rooms/room03/room03open.png', 0, 0);
 		addScreenRegion(room03_door, 2627, 419, 2698, 703, 2608, 697, EAST);
+	        setFloor('rooms/room03/room03open.flo');
 	} else {
 		addScreenRegion(room03_closedDoor, 2627, 419, 2698, 703, 2608, 697, EAST);
 		addCharacter(room03_chuck, 2500, 589, anim('rooms/room03/plant.duc', 0));
 		setCharacterExtra(room03_chuck, FIXEDSIZE + RECTANGULAR);		
+	        setFloor('rooms/room03/room03.flo');
 	}
-	
-	setFloor('rooms/room03/room03.flo');
 	
 	setScale(200, 800);
 		
@@ -90,7 +90,7 @@ objectType room03_door("door")
 objectType room03_closedDoor("door") {
 	event item_bossKey {
 		playSound('door.ogg');
-		say(ego, "It maches!");
+		say(ego, "It matches!");
 		room03_doorOpened = TRUE;
 		gotoRoom(room05);
 	}

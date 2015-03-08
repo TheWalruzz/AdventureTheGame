@@ -699,6 +699,7 @@ objectType room02_newspaper("newspaper")
 		turnCharacter(ego, EAST);
 		narratorSay("Max throws the book attached on a rope towards the newspaper.");
 		removeCharacter(room02_newspaper);
+		playSound('rooms/room02/book.ogg');
 		narratorSay("It sticks to the book thanks to the gum.");
 		say(ego, "It worked!");
 		
@@ -711,6 +712,7 @@ objectType room02_newspaper("newspaper")
 		moveCharacter(ego, 4096, 700);
 		turnCharacter(ego, EAST);
 		narratorSay("Max throws the book attached on a rope towards the newspaper.");
+		playSound('rooms/room02/book.ogg');
 		narratorSay("Unfortunately, it slided from the shelf without taking the newspaper with it.");
 		say(ego, "Darmn... If only I had something sticky...");
 	}

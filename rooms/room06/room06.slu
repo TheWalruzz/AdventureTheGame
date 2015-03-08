@@ -409,6 +409,7 @@ objectType room06_lid("lid")
 			}
 		} else {
 			narratorSay("Max reaches out to open the lid...");
+			playSound('rooms/room05/drawer-close.ogg');
 			say(room06_secret, "Not so fast! Keep your hands away from me!");
 			narratorSay("...but SECRET's moving tray almost ripped off his fingers!");
 		}
