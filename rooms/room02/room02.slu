@@ -71,7 +71,7 @@ sub room02()
 	#addOverlay('rooms/room02/express.png', 0, 0);
 	addScreenRegion(room02_coffeeMachine, 3826, 558, 3976, 708, 4000-68, 730, SOUTH);
 
-	addCharacter(room02_table, 4098, 768, anim('rooms/room02/table.duc', 0));
+	addCharacter(room02_table, 4099, 771, anim('rooms/room02/table.duc', 0));
 	setCharacterExtra(room02_table, FIXEDSIZE);
 	
 	#addOverlay('rooms/room02/cable.png', 3776, 658);
