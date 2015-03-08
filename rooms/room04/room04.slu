@@ -108,7 +108,7 @@ objectType room04_window("window bars")
 			narratorSay("Later this day...");
 			playSound('rooms/room04/scratch.ogg');
 			pause(60);
-			say(narrator, "Aha! A potato picklock!");
+			say(ego, "Aha! A potato picklock!");
 			deleteFromStack(inventory, item_potato);
 			pushToStack(inventory, item_picklock);
 			say(ego, "Having been a scout sure does pay off!");
