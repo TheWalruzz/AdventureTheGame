@@ -692,6 +692,12 @@ objectType room02_newspaper("newspaper")
 		turnCharacter(ego, EAST);
 		say(ego, "I can't reach it!");
 	}
+
+	event walkToPerson
+	{
+		moveCharacter(ego, 4000-68, 730);
+		turnCharacter(ego, EAST);
+	}
 	
 	event item_ropeFullyCombined
 	{
