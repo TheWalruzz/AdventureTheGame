@@ -284,7 +284,7 @@ objectType room06_powerButton("power button")
 			say(narrator, "Made by Konrad Burandt, Sebastian Krzyszkowiak and Paweł Radej.");
 			say(narrator, "Made on Poznań Game Jam, part of Global Game Jam 2015.");
 			say(narrator, "Music: \"Deep Haze\", \"Hustle\", \"Sneaky Snitch\", \"Take a Chance\", \"Volatile Reaction\", \"Whiskey on the Mississippi\" by Kevin MacLeod (incompetech.com). CC-BY 3.0");
-			say(narrator, "\"Pamiętam (5th Anniversary Edition) [instrumental] by Behedos. CC-BY-SA 3.0");
+			say(narrator, "\"Pamiętam (5th Anniversary Edition)\" [instrumental] by Behedos. CC-BY-SA 3.0");
 			say(narrator, "\"Captain\" by Jakub Marszałkowski. CC-BY-NC-SA 3.0");
 			say(narrator, "Sounds from freesound.org: \"Rope pull 1.wav\" by Huggy13ear");
 			say(narrator, "\"01002 closing safety lock.wav\" by Robinhood76");
