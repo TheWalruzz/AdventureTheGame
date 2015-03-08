@@ -90,6 +90,7 @@ sub roomElevator()
 		
 		playSound('rooms/roomElevator/ding.ogg');
 		stopSound('rooms/roomElevator/elevator2.ogg');
+		playSound('rooms/roomElevator/elevatoropen.ogg');
 	}
 	
 	say(roomElevator_notification, text + location + ".");

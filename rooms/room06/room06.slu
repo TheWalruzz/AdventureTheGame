@@ -284,7 +284,7 @@ objectType room06_powerButton("power button")
 			say(narrator, "a.k.a. The Game Jam Game About Games, Secrets and Stuff");
 			say(narrator, "Made by Konrad Burandt, Sebastian Krzyszkowiak and Paweł Radej.");
 			say(narrator, "Made on Poznań Game Jam, part of Global Game Jam 2015.");
-			say(narrator, "Music: \"Deep Haze\", \"Hustle\", \"Niles Blues\", \"Sneaky Snitch\", \"Take a Chance\", \"Volatile Reaction\", \"Whiskey on the Mississippi\" by Kevin MacLeod (incompetech.com). CC-BY 3.0");
+			say(narrator, "Music: \"Deep Haze\", \"Hustle\", \"Local Forecast - Elevator\", \"Niles Blues\", \"Sneaky Snitch\", \"Take a Chance\", \"Volatile Reaction\", \"Whiskey on the Mississippi\" by Kevin MacLeod (incompetech.com). CC-BY 3.0");
 			say(narrator, "\"Pamiętam (5th Anniversary Edition)\" [instrumental] by Behedos. CC-BY-SA 3.0");
 			say(narrator, "\"Captain\" by Jakub Marszałkowski. CC-BY-NC-SA 3.0");
 			say(narrator, "Sounds from freesound.org: \"Rope pull 1.wav\" by Huggy13ear");
@@ -307,7 +307,7 @@ objectType room06_powerButton("power button")
 			say(narrator, "\"JM_NOIZ_Buzz 01 - Neon Light.wav\" by Julien Matthey");
 			say(narrator, "\"Elevator Beeping x4.wav\" by dauser");
 			say(narrator, "\"elevator inside.wav\" by Trautwein");
-			say(narrator, "Voice in elevator by Sebastian Krzyszkowiak");
+			say(narrator, "Voice in elevator by LinneaS88");
 			say(narrator, "Font: \"Cool Story\" by Peter Olexa");
 			say(narrator, "Written with SLUDGE engine");
 			say(narrator, "Game code and original assets are licensed under CC-BY-SA 3.0");

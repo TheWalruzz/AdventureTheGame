@@ -1,20 +1,28 @@
 var vol = 255;
 sub elevatorMusicDown() {
+	vol = 255;
 	loop {
 		setSoundVolume('music/1.ogg', vol);
-		vol=vol-5;
+		vol=vol-2;
 		pause(1);
-		if (vol < 50) return;
+		if (vol < 40) return;
 	}
 }
 
+var vol2 = 100;
 sub elevatorMusicUp() {
+	vol2 = 70;
 	loop {
 		setSoundVolume('music/1.ogg', vol);
+		setSoundVolume('music/2.ogg', vol2);
 		vol=vol+5;
+		if (vol2 > 0) {
+			vol2 = vol2-5;
+		}
 		pause(1);
 		if (vol >= 255) {
 			setSoundVolume('music/1.ogg', 255);
+			stopSound('music/2.ogg');
 			return;
 		}
 	}
@@ -55,6 +63,8 @@ sub roomElevatorIntro()
 	pause(40);
 	turnCharacter (ego, NORTH);
 	
+        loopSound('music/2.ogg');
+        setSoundVolume('music/2.ogg', 70);
 	pause(60);
 	
 	onRightMouse (skipElevatorMovie);
@@ -68,7 +78,9 @@ sub roomElevatorIntro()
 	# play sound ding
 	playSound('rooms/roomElevator/ding.ogg');
 
-	pause(40);
+	pause(15);
+	playSound('rooms/roomElevator/elevatoropen.ogg');
+	pause(25);
 	
 	spawnSub(elevatorMusicUp);
 
