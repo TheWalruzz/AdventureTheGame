@@ -69,7 +69,7 @@ sub addSpeechChoice (a, b) {
 		alignStatus (LEFT);
 		setStatusColour (255, 255, 255);
 		setLitStatusColour (180, 180, 180);
-		setCursor (anim ('iface/mouse.duc', 7))
+		cursorDefault();
 	}
 
 	# Add a new status bar and set the text...
@@ -128,7 +128,7 @@ sub getSpeechChoice (character) {
 				showCharacter (inventoryIcon);
 
 				# And turn the mouse back into the busy icon...
-				setCursor (anim ('iface/mouse.duc', wait(4, 10), wait(3, 10), wait(2, 10)));
+				cursorBusy();
 
 				# Only say the line if character != NULL
 				if (character) say (character, theValue);

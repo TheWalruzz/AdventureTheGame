@@ -6,6 +6,18 @@ sub arrowWest () {
 	setCursor (anim ('iface/mouse.duc', 1));
 }
 
-sub arrowTarget () {
+sub cursorTarget () {
 	setCursor (anim ('iface/mouse.duc', 6));
+}
+
+sub cursorBusy() {
+	setCursor (anim ('iface/mouse.duc', wait(4, 10), wait(3, 10), wait(2, 10)));
+}
+
+sub cursorTargetActive () {
+	setCursor (anim ('iface/mouse.duc', wait(6, 5), wait(5, 5)));
+}
+
+sub cursorDefault() {
+	setCursor (anim ('iface/mouse.duc', 7));
 }

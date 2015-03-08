@@ -553,7 +553,7 @@ objectType room02_cable("cable")
 			pause(10);
 			say(room02_talkBox, "Oops!");
 
-			pause(120);
+			pause(20);
 
 			addOverlay('rooms/room02/room02.png', 0, 0);
 

@@ -21,7 +21,7 @@ sub stop () {
 	statusText ("");
 	onLeftMouse ();
 	onRightMouse (skipper);
-	setCursor (anim ('iface/mouse.duc', wait(4, 10), wait(3, 10), wait(2, 10)));
+	cursorBusy();
 	busy = TRUE;
 }
 
@@ -38,13 +38,13 @@ sub unfreezer(key) {
 sub handleFocus (o) {
 	if (o && (o != ego || currentInvItem != NULL)) {
 		if (! currentInvItem) {
-			if (! callEvent (oneCursor, o)) setCursor (anim ('iface/mouse.duc', 6));
+			if (! callEvent (oneCursor, o)) cursorTarget();
 		} else {
-			setCursor (anim ('iface/mouse.duc', wait(6, 5), wait(5, 5)));
+			cursorTargetActive();
 		}
 	} else {
 		if (! currentInvItem) {
-			setCursor (anim ('iface/mouse.duc', 7));
+			cursorDefault();
 		} else {
 			callEvent (getIcon, currentInvItem);
                         setCursor(icon);

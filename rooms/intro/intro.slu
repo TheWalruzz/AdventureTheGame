@@ -9,6 +9,7 @@ sub intro()
 	# first things first
 	addOverlay('rooms/intro/intro.png', 0, 0);
 	setScale(225, 1500);
+	setCursor(NULL);
 
 	loopSound('music/1.ogg');
 	
@@ -25,13 +26,13 @@ sub intro()
 	fadeIn();
 	
 	pause(20);
-	setSpeechSpeed(250);
 	
 	say(intro_narrator, "Somewhere in the USA");
 	pause(10);
 	say(intro_narrator, "in not so distant future");
 	pause(20);
 	
+	cursorBusy();
 	gotoRoom(room01);
 	# some other stuff
 	

@@ -16,8 +16,8 @@ sub init ()
 	onKeyboard(keys);
 	addStatus();
 	
-	setSpeechSpeed(200);
-	
+	setSpeechSpeed(250);
+
 	stop();
 	gotoRoom(DEBUG ? roomElevator : intro);
 	go();

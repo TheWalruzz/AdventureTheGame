@@ -39,7 +39,7 @@ sub showInventory() {
 }
 
 objectType inventoryIcon ("inventory") {
-	event oneCursor = arrowTarget;
+	event oneCursor = cursorTarget;
 	event onlyAction {
 		showInventory();
 	}
