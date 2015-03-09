@@ -105,7 +105,7 @@ objectType room04_window("window bars")
 			pause(50);
 			playSound('rooms/room04/scratch.ogg');
 			pause(20);
-			narratorSay("Later this day...");
+			narratorSay("Hours later...");
 			playSound('rooms/room04/scratch.ogg');
 			pause(60);
 			say(ego, "Aha! A potato picklock!");
