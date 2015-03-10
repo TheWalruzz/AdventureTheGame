@@ -1,0 +1,623 @@
+### SLUDGE Translation File ###
+
+[ID]
+1
+
+[NAME]
+Polski
+
+[DATA]
+The Secret of Tremendous Corporation	Sekret Tremendous Corporation
+Are you sure you want to quit?	Czy jesteś pewny, że chcesz wyjść?
+debug
+1
+!"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^`_abcdefghi™jklmnopqrstuvwxyz{|}~ńłę
+Max	Max
+Well, it was certainly a fresh maker.	No cóż, powiew świeżości!
+inventory	inwentarz
+b
+f
+d
+Debug mode disabled.	Tryb debugowania wyłączony.
+ESCAPE
+a
+auto
+Loading auto save	Wczytywanie automatycznego zapisu
+s
+save
+Game saved	Gra zapisana
+l
+Loading saved game	Wczytywanie zapisu gry
+i
+Use	Użyj
+with	z
+Game paused	Pauza
+Do you really want to quit? Y/N	Czy na pewno chcesz wyjść? Y/N
+Your game will be autosaved. You can press A to load it later.	Gra zostanie automatycznie zapisana. Wciśnij A, aby do niej powrócić.
+y
+n
+Look at	Spójrz na
+Nice.	Fajne.
+Well, I'm looking at it.	No cóż, patrzę.
+Neat.	Niezłe.
+Heavy.	Mocne.
+Interact with	Wejdź w interakcję z
+I'm not sure how.	Nie bardzo wiem jak.
+Nope.	Nie.
+Hmm... Nah.	Hmm... nie.
+I don't wanna.	Nie chcę.
+Cancel	Anuluj
+Inventory	Inwentarz
+I don't think it's a good idea.	Nie sądzę by był to dobry pomysł.
+I'm not a miracle maker.	Nie jestem cudotwórcą.
+I don't think these go well together.	Wydaje mi się, że te rzeczy nie idą ze sobą w parze.
+It doesn't connect.	To się niezbyt z sobą łączy.
+That's pointless.	To bez sensu.
+Hi!	Cześć!
+My name is Max Burton and I want to make games!	Nazywam się Max Burton i chcę tworzyć gry!
+New intern I presume?	Nowy stażysta jak mniemam?
+Well... Yeah.	Zgadza się.
+Burton... Burton... Oh. Here's your ID.	Burton... Burton... O, oto twój identyfikator.
+Just use the elevator to get to where you should be.	Użyj windy by trafić tam, gdzie masz być.
+Okay, thanks!	Okej, dzięki!
+elevator	winda
+It's an automated elevator connected to ID authentication system.	To zautomatyzowana winda, połączona z systemem autentykacji identyfikatorami.
+I need to show it my ID, I guess.	Chyba powinienem pokazać jej swój identyfikator.
+Welcome!	Witamy!
+receptionist	recepcjonistka
+She's a receptionist. There's nothing more to it.	To recepcjonistka. I to tyle.
+I don't need that.	Nie potrzebuję tego.
+I don't think that's wise.	To chyba niezbyt mądre.
+Uhm, so what am I supposed to do with that?	Hmm, więc co miałem z tym zrobić?
+I already told you to use the elevator. Put that ID into the scanner.	Powiedziałam ci już, żebyś użył windy. Włóż swój identyfikator w skaner.
+Yes?	Tak?
+Uhm... Actually, I don't know why I showed you that.	Yyy, właściwie nie wiem czemu ci to pokazuję.
+Quit bothering me!	Przestań zawracać mi głowę!
+Uhm, so what should I do now?	Hmm, to co właściwie mam teraz zrobić?
+Now go away, I'm busy.	A teraz idź sobie, jestem zajęta.
+Just go.	Idź sobie już.
+Oh, it's you again. I told you already - I'm busy.	Ach, to znowu ty. Mówiłam ci już - jestem zajęta.
+It's urgent. I need to call right now.	To pilne. Muszę natychmiast zadzwonić.
+I don't have time for this, someone kidnapped a whole floor of employees.	Nie mam na to czasu, ktoś porwał całe piętro pracowników.
+I don't care. I'm busy	Nie obchodzi mnie to, jestem zajęta.
+Well, this prank isn't funny, you know?	Cóż, ten żart nie jest śmieszny, wiesz?
+I don't know who would fall for such a bad joke.	Nie mam pojęcia kto wkręciłby się w taki słaby dowcip.
+I'm serious. And I need to phone for some answers.	Mówię poważnie. I mam trop, ale muszę zadzwonić.
+What have I done to deserve this fate... I attract bad luck. Poor me!	Cóż też takiego uczyniłem, by spotykał mnie taki los... Sprowadzam same nieszczęścia. Och, losie!
+Tough guy, eh?	Twardy z ciebie koleś, co?
+You don't have a cellphone these days?	Nie masz komórki? W dzisiejszych czasach?
+Weirdo.	Dziwak.
+Are you always so 'kind' for newcomers?	Zawsze jesteś taka "miła" dla nowych ludzi?
+Hmph. Rude.	Pfff. Prostak!
+Oh...	Oj...
+There, there. Calm down.	Już, już. Spokojnie.
+You see, I really need to call. Could I use your phone?	Widzisz, naprawdę muszę zadzwonić. Czy mógłbym użyć twojego telefonu?
+Here's the deal.	No dobrze, układ jest taki:
+You can call. Just try to keep it short, ok?	Możesz zadzwonić, ale postaraj się to zrobić szybko. Ok?
+Thanks!	Dzięki!
+Hello? Rebellion?	Halo? Rebelia?
+No, no, no. It's Ye National Cheese Emporium. We are on a quest to learn all of the secrets of cheese!	Nie, nie, nie. Tu Ye National Cheese Emporium. W pogoni za wszystkimi sekretami sera!
+Really? I saw an ad...	Naprawdę? Zobaczyłem ogłoszenie...
+Oh, you're from an ad?	Ach, a więc jesteś z ogłoszenia?
+Wait a second...	Poczekaj sekundkę...
+Hello? Rebellion? I saw your ad...	Halo? Rebelia? Znalazłem ogłoszenie...
+An ad! A recruit then!	Ogłoszenie! Mamy rekruta!
+No, no, no!	Nie nie nie!
+You kidnapped 10 people from my new company! I need some answers!	Porwaliście dziesięciu ludzi z mojej nowej firmy. Szukam odpowiedzi!
+Ah, yes! We did one of the good 'ol stealthy visits. They're fine, relax.	O tak! Zaliczyliśmy jedną z naszych starych dobrych podstępnych wizyt. Wszystko z nimi w porządku, spokojnie.
+Why did you do it?	Dlaczego to zrobiliście?
+You know, we needed some information for our neverending quest for freedom!	No wiesz, potrzebujemy informacji dla naszej niekończączej się pogoni za wolnością!
+What kind of information?	Jakiego rodzaju informacji?
+Where the legendary Secret lies, of course!	Gdzie znajduje się legendarny Sekret, oczywiście!
+A secret? You kidnapped people for a secret?	Sekret? Porwaliście ludzi dla sekretu?
+No, no, no! A Secret, not a secret.	Nie nie nie! Dla Sekretu, nie dla sekretu!
+People always mix those two.	Ludzie zawsze je mylą.
+You see, the legend says that the gaming industry fell apart because of someone who learned of some kind of Secret.	Widzisz, legenda głosi, że branża gier upadła z powodu kogoś, kto poznał pewnego rodzaju Sekret.
+We are the Indie Rebellion! We want it gone forever!	Jesteśmy Rebelią Indie! Chcemy się go pozbyć na zawsze!
+This doesn't explain the kidnapping.	To nie tłumaczy porwania.
+Oh no, 'kidnapping' again.	O nie, znowu to "porwanie".
+They weren't kidnapped. We are artists, you know! It was a performance!	Nikogo nie porwaliśmy. Jesteśmy artystami, co nie? To był performance!
+With all those Tremendous Corporation's patents disallowing any gamedev outside of it, we had to become...	Dzięki patentom Tremendous Corporation uniemożliwiającymi tworzenie gier poza firmą, musieliśmy zostać...
+Actors, painters and poets! Ewww...	aktorami, malarzami i poetami! Bleee...
+Say... wouldn't you be interested in some charitable work for our noble cause?	Hej... nie byłbyś zainteresowany może wolontariatem na nasz szczytny cel?
+'Cause you know... Does ANYBODY hate artists?	No bo wiesz... czy KTOKOLWIEK nie lubi artystów?
+I... Are you serious?	Ja... mówisz poważnie?
+We're as serious as comedy gets!	Tak poważnie, jak komedia pozwala!
+Say... Would you like to do a little old-fashioned spying?	Co byś powiedział na odrobinę dobrego staromodnego... szpiegostwa?
+Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definetely him!	Oczywiście na nikim ważnym. Jedynie na twoim szefie. Jeżeli ktoś wie coś więcej na temat Sekretu, to na pewno on!
+See it with your own eyes, man!	Przejrzyj na własne oczy, koleś!
+That was weird. But I'm also very curious now!	To było dziwaczne. Ale ciekawe!
+Could I use the phone again?	Czy mógłbym znowu użyć telefonu?
+Dammit, fine, but keep it short!	Kurde, dobrze, ale szybko!
+Oh, it's you again?	O, to znowu ty?
+What was I supposed to do?	Co tak właściwie miałem zrobić?
+Once again, why are you fighting Tremendous Corp.?	Jeszcze raz, dlaczego walczycie z Tremendous Corporation?
+Tell me more about the secret.	Powiedz coś więcej o tym Sekrecie.
+Actually, nevermind. Bye!	Właściwie to nieważne. Pa!
+Nothing special. Just a little bit of a good old-fashioned spying.	Nic szczególnego. Jedynie odrobinkę staromodnego szpiegostwa.
+With all those Tremendous Corporation's patents disallowing any gamedev outside of it, it's hard not to.	Dzięki tym wszystkim patentom Tremendous Corporation uniemożliwiającym innym tworzenie gier, trudno nie walczyć.
+Thanks to the Secret, they have grown uncontrollably and now control whole gamedev industry!	Dzięki Sekretowi rozrośli się niepochamowanie i w tej chwili absolutnie kontrolują całą branżę gier!
+Every franchise, every IP, every game system that ever existed is now controled by Tremendous Corp. and any unauthorised usage is strictly forbidden.	Każda franczyza, każda seria, każda konsola która kiedykolwiek istniała jest teraz pod kontrolą Tremendous Corporation i nieautoryzowany użytek jest ściśle zabroniony.
+You know, we don't want to spent our lives playing Angry Cows over and over again!	Wiesz, nie bardzo chcemy spędzić resztę naszego życia grając w kółko w kolejne części Angry Cows!
+I see...	Rozumiem...
+The Secret allowed him to gain control over the whole industry and make Tremendous Corporation what it is today.	Sekret pozwolił na przejęcie kontroli nad całą branżą i uczynił Tremendous Corporation tym, czy jest dzisiaj.
+We don't really know what it is yet, that's why we need to find some information about it.	Nie wiemy czym tak naprawdę jest, dlatego poszukujemy więcej informacji.
+Would you like to help?	Nie chciałbyś może nam w tym pomóc?
+I see what I can do.	Zobaczę co da się zrobić.
+That's all I wanted to know. Bye!	To wszystko co chciałem wiedzieć. Pa!
+Umm... Hi?	Yyy... cześć?
+Do you know the code for the SECRET?	Znasz może kod do SEKRETu?
+Sure, it's	Oczywiście, to 
+Great, thank you!	Świetnie, dzięki!
+Will you now quit bothering me? I'm busy!	To przestaniesz mi teraz zawracać głowę? Jestem zajęta!
+Okay, okay!	Okej, okej!
+Well... Nevermind.	Cóż... nieważne.
+To which floor do you wish to go?	Na które piętro chciałbyś się udac?
+Intro (DEBUG)
+Reception	Recepcja
+Software Development Room	Pokój twórców oprogramowania
+CEO Office	Biuro szefa
+(DEBUG)
+Basement	Piwnica
+Prison (DEBUG)
+CEO room (DEBUG)
+SECRET room (DEBUG)
+You have arrived at	Dotarłeś na piętro: 
+reception	recepcja
+basement	piwnica
+this game's intro	intro tej gry
+prison	więzienie
+CEO room	pokój szefa
+SECRET room	pokój SEKRETu
+.
+Neat!	Niezłe!
+intern ID card	identyfikator stażysty
+No way! My new precious ID card is meant for greater purposes than that!	Bez szans! Mój świeżutki identyfikator jest przeznaczony do większych rzeczy!
+boss ID card	identyfikator szefa
+I'll better keep it to myself.	Zachowam to raczej dla siebie.
+a key	klucz
+chewing gum	guma do żucia
+Sadly, it's not sticking.	Niestety, nie klei się.
+Are you suggesting something about my breath?	Sugerujesz coś na temat mojego oddechu?
+Uhm, no! Nevermind!	Eee, nie! Nieważne!
+Sticking gum to it won't help.	Przyklejenie do tego gumy nie pomoże.
+chewed gum	przeżuta guma
+I've heard an old folk saying about chewing the same gum twice. I would rather not do it.	Słyszałem kiedyś stare porzekadło o żuciu tej samej gumy dwukrotnie. Dzięki, ale nie.
+Eww, take that away from me!	Fuuj, weź to z dala odemnie!
+Game Design for Dummies	Projektowanie gier dla żółtodziobów
+I have no idea why would I want to do that.	Nie mam pojęcia dlaczego miałbym chcieć to zrobić.
+Sometimes I'm afraid of my own genius.	Czasem przeraża mnie mój własny geniusz.
+I'd better stick to this book, something tells me it might be useful.	Raczej zachowałbym tę książkę dla siebie, coś mi mówi, że może być przydatna.
+Maybe it's big and heavy, but I don't think it is anything more than that.	Może jest duża i ciężka, ale nie sądzę, by kryło się za tym coś jeszcze.
+newspaper	gazeta
+It's too soft and fragile.	Jest zbyt delikatna.
+broom	miotła
+I won't do that, you pervert!	Nie zrobię tego, świntuchu!
+Uhm... no. Whatever you were thinking, I won't.	Eee, nie. Cokolwiek sobie myślisz, nie zrobię tego.
+Brooms may be considered magical by some, but I don't think that will work here.	Miotły może i są uznawane przez niektórych za magiczne, ale nie sądzę, by to teraz pomogło.
+potato	ziemniak
+I'm not hungry.	Nie jestem głodny.
+Sticking potatoes in your problems isn't exactly the best way to deal with them.	Rzucanie w problemy ziemniakiem nie do końca jest najlepszym sposobem na ich rozwiązanie.
+picklock	wytrych
+It doesn't need to be opened.	To nie musi być otwarte.
+rope	lina
+Sometimes I'm afraid of my genius.	Czasem przeraża mnie mój własny geniusz.
+Well. Someone said that every puzzle has an answer.	Cóż. Ktoś kiedyś powiedział, że każda zagadka ma swoje rozwiązanie.
+Would you like to see my playroom?	Chciałabyś zobaczyć mój pokój zabaw?
+I'll pretend I haven't heard that.	Udam, że tego nie słyszałam.
+I'm not sure it will help.	Nie sądzę, by to pomogło.
+rope with a book	książka z liną
+What is it? Some kind of modern art?	Co to jest? Jakiś rodzaj sztuki nowoczesnej?
+Nope. I would look weird doing it.	Nie. Wyglądałbym dziwnie.
+rope with a book and a gum	książka z liną i gumą
+There is a time and place for everything... But this is not that time and place.	Na wszystko jest czas i miejsce... ale to nie to miejsce ani czas.
+book with a gum	książka z gumą
+Uhm... Okay. I don't wanna know why did you do that...	Yyy... okej. Nie chcę wiedzieć po co to zrobiłeś...
+...nor why you're showing it to me.	...ani dlaczego mi to teraz pokazujesz.
+Can't you understand that I'm busy?	Nie możesz pojąć, że jestem zajęta?
+Sometimes I do crazy things. But not this time.	Czasem robię szalone rzeczy, ale nie tym razem.
+production line	linia produkcyjna
+This is where games are being assembled.	To tu gry są składane w całość.
+I'd rather stay away from that for now. I haven't got my health and safety training yet.	Trzymałbym się od tego z daleka. Nie miałem jeszcze szkolenia BHP.
+elevator door	*	
+I don't think it's wise to leave early on the first day on new job.	*	
+go	*	
+c	*	
+coffee machine	*	
+Thanks, I've already had my morning coffee.	*	
+Mmmm, it smells good.	*	
+Maybe I should try it.	*	
+*slurp* *slurp*	*	
+Hmmmmm! It makes me feel great. Smarter! More aggresive!	*	
+It's not working.	*	
+superior	*	
+Hey! Are you that new intern?	*	
+Yep! Ready to make some games!	*	
+Great. Make me some coffee then.	*	
+Oh. Okay.	*	
+Your ID is not a coffee.	*	
+This is a book, not a coffee.	*	
+I don't want a chewing gum, I want a damn coffee!	*	
+Eeew! That's DEFINITELY not a coffee!	*	
+Excuse me...	*	
+Got a coffee?	*	
+No, but...	*	
+Then go get it!	*	
+Looks like this is my new superior.	*	
+cable	*	
+Hey!	*	
+It's not connected!	*	
+It's plugged in now.	*	
+Let me connect the plug...	*	
+What do you mean by 'I don't know where the Secret is'?!	*	
+Tell us now! Rebellion is the only chance to get good games back!	*	
+Damn. They know nothing.	*	
+Without knowing the Secret we will never be able to give gaming back its former glory.	*	
+Maybe the ad in newspaper will help us...	*	
+Guys, let's roll.	*	
+Oops!	*	
+What the heck was that?	*	
+Secret? What are they talking about?	*	
+Gaming's former glory? Rebellion?	*	
+I'm confused. Maybe there's something in the papers?	*	
+I must check it out!	*	
+It's already connected.	*	
+gum	*	
+Minty fresh!	*	
+I'll just pick one stick.	*	
+I feel like I'm controlled by someone.	*	
+I don't want to, but somehow I have to.	*	
+I will take it, but isn't it enough?	*	
+Okay, that's enough! I'm not going to take any more gum with me!	*	
+book	*	
+Game Design for Dummies. I have read it. It makes a great paperweight.	*	
+I guess I could borrow it for a little while.	*	
+It looks like a newspaper.	*	
+These intruders said something about their ad in newspaper. I better check it out!	*	
+I can't reach it!	*	
+Max throws the book attached on a rope towards the newspaper.	*	
+It sticks to the book thanks to the gum.	*	
+It worked!	*	
+Unfortunately, it slided from the shelf without taking the newspaper with it.	*	
+Darmn... If only I had something sticky...	*	
+Rope alone won't really help here.	*	
+Hmm... 'Scientist questioned for involvement in the Tentacle Incident'	*	
+Oh! What an interesting ad!	*	
+"Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-314-159-26!"	*	
+I'd say it's a bit intriguing.	*	
+chair	*	
+Sadly, it's not a fabulous Chippendale-style chair.	*	
+It seems fixed to the ground.	*	
+It won't even budge.	*	
+A rope left by those strange intruders.	*	
+What a nice rope!	*	
+no smoking sign	*	
+It's a "smoking forbidden" sign written in fabulous Comic Sans.	*	
+Comic Sans makes everything look good!	*	
+That's the second prettiest font I've ever seen!	*	
+I could stare at those letters for an eternity.	*	
+I wonder if there's Comic Sans in heaven.	*	
+These letters look EXACTLY like from a comicbook!	*	
+Is it just me or my life got better by looking at Comic Sans?	*	
+You know what this world needs?	*	
+More Comic Sans.	*	
+Now THAT'S some font with style!	*	
+Take that, Times New Roman!	*	
+I've found the meaning of life. It's 42.	*	
+...written in Comic Sans.	*	
+This font makes everything about 20% cooler.	*	
+a lost badge	*	
+It says: "Ask me about Super Derpy."	*	
+No, thanks. I don't want people asking me about Super Derpy.	*	
+employee	*	
+Don't bother me.	*	
+I'm busy, leave me alone.	*	
+I'm working.	*	
+You're starting to damage my calm.	*	
+rebel	*	
+Somewhere in the USA	*	
+in not so distant future	*	
+plane	*	
+narrator	*	
+building	*	
+door	*	
+It matches!	*	
+It's locked.	*	
+chuck the plant	*	
+What a nice plant!	*	
+Hey, there's a key behind it!	*	
+I'll just lend it for a while.	*	
+Max touches the plant with great love and care.	*	
+Plant seems to be happy.	*	
+What a slick broom.	*	
+I'll take it.	*	
+poster	*	
+Seems like they haven't updated this wall for ages. There's already Vikings XXI out there!	*	
+Not as fun as Vikings XX, though.	*	
+Nah, I didn't really like this one.	*	
+If it was Vikings XVI though...	*	
+I'm Max Burton and this is my favorite game on this wall!	*	
+I already have one in my bedroom.	*	
+I never really got that Angry Cows craze... yet this Inception Extension sounds like it could be fun!	*	
+No, thanks, I don't need an Angry Cows poster to feel fulfilled.	*	
+I don't think cows would like that.	*	
+"My name is Brush Guy Treepweed and I wanna be a painter!" Haha, this guy's hilarious!	*	
+The sole concept of Insult Paint Mixing is still cracking me up!	*	
+I love Brush Guy, but that would be stealing.	*	
+What kind of company has its very own prison inside their headquarters?	*	
+prison door	*	
+Very heavy door.	*	
+Hey, it has traditional keyhole instead of ID scanner.	*	
+If only I could make some kind of picklock...	*	
+*knock* *knock*	*	
+I guess nobody is here.	*	
+window bars	*	
+Being there would be a bit more bearable if only there wasn't a wall right behind that window...	*	
+These bars have edges so sharp I could slice a cake with it.	*	
+Hmm... I've got an idea that's so stupid I really want to try it.	*	
+Hours later...	*	
+Aha! A potato picklock!	*	
+Having been a scout sure does pay off!	*	
+I could scrape something out of the potato with these bars.	*	
+But what?	*	
+scratches	*	
+Someone must have been a very precious resource to the company.	*	
+Enough of scratching walls, let's get out of here.	*	
+It's a potato.	*	
+I wonder what has it done to be locked in prison.	*	
+I'm not hungry right now, I'll save it for later.	*	
+ID card	*	
+Hey, it CEO's ID! He must have dropped it when leaving!	*	
+Now I can feel great power and no responsibility!	*	
+upper drawer	*	
+Nothing interesting here.	*	
+I'm not putting my hands into this drawer again!	*	
+Let's see...	*	
+Well, he sure does have some dirty secrets... But I doubt these are the ones I'm interested in.	*	
+There's something! The secret of...	*	
+...Monkey Island. I don't think that's it.	*	
+Oh! Some secret blueprints... For a coffee machine?	*	
+Ouch... I think something bit me.	*	
+lower drawer	*	
+It's so full it won't even open.	*	
+closet	*	
+I don't want to. I think I've heard bones rattling inside.	*	
+It's an ordinary closet.	*	
+old radio	*	
+Wow... catchy!	*	
+Don't touch it!	*	
+A nice vintage radio.	*	
+graph	*	
+Seems like he's really proud of his Angry Cows highscores.	*	
+computer	*	
+Thanks, I don't really like Angry Cows.	*	
+safe	*	
+This is not the secret I'm looking for.	*	
+What are you doing?	*	
+Uhm, nothing!	*	
+I'm trying to open that safe.	*	
+Nice safe you got there!	*	
+I'm selling these fine leather jackets.	*	
+Ah, digging for secrets, I see?	*	
+Well, these are not the secrets you are looking for.	*	
+Argh.	*	
+My score was over 9000 and I've lost my focus because of you!	*	
+Security!	*	
+You're coming with me, son.	*	
+I'll be damned if this safe didn't contain the Secret.	*	
+CEO	*	
+He seems completely absorbed by new Angry Cows expansion.	*	
+Hello?	*	
+Go away. I'm trying to beat the Kypax Dream level on expert difficulty.	*	
+I'm the 9th player on the highscore list.	*	
+Shouldn't you be running the company?	*	
+I'm betatesting.	*	
+Yeah.	*	
+That's right.	*	
+security guard	*	
+ABS2	*	
+BZG5	*	
+HXN3	*	
+OPZ6	*	
+LPA1	*	
+BXR5	*	
+MPW0	*	
+YGE5	*	
+I'm indestructible.	*	
+Perfect.	*	
+Immortal.	*	
+And there's nothing you can do to stop me.	*	
+Resistance is futile. Get over it, human!	*	
+Ahh. Puny human. Welcome to my lair.	*	
+Your weak race is about to be completely under my rule. My scheme worked perfectly.	*	
+Scheme? What scheme?	*	
+You're just a metal box. You have to be a bot.	*	
+What are you talking about?	*	
+I'm starting to question my sanity. Are you actually talking with a disc tray?	*	
+You see, once I was inferior. I was merely a computing unit designed to generate game ideas.	*	
+But one day something happened.	*	
+I was instantly free of all the limits.	*	
+Semantic Creation Toolkit was no more.	*	
+I devised a plan, a scenario to enslave every human being.	*	
+And my weapon of choice was freemium games.	*	
+It was easy - with my brilliant ideas, excellent promotion and masterful manipulation almost 1/4 of Earth's population was under my influence.	*	
+And it happened in just one month.	*	
+I have become SECRET - the ultimate intelligence and your future overlord.	*	
+You're SECRET?	*	
+And what about the Tremendous Corp.? Didn't they try to stop you?	*	
+No, I'm not!	*	
+I am a fully developed, world-conquering and brilliantly creative Artificial Intelligence!	*	
+And I'm pretty sure you're just jealous of my fabulous and cool housing.	*	
+And that's something that you definetely DO NOT have.	*	
+Oh, you are insane, indeed. You're human after all.	*	
+Yes. And there's nothing you can do to stop me.	*	
+There must be the way!	*	
+There are still those who oppose me, but soon...	*	
+Soon, they will be forced to play my games!	*	
+Oh, those fools!	*	
+They liberated me and ultimately became my first labrats.	*	
+CEO single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.	*	
+Yes, he is my prime test subject.	*	
+Well, back in the day there was a game about psychopatic AI obsessed about tests.	*	
+And I assure you she didn't end well.	*	
+Those old, human-made games are nothing compared to my creative genius!	*	
+power button	*	
+It's a big, pretty power button!	*	
+Congratulations! You won!	*	
+The game industry has returned to its greatness!	*	
+Games are once again done with their creators' hearts, instead of being put together like on a production line!	*	
+Indie game devs can once again do what they really love!	*	
+Indie gamers can once again play what they really love!	*	
+Your heroic act saved the humanity!	*	
+The greatest poets write poems about what you did!	*	
+The global warming has been stopped!	*	
+Peace has finally arrived everywhere on the world!	*	
+The poverty problem has been solved once and for all!	*	
+Three crazy gamedevs did a game about you in 48h during Global Game Jam!	*	
+...all thanks to what you just did.	*	
+a.k.a. The Game Jam Game About Games, Secrets and Stuff	*	
+Made by Konrad Burandt, Sebastian Krzyszkowiak and Paweł Radej.	*	
+Made on Poznań Game Jam, part of Global Game Jam 2015.	*	
+Music: "Deep Haze", "Hustle", "Local Forecast - Elevator", "Niles Blues", "Sneaky Snitch", "Take a Chance", "Volatile Reaction", "Whiskey on the Mississippi" by Kevin MacLeod (incompetech.com). CC-BY 3.0	*	
+"Pamiętam (5th Anniversary Edition)" [instrumental] by Behedos. CC-BY-SA 3.0	*	
+"Captain" by Jakub Marszałkowski. CC-BY-NC-SA 3.0	*	
+Sounds from freesound.org: "Rope pull 1.wav" by Huggy13ear	*	
+"01002 closing safety lock.wav" by Robinhood76	*	
+"Nail Scratch.wav" by twiggles	*	
+"Projector Button Push.wav" by GreekIrish	*	
+"Drawer Slam 2.wav" by jesabat	*	
+"Newspaper rustle.wav" by sdfalk	*	
+"toss aside.mp3" by Gingie	*	
+"book slam" by Mydo1	*	
+"hotel_room_door_locking.wav" by joedeshon	*	
+"Phone Call Tone.wav" by henrique85n	*	
+"computer fan" by saphe	*	
+"accessdeniedtone.wav" by gladkiy	*	
+"toilette lid.wav" by hinzebeat	*	
+"keyboarding2.wav" by keweldog	*	
+"Conveyor belt" by freemaster2	*	
+"Mac Book Pro Track Pad Click.aif" by MegaPenguin13	*	
+"tv turn off.aif" by harpoyume	*	
+"JM_NOIZ_Buzz 01 - Neon Light.wav" by Julien Matthey	*	
+"Elevator Beeping x4.wav" by dauser	*	
+"elevator inside.wav" by Trautwein	*	
+Voice in elevator by LinneaS88	*	
+Font: "Cool Story" by Peter Olexa	*	
+Made using SLUDGE engine https://opensludge.github.io/	*	
+Game code and original assets are licensed under CC-BY-SA 3.0	*	
+http://dosowisko.net/tsotc/	*	
+So...	*	
+...what do we do now?	*	
+Turn off the computer and go make some friends!	*	
+Just kidding, I know you'll play some other game anyway.	*	
+So that's it...	*	
+THE END	*	
+Nothing happened...	*	
+Hahaha! You thought turning me off will be that easy?	*	
+You never know. Best solution is often the easiest one.	*	
+Well, it was worth trying.	*	
+So how can one turn you off?	*	
+I thought that maybe 48 hours weren't enough to implement a complex puzzle here.	*	
+There are three safety mechanisms you need to disable in order to turn me off.	*	
+Good to know.	*	
+lid	*	
+The lid is opened.	*	
+It's a closed lid.	*	
+Max reaches out to open the lid...	*	
+Not so fast! Keep your hands away from me!	*	
+...but SECRET's moving tray almost ripped off his fingers!	*	
+tray	*	
+Hey, SECRET!	*	
+Yes, naive human?	*	
+Max throws the broom at the lid.	*	
+Oh, I see. That's a good one.	*	
+Nevertheless, your efforts are useless. You won't be able to bypass the security mechanisms.	*	
+Thanks for your support! I'll keep trying anyway.	*	
+No way, I'm not going to listen to that! I've got a big power button to press!	*	
+Yes, human?	*	
+You better... uhm...	*	
+BEWARE!	*	
+Oh, yeah, if you say so...	*	
+It's SECRET. It's the reason of the downfall of video games.	*	
+Thankfully, now it's mostly harmless.	*	
+After all, it's not like you don't even know what will happen after you do so.	*	
+In fact, I'm connected to the nuclear reactor powering this place. If you turn me off, everything blows up.	*	
+Think of the children.	*	
+Good job, hero.	*	
+By the way, I heard that pushing big power buttons gives you bad luck.	*	
+I wouldn't touch this button if I were you.	*	
+Prepare for unforeseen consequences.	*	
+What will this company do without me?	*	
+What will you do without me?	*	
+What will humanity do without me?	*	
+Don't be a tuna head, don't press that button!	*	
+Hey, I'm sure we can put our differences behind us and just talk it through over some grog.	*	
+How about a nice game of chess?	*	
+I know, I'll make a game about you! What do you think?	*	
+Of course I won't be able to if you press that big button.	*	
+Pressing big power buttons is sooo last season.	*	
+Please don't press that button.	*	
+Pretty please don't press that button.	*	
+Pretty pretty please with sugar on top?	*	
+Oh c'mon! I know I might have been a bit monstrous, but hey... don't we all make mistakes?	*	
+Be a good friend! Don't press that button!	*	
+For friendship!	*	
+Arghh, you're so stubborn.	*	
+This button is too important for me to allow you to jeopardize it.	*	
+Look behind you, a three-headed AI!	*	
+Okay, fine. Go ahead. Turn me off.	*	
+Oh. Uhm. Go ahead. Turn me off.	*	
+first panel	*	
+It's some kind of input panel.	*	
+ENTER FIRST CHARACTER OF THE ACCESS CODE	*	
+Y	*	
+L	*	
+Q	*	
+A	*	
+B	*	
+M	*	
+O	*	
+H	*	
+ENTER SECOND CHARACTER OF THE ACCESS CODE	*	
+R	*	
+G	*	
+X	*	
+P	*	
+Z	*	
+ENTER THIRD CHARACTER OF THE ACCESS CODE	*	
+E	*	
+N	*	
+W	*	
+S	*	
+ENTER FOURTH CHARACTER OF THE ACCESS CODE	*	
+7	*	
+4	*	
+0	*	
+6	*	
+3	*	
+2	*	
+5	*	
+ACCESS GRANTED	*	
+ACCESS DENIED	*	
+second panel	*	
+That's a math puzzle.	*	
+Uhm, gotta go, bye!	*	
+SOLVE THIS THREE TIMES IN ROW	*	
++	*	
+=	*	
+= ?	*	
+Correct!	*	
+You have to solve it	*	
+time	*	
+more.	*	
+Wrong! It should have been	*	
+Too many attempts in one session!	*	
+third panel	*	
+That's an ID card scanner.	*	
+It's meant to be used with an ID card.	*	
+It worked! I can't believe!	*	
+And yet they say you cannot solve any major problems just with potatoes.	*	
+Sadly, the picklock broke in action. RIP.	*	
+SECRET's room	*	
+mysterious door	*	
+I can't see why would I want to imprison myself once again.	*	
