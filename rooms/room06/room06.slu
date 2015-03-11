@@ -696,7 +696,7 @@ objectType room06_secPuzzle("second panel")
 				playSound('rooms/room06/granted.ogg');
 				say(room06_secPuzzle, "Correct!");
 				if (wins < 3) {
-					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + " time" + ((wins < 2) ? "s" : "") + " more.");
+					say(room06_secPuzzle, "You have to solve it " + (3 - wins) + ((wins < 2) ? "  times" : " time") + " more.");
 				} else {
 					unfreeze();
 					playSound('rooms/room06/granted.ogg');
