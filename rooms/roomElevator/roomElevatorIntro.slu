@@ -5,13 +5,17 @@ sub elevatorMusicDown() {
 		setSoundVolume('music/1.ogg', vol);
 		vol=vol-2;
 		pause(1);
-		if (vol < 40) return;
+		if (vol < 40) {
+			pause(75);
+			setSoundVolume('music/1.ogg', 1);
+			return;
+		}
 	}
 }
 
 var vol2 = 100;
 sub elevatorMusicUp() {
-	vol2 = 70;
+	vol2 = 80;
 	loop {
 		setSoundVolume('music/1.ogg', vol);
 		setSoundVolume('music/2.ogg', vol2);
@@ -64,7 +68,7 @@ sub roomElevatorIntro()
 	turnCharacter (ego, NORTH);
 	
         loopSound('music/2.ogg');
-        setSoundVolume('music/2.ogg', 70);
+        setSoundVolume('music/2.ogg', 80);
 	pause(60);
 	
 	onRightMouse (skipElevatorMovie);
