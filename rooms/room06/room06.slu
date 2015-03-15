@@ -73,9 +73,9 @@ sub room06()
 	setCharacterWalkSpeed(ego, 8);
 	
 	addCharacter(room06_secret, 528, 87, costume(
-		anim('rooms/room06/tray.duc', 0), anim('rooms/room06/tray.duc', 0), anim('rooms/room06/tray.duc', 0), anim('rooms/room06/tray.duc', 0),
-		NULL, NULL, NULL, NULL,
-		anim('rooms/room06/tray.duc', wait(0, 5), wait(1, 8), wait(0, 3), wait(1, 6)), anim('rooms/room06/tray.duc', wait(0, 5), wait(1, 8), wait(0, 3), wait(1, 6)), anim('rooms/room06/tray.duc', wait(0, 5), wait(1, 8), wait(0, 3), wait(1, 6)), anim('rooms/room06/tray.duc', wait(0, 5), wait(1, 8), wait(0, 3), wait(1, 6))
+		anim('rooms/room06/tray.duc', 0),
+		NULL,
+		anim('rooms/room06/tray.duc', wait(0, 5), wait(1, 8), wait(0, 3), wait(1, 6))
 	));
 	setCharacterExtra(room06_secret, FIXEDSIZE);
 
@@ -91,7 +91,11 @@ sub room06()
 	}
 
 	if (room06_trayLocked == TRUE) {
-		addOverlay('rooms/room06/room06blocked.png', 0, 0);		
+                setCostume(room06_secret, costume(
+                    anim('rooms/room06/tray.duc', 3),
+                    NULL,
+                    anim('rooms/room06/tray.duc', wait(3, 5), wait(2, 8), wait(3, 3), wait(2, 6))
+                ));		
 	}
 	
 	if (room06_lidOpen) {
@@ -422,9 +426,6 @@ objectType room06_lid("lid")
 				
 				room06_lidOpen = TRUE;
 			}
-			if (room06_trayLocked == TRUE) {
-				addOverlay('rooms/room06/room06blocked.png', 0, 0);
-			}
 		} else {
 			#narratorSay("Max reaches out to open the lid...");
 			setCostume(ego, anim('ego/ego.duc', 19));
@@ -445,13 +446,20 @@ objectType room06_tray("tray")
 	event item_broom {
 		say(ego, "Hey, SECRET!");
 		say(room06_secret, "Yes, naive human?");
+                setCostume(room06_secret, anim('rooms/room06/tray.duc', 1));
+
 		#narratorSay("Max throws the broom at the lid.");
 		setCostume(ego, anim('ego/ego.duc', 21));
 		pause(15);
 		setCostume(ego, makeEgoAnim());
 		playSound('rooms/room06/broom.ogg');
 		deleteFromStack(inventory, item_broom);
-		addOverlay('rooms/room06/room06blocked.png', 0, 0);
+                setCostume(room06_secret, costume(
+                    anim('rooms/room06/tray.duc', 3),
+                    NULL,
+                    anim('rooms/room06/tray.duc', wait(3, 5), wait(2, 8), wait(3, 3), wait(2, 6))
+                ));
+
 		pause(20);
 		say(room06_secret, "Oh, I see. That's a good one.");
 		say(room06_secret, "Nevertheless, your efforts are useless. You won't be able to bypass the security mechanisms.");
