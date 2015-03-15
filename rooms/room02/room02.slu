@@ -393,6 +393,10 @@ objectType room02_superior("superior")
 	}
 }
 
+sub whatThe() {
+	say(ego, "What the...?");
+}
+
 objectType room02_cable("cable")
 {
 	event lookAt
@@ -423,9 +427,8 @@ objectType room02_cable("cable")
 			#fadeOut(); # temporary stuff
 			spawnSub(introMusicDown);
 			hideCharacter(inventoryIcon);
-			jumpCharacter(ego, 200, 600);
-
-			addOverlay('rooms/room02/undertable.png', 3787, 653);
+			jumpCharacter(ego, 3800, 768);
+			setCostume(ego, anim('ego/ego.duc', 23));
 			
 			pause(100);
 
@@ -528,7 +531,9 @@ objectType room02_cable("cable")
 			pause(15);
 			spawnSub(aa);
 			
-			pause(320);
+			pause(100);
+			spawnSub(whatThe);
+			pause(220);
 			
 			addScreenRegion(room02_talkBox, 3342, 137, 3342, 137, 0, 0, 0);
 			
@@ -556,9 +561,8 @@ objectType room02_cable("cable")
 
 			pause(20);
 
-			addOverlay('rooms/room02/room02.png', 0, 0);
-
 			jumpCharacter(ego, 3800, 730);
+			setCostume(ego, makeEgoAnim());
 			
 			pause(35);
 			showCharacter(inventoryIcon);
