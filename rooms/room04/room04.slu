@@ -101,13 +101,21 @@ objectType room04_window("window bars")
 		if (room04_lookedAtDoor == TRUE) {
 			say(ego, "Hmm... I've got an idea that's so stupid I really want to try it.");
 			#narratorSay("Max uses strangely sharp window bars to scrape a picklock out of the potato.");
+			setCostume(ego, anim('ego/ego.duc', 20));
+			addCharacter(room04_potato, 650, 325, anim('iface/mushroom.duc', 11));
+			setCharacterExtra(room04_potato, FIXEDSIZE);
+
 			playSound('rooms/room04/scratch.ogg');
 			pause(50);
 			playSound('rooms/room04/scratch.ogg');
 			pause(20);
 			narratorSay("Hours later...");
+			setCostume(room04_potato, anim('iface/mushroom.duc', 10));
+
 			playSound('rooms/room04/scratch.ogg');
 			pause(60);
+			removeCharacter(room04_potato);
+			setCostume(ego, makeEgoAnim());
 			say(ego, "Aha! A potato picklock!");
 			deleteFromStack(inventory, item_potato);
 			pushToStack(inventory, item_picklock);

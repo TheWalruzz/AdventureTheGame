@@ -174,6 +174,7 @@ sub room02()
 	
 	if (DEBUG) {
 		pushToStack(inventory, item_ropeFullyCombined);
+		pushToStack(inventory, item_ropeWithBook);
 	}
 	
 }
@@ -293,7 +294,7 @@ objectType room02_bcTransition("go")
 		else if(room02_part == "c")
 		{
 			if(! room02_crossedCB)
-				addCharacter(room02_superior, 1950, 681, anim('rooms/room02/superior.duc', 0));
+				addCharacter(room02_superior, 1950, 681, costume(anim('rooms/room02/superior.duc', 0), anim('rooms/room02/superior.duc', 0), anim('rooms/room02/superior.duc', wait(1, 4), wait(0, 4))));
 		
 			if (DEBUG) {
 				jumpCharacter(ego, 2650, getObjectY(ego));
@@ -695,7 +696,7 @@ objectType room02_newspaper("newspaper")
 
 	event walkToPerson
 	{
-		moveCharacter(ego, 4000-68, 730);
+		moveCharacter(ego, 4000-68, 700);
 		turnCharacter(ego, EAST);
 	}
 	
@@ -703,10 +704,29 @@ objectType room02_newspaper("newspaper")
 	{
 		moveCharacter(ego, 4096, 700);
 		turnCharacter(ego, EAST);
-		narratorSay("Max throws the book attached on a rope towards the newspaper.");
-		removeCharacter(room02_newspaper);
+		#narratorSay("Max throws the book attached on a rope towards the newspaper.");
+		setCostume(ego, anim('ego/ego.duc', 21));
+		pause(15);
+		setCostume(ego, makeEgoAnim());
 		playSound('rooms/room02/book.ogg');
-		narratorSay("It sticks to the book thanks to the gum.");
+		addCharacter(room02_book, 4040, 558, anim('rooms/room02/booknew.duc', 1));
+                setCharacterExtra(room02_book, FIXEDSIZE + RECTANGULAR);
+		pause(40);
+		forceCharacter(ego, 3980, 700);
+
+		pause(5);
+                setCostume(ego, anim('ego/ego.duc', 19));
+                pause(10);
+		playSound('rooms/room02/rope.ogg');
+		pause(10);
+                setCostume(ego, makeEgoAnim());
+
+		removeCharacter(room02_newspaper);
+		removeCharacter(room02_book);
+
+		pause(30);
+
+		#narratorSay("It sticks to the book thanks to the gum.");
 		say(ego, "It worked!");
 		
 		room02_newspaperTaken = TRUE;
@@ -717,10 +737,29 @@ objectType room02_newspaper("newspaper")
 	{
 		moveCharacter(ego, 4096, 700);
 		turnCharacter(ego, EAST);
-		narratorSay("Max throws the book attached on a rope towards the newspaper.");
-		playSound('rooms/room02/book.ogg');
-		narratorSay("Unfortunately, it slided from the shelf without taking the newspaper with it.");
-		say(ego, "Darmn... If only I had something sticky...");
+
+                setCostume(ego, anim('ego/ego.duc', 21));
+                pause(15);
+                setCostume(ego, makeEgoAnim());
+                playSound('rooms/room02/book.ogg');
+                addCharacter(room02_book, 4040, 558, anim('rooms/room02/booknew.duc', 1));
+                setCharacterExtra(room02_book, FIXEDSIZE + RECTANGULAR);
+                pause(40);
+                forceCharacter(ego, 3980, 700);
+
+                pause(5);
+                setCostume(ego, anim('ego/ego.duc', 19));
+                pause(10);
+                playSound('rooms/room02/rope.ogg');
+                pause(10);
+                setCostume(ego, makeEgoAnim());
+
+                removeCharacter(room02_book);
+
+                pause(30);
+
+		say(ego, "Darmn... It slided.");
+		say(ego, "If only I had something sticky...");
 	}
 	
 	event item_rope

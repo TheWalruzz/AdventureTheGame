@@ -197,6 +197,11 @@ objectType room01_secretary("receptionist")
 			
 			pause(10);
 
+			setCostume(ego, costume(anim('ego/ego.duc', 18), anim('ego/ego.duc', 18), anim('ego/ego.duc', wait(17, 4), wait(18, 4))));
+			turnCharacter (ego, SOUTH);
+
+			pause(10);
+
 			playSound('rooms/room01/phone.ogg');
 
 			pause(90);
@@ -239,6 +244,8 @@ objectType room01_secretary("receptionist")
 			say(room01_phonecall, "Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definetely him!");
 			say(room01_phonecall, "See it with your own eyes, man!");
 			pause(25);
+
+			setCostume(ego, makeEgoAnim());
 			
 			removeScreenRegion(room01_phonecall);
 			
@@ -249,6 +256,11 @@ objectType room01_secretary("receptionist")
 		else if (room01_talkedToRebels && (afterPrison == FALSE)) {
 			say(ego, "Could I use the phone again?");
 			say(room01_secretary, "Dammit, fine, but keep it short!");
+			pause(10);
+
+			setCostume(ego, costume(anim('ego/ego.duc', 18), anim('ego/ego.duc', 18), anim('ego/ego.duc', wait(17, 4), wait(18, 4))));
+			turnCharacter (ego, SOUTH);
+
 			pause(10);
 
 			playSound('rooms/room01/phone.ogg');
@@ -294,7 +306,7 @@ objectType room01_secretary("receptionist")
 				
 				deleteChoicesByValue(rep);
 			}
-			
+			setCostume(ego, makeEgoAnim());			
 			removeScreenRegion(room01_phonecall);
 			
 		}

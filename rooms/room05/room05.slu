@@ -204,9 +204,10 @@ objectType room05_safe("safe")
 		pause(30);
 		say(room05_director, "Security!");
 		pause(5);
-		addCharacter(room05_security, 112, 650, anim('rooms/room05/security.duc', 0));
+		addCharacter(room05_security, 112, 650, costume(anim('rooms/room05/security.duc', 1), anim('rooms/room05/security.duc', 1), anim('rooms/room05/security.duc', wait(0, 4), wait(1, 4))));
 		setCharacterExtra(room05_security, FIXEDSIZE);
 		turnCharacter(ego, WEST);
+                pause(10);
 		say(room05_security, "You're coming with me, son.");
 		
 		fadeOut();

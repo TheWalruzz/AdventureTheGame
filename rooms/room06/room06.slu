@@ -80,7 +80,7 @@ sub room06()
 	setCharacterExtra(room06_secret, FIXEDSIZE);
 
 	addScreenRegion(room06_exit, 0, 0, 50, 768, 75, 670, WEST);
-	addScreenRegion(room06_tray, 396, 65, 545, 121, 340, 690, EAST);
+	addScreenRegion(room06_tray, 396, 65, 545, 121, 280, 750, EAST);
 	
 	# REMEMBER TO CHECK FOR LOCKED TRAY AND OPENED LID AND SOLVED PUZZLES!
 	
@@ -97,20 +97,20 @@ sub room06()
 	if (room06_lidOpen) {
 		addOverlay('rooms/room06/room06open.png', 0, 0);
 		
-		addScreenRegion(room06_lid, 396, 230, 545, 321, 340, 690, EAST);
+		addScreenRegion(room06_lid, 396, 230, 545, 321, 350, 760, EAST);
 		
 		if (room06_accessCode == FALSE) {
-			addScreenRegion(room06_secCode, 436, 174, 460, 200, 340, 690, EAST);
+			addScreenRegion(room06_secCode, 436, 174, 460, 200, 350, 760, EAST);
 		}
 		if (room06_accessPuzzle == FALSE) {
-			addScreenRegion(room06_secPuzzle, 466, 180, 490, 207, 340, 690, EAST);
+			addScreenRegion(room06_secPuzzle, 466, 180, 490, 207, 350, 760, EAST);
 		}
 		if (room06_accessReader == FALSE) {
-			addScreenRegion(room06_secReader, 495, 185, 520, 220, 340, 690, EAST);
+			addScreenRegion(room06_secReader, 495, 185, 520, 220, 350, 760, EAST);
 		}
 	} else {
-		addScreenRegion(room06_lid, 396, 165, 545, 221, 340, 690, EAST);
-		addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
+		addScreenRegion(room06_lid, 396, 165, 545, 221, 350, 760, EAST);
+		addScreenRegion(room06_powerButton, 484, 246, 515, 309, 360, 695, EAST);
 	}
 
 
@@ -228,8 +228,11 @@ objectType room06_powerButton("power button")
 	}
 	
 	event interactWith
-	{		
+	{
+		setCostume(ego, anim('ego/ego.duc', 22));
 		playSound('rooms/room06/button.ogg');
+		pause(20);
+		setCostume(ego, makeEgoAnim());
 		if (room06_buttonActive == TRUE) {
 
 
@@ -240,7 +243,7 @@ objectType room06_powerButton("power button")
 			spawnSub(secretMusicDown);
 
                         skipSpeech();
-			pause(120);
+			pause(100);
 
 			setCursor(NULL);
 			narratorSay("Congratulations! You won!");
@@ -334,7 +337,7 @@ objectType room06_powerButton("power button")
 			return;
 		} else {
 			#narratorSay("Max pushes the button.");
-			pause(50);
+			pause(30);
 			
 			say(ego, "Nothing happened...");
 			say(room06_secret, "Hahaha! You thought turning me off will be that easy?");
@@ -360,6 +363,11 @@ objectType room06_secret("") # just for talking
 	speechColor 200, 200, 200;
 }
 
+sub defaultCostume() {
+	pause(10);
+	setCostume(ego, makeEgoAnim());
+}
+
 objectType room06_lid("lid")
 {
 	event lookAt {
@@ -378,8 +386,8 @@ objectType room06_lid("lid")
 				
 				
 				removeScreenRegion(room06_lid);
-				addScreenRegion(room06_lid, 396, 165, 545, 221, 340, 690, EAST);
-				addScreenRegion(room06_powerButton, 484, 246, 515, 309, 340, 690, EAST);
+				addScreenRegion(room06_lid, 396, 165, 545, 221, 350, 760, EAST);
+				addScreenRegion(room06_powerButton, 484, 246, 515, 309, 360, 695, EAST);
 				
 				removeScreenRegion(room06_secCode);
 				removeScreenRegion(room06_secPuzzle);
@@ -387,23 +395,29 @@ objectType room06_lid("lid")
 				
 				
 				room06_lidOpen = FALSE;
+
+				setCostume(ego, anim('ego/ego.duc', 19));
+				spawnSub(defaultCostume); # workaround for disappearing broom in secret's tray
 			} else {
+				setCostume(ego, anim('ego/ego.duc', 19));
+				pause(10);
+				setCostume(ego, makeEgoAnim());
 				playSound('rooms/room06/lidopen.ogg');
 				addOverlay('rooms/room06/room06.png', 0, 0);
 				addOverlay('rooms/room06/room06open.png', 0, 0);
 				
 				removeScreenRegion(room06_lid);
 				removeScreenRegion(room06_powerButton);
-				addScreenRegion(room06_lid, 396, 230, 545, 321, 340, 690, EAST);
+				addScreenRegion(room06_lid, 396, 230, 545, 321, 350, 760, EAST);
 				
 				if (room06_accessCode == FALSE) {
-					addScreenRegion(room06_secCode, 436, 174, 460, 200, 340, 690, EAST);
+					addScreenRegion(room06_secCode, 436, 174, 460, 200, 350, 760, EAST);
 				}
 				if (room06_accessPuzzle == FALSE) {
-					addScreenRegion(room06_secPuzzle, 466, 180, 490, 207, 340, 690, EAST);
+					addScreenRegion(room06_secPuzzle, 466, 180, 490, 207, 350, 760, EAST);
 				}
 				if (room06_accessReader == FALSE) {
-					addScreenRegion(room06_secReader, 495, 185, 520, 220, 340, 690, EAST);
+					addScreenRegion(room06_secReader, 495, 185, 520, 220, 350, 760, EAST);
 				}
 				
 				room06_lidOpen = TRUE;
@@ -412,10 +426,15 @@ objectType room06_lid("lid")
 				addOverlay('rooms/room06/room06blocked.png', 0, 0);
 			}
 		} else {
-			narratorSay("Max reaches out to open the lid...");
+			#narratorSay("Max reaches out to open the lid...");
+			setCostume(ego, anim('ego/ego.duc', 19));
+			pause(10);
 			playSound('rooms/room05/drawer-close.ogg');
-			say(room06_secret, "Not so fast! Keep your hands away from me!");
-			narratorSay("...but SECRET's moving tray almost ripped off his fingers!");
+			setCostume(ego, makeEgoAnim());
+			say(room06_secret, "Not so fast!");
+			say(ego, "Ouch!");
+			say(room06_secret, "Keep your hands away from me!");
+			#narratorSay("...but SECRET's moving tray almost ripped off his fingers!");
 		}
 	}
 	
@@ -426,11 +445,14 @@ objectType room06_tray("tray")
 	event item_broom {
 		say(ego, "Hey, SECRET!");
 		say(room06_secret, "Yes, naive human?");
-		narratorSay("Max throws the broom at the lid.");
+		#narratorSay("Max throws the broom at the lid.");
+		setCostume(ego, anim('ego/ego.duc', 21));
+		pause(15);
+		setCostume(ego, makeEgoAnim());
 		playSound('rooms/room06/broom.ogg');
 		deleteFromStack(inventory, item_broom);
 		addOverlay('rooms/room06/room06blocked.png', 0, 0);
-		
+		pause(20);
 		say(room06_secret, "Oh, I see. That's a good one.");
 		say(room06_secret, "Nevertheless, your efforts are useless. You won't be able to bypass the security mechanisms.");
 		say(ego, "Thanks for your support! I'll keep trying anyway.");
