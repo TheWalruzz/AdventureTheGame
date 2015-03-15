@@ -40,10 +40,10 @@ sub makeEgoAnim () {
 		anim ('ego/ego.duc', wait (7, 4), wait (8, 4), wait (9, 4), wait (10, 4)),
 		anim ('ego/ego.duc', wait (11, 4), wait (12, 4), wait (13, 4), wait (14, 4)),
 		# TALKING
-		anim('ego/ego.duc', wait(0, 4), wait(15, 4)),
-		anim('ego/ego.duc', wait(-2, 4), wait(-16, 4)),
+		anim('ego/ego.duc', wait(0, 5), wait(15, 4), wait(0, 3), wait(15, 6)),
+		anim('ego/ego.duc', wait(-2, 5), wait(-16, 4), wait(-2, 3), wait(-16, 6)),
 		anim('ego/ego.duc', 1),
-		anim('ego/ego.duc', wait(2,4), wait(16, 4))
+		anim('ego/ego.duc', wait(2, 5), wait(16, 4), wait(2, 3), wait(16, 6))
    	);
 }
 
