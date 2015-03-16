@@ -325,7 +325,8 @@ objectType room02_coffeeMachine("coffee machine")
 				pause(25);
 				say(ego, "Maybe I should try it.");
 				pause(25);
-				say(ego, "*slurp* *slurp*");
+				playSound('rooms/room02/slurp.ogg');
+				think(ego, "*slurp* *slurp*");
 				pause(50);
 				
 				say(ego, "Hmmmmm! It makes me feel great. Smarter! More aggresive!");
