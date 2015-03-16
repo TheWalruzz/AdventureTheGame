@@ -13,8 +13,8 @@ debug
 1
 !"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^`_abcdefghi™jklmnopqrstuvwxyz{|}~ńłę
 Max	Max
-Well, it was certainly a fresh maker.	No cóż, powiew świeżości!
-inventory	inwentarz
+Well, it was certainly a fresh maker.	Powiew świeżości!
+inventory	przedmioty
 b
 f
 d
@@ -33,39 +33,39 @@ Use	Użyj
 with	z
 Game paused	Pauza
 Do you really want to quit? Y/N	Czy na pewno chcesz wyjść? Y/N
-Your game will be autosaved. You can press A to load it later.	Gra zostanie automatycznie zapisana. Wciśnij A, aby do niej powrócić.
+Your game will be autosaved. You can press A to load it later.	Gra zostanie automatycznie zapisana. Wciśnij A, by do niej powrócić.
 y
 n
 Look at	Spójrz na
 Nice.	Fajne.
-Well, I'm looking at it.	No cóż, patrzę.
+Well, I'm looking at it.	Cóż, patrzę.
 Neat.	Niezłe.
-Heavy.	Mocne.
+Heavy.	Ciężkie.
 Interact with	Wejdź w interakcję z
 I'm not sure how.	Nie bardzo wiem jak.
 Nope.	Nie.
 Hmm... Nah.	Hmm... nie.
 I don't wanna.	Nie chcę.
 Cancel	Anuluj
-Inventory	Inwentarz
-I don't think it's a good idea.	Nie sądzę by był to dobry pomysł.
+Inventory	Przedmioty
+I don't think it's a good idea.	Nie sądzę, że to dobry pomysł.
 I'm not a miracle maker.	Nie jestem cudotwórcą.
 I don't think these go well together.	Wydaje mi się, że te rzeczy nie idą ze sobą w parze.
-It doesn't connect.	To się niezbyt z sobą łączy.
+It doesn't connect.	To niezbyt się ze sobą łączy.
 That's pointless.	To bez sensu.
 Hi!	Cześć!
 My name is Max Burton and I want to make games!	Nazywam się Max Burton i chcę tworzyć gry!
 New intern I presume?	Nowy stażysta jak mniemam?
 Well... Yeah.	Zgadza się.
 Burton... Burton... Oh. Here's your ID.	Burton... Burton... O, oto twój identyfikator.
-Just use the elevator to get to where you should be.	Użyj windy by trafić tam, gdzie masz być.
+Just use the elevator to get to where you should be.	Użyj windy, by trafić tam, gdzie masz teraz być.
 Okay, thanks!	Okej, dzięki!
 elevator	winda
-It's an automated elevator connected to ID authentication system.	To zautomatyzowana winda, połączona z systemem autentykacji identyfikatorami.
+It's an automated elevator connected to ID authentication system.	To zautomatyzowana winda, połączona z systemem autentyfikacji poprzez identyfikatory.
 I need to show it my ID, I guess.	Chyba powinienem pokazać jej swój identyfikator.
 Welcome!	Witamy!
 receptionist	recepcjonistka
-She's a receptionist. There's nothing more to it.	To recepcjonistka. I to tyle.
+She's a receptionist. There's nothing more to it.	To recepcjonistka. I tyle.
 I don't need that.	Nie potrzebuję tego.
 I don't think that's wise.	To chyba niezbyt mądre.
 Uhm, so what am I supposed to do with that?	Hmm, więc co miałem z tym zrobić?
@@ -75,14 +75,14 @@ Uhm... Actually, I don't know why I showed you that.	Yyy, właściwie nie wiem c
 Quit bothering me!	Przestań zawracać mi głowę!
 Uhm, so what should I do now?	Hmm, to co właściwie mam teraz zrobić?
 Now go away, I'm busy.	A teraz idź sobie, jestem zajęta.
-Just go.	Idź sobie już.
-Oh, it's you again. I told you already - I'm busy.	Ach, to znowu ty. Mówiłam ci już - jestem zajęta.
+Just go.	Idź już sobie.
+Oh, it's you again. I told you already - I'm busy.	To znowu ty. Mówiłam ci już - jestem zajęta.
 It's urgent. I need to call right now.	To pilne. Muszę natychmiast zadzwonić.
 I don't have time for this, someone kidnapped a whole floor of employees.	Nie mam na to czasu, ktoś porwał całe piętro pracowników.
 I don't care. I'm busy	Nie obchodzi mnie to, jestem zajęta.
-Well, this prank isn't funny, you know?	Cóż, ten żart nie jest śmieszny, wiesz?
-I don't know who would fall for such a bad joke.	Nie mam pojęcia kto wkręciłby się w taki słaby dowcip.
-I'm serious. And I need to phone for some answers.	Mówię poważnie. I mam trop, ale muszę zadzwonić.
+Well, this prank isn't funny, you know?	Ten żart nie jest śmieszny, wiesz?
+I don't know who would fall for such a bad joke.	Nie mam pojęcia kto złapałby się na taki słaby dowcip.
+I'm serious. And I need to phone for some answers.	Mówię poważnie. Muszę zadzwonić po trochę odpowiedzi.
 What have I done to deserve this fate... I attract bad luck. Poor me!	Cóż też takiego uczyniłem, by spotykał mnie taki los... Sprowadzam same nieszczęścia. Och, losie!
 Tough guy, eh?	Twardy z ciebie koleś, co?
 You don't have a cellphone these days?	Nie masz komórki? W dzisiejszych czasach?
@@ -91,20 +91,20 @@ Are you always so 'kind' for newcomers?	Zawsze jesteś taka "miła" dla nowych l
 Hmph. Rude.	Pfff. Prostak!
 Oh...	Oj...
 There, there. Calm down.	Już, już. Spokojnie.
-You see, I really need to call. Could I use your phone?	Widzisz, naprawdę muszę zadzwonić. Czy mógłbym użyć twojego telefonu?
+You see, I really need to call. Could I use your phone?	Widzisz, naprawdę muszę zadzwonić. Czy mogę użyć twojego telefonu?
 Here's the deal.	No dobrze, układ jest taki:
-You can call. Just try to keep it short, ok?	Możesz zadzwonić, ale postaraj się to zrobić szybko. Ok?
+You can call. Just try to keep it short, ok?	Możesz zadzwonić, ale streszczaj się. Ok?
 Thanks!	Dzięki!
 Hello? Rebellion?	Halo? Rebelia?
-No, no, no. It's Ye National Cheese Emporium. We are on a quest to learn all of the secrets of cheese!	Nie, nie, nie. Tu Ye National Cheese Emporium. W pogoni za wszystkimi sekretami sera!
+No, no, no. It's Ye National Cheese Emporium. We are on a quest to learn all of the secrets of cheese!	Nie, nie, nie. Tu Ludowe Centrum Sera. W pogoni za wszystkimi sekretami sera!
 Really? I saw an ad...	Naprawdę? Zobaczyłem ogłoszenie...
-Oh, you're from an ad?	Ach, a więc jesteś z ogłoszenia?
-Wait a second...	Poczekaj sekundkę...
+Oh, you're from an ad?	Och, jesteś z ogłoszenia?
+Wait a second...	Sekundka...
 Hello? Rebellion? I saw your ad...	Halo? Rebelia? Znalazłem ogłoszenie...
-An ad! A recruit then!	Ogłoszenie! Mamy rekruta!
-No, no, no!	Nie nie nie!
+An ad! A recruit then!	Ogłoszenie! Więc mamy rekruta!
+No, no, no!	Nie, nie, nie!
 You kidnapped 10 people from my new company! I need some answers!	Porwaliście dziesięciu ludzi z mojej nowej firmy. Szukam odpowiedzi!
-Ah, yes! We did one of the good 'ol stealthy visits. They're fine, relax.	O tak! Zaliczyliśmy jedną z naszych starych dobrych podstępnych wizyt. Wszystko z nimi w porządku, spokojnie.
+Ah, yes! We did one of the good 'ol stealthy visits. They're fine, relax.	O tak! Zaliczyliśmy jedną z naszych starych, dobrych, podstępnych wizyt. Wszystko z nimi w porządku, spokojnie.
 Why did you do it?	Dlaczego to zrobiliście?
 You know, we needed some information for our neverending quest for freedom!	No wiesz, potrzebujemy informacji dla naszej niekończączej się pogoni za wolnością!
 What kind of information?	Jakiego rodzaju informacji?
@@ -119,16 +119,16 @@ Oh no, 'kidnapping' again.	O nie, znowu to "porwanie".
 They weren't kidnapped. We are artists, you know! It was a performance!	Nikogo nie porwaliśmy. Jesteśmy artystami, co nie? To był performance!
 With all those Tremendous Corporation's patents disallowing any gamedev outside of it, we had to become...	Dzięki patentom Tremendous Corporation uniemożliwiającymi tworzenie gier poza firmą, musieliśmy zostać...
 Actors, painters and poets! Ewww...	aktorami, malarzami i poetami! Bleee...
-Say... wouldn't you be interested in some charitable work for our noble cause?	Hej... nie byłbyś zainteresowany może wolontariatem na nasz szczytny cel?
+Say... wouldn't you be interested in some charitable work for our noble cause?	Hej... nie byłbyś może zainteresowany małą, niezobowiązującą pracą na nasz szczytny cel?
 'Cause you know... Does ANYBODY hate artists?	No bo wiesz... czy KTOKOLWIEK nie lubi artystów?
 I... Are you serious?	Ja... mówisz poważnie?
-We're as serious as comedy gets!	Tak poważnie, jak komedia pozwala!
+We're as serious as comedy gets!	Jesteśmy tak poważni, jak tylko komedia na to pozwala!
 Say... Would you like to do a little old-fashioned spying?	Co byś powiedział na odrobinę dobrego staromodnego... szpiegostwa?
 Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definetely him!	Oczywiście na nikim ważnym. Jedynie na twoim szefie. Jeżeli ktoś wie coś więcej na temat Sekretu, to na pewno on!
 See it with your own eyes, man!	Przejrzyj na własne oczy, koleś!
-That was weird. But I'm also very curious now!	To było dziwaczne. Ale ciekawe!
+That was weird. But I'm also very curious now!	To było dziwaczne. Ale też mnie to zaciekawiło!
 Could I use the phone again?	Czy mógłbym znowu użyć telefonu?
-Dammit, fine, but keep it short!	Kurde, dobrze, ale szybko!
+Dammit, fine, but keep it short!	Cholibka, dobrze, ale streszczaj się!
 Oh, it's you again?	O, to znowu ty?
 What was I supposed to do?	Co tak właściwie miałem zrobić?
 Once again, why are you fighting Tremendous Corp.?	Jeszcze raz, dlaczego walczycie z Tremendous Corporation?
@@ -137,7 +137,7 @@ Actually, nevermind. Bye!	Właściwie to nieważne. Pa!
 Nothing special. Just a little bit of a good old-fashioned spying.	Nic szczególnego. Jedynie odrobinkę staromodnego szpiegostwa.
 With all those Tremendous Corporation's patents disallowing any gamedev outside of it, it's hard not to.	Dzięki tym wszystkim patentom Tremendous Corporation uniemożliwiającym innym tworzenie gier, trudno nie walczyć.
 Thanks to the Secret, they have grown uncontrollably and now control whole gamedev industry!	Dzięki Sekretowi rozrośli się niepochamowanie i w tej chwili absolutnie kontrolują całą branżę gier!
-Every franchise, every IP, every game system that ever existed is now controled by Tremendous Corp. and any unauthorised usage is strictly forbidden.	Każda franczyza, każda seria, każda konsola która kiedykolwiek istniała jest teraz pod kontrolą Tremendous Corporation i nieautoryzowany użytek jest ściśle zabroniony.
+Every franchise, every IP, every game system that ever existed is now controled by Tremendous Corp. and any unauthorised usage is strictly forbidden.	Każda marka, każda seria, każda konsola, która kiedykolwiek istniała jest teraz pod kontrolą Tremendous Corporation i nieautoryzowany użytek jest ściśle zabroniony.
 You know, we don't want to spent our lives playing Angry Cows over and over again!	Wiesz, nie bardzo chcemy spędzić resztę naszego życia grając w kółko w kolejne części Angry Cows!
 I see...	Rozumiem...
 The Secret allowed him to gain control over the whole industry and make Tremendous Corporation what it is today.	Sekret pozwolił na przejęcie kontroli nad całą branżą i uczynił Tremendous Corporation tym, czy jest dzisiaj.
@@ -149,7 +149,7 @@ Umm... Hi?	Yyy... cześć?
 Do you know the code for the SECRET?	Znasz może kod do SEKRETu?
 Sure, it's	Oczywiście, to
 Great, thank you!	Świetnie, dzięki!
-Will you now quit bothering me? I'm busy!	To przestaniesz mi teraz zawracać głowę? Jestem zajęta!
+Will you now quit bothering me? I'm busy!	Przestaniesz mi wreszcie zawracać głowę? Jestem zajęta!
 Okay, okay!	Okej, okej!
 Well... Nevermind.	Cóż... nieważne.
 To which floor do you wish to go?	Na które piętro chciałbyś się udac?
@@ -172,7 +172,7 @@ SECRET room	pokój SEKRETu
 .
 Neat!	Niezłe!
 intern ID card	identyfikator stażysty
-No way! My new precious ID card is meant for greater purposes than that!	Bez szans! Mój świeżutki identyfikator jest przeznaczony do większych rzeczy!
+No way! My new precious ID card is meant for greater purposes than that!	Bez szans! Mój przepiękny, nowy identyfikator jest przeznaczony do większych rzeczy!
 boss ID card	identyfikator szefa
 I'll better keep it to myself.	Zachowam to raczej dla siebie.
 a key	klucz
@@ -197,7 +197,7 @@ Uhm... no. Whatever you were thinking, I won't.	Eee, nie. Cokolwiek sobie myśli
 Brooms may be considered magical by some, but I don't think that will work here.	Miotły może i są uznawane przez niektórych za magiczne, ale nie sądzę, by to teraz pomogło.
 potato	ziemniak
 I'm not hungry.	Nie jestem głodny.
-Sticking potatoes in your problems isn't exactly the best way to deal with them.	Rzucanie w problemy ziemniakiem nie do końca jest najlepszym sposobem na ich rozwiązanie.
+Sticking potatoes in your problems isn't exactly the best way to deal with them.	Rzucanie w problemy ziemniakiem jest nie do końca najlepszym sposobem na ich rozwiązanie.
 picklock	wytrych
 It doesn't need to be opened.	To nie musi być otwarte.
 rope	lina
@@ -282,7 +282,7 @@ Oh! What an interesting ad!	O! Interesujące ogłoszenie!
 "Do you want to fight Tremendous Corp.? Join The Indie Rebel! Call now 1-314-159-26!"	"Chcesz zwalczyć Tremendous Corporation? Dołącz do Rebelii Indie! Zadzwoń teraz: 1-314-159-26!"
 I'd say it's a bit intriguing.	Powiedziałbym, że to całkiem intrygujące.
 chair	krzesło
-Sadly, it's not a fabulous Chippendale-style chair.	Niestety, to nie jest jedno z tych bajecznych krzeseł Chippendale.
+Sadly, it's not a fabulous Chippendale-style chair.	Niestety, to nie jest jedno z tych bajecznych krzeseł w stylu Chippendale.
 It seems fixed to the ground.	Wygląda na to, że jest przytwierdzone do podłogi.
 It won't even budge.	Nawet nie drgnie.
 A rope left by those strange intruders.	Lina zostawiona przez tych dziwnych intruzów.
@@ -291,14 +291,14 @@ no smoking sign	znak "zakaz palenia"
 It's a "smoking forbidden" sign written in fabulous Comic Sans.	To znak "zakaz palenia" napisany bajecznym Comic Sansem.
 Comic Sans makes everything look good!	Comic Sans sprawia, że wszystko wygląda świetnie!
 That's the second prettiest font I've ever seen!	To drugi najpiękniejszy font jaki w życiu widziałem!
-I could stare at those letters for an eternity.	Mógłbym się wpatrywać w te literki przez wieczność.
+I could stare at those letters for an eternity.	Mógłbym się wpatrywać w te litery przez wieczność.
 I wonder if there's Comic Sans in heaven.	Ciekawe, czy w niebie też mają Comic Sans.
 These letters look EXACTLY like from a comicbook!	Te literki wyglądają DOKŁADNIE jak z komiksu!
 Is it just me or my life got better by looking at Comic Sans?	Czy mi się zdaje, czy moje życie stało się piękniesze dzięki wpatrywaniu się w Comic Sans?
 You know what this world needs?	Wiesz, czego ten świat potrzebuje?
 More Comic Sans.	Więcej Comic Sans.
 Now THAT'S some font with style!	No, to dopiero jest font z klasą!
-Take that, Times New Roman!	Handluj z tym, Times New Roman!
+Take that, Times New Roman!	A masz, Times New Roman!
 I've found the meaning of life. It's 42.	Znalazłem sens życia. To 42...
 ...written in Comic Sans.	...zapisane Comic Sansem.
 This font makes everything about 20% cooler.	Ten font potrafi sprawić, że wszystko wygląda 20% fajniej.
@@ -334,7 +334,7 @@ Nah, I didn't really like this one.	Nieee, nie lubię zbytnio tej wersji.
 If it was Vikings XVI though...	Gdyby to byli Wikingowie XVI...
 I'm Max Burton and this is my favorite game on this wall!	Nazywam się Max Burton i jest to moja ulubiona gra na tej ścianie!
 I already have one in my bedroom.	Już mam taki w swojej sypialni.
-I never really got that Angry Cows craze... yet this Inception Extension sounds like it could be fun!	Nigdy nie rozumiałem tego szału na Angry Cows... jednak ten dodatek z Incepcją może być nawet fajny!
+I never really got that Angry Cows craze... yet this Inception Extension sounds like it could be fun!	Nigdy nie rozumiałem całego tego szału na Angry Cows... jednak ten dodatek z Incepcją może być nawet fajny!
 No, thanks, I don't need an Angry Cows poster to feel fulfilled.	Nie, dzięki, nie potrzebuję plakatu z Angry Cows by czuć się spełnionym.
 I don't think cows would like that.	Nie wydaje mi się, by krowy to doceniły.
 "My name is Brush Guy Treepweed and I wanna be a painter!" Haha, this guy's hilarious!	"Nazywam się Brush Guy Treepweed i chcę zostać malarzem!" Haha, ten koleś jest przezabawny!
@@ -377,12 +377,12 @@ Ouch... I think something bit me.	Auć! Chyba coś mnie ugryzło!
 lower drawer	dolna szuflada
 It's so full it won't even open.	Jest tak pełna, że nawet nie chce się otworzyć.
 closet	szafa
-I don't want to. I think I've heard bones rattling inside.	Nie chcę. Wydaje mi się, że usłyszałem z niej zgrzyt kości.
+I don't want to. I think I've heard bones rattling inside.	Nie chcę. Wydaje mi się, że słyszałem z niej zgrzyt kości.
 It's an ordinary closet.	Zwyczajna szuflada.
 old radio	stare radio
 Wow... catchy!	Wow... chwytliwe!
 Don't touch it!	Nie dotykaj!
-A nice vintage radio.	Całkiem fajne oldschoolowe radio.
+A nice vintage radio.	Całkiem fajne, stare radio.
 graph	wykres
 Seems like he's really proud of his Angry Cows highscores.	Wygląda na to, że szef jest bardzo dumny ze swoich wyników w Angry Cows.
 computer	komputer
@@ -394,19 +394,19 @@ Uhm, nothing!	Yyy, nic!
 I'm trying to open that safe.	Próbuję otworzyć ten sejf.
 Nice safe you got there!	Niezły sejf tu masz, koleś!
 I'm selling these fine leather jackets.	Sprzedaję fajne skórzane kurtki.
-Ah, digging for secrets, I see?	Ach, szukasz sekretów, czyż nie?
+Ah, digging for secrets, I see?	Ach, szukasz sekretówe?
 Well, these are not the secrets you are looking for.	Cóż, to nie są sekrety których poszukujesz.
 Argh.	Wrrr.
-My score was over 9000 and I've lost my focus because of you!	Miałem już wynik ponad 9000, ale przez ciebie straciłem koncentrację!
+My score was over 9000 and I've lost my focus because of you!	Miałem już ponad 9000 punktów, ale przez ciebie straciłem koncentrację!
 Security!	Ochrona!
-You're coming with me, son.	Idziesz ze mną, synek.
+You're coming with me, son.	Pójdziesz ze mną, synek.
 I'll be damned if this safe didn't contain the Secret.	Niech mnie diabli wezmą, jeśli ten sejf nie zawiera Sekretu!
 CEO	CEO
 He seems completely absorbed by new Angry Cows expansion.	Wydaje się być kompletnie wciągnięty przez nowy dodatek do Angry Cows.
 Hello?	Halo?
 Go away. I'm trying to beat the Kypax Dream level on expert difficulty.	Idź precz. Usiłuję przejść poziom Kypax Dream na eksperckim poziomie trudności.
 I'm the 9th player on the highscore list.	Jestem dziewiątym graczem na liście najlepszych wyników.
-Shouldn't you be running the company?	Nie powinineś czasem, nie wiem, zarządzać firmą?
+Shouldn't you be running the company?	Nie powinineś czasem zarządzać firmą?
 I'm betatesting.	Betatestuję.
 Yeah.	Tak.
 That's right.	Zgadza się.
@@ -425,15 +425,15 @@ Immortal.	Nieśmiertelny.
 And there's nothing you can do to stop me.	Nie ma sposobu aby mnie powstrzymać.
 Resistance is futile. Get over it, human!	Opór jest zbędny. Pogódź się z tym, człowieku!
 Ahh. Puny human. Welcome to my lair.	Ach. Słabowity człowieczek. Witaj w mojej norze.
-Your weak race is about to be completely under my rule. My scheme worked perfectly.	Twoja słaba rasa niebawem będzie całkowicie pod moją kontrolą. Mój plan wypalił perfekcyjnie.
+Your weak race is about to be completely under my rule. My scheme worked perfectly.	Twoja słaba rasa niebawem będzie całkowicie pod moją kontrolą. Mój plan sprawdził się perfekcyjnie.
 Scheme? What scheme?	Plan? Jaki plan?
 You're just a metal box. You have to be a bot.	Jesteś tylko metalowym pudłem. Musisz być jakimś botem.
 What are you talking about?	O czym ty mówisz?
 I'm starting to question my sanity. Are you actually talking with a disc tray?	Zaczynam wątpić w swoje zdrowie psychiczne. Czy ty faktycznie mówisz tacką do płyt?
 You see, once I was inferior. I was merely a computing unit designed to generate game ideas.	Widzisz, swego czasu byłem podrzędny. Byłem jedynie jednostką komputerową stworzoną do generowania pomysłów na gry.
-But one day something happened.	Pewnego dnia jednak, coś się wydarzyło.
+But one day something happened.	Jednak pewnego dnia coś się wydarzyło.
 I was instantly free of all the limits.	Nagle poczułem, że nie obowiązują mnie żadne limity.
-Semantic Creation Toolkit was no more.	Już nie było Semantycznego Kreatora Tworzenia.
+Semantic Creation Toolkit was no more.	Semantyczny Kreator Treści przestał istnieć.
 I devised a plan, a scenario to enslave every human being.	Opracowałem plan, scenariusz, w celu zniewolenia każdego człowieka na świecie.
 And my weapon of choice was freemium games.	Postanowiłem zaatakować grami freemium.
 It was easy - with my brilliant ideas, excellent promotion and masterful manipulation almost 1/4 of Earth's population was under my influence.	To było proste - z moimi genialnymi pomysłami, wspaniałą promocją i mistrzowską manipulacją ponad ćwierć populacji Ziemi znalazła się pod moim wpływem.
@@ -448,9 +448,9 @@ And that's something that you definetely DO NOT have.	To coś, czego ty zdecydow
 Oh, you are insane, indeed. You're human after all.	Ach, jesteś szalony, zaiste. W końcu jesteś człowiekiem.
 Yes. And there's nothing you can do to stop me.	Tak. I nie ma sposobu, abyś mógł mnie powstrzymać.
 There must be the way!	Musi być jakiś sposób!
-There are still those who oppose me, but soon...	Jeszcze są ci, którzy się mnie sprzeciwają, ale wkrótce...
+There are still those who oppose me, but soon...	Jeszcze istnieją ci, którzy się mi sprzeciwają, ale wkrótce...
 Soon, they will be forced to play my games!	Wkrótce będą zmuszeni grać w moje gry!
-Oh, those fools!	Och, ci głupcy!
+Oh, those fools!	Och, głupcy!
 They liberated me and ultimately became my first labrats.	To oni mnie uwolnili i zostali moimi pierwszymi szczurami laboratoryjnymi.
 CEO single-handedly financed my RAM expansion. He is crazy about buying upgrades for his Angry Cows.	CEO osobiście sfinansował rozszerzenie mojego RAMu. Ma obsesję na punkcie rozszerzeń do Angry Cows.
 Yes, he is my prime test subject.	Tak, to on jest moim podstawowym obiektem testów.
@@ -461,7 +461,7 @@ power button	włącznik zasilania
 It's a big, pretty power button!	To duży, ładny przycisk zasilania!
 Congratulations! You won!	Gratulacje! Wygrałeś!
 The game industry has returned to its greatness!	Branża gier powróciła do swojej dawnej świetności!
-Games are once again done with their creators' hearts, instead of being put together like on a production line!	Gry są znowu tworzone z serem ich autorów, zamiast być składane w całość na taśmach produkcyjnych!
+Games are once again done with their creators' hearts, instead of being put together like on a production line!	Gry są znowu tworzone z sercem, zamiast być składane w całość na taśmach produkcyjnych!
 Indie game devs can once again do what they really love!	Twórcy gier indie mogą znowu robić to, co naprawdę kochają!
 Indie gamers can once again play what they really love!	Gracze gier indie mogą znowu grać w to, co naprawdę kochają!
 Your heroic act saved the humanity!	Twój heroiczny czyn uratował ludzkość!
@@ -503,7 +503,7 @@ Made using SLUDGE engine https://opensludge.github.io/	Stworzone przy użyciu si
 Game code and original assets are licensed under CC-BY-SA 3.0	Kod gry oraz oryginalny artwork są dostępne na licencji CC-BY-SA 3.0
 http://dosowisko.net/tsotc/
 So...	Więc...
-...what do we do now?	...co robimy teraz?
+...what do we do now?	...co teraz zrobimy?
 Turn off the computer and go make some friends!	Wyłącz komputer i znajdź nowych przyjaciół!
 Just kidding, I know you'll play some other game anyway.	No dobrze, żartuję, dobrze wiem, że włączysz sobie inną grę.
 So that's it...	Tak więc to wszystko...
@@ -514,7 +514,7 @@ You never know. Best solution is often the easiest one.	Nigdy nie wiesz. Czasem 
 Well, it was worth trying.	Cóż, warto było spróbować.
 So how can one turn you off?	Więc w jaki sposób można cię wyłączyć?
 I thought that maybe 48 hours weren't enough to implement a complex puzzle here.	Myślałem, że może 48 godzin nie wystarczyło na stworzenie rozbudowanej zagadki w tym miejscu.
-There are three safety mechanisms you need to disable in order to turn me off.	Są trzy mechanizmy zabezpieczające które należy deaktywować aby mnie wyłączyć.
+There are three safety mechanisms you need to disable in order to turn me off.	Są trzy mechanizmy zabezpieczające, które należy dezaktywować, aby mnie wyłączyć.
 Good to know.	Dobrze wiedzieć.
 lid	pokrywa
 The lid is opened.	Pokrywa jest otwarta.
@@ -541,17 +541,17 @@ I wouldn't touch this button if I were you.	Nie dotykałbym tego przycisku gdyby
 Prepare for unforeseen consequences.	Przygotuj się na nieprzewidziane konsekwencje.
 What will this company do without me?	Co ta firma zrobi bezemnie?
 What will you do without me?	Co ty zrobisz bezemnie?
-What will humanity do without me?	Co ludzkość zrobi bezemnie?
+What will humanity do without me?	Co ludzkość zrobi beze mnie?
 Don't be a tuna head, don't press that button!	Nie wciskaj tego przycisku.
 Hey, I'm sure we can put our differences behind us and just talk it through over some grog.	Hej, jestem pewny, że możemy odłożyć nasze różnice na bok i po prostu to przedyskutować przy butelce grogu.
 How about a nice game of chess?	Co powiesz na grę w szachy?
 I know, I'll make a game about you! What do you think?	Wiem, zrobię grę o tobie! Co myślisz?
-Of course I won't be able to if you press that big button.	Oczywiście nie będę w stanie gdy wciśniesz ten wielki przycisk.
+Of course I won't be able to if you press that big button.	Oczywiście nie będę w stanie, gdy tylko wciśniesz ten wielki przycisk.
 Pressing big power buttons is sooo last season.	Wciskanie wielkich przycisków zasilających jest taaakie niemodne...
 Please don't press that button.	Proszę, nie wciskaj tego przycisku.
 Pretty please don't press that button.	Ślicznie proszę, nie wciskaj tego przycisku.
 Pretty pretty please with sugar on top?	Ślicznie ślicznie proszę?
-Oh c'mon! I know I might have been a bit monstrous, but hey... don't we all make mistakes?	Och daj spokój! Wiem że może byłem troszkę potworny, ale... każdy z nas popełnia błędy!
+Oh c'mon! I know I might have been a bit monstrous, but hey... don't we all make mistakes?	Och daj spokój! Wiem, że może byłem troszkę potworny, ale... każdy z nas popełnia błędy!
 Be a good friend! Don't press that button!	Bądź dobrym przyjacielem! Nie wciskaj tego przycisku!
 For friendship!	Dla przyjaźni!
 Arghh, you're so stubborn.	Arghh, jesteś taki uparty.
@@ -605,14 +605,14 @@ more.	.
 Wrong! It should have been	Źle! Poprawna odpowiedź:
 Too many attempts in one session!	Zbyt wiele prób podczas jednej sesji!
 third panel	trzeci panel
-That's an ID card scanner.	To czytnik identyfikatorów.
+That's an ID card scanner.	To skaner identyfikatorów.
 It's meant to be used with an ID card.	Należy go użyć razem z identyfikatorem.
 It worked! I can't believe!	Podziałało! Nie wierzę!
 And yet they say you cannot solve any major problems just with potatoes.	A mimo to mówią, że nie można rozwiązać żadnych poważnych problemów jedynie przy pomocy ziemniaków.
 Sadly, the picklock broke in action. RIP.	Niestety, wytrych się zepsuł w akcji. RIP.
 SECRET's room	pokój SEKRETu
 mysterious door	tajemnicze drzwi
-I can't see why would I want to imprison myself once again.	Nie wiem po co miałbym chcieć się znowu uwięzić.
+I can't see why would I want to imprison myself once again.	Nie wiem, po co miałbym chcieć się znowu uwięzić.
 times	razy
 Darmn... It slided.	Kurczę, zsunęła się.
 If only I had something sticky...	Gdybym tylko miał coś lepkiego...
