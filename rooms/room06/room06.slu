@@ -316,7 +316,7 @@ objectType room06_powerButton("power button")
 			say(narrator, "\"Elevator Beeping x4.wav\" by dauser");
 			say(narrator, "\"elevator inside.wav\" by Trautwein");
 			say(narrator, "\"slurping and swallowing2.wav\" by squashy555");
-			say(narrator, "Voice in elevator by LinneaS88");
+			say(narrator, "Voice in elevator by Linnea Sage - LinneaS88");
 			say(narrator, "Font: \"Cool Story\" by Peter Olexa");
 			say(narrator, "Made using SLUDGE engine https://opensludge.github.io/");
 			say(narrator, "Game code and original assets are licensed under CC-BY-SA 3.0");
