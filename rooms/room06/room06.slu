@@ -257,6 +257,7 @@ objectType room06_powerButton("power button")
 			#fadeOut();
 			var maxx = getObjectX(ego);
 			var maxy = getObjectY(ego);
+			addOverlay('rooms/room06/trayblocked.png', 369, 34);
 			removeAllCharacters();
 			addCharacter(ego, maxx, maxy, makeEgoAnim());
 			turnCharacter(ego, EAST);
