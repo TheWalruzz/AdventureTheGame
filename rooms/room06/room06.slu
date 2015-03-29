@@ -288,7 +288,9 @@ objectType room06_powerButton("power button")
 			
 			pause(50);
 			
-			say(narrator, "The Secret of Tremendous Corporation");
+			addOverlay('logotype.png', CENTER, CENTER);
+			pause(250);
+			blankScreen();
 			say(narrator, "a.k.a. The Game Jam Game About Games, Secrets and Stuff");
 			say(narrator, "Made by Konrad Burandt, Sebastian Krzyszkowiak and Paweł Radej.");
 			say(narrator, "Made on Poznań Game Jam, part of Global Game Jam 2015.");
