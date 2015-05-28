@@ -260,7 +260,7 @@ sub wantToQuitClick() {
 	} else if (light == 3) {
 		unfreeze();
 	} else if (light == 2) {
-		launch("http://steamcommunity.com/sharedfiles/filedetails/?id=405960089");
+		launch("https://steamcommunity.com/sharedfiles/filedetails/?id=405960089");
 	}
 }
 
