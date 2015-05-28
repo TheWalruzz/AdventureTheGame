@@ -176,16 +176,94 @@ sub unpauseGame(key) {
 	key; # supress warning, key is unused intentionally
 }
 
+sub getQuitMenuPos() {
+	var pos = getMouseY();
+	var light = 1; # nothing
+	if (pos < 490) light = 5; # yes
+	if (pos > 490) light = 3; # no
+	if (pos < 435) light = 1;
+	if (pos > 545) light = 1;
+	if (pos > 700) light = 2; # greenlight
+	if (pos > 751) light = 1;
+	pos = getMouseX();
+	if (pos < 563) light = 1;
+	if (pos > 803) light = 1;
+	if (light == 2) {
+		if (pos < 608) light = 1;
+		if (pos > 758) light = 1;
+	}
+	return light;
+}
+
 sub doYouReallyWantToQuit() {
 	freeze();
 	darkBackground();
-	setPasteColor(255,255,255);
-	pasteString(CENTER, 768/2 - 30, "Do you really want to quit? Y/N");
-	setPasteColor(180, 180, 180);
-	pasteString(CENTER, 768/2 + 30, "Your game will be autosaved. You can press A to load it later.");
-	onKeyboard(wantToQuitHandler);
-}
 	
+	addOverlay('logotype.png', CENTER, 75);
+
+	clearStatus();
+	alignStatus(CENTER);
+	setStatusColour (255, 255, 255);
+	setLitStatusColour (180, 180, 180);
+	cursorDefault();
+
+	addStatus();
+	positionStatus(CENTER, 768/2 + 30 * 8);
+	statusText("Do you really want to quit?");
+	addStatus();
+	addStatus();
+	addStatus();
+	statusText("Yes");
+	addStatus();
+	addStatus();
+	statusText("No");
+	addStatus();
+	addStatus();
+	addStatus();
+	statusText("Your game will be autosaved. You can press A to load it later.");
+	lightStatus(5);
+	
+	addOverlay('Greenlight_button_small.png', CENTER, 700);
+	
+	onKeyboard(wantToQuitHandler);
+	onLeftMouse (wantToQuitClick);
+	var lightPrev = 1;
+	
+	loop {
+		var light = getQuitMenuPos();
+		
+		lightStatus(light);
+		
+		if (lightPrev != light) {
+			if (light != 1) {
+				cursorTargetActive();
+			} else {
+				cursorDefault();
+			}
+			lightPrev = light;
+		}
+		
+		pause(1);
+	}
+}
+
+sub wantToQuitClick() {
+	var light = getQuitMenuPos();
+	
+	if (light == 5) {
+		while (howFrozen() > 0) {
+			unfreeze();
+		}
+		if (saveGame("auto")) {
+			quitGame ();
+		}
+	} else if (light == 3) {
+		unfreeze();
+	} else if (light == 2) {
+		launch("http://steamcommunity.com/sharedfiles/filedetails/?id=405960089");
+	}
+}
+
 sub wantToQuitHandler(key) {
 	if (key == "y") {
 		while (howFrozen() > 0) {

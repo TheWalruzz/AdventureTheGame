@@ -32,8 +32,6 @@ i
 Use	Użyj
 with	z
 Game paused	Pauza
-Do you really want to quit? Y/N	Czy na pewno chcesz wyjść? Y/N
-Your game will be autosaved. You can press A to load it later.	Gra zostanie automatycznie zapisana. Wciśnij A, by do niej powrócić.
 y
 n
 Look at	Spójrz na
@@ -621,3 +619,8 @@ Ouch!	Auć!
 Keep your hands away from me!	Trzymaj swoje łapska z dala ode mnie!
 What the...?	Co do...?
 "slurping and swallowing2.wav" by squashy555
+Do you really want to quit?	Czy na pewno chcesz wyjść?
+Yes	Tak
+No	Nie
+http://steamcommunity.com/sharedfiles/filedetails/?id=405960089
+Your game will be autosaved. You can press A to load it later.	Gra zostanie automatycznie zapisana. Wciśnij A, by do niej powrócić.
