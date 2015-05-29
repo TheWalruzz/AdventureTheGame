@@ -128,7 +128,7 @@ objectType room03_chuck("chuck the plant") {
 			pause(35);
 			turnCharacter(ego, NORTH);
 			pause(10);
-			say(ego, "I'll just lend it for a while.");
+			say(ego, "I'll just borrow it for a while.");
 			pushToStack(inventory, item_bossKey);
 			
 			room03_idTaken = TRUE;
