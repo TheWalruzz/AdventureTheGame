@@ -1,6 +1,6 @@
 var secretCode = pickOne("ABS2", "BZG5", "HXN3", "OPZ6", "LPA1", "BXR5", "MPW0", "YGE5");
 
-var room06_hadSpeech = FALSE;
+var room06_hadSpeech = TRUE;
 
 var room06_trayLocked = FALSE;
 
@@ -12,7 +12,7 @@ var room06_accessReader = FALSE;
 var room06_accessCode = FALSE;
 var room06_accessPuzzle = FALSE;
 
-var room06_buttonActive = FALSE;
+var room06_buttonActive = TRUE;
 
 var straightFromSecret = FALSE;
 
@@ -293,7 +293,7 @@ objectType room06_powerButton("power button")
 			blankScreen();
 			say(narrator, "a.k.a. The Game Jam Game About Games, Secrets and Stuff");
 			say(narrator, "Made by Konrad Burandt, Sebastian Krzyszkowiak and Paweł Radej.");
-			say(narrator, "Made on Poznań Game Jam, part of Global Game Jam 2015.");
+			say(narrator, "First version made on Poznań Game Jam, part of Global Game Jam 2015.");
 			say(narrator, "Music: \"Deep Haze\", \"Hustle\", \"Local Forecast - Elevator\", \"Niles Blues\", \"Sneaky Snitch\", \"Take a Chance\", \"Volatile Reaction\", \"Whiskey on the Mississippi\" by Kevin MacLeod (incompetech.com). CC-BY 3.0");
 			say(narrator, "\"Pamiętam (5th Anniversary Edition)\" [instrumental] by Behedos. CC-BY-SA 3.0");
 			say(narrator, "\"Captain\" by Jakub Marszałkowski. CC-BY-NC-SA 3.0");
@@ -322,7 +322,7 @@ objectType room06_powerButton("power button")
 			say(narrator, "Font: \"Cool Story\" by Peter Olexa");
 			say(narrator, "Made using SLUDGE engine https://opensludge.github.io/");
 			say(narrator, "Game code and original assets are licensed under CC-BY-SA 3.0");
-			say(narrator, "http://dosowisko.net/tsotc/");
+			say(narrator, "http://tremendouscorp.com/");
 			pause(20);
 			say(narrator, "So...");
 			say(narrator, "...what do we do now?");
@@ -340,6 +340,8 @@ objectType room06_powerButton("power button")
 			endMusicDown();
 
 			pause(20);
+			
+			launch("http://tremendouscorp.com/");
 			
 			quitGame();
 			return;
