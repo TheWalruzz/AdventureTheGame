@@ -67,12 +67,12 @@ sub roomElevatorIntro()
 	pause(40);
 	turnCharacter (ego, NORTH);
 	
-        loopSound('music/2.ogg');
-        setSoundVolume('music/2.ogg', 80);
+	loopSound('music/2.ogg');
+	setSoundVolume('music/2.ogg', 80);
 	pause(60);
 	
 	onRightMouse (skipElevatorMovie);
-	onKeyboard();
+	onKeyboard(skipElevatorMovieKbd);
 	playMovie('rooms/roomElevator/elevator.webm');
 	onKeyboard(keys);
 	onRightMouse (skipper);
@@ -105,6 +105,12 @@ sub skipElevatorMovie() {
 	stopSound('rooms/roomElevator/elevator.ogg');
 	stopSound('rooms/roomElevator/buzzbg.ogg');
 }
+
+sub skipElevatorMovieKbd(key) {
+	skipElevatorMovie();
+	return key;
+}
+
 objectType roomElevatorIntro_door("")
 {
 }

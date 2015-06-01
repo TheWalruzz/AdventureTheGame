@@ -81,6 +81,7 @@ objectType room01_elevator_firsttime("elevator")
 	}
 	event item_internIDcard
 	{
+		turnCharacter (ego, NORTH);
 		say(room01_elevator_firsttime, "Welcome!");
 		gotoRoom(roomElevatorIntro);
 	}

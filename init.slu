@@ -18,7 +18,7 @@ sub init ()
 	
 	setSpeechSpeed(250);
 
-	if (fileExists("auto")) {
+	if (fileExists("auto") && ! DEBUG) {
 		welcomeScreen();
 	}
 
