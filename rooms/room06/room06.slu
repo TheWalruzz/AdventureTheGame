@@ -1,6 +1,6 @@
 var secretCode = pickOne("ABS2", "BZG5", "HXN3", "OPZ6", "LPA1", "BXR5", "MPW0", "YGE5");
 
-var room06_hadSpeech = TRUE;
+var room06_hadSpeech = FALSE;
 
 var room06_trayLocked = FALSE;
 
@@ -12,7 +12,7 @@ var room06_accessReader = FALSE;
 var room06_accessCode = FALSE;
 var room06_accessPuzzle = FALSE;
 
-var room06_buttonActive = TRUE;
+var room06_buttonActive = FALSE;
 
 var straightFromSecret = FALSE;
 
@@ -341,7 +341,9 @@ objectType room06_powerButton("power button")
 
 			pause(20);
 			
-			launch("http://tremendouscorp.com/");
+			if (fileExists("auto")) {
+				deleteFile("auto");
+			}
 			
 			quitGame();
 			return;

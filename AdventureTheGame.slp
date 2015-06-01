@@ -27,6 +27,7 @@ iface\keyboard.slu
 iface\stop_and_go.slu
 iface\talk.slu
 iface\verbs.slu
+iface\welcome.slu
 rooms\room01\room01.slu
 rooms\roomElevator\roomElevator.slu
 rooms\roomElevator\roomElevatorIntro.slu
