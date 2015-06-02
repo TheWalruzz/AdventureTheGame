@@ -20,9 +20,9 @@ sub init ()
 
 	if (fileExists("auto") && ! DEBUG) {
 		welcomeScreen();
+	} else {
+		stop();
+		gotoRoom(DEBUG ? roomElevator : intro);
+		go();
 	}
-
-	stop();	
-	gotoRoom(DEBUG ? roomElevator : intro);
-	go();
 }

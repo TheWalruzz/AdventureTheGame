@@ -36,6 +36,7 @@ sub roomElevator()
 		addSpeechChoice("Prison (DEBUG)", 6);
 		addSpeechChoice("CEO room (DEBUG)", 7);
 		addSpeechChoice("SECRET room (DEBUG)", 8);
+		addSpeechChoice("Welcome screen (DEBUG)" + ((! fileExists("auto")) ? " (FORCED)" : ""), 9);
 	}
 	
 	roomElevator_floor = getSpeechChoice(NULL);
@@ -81,6 +82,11 @@ sub roomElevator()
 	{
 		location = "SECRET room";
 		room = room06;
+	}
+	else if(roomElevator_floor == 9)
+	{
+		location = "welcome screen";
+		room = welcomeScreen;
 	}
 	turnCharacter (ego, NORTH);
 	
