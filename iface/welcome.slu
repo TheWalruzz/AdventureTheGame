@@ -1,0 +1,108 @@
+sub getWelcomeScreenPos() {
+	var pos = getMouseY();
+	var light = 1; # nothing
+	if (pos < 490) light = 5; # yes
+		if (pos > 490) light = 3; # no
+			if (pos < 435) light = 1;
+			if (pos > 545) light = 1;
+			if (pos > 700) light = 2; # greenlight
+				if (pos > 751) light = 1;
+				pos = getMouseX();
+			if (pos < 563) light = 1;
+			if (pos > 803) light = 1;
+			if (light == 2) {
+				if (pos < 608) light = 1;
+				if (pos > 758) light = 1;
+			}
+			return light;
+}
+
+sub welcomeScreen() {
+	freeze();
+	
+	setSceneDimensions(1366, 768);
+	addOverlay('rooms/room01/room01.png', 0, 0);
+	darkBackground();
+	darkBackground();
+	darkBackground();
+	
+	addOverlay('logotype.png', CENTER, 75);
+	
+	clearStatus();
+	alignStatus(CENTER);
+	setStatusColour (255, 255, 255);
+	setLitStatusColour (180, 180, 180);
+	cursorDefault();
+	
+	addStatus();
+	statusText("What do we do now?");
+	positionStatus(CENTER, 768/2 + 30 * 8);
+	addStatus();
+	addStatus();
+	addStatus();
+	addStatus();
+	addStatus();
+	statusText("Continue from autosave");
+	addStatus();
+	addStatus();
+	statusText("Start a new game");
+	addStatus();
+	addStatus();
+	addStatus();
+	lightStatus(5);
+	
+	addOverlay('Greenlight_button_small.png', CENTER, 700);
+	
+	loopSound('music/2.ogg');
+	setSoundVolume('music/2.ogg', 50);
+	
+	onKeyboard(welcomeScreenHandler);
+	onLeftMouse (welcomeScreenClick);
+	var lightPrev = 1;
+	pauseMenu = TRUE;
+	
+	loop {
+		var light = getWelcomeScreenPos();
+		
+		lightStatus(light);
+		
+		if (lightPrev != light) {
+			if (light != 1) {
+				cursorTargetActive();
+			} else {
+				cursorDefault();
+			}
+			lightPrev = light;
+		}
+		
+		pause(1);
+		
+		if (! pauseMenu) {
+			stopSound('music/2.ogg');
+			unfreeze();
+			stop();	
+			gotoRoom(intro);
+			go();
+			return;
+		}
+	}
+}
+
+sub welcomeScreenClick() {
+	var light = getWelcomeScreenPos();
+	
+	if (light == 5) {
+		unfreeze();
+		loadGame("auto");
+	} else if (light == 3) {
+		pauseMenu = FALSE;
+	} else if (light == 2) {
+		launch("https://steamcommunity.com/sharedfiles/filedetails/?id=405960089");
+	}
+}
+
+sub welcomeScreenHandler(key) {
+	if (key == "ESCAPE") {
+		quitGame ();
+	}
+}
