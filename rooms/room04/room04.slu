@@ -101,7 +101,7 @@ objectType room04_window("window bars")
 		if (room04_lookedAtDoor == TRUE) {
 			say(ego, "Hmm... I've got an idea that's so stupid I really want to try it.");
 			#narratorSay("Max uses strangely sharp window bars to scrape a picklock out of the potato.");
-			setCostume(ego, anim('ego/ego.duc', 20));
+			setCostume(ego, anim(getEgoCostumeFile(), 20));
 			addCharacter(room04_potato, 650, 325, anim('iface/mushroom.duc', 11));
 			setCharacterExtra(room04_potato, FIXEDSIZE);
 

@@ -233,7 +233,7 @@ objectType room06_powerButton("power button")
 	
 	event interactWith
 	{
-		setCostume(ego, anim('ego/ego.duc', 22));
+		setCostume(ego, anim(getEgoCostumeFile(), 22));
 		playSound('rooms/room06/button.ogg');
 		pause(20);
 		setCostume(ego, makeEgoAnim());
@@ -408,10 +408,10 @@ objectType room06_lid("lid")
 				
 				room06_lidOpen = FALSE;
 
-				setCostume(ego, anim('ego/ego.duc', 19));
+				setCostume(ego, anim(getEgoCostumeFile(), 19));
 				spawnSub(defaultCostume); # workaround for disappearing broom in secret's tray
 			} else {
-				setCostume(ego, anim('ego/ego.duc', 19));
+				setCostume(ego, anim(getEgoCostumeFile(), 19));
 				pause(10);
 				setCostume(ego, makeEgoAnim());
 				playSound('rooms/room06/lidopen.ogg');
@@ -436,7 +436,7 @@ objectType room06_lid("lid")
 			}
 		} else {
 			#narratorSay("Max reaches out to open the lid...");
-			setCostume(ego, anim('ego/ego.duc', 19));
+			setCostume(ego, anim(getEgoCostumeFile(), 19));
 			pause(10);
 			playSound('rooms/room05/drawer-close.ogg');
 			setCostume(ego, makeEgoAnim());
@@ -457,7 +457,7 @@ objectType room06_tray("tray")
                 setCostume(room06_secret, anim('rooms/room06/tray.duc', 1));
 
 		#narratorSay("Max throws the broom at the lid.");
-		setCostume(ego, anim('ego/ego.duc', 21));
+		setCostume(ego, anim(getEgoCostumeFile(), 21));
 		pause(15);
 		setCostume(ego, makeEgoAnim());
 		playSound('rooms/room06/broom.ogg');

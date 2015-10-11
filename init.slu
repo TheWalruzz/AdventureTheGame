@@ -11,7 +11,7 @@ sub init ()
 	}
 	
 	setFont('coolstoryfont.duc', " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^`_abcdefghi™jklmnopqrstuvwxyz{|}~ńłę", 30);
-
+	
 	setDefaultMusicVolume(150);
 	onKeyboard(keys);
 	addStatus();

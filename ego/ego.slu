@@ -25,25 +25,33 @@ objectType ego ("Max") {
 	}
 }
 
+sub getEgoCostumeFile () {
+        if (getOwnedDLC() == "steam") {
+            return 'ego/ego-steam.duc';
+        } else {
+            return 'ego/ego.duc';
+        }
+}
+	
 # This function returns the ego's standard costume - which beats including it in
 # every room definition
 sub makeEgoAnim () {
 	return costume (
 		# STANDING
-		anim('ego/ego.duc', 0),
-		anim('ego/ego.duc', -2),
-		anim('ego/ego.duc', 1),
-		anim('ego/ego.duc', 2),
+		anim(getEgoCostumeFile(), 0),
+		anim(getEgoCostumeFile(), -2),
+		anim(getEgoCostumeFile(), 1),
+		anim(getEgoCostumeFile(), 2),
 		# WALKING
-		anim ('ego/ego.duc', wait (3, 4), wait (4, 4), wait (5, 4), wait (6, 4)),
-		anim ('ego/ego.duc', wait (-11, 4), wait (-12, 4), wait (-13, 4), wait (-14, 4)),
-		anim ('ego/ego.duc', wait (7, 4), wait (8, 4), wait (9, 4), wait (10, 4)),
-		anim ('ego/ego.duc', wait (11, 4), wait (12, 4), wait (13, 4), wait (14, 4)),
+		anim (getEgoCostumeFile(), wait (3, 4), wait (4, 4), wait (5, 4), wait (6, 4)),
+		anim (getEgoCostumeFile(), wait (-11, 4), wait (-12, 4), wait (-13, 4), wait (-14, 4)),
+		anim (getEgoCostumeFile(), wait (7, 4), wait (8, 4), wait (9, 4), wait (10, 4)),
+		anim (getEgoCostumeFile(), wait (11, 4), wait (12, 4), wait (13, 4), wait (14, 4)),
 		# TALKING
-		anim('ego/ego.duc', wait(0, 5), wait(15, 4), wait(0, 3), wait(15, 6)),
-		anim('ego/ego.duc', wait(-2, 5), wait(-16, 4), wait(-2, 3), wait(-16, 6)),
-		anim('ego/ego.duc', 1),
-		anim('ego/ego.duc', wait(2, 5), wait(16, 4), wait(2, 3), wait(16, 6))
+		anim(getEgoCostumeFile(), wait(0, 5), wait(15, 4), wait(0, 3), wait(15, 6)),
+		anim(getEgoCostumeFile(), wait(-2, 5), wait(-16, 4), wait(-2, 3), wait(-16, 6)),
+		anim(getEgoCostumeFile(), 1),
+		anim(getEgoCostumeFile(), wait(2, 5), wait(16, 4), wait(2, 3), wait(16, 6))
    	);
 }
 

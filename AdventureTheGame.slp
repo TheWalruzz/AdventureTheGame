@@ -19,6 +19,7 @@ speed=20
 
 [FILES]
 init.slu
+dlc.slu
 ego\ego.slu
 iface\arrow_icons.slu
 iface\coin_interface.slu

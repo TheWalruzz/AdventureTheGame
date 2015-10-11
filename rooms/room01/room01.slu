@@ -198,7 +198,7 @@ objectType room01_secretary("receptionist")
 			
 			pause(10);
 
-			setCostume(ego, costume(anim('ego/ego.duc', 18), anim('ego/ego.duc', 18), anim('ego/ego.duc', wait(17, 4), wait(18, 4))));
+			setCostume(ego, costume(anim(getEgoCostumeFile(), 18), anim(getEgoCostumeFile(), 18), anim(getEgoCostumeFile(), wait(17, 4), wait(18, 4))));
 			turnCharacter (ego, SOUTH);
 
 			pause(10);
@@ -259,7 +259,7 @@ objectType room01_secretary("receptionist")
 			say(room01_secretary, "Dammit, fine, but keep it short!");
 			pause(10);
 
-			setCostume(ego, costume(anim('ego/ego.duc', 18), anim('ego/ego.duc', 18), anim('ego/ego.duc', wait(17, 4), wait(18, 4))));
+			setCostume(ego, costume(anim(getEgoCostumeFile(), 18), anim(getEgoCostumeFile(), 18), anim(getEgoCostumeFile(), wait(17, 4), wait(18, 4))));
 			turnCharacter (ego, SOUTH);
 
 			pause(10);

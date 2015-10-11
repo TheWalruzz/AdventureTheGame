@@ -429,7 +429,7 @@ objectType room02_cable("cable")
 			spawnSub(introMusicDown);
 			hideCharacter(inventoryIcon);
 			jumpCharacter(ego, 3800, 768);
-			setCostume(ego, anim('ego/ego.duc', 23));
+			setCostume(ego, anim(getEgoCostumeFile(), 23));
 			
 			pause(100);
 
@@ -710,7 +710,7 @@ objectType room02_newspaper("newspaper")
 		moveCharacter(ego, 4096, 700);
 		turnCharacter(ego, EAST);
 		#narratorSay("Max throws the book attached on a rope towards the newspaper.");
-		setCostume(ego, anim('ego/ego.duc', 21));
+		setCostume(ego, anim(getEgoCostumeFile(), 21));
 		pause(15);
 		setCostume(ego, makeEgoAnim());
 		playSound('rooms/room02/book.ogg');
@@ -720,7 +720,7 @@ objectType room02_newspaper("newspaper")
 		forceCharacter(ego, 3980, 700);
 
 		pause(5);
-                setCostume(ego, anim('ego/ego.duc', 19));
+                setCostume(ego, anim(getEgoCostumeFile(), 19));
                 pause(10);
 		playSound('rooms/room02/rope.ogg');
 		pause(10);
@@ -743,7 +743,7 @@ objectType room02_newspaper("newspaper")
 		moveCharacter(ego, 4096, 700);
 		turnCharacter(ego, EAST);
 
-                setCostume(ego, anim('ego/ego.duc', 21));
+                setCostume(ego, anim(getEgoCostumeFile(), 21));
                 pause(15);
                 setCostume(ego, makeEgoAnim());
                 playSound('rooms/room02/book.ogg');
@@ -753,7 +753,7 @@ objectType room02_newspaper("newspaper")
                 forceCharacter(ego, 3980, 700);
 
                 pause(5);
-                setCostume(ego, anim('ego/ego.duc', 19));
+                setCostume(ego, anim(getEgoCostumeFile(), 19));
                 pause(10);
                 playSound('rooms/room02/rope.ogg');
                 pause(10);
