@@ -1,0 +1,7 @@
+sub getOwnedDLC()
+{
+	if (fileExists("content.manifest")) {
+		return "steam"; # for now
+	}
+	return FALSE;
+}
