@@ -5,7 +5,7 @@ sub getWelcomeScreenPos() {
 		if (pos > 490) light = 3; # no
 			if (pos < 435) light = 1;
 			if (pos > 545) light = 1;
-			if (pos > 700) light = 2; # greenlight
+			if (pos > 700) light = 2; # website
 				if (pos > 751) light = 1;
 				pos = getMouseX();
 			if (pos < 563) light = 1;
@@ -51,7 +51,7 @@ sub welcomeScreen() {
 	addStatus();
 	lightStatus(5);
 	
-	addOverlay('Greenlight_button_small.png', CENTER, 700);
+	addOverlay('website.png', CENTER, 700);
 	
 	loopSound('music/2.ogg');
 	setSoundVolume('music/2.ogg', 50);
@@ -71,6 +71,12 @@ sub welcomeScreen() {
 				cursorTargetActive();
 			} else {
 				cursorDefault();
+			}
+
+			if (light == 2) {
+				addOverlay('website-hover.png', CENTER, 700);
+			} else {
+				addOverlay('website.png', CENTER, 700);
 			}
 			lightPrev = light;
 		}
@@ -97,7 +103,7 @@ sub welcomeScreenClick() {
 	} else if (light == 3) {
 		pauseMenu = FALSE;
 	} else if (light == 2) {
-		launch("https://steamcommunity.com/sharedfiles/filedetails/?id=405960089");
+		launch("http://tremendouscorp.com");
 	}
 }
 
