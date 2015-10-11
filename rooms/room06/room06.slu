@@ -341,8 +341,8 @@ objectType room06_powerButton("power button")
 
 			pause(20);
 			
-			if (fileExists("auto")) {
-				deleteFile("auto");
+			if (fileExists("auto-" + VERSION)) {
+				deleteFile("auto-" + VERSION);
 			}
 			
 			quitGame();

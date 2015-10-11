@@ -17,9 +17,9 @@ sub keys (k) {
 		while (howFrozen() > 0) {
 			unfreeze();
 		}
-		if (fileExists("auto")) {
+		if (fileExists("auto-" + VERSION)) {
 			narratorSay("Loading auto save");
-			loadGame("auto");
+			loadGame("auto-" + VERSION);
 		}
 	}
 	
@@ -28,7 +28,7 @@ sub keys (k) {
 			unfreeze();
 		}
 		if (howFrozen() == 0) {
-			if (saveGame("save")) {
+			if (saveGame("save-" + VERSION)) {
 				narratorSay("Game saved");
 			}
 		}
@@ -37,9 +37,9 @@ sub keys (k) {
 		while (howFrozen() > 0) {
 			unfreeze();
 		}
-		if (fileExists("save")) {
+		if (fileExists("save-" + VERSION)) {
 			narratorSay("Loading saved game");
-			loadGame("save");
+			loadGame("save-" + "VERSION");
 		}
 	}
 	

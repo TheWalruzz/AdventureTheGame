@@ -265,7 +265,7 @@ sub wantToQuitClick() {
 		while (howFrozen() > 0) {
 			unfreeze();
 		}
-		if (saveGame("auto")) {
+		if (saveGame("auto-" + VERSION)) {
 			quitGame ();
 		}
 	} else if (light == 3) {
@@ -282,7 +282,7 @@ sub wantToQuitHandler(key) {
 		while (howFrozen() > 0) {
 			unfreeze();
 		}
-		if (saveGame("auto")) {
+		if (saveGame("auto-" + VERSION)) {
 			quitGame ();
 		}
 	}

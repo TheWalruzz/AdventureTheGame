@@ -99,7 +99,7 @@ sub welcomeScreenClick() {
 	
 	if (light == 5) {
 		unfreeze();
-		loadGame("auto");
+		loadGame("auto-" + VERSION);
 	} else if (light == 3) {
 		pauseMenu = FALSE;
 	} else if (light == 2) {

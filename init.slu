@@ -1,5 +1,7 @@
 var DEBUG = FALSE;
 
+var VERSION = "v1";
+
 sub init ()
 {
 	if (fileExists("debug")) {
@@ -18,7 +20,7 @@ sub init ()
 	
 	setSpeechSpeed(250);
 
-	if (fileExists("auto") && ! DEBUG) {
+	if (fileExists("auto-" + VERSION) && ! DEBUG) {
 		welcomeScreen();
 	} else {
 		stop();
