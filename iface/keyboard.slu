@@ -30,6 +30,7 @@ sub keys (k) {
 		if (howFrozen() == 0) {
 			if (saveGame("save-" + VERSION)) {
 				narratorSay("Game saved");
+				unlockAchievement("saved");
 			}
 		}
 	}

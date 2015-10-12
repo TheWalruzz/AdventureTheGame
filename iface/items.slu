@@ -59,6 +59,8 @@ objectType item_gumWhole("chewing gum")
 	event room01_secretary {
 		say(room01_secretary, "Are you suggesting something about my breath?");
 		say(ego, "Uhm, no! Nevermind!");
+		bother11 = TRUE;
+		checkSecretaryBothered();
 	}
 	
 	event room02_newspaper {
@@ -263,6 +265,9 @@ objectType item_ropeWithBook("rope with a book")
 
 	event room01_secretary {
 		say(room01_secretary, "What is it? Some kind of modern art?");
+		unlockAchievement("modernart");
+		bother12 = TRUE;
+		checkSecretaryBothered();
 	}
 	
 	event default
@@ -280,14 +285,19 @@ objectType item_ropeFullyCombined("rope with a book and a gum")
 
 	event room01_secretary {
 		say(room01_secretary, "What is it? Some kind of modern art?");
+		unlockAchievement("modernart");
+		bother12 = TRUE;
+		checkSecretaryBothered();
 	}
 
 	event room05_director {
 		say(room05_director, "What is it? Some kind of modern art?");
+		unlockAchievement("modernart");
 	}
 
 	event room06_tray {
 		say(room06_secret, "What is it? Some kind of modern art?");
+		unlockAchievement("modernart");
 	}
 	
 	event default
@@ -307,6 +317,8 @@ objectType item_bookWithGum("book with a gum")
 		say(room01_secretary, "Uhm... Okay. I don't wanna know why did you do that...");
 		say(room01_secretary, "...nor why you're showing it to me.");
 		say(room01_secretary, "Can't you understand that I'm busy?");
+		bother13 = TRUE;
+		checkSecretaryBothered();
 	}
 	
 	event default

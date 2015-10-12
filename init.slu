@@ -12,6 +12,10 @@ sub init ()
 		}
 	}
 	
+	setCustomEncoding(42);
+	
+	loadAchievements();
+	
 	setFont('coolstoryfont.duc', " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^`_abcdefghi™jklmnopqrstuvwxyz{|}~ńłę", 30);
 	
 	setDefaultMusicVolume(150);

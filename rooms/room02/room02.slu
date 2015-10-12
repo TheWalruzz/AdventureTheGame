@@ -664,8 +664,10 @@ objectType room02_gum("gum")
 				say(ego, pickOne("I feel like I'm controlled by someone.", "I don't want to, but somehow I have to.", "I will take it, but isn't it enough?"));
 			pushToStack(inventory, item_gumWhole);
 		}
-		else
+		else {
 			say(ego, "Okay, that's enough! I'm not going to take any more gum with me!");
+			unlockAchievement("gums");
+                }
 	}
 }
 

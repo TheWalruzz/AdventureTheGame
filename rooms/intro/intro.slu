@@ -7,6 +7,8 @@ sub d() {
 sub intro()
 {
 	# first things first
+	unlockAchievement("start");
+	
 	addOverlay('rooms/intro/intro.png', 0, 0);
 	setScale(225, 1500);
 	setCursor(NULL);

@@ -1,0 +1,32 @@
+var achievements = newStack();
+
+var bother1 = FALSE;
+var bother2 = FALSE;
+var bother3 = FALSE;
+var bother4 = FALSE;
+var bother5 = FALSE;
+var bother6 = FALSE;
+var bother7 = FALSE;
+var bother8 = FALSE;
+var bother9 = FALSE;
+var bother10 = FALSE;
+var bother11 = FALSE;
+var bother12 = FALSE;
+var bother13 = FALSE;
+
+sub loadAchievements() {
+    if (fileExists("datastore")) {
+        achievements = loadCustomData("datastore");
+    }
+}
+
+sub unlockAchievement(type) {
+    pushToStack(achievements, type);
+    saveCustomData(achievements, "datastore");
+}
+
+sub checkSecretaryBothered() {
+    if ((bother1) && (bother2) && (bother3) && (bother4) && (bother5) && (bother6) && (bother7) && (bother8) && (bother9) && (bother10) && (bother11) && (bother12) && (bother13)) {
+        unlockAchievement("bother");
+    }
+}

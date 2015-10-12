@@ -253,6 +253,10 @@ objectType room06_powerButton("power button")
 			narratorSay("Congratulations! You won!");
 			darkBackground();
 			
+			unlockAchievement("secret");
+			
+			justSkipped = FALSE;
+			
 			#skipSpeech();
 			#fadeOut();
 			var maxx = getObjectX(ego);
@@ -334,6 +338,10 @@ objectType room06_powerButton("power button")
 			pause(100);
 
 			forceCharacter(ego, 1600, 660);
+			
+			if (justSkipped == FALSE) {
+                            unlockAchievement("patience");
+			}
 			
 			say(narrator, "THE END");
 			
@@ -649,6 +657,8 @@ objectType room06_secCode("first panel")
 				unfreeze();
 				playSound('rooms/room06/granted.ogg');
 				say(room06_secCode, "ACCESS GRANTED");
+				unlockAchievement("code");
+
 			
 				inNeedOfSecretCode = FALSE;
 				room06_accessCode = TRUE;
@@ -742,6 +752,7 @@ objectType room06_secPuzzle("second panel")
 					unfreeze();
 					playSound('rooms/room06/granted.ogg');
 					say(room06_secPuzzle, "ACCESS GRANTED");
+					unlockAchievement("math");
 					room06_accessPuzzle = TRUE;
 					removeScreenRegion(room06_secPuzzle);
 					checkSecretAccess();	
@@ -786,6 +797,7 @@ objectType room06_secReader("third panel")
 	event item_bossIDcard {
 		playSound('rooms/room06/granted.ogg');
 		say(room06_secReader, "ACCESS GRANTED");
+		unlockAchievement("card");
 		room06_accessReader = TRUE;
 		removeScreenRegion(room06_secReader);
 		checkSecretAccess();

@@ -121,10 +121,14 @@ objectType room01_secretary("receptionist")
 		if (room02_beforeAttack) {
 			say(ego, "Uhm, so what am I supposed to do with that?");
 			say(room01_secretary, "I already told you to use the elevator. Put that ID into the scanner.");
+			bother1 = TRUE;
+			checkSecretaryBothered();
 		} else {
 			say(room01_secretary, "Yes?");
 			say(ego, "Uhm... Actually, I don't know why I showed you that.");
 			say(room01_secretary, "Quit bothering me!");
+			bother10 = TRUE;
+			checkSecretaryBothered();
 		}
 	}
 
@@ -135,11 +139,15 @@ objectType room01_secretary("receptionist")
 			say(ego, "Uhm, so what should I do now?");
 			say(room01_secretary, "I already told you to use the elevator. Put that ID into the scanner.");
 			say(room01_secretary, pickOne("Now go away, I'm busy.", "I'm busy. Just go."));
+			bother1 = TRUE;
+			checkSecretaryBothered();
 		}
 		else if((room01_talkedToRebels == FALSE) && room02_newspaperRead == FALSE) {
 			say(ego, "Uhm, what should I do now?");
                         say(room01_secretary, "I don't care. I'm busy.");
                         say(room01_secretary, "That phone won't answer itself, you know.");
+                        bother1 = TRUE;
+                        checkSecretaryBothered();
 		}
 		else if((room01_talkedToRebels == FALSE) && room02_newspaperRead == TRUE)
 		{
@@ -315,6 +323,8 @@ objectType room01_secretary("receptionist")
 			setCostume(ego, makeEgoAnim());			
 			removeScreenRegion(room01_phonecall);
 			
+			bother2 = TRUE;
+			checkSecretaryBothered();
 		}
 		else
 		{
@@ -359,22 +369,27 @@ objectType room01_secretary("receptionist")
                                 say(room01_secretary, "However, from time to time some kiddo gets on my nerves by constantly bothering me with pointless stuff even when I get myself perfectly clear that I have a lot of things to do.");
                                 say(ego, "Oh, I see.");
                                 say(room01_secretary, "Apparently you don't.");
+                                bother3 = TRUE;
                             } else if (rep == 1) {
                                 say(room01_secretary, "Like, having our actions controlled by some algorithm that's interpreting commands coming from outside?");
                                 say(ego, "On second thought, that would be silly.");
-                                say(room01_secretary, "Totally.");                            
+                                say(room01_secretary, "Totally.");                  
+                                bother4 = TRUE;
                             } else if (rep == 2) {
                                 say(room01_secretary, "The square root of 546 is 23.36664289109");
                                 say(ego, "Wow! That's impressive! And here I am, having troubles with adding two numbers together.");
                                 say(room01_secretary, "You should probably keep that to yourself.");
+                                bother5 = TRUE;
                             } else if (rep == 3) {
                                 say(room01_secretary, "Sure, it's " + secretCode);
                                 say(ego, "Great, thank you!");
                                 say(room01_secretary, "Will you now quit bothering me? I'm busy!");
+                                bother6 = TRUE;
                             } else if (rep == 4) {
                                 say(room01_secretary, "It's a brand new Neo900.");
                                 say(ego, "Never heard of it.");
                                 say(room01_secretary, "Bummer.");
+                                bother7 = TRUE;
                             } else if (rep == 5) {
                                 say(room01_secretary, "Uhm... where did you get it?");
                                 say(ego, "On Steam for $2.");
@@ -385,14 +400,16 @@ objectType room01_secretary("receptionist")
                                 say(ego, "What about his bad day?");
                                 say(room01_secretary, "On a bad day he would chuck no wood, since he would be bothered by someone like you preventing him from getting any wood work done.");
                                 say(ego, "Ouch.");
+                                bother8 = TRUE;
                             } else if (rep == 7) {
                                 say(room01_secretary, "Actually, yes, there is one.");
                                 say(ego, "Wow, really?");
                                 say(room01_secretary, "It says: \"Stop bothering me. Yours, receptionist.\"");
                                 say(ego, "Got it.");
-                                say(room01_secretary, "Finally!");                            
+                                say(room01_secretary, "Finally!");
+                                bother9 = TRUE;
                             }
-                            
+                            checkSecretaryBothered();
                         }
 		}
 	}

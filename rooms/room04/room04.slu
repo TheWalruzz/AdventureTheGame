@@ -151,6 +151,7 @@ objectType room04_potato("potato")
 	{
 		say(ego, "It's a potato.");
 		say(ego, "I wonder what has it done to be locked in prison.");
+		unlockAchievement("potato");
 	}
 	event interactWith
 	{

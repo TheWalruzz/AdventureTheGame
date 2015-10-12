@@ -1,6 +1,7 @@
 var busy = TRUE;
 var hideInventory = TRUE;
 var pauseMenu = FALSE;
+var justSkipped = FALSE;
 
 sub go () {
 	onLeftMouse (leftClick);
@@ -27,6 +28,7 @@ sub stop () {
 }
 
 sub skipper () {
+        justSkipped = TRUE;
 	skipSpeech ();
 }
 

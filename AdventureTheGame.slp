@@ -19,7 +19,8 @@ speed=20
 
 [FILES]
 init.slu
-dlc.slu
+utils\dlc.slu
+utils\achievements.slu
 ego\ego.slu
 iface\arrow_icons.slu
 iface\coin_interface.slu
