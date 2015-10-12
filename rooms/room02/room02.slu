@@ -172,6 +172,12 @@ sub room02()
 	}
 	turnCharacter(ego, EAST);
 	
+	if ((room02_newspaperTaken) && !(room02_newspaperRead)) {
+	    if (random(2)) {
+                say(ego, "I'm starting to get bored. I wonder what's in the news.");
+            }
+	}
+	
 	if (DEBUG) {
 		pushToStack(inventory, item_ropeFullyCombined);
 		pushToStack(inventory, item_ropeWithBook);
@@ -195,6 +201,9 @@ objectType room02_line("production line") {
 	event interactWith {
 		say(ego, "I'd rather stay away from that for now. I haven't got my health and safety training yet.");
 	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
+	}
 }
 objectType room02_line2("production line") {
         event lookAt {
@@ -203,6 +212,9 @@ objectType room02_line2("production line") {
         event interactWith {
                 say(ego, "I'd rather stay away from that for now. I haven't got my health and safety training yet.");
         }
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
+	}
 }
 objectType room02_line3("production line") {
         event lookAt {
@@ -211,6 +223,9 @@ objectType room02_line3("production line") {
         event interactWith {
                 say(ego, "I'd rather stay away from that for now. I haven't got my health and safety training yet.");
         }
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
+	}
 }
 objectType room02_lineobst("") {
 }
@@ -876,14 +891,21 @@ objectType room02_noSmokingSign("no smoking sign")
         }
 }
 
+var superDerpy_looked = FALSE;
+
 objectType room02_superderpy("a lost badge")
 {
 	event lookAt
 	{
+                superDerpy_looked = TRUE;
 		say(ego, "It says: \"Ask me about Super Derpy.\"");
 	}
 	event interactWith
 	{
+                if (!(superDerpy_looked)) {
+                    superDerpy_looked = TRUE;
+                    say(ego, "It says: \"Ask me about Super Derpy.\"");                
+                }
 		say(ego, "No, thanks. I don't want people asking me about Super Derpy.");
 	}
 	
@@ -901,7 +923,15 @@ objectType room02_employee1("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee1, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee1, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -912,8 +942,16 @@ objectType room02_employee2("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee2, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee2, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
 	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
+	}
+
 }
 
 objectType room02_employee3("employee")
@@ -923,7 +961,14 @@ objectType room02_employee3("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee3, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee3, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -934,7 +979,14 @@ objectType room02_employee4("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee4, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee4, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -945,7 +997,14 @@ objectType room02_employee5("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee5, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee5, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -956,7 +1015,14 @@ objectType room02_employee6("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee6, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee6, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -967,7 +1033,14 @@ objectType room02_employee7("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee7, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee7, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -978,7 +1051,14 @@ objectType room02_employee8("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee8, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee8, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -989,7 +1069,14 @@ objectType room02_employee9("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee9, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee9, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 
@@ -1000,7 +1087,14 @@ objectType room02_employee10("employee")
 	event interactWith
 	{
 		if(room02_beforeAttack)
-			say(room02_employee10, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "You're starting to damage my calm."));
+			say(room02_employee10, pickOne("Don't bother me.", "I'm busy, leave me alone.", "I'm working.", "Go away. You're starting to damage my calm."));
+	}
+	event lookAt {
+            if(room02_beforeAttack)
+                say(ego, "That's one of my new co-workers, putting pieces of brand new video games together on this production line.");
+	}
+	event item_book {
+                say(ego, "Something tells me that I might need it.");
 	}
 }
 

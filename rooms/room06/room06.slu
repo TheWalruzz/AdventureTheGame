@@ -522,6 +522,9 @@ sub secretPanics() {
 	enqueue(texts, "Oh c'mon! I know I might have been a bit monstrous, but hey... don't we all make mistakes?");
 	enqueue(texts, "Be a good friend! Don't press that button!");
 	enqueue(texts, "For friendship!");
+	if (getOwnedDLC() == "steam") {
+            enqueue(texts, "Nice hat, by the way!");
+        }
 	enqueue(texts, "Arghh, you're so stubborn.");
 	enqueue(texts, "This button is too important for me to allow you to jeopardize it.");
 	enqueue(texts, "Look behind you, a three-headed AI!");

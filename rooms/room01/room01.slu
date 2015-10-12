@@ -77,7 +77,7 @@ objectType room01_elevator_firsttime("elevator")
 	}
 	event interactWith
 	{
-		say(ego, "I need to show it my ID, I guess.");
+		say(ego, "I have to show it my ID, I guess.");
 	}
 	event item_internIDcard
 	{
@@ -134,7 +134,12 @@ objectType room01_secretary("receptionist")
 		{
 			say(ego, "Uhm, so what should I do now?");
 			say(room01_secretary, "I already told you to use the elevator. Put that ID into the scanner.");
-			say(room01_secretary, pickOne("Now go away, I'm busy.", "Just go."));
+			say(room01_secretary, pickOne("Now go away, I'm busy.", "I'm busy. Just go."));
+		}
+		else if((room01_talkedToRebels == FALSE) && room02_newspaperRead == FALSE) {
+			say(ego, "Uhm, what should I do now?");
+                        say(room01_secretary, "I don't care. I'm busy.");
+                        say(room01_secretary, "That phone won't answer itself, you know.");
 		}
 		else if((room01_talkedToRebels == FALSE) && room02_newspaperRead == TRUE)
 		{
@@ -315,15 +320,80 @@ objectType room01_secretary("receptionist")
 		{
 			say(ego, "Hi!");
 			say(room01_secretary, "Umm... Hi?");
-			if (inNeedOfSecretCode) {
-				say(ego, "Do you know the code for the SECRET?");
-				say(room01_secretary, "Sure, it's " + secretCode);
-				say(ego, "Great, thank you!");
-				say(room01_secretary, "Will you now quit bothering me? I'm busy!");
-				say(ego, "Okay, okay!");
-			} else {
-				say(ego, "Well... Nevermind.");
-			}
+			
+			var firstOne = TRUE;
+			
+			rep = -1;
+			
+			while (rep != 8) {
+                            
+                            clearChoices();
+
+                            addChoice("So, how do you like your job?", 0);
+                            addChoice("Have you ever wondered whether we're living in a computer simulation?", 1);
+                            addChoice("What's the square root of 546?", 2);
+                            if (inNeedOfSecretCode) {
+                                addChoice("Do you know the code for the SECRET?", 3);
+                            }
+                            addChoice("What kind of mobile phone is it that you have, by the way?", 4);
+                            if (getOwnedDLC() == "steam") {
+                                addChoice("What do you think about my awesome hat?", 5);
+                            }
+                            addChoice("How much wood would a woodchuck chuck if a woodchuck could chuck wood?", 6);
+                            addChoice("Any messages for me?", 7);
+                            if (firstOne) {
+                                addChoice("Well... Nevermind.", 8);
+                            } else {                            
+                                addChoice("Gotta go, bye!", 8);
+                            }
+                            
+                            firstOne = FALSE;
+                            
+                            applyChoices();
+                            rep = getSpeechChoice(ego);
+                            
+                            if (rep == 0) {
+                                say(room01_secretary, "Oh, I'm so glad you asked!");
+                                say(room01_secretary, "It's actually pretty nice and well paid.");
+                                say(ego, "That's great!");
+                                say(room01_secretary, "However, from time to time some kiddo gets on my nerves by constantly bothering me with pointless stuff even when I get myself perfectly clear that I have a lot of things to do.");
+                                say(ego, "Oh, I see.");
+                                say(room01_secretary, "Apparently you don't.");
+                            } else if (rep == 1) {
+                                say(room01_secretary, "Like, having our actions controlled by some algorithm that's interpreting commands coming from outside?");
+                                say(ego, "On second thought, that would be silly.");
+                                say(room01_secretary, "Totally.");                            
+                            } else if (rep == 2) {
+                                say(room01_secretary, "The square root of 546 is 23.36664289109");
+                                say(ego, "Wow! That's impressive! And here I am, having troubles with adding two numbers together.");
+                                say(room01_secretary, "You should probably keep that to yourself.");
+                            } else if (rep == 3) {
+                                say(room01_secretary, "Sure, it's " + secretCode);
+                                say(ego, "Great, thank you!");
+                                say(room01_secretary, "Will you now quit bothering me? I'm busy!");
+                            } else if (rep == 4) {
+                                say(room01_secretary, "It's a brand new Neo900.");
+                                say(ego, "Never heard of it.");
+                                say(room01_secretary, "Bummer.");
+                            } else if (rep == 5) {
+                                say(room01_secretary, "Uhm... where did you get it?");
+                                say(ego, "On Steam for $2.");
+                                say(room01_secretary, "Well... you definitely got ripped off.");                            
+                                say(ego, "But I like it!");
+                            } else if (rep == 6) {
+                                say(room01_secretary, "Well, given the volume of dirt in a typical 25-30-foot long woodchuck burrow, it would be about 700 pounds on his good day.");
+                                say(ego, "What about his bad day?");
+                                say(room01_secretary, "On a bad day he would chuck no wood, since he would be bothered by someone like you preventing him from getting any wood work done.");
+                                say(ego, "Ouch.");
+                            } else if (rep == 7) {
+                                say(room01_secretary, "Actually, yes, there is one.");
+                                say(ego, "Wow, really?");
+                                say(room01_secretary, "It says: \"Stop bothering me. Yours, receptionist.\"");
+                                say(ego, "Got it.");
+                                say(room01_secretary, "Finally!");                            
+                            }
+                            
+                        }
 		}
 	}
 	

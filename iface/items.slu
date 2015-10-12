@@ -61,6 +61,10 @@ objectType item_gumWhole("chewing gum")
 		say(ego, "Uhm, no! Nevermind!");
 	}
 	
+	event room02_newspaper {
+                say(ego, "Just throwing it there won't help.");
+	}
+	
 	event default
 	{
 		say(ego, "Sticking gum to it won't help.");
@@ -81,6 +85,10 @@ objectType item_gumChewed("chewed gum")
 
 	event room01_secretary {
 		say(room01_secretary, "Eww, take that away from me!");
+	}
+	
+	event room02_newspaper {
+                say(ego, "Knowing myself, I'll probably just hit the wall if I throw it there.");
 	}
 
 	event default
@@ -114,9 +122,17 @@ objectType item_book("Game Design for Dummies")
 		say(ego, "I'd better stick to this book, something tells me it might be useful.");
 	}
 	
+	event item_internIDcard {
+            say(ego, "I haven't started reading it yet, I have nothing to mark.");
+	}
+	
+	event ego {
+            say(ego, "It's not a good time to start reading books.");
+	}	
+	
 	event default
 	{
-		say(ego, "Maybe it's big and heavy, but I don't think it is anything more than that.")
+		say(ego, "Maybe this book's big and heavy, but I don't think it's anything more than that.")
 	}
 }
 

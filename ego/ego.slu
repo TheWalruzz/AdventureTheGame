@@ -15,6 +15,7 @@ objectType ego ("Max") {
 		pushToStack(inventory, item_gumChewed);
 		
 		say(ego, "Well, it was certainly a fresh maker.");
+		say(ego, "I don't see a trash can here. I'll just put it into my pocket.");
 	}
 	
 	event item_newspaper
