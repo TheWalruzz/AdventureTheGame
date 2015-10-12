@@ -320,6 +320,7 @@ objectType room02_bcTransition("go")
 			
 			if(! room02_crossedCB)
 			{
+				callEvent(walkToPerson, room02_superior);
 				callEvent(talkingToEgo, room02_superior);
 				
 				room02_crossedCB = TRUE;
