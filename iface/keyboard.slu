@@ -40,7 +40,7 @@ sub keys (k) {
 		}
 		if (fileExists("save-" + VERSION)) {
 			narratorSay("Loading saved game");
-			loadGame("save-" + "VERSION");
+			loadGame("save-" + VERSION);
 		}
 	}
 	
