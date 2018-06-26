@@ -83,10 +83,10 @@ sub leftClick () {
 			addOverlay ('iface/verbcoin.png', x, y);
 
 			# Add a screen region for each action... TODO new coords
+			addScreenRegion (interactWith,	x + 35,y,	x + 80,  y + 40, 0, 0, NORTH);
 			addScreenRegion (lookAt,	x,	y + 40,	x + 50,  y + 80, 0, 0, NORTH);
 			addScreenRegion (useInventory,	x + 80,y + 40,	x + 126, y + 80, 0, 0, NORTH);
 			addScreenRegion (cancel,	x + 35,y + 80,x + 80,  y + 120, 0, 0, NORTH);
-			addScreenRegion (interactWith,	x + 35,y,	x + 80,  y + 40, 0, 0, NORTH);
 
 			# Pop!
 			playSound ('iface/pop.wav');
@@ -116,7 +116,11 @@ sub handleFocusCoin(arg) {
 	if (arg) {
 		playSound ('iface/click.wav');
 	}
-	handleFocus(arg);
+	if (arg == lookAt || arg == useInventory || arg == cancel || arg == interactWith) {
+            handleFocus(arg);
+        } else {
+            handleFocus(NULL);
+        }
 }
 
 # This is the code for clicking the left mouse button when the verb coin's up
@@ -135,7 +139,7 @@ sub pickVerb () {
 	{
 		showInventory();
 	}
-	else if (gotVerb) {
+	else if (gotVerb == lookAt || gotVerb == interactWith) {
 		if (! callEvent (walkToPerson, gotObject)) {
 			moveCharacter (ego, gotObject);
 		}
@@ -143,6 +147,8 @@ sub pickVerb () {
 		findEvent (gotVerb, gotObject);
 		go ();
 	}
+        onLeftMouse (leftClick);
+        onFocusChange (handleFocus);
 }
 
 sub makeStaticCostume (x) {

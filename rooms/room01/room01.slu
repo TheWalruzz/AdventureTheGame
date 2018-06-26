@@ -255,7 +255,7 @@ objectType room01_secretary("receptionist")
 			say(ego, "I... Are you serious?");
 			say(room01_phonecall, "We're as serious as comedy gets!");
 			say(room01_phonecall, "Say... Would you like to do a little old-fashioned spying?");
-			say(room01_phonecall, "Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definetely him!");
+			say(room01_phonecall, "Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definitely him!");
 			say(room01_phonecall, "See it with your own eyes, man!");
 			pause(25);
 
@@ -300,7 +300,7 @@ objectType room01_secretary("receptionist")
 					clearChoices();
 				} else if (rep == 0) {
 					say(room01_phonecall, "Nothing special. Just a little bit of a good old-fashioned spying.");
-					say(room01_phonecall, "Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definetely him!");
+					say(room01_phonecall, "Of course on nobody serious. Just on your CEO. If someone knows more about Secret, it's definitely him!");
 				} else if (rep == 1) {
 					say(room01_phonecall, "With all those Tremendous Corporation's patents disallowing any gamedev outside of it, it's hard not to.");
 					say(room01_phonecall, "Thanks to the Secret, they have grown uncontrollably and now control whole gamedev industry!");

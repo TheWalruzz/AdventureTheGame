@@ -1,6 +1,15 @@
 var DEBUG = FALSE;
 
-var VERSION = "v1";
+var VERSION = "v4";
+
+sub stopIntroMovie() {
+	stopMovie();
+}
+
+sub stopIntroMovieKbd(key) {
+	stopIntroMovie();
+	return key;
+}
 
 sub init ()
 {
@@ -13,18 +22,23 @@ sub init ()
 	}
 	
 	setCustomEncoding(42);
-	
+	setSpeechMode(SOUNDANDTEXT);	
+
 	loadAchievements();
 	
 	setFont('coolstoryfont.duc', " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^`_abcdefghi™jklmnopqrstuvwxyz{|}~ńłę", 30);
 	
-	setDefaultMusicVolume(150);
-	onKeyboard(keys);
+	#setDefaultSoundVolume(100);
 	addStatus();
 	
 	setSpeechSpeed(250);
 
-	if (fileExists("auto-" + VERSION) && ! DEBUG) {
+	onRightMouse(stopIntroMovie);
+	onKeyboard(stopIntroMovieKbd);
+	playMovie('dosowisko.webm');
+	onKeyboard(keys);
+
+	if (fileExists("auto-" + VERSION) && !(DEBUG)) {
 		welcomeScreen();
 	} else {
 		stop();

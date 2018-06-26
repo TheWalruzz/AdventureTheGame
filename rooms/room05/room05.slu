@@ -186,6 +186,7 @@ objectType room05_safe("safe")
 	{
 		if (afterPrison == TRUE) {
 			say(ego, "This is not the secret I'm looking for.");
+			say(ego, "Besides, I don't know the combination.");
 		} else {
 		playSound('rooms/room05/safe.ogg');
 		pause(30);

@@ -20,6 +20,7 @@ sub dropObj () {
 
 sub stop () {
 	onFocusChange ();
+	#clearStatus();
 	statusText ("");
 	onLeftMouse ();
 	onRightMouse (skipper);

@@ -85,6 +85,7 @@ sub welcomeScreen() {
 		
 		if (! pauseMenu) {
 			stopSound('music/2.ogg');
+			#onKeyboard(keys);
 			unfreeze();
 			stop();	
 			gotoRoom(intro);

@@ -2,4 +2,4 @@ compile:
 	sludge-compiler AdventureTheGame.slp
 
 play: compile
-	sludge-engine gamedata.slg
+	tsotc gamedata.slg

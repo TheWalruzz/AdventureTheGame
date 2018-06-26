@@ -184,7 +184,7 @@ sub room06_speech()
 			say(room06_secret, "No, I'm not!");
 			say(room06_secret, "I am a fully developed, world-conquering and brilliantly creative Artificial Intelligence!");
 			say(room06_secret, "And I'm pretty sure you're just jealous of my fabulous and cool housing.");
-			say(room06_secret, "And that's something that you definetely DO NOT have.");
+			say(room06_secret, "And that's something that you definitely DO NOT have.");
 			
 			deleteChoicesByValue(1);
 		}
